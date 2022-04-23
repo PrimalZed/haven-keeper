@@ -4,7 +4,8 @@ import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'tabletop',
-  templateUrl: './tabletop.component.html'
+  templateUrl: './tabletop.component.html',
+  styleUrls: ['./tabletop.component.scss']
 })
 export class TabletopComponent {
   columns$ = this.breakpointObserver.observe([Breakpoints.XLarge, Breakpoints.Large, Breakpoints.Medium, Breakpoints.Small, Breakpoints.XSmall])
@@ -18,7 +19,7 @@ export class TabletopComponent {
         }
       })
     );
-  cards = [{ title: "First" }, { title: "Second" }]
+  cards = [{ title: "First", rows: 2 }, { title: "Second", rows: 3 }, { title: "Third", rows: 1 }]
 
   constructor(
     private breakpointObserver: BreakpointObserver
