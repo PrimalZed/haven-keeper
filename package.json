@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "extract-i18n": "ng extract-i18n --output-path src/locale",
     "start": "ng serve",
+    "start:fr": "ng serve --configuration=fr",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -28,6 +30,7 @@
     "@angular-devkit/build-angular": "~13.3.3",
     "@angular/cli": "~13.3.3",
     "@angular/compiler-cli": "~13.3.0",
+    "@angular/localize": "^13.3.4",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "http-server": "^14.1.0",
