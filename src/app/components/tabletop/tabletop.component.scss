@@ -1,5 +1,22 @@
+@import 'breakpoints';
+
 .grid {
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(2, 1fr);
+
+  @include xs {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @include sm {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include lg {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include xl {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
