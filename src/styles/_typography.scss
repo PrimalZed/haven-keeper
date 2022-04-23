@@ -24,6 +24,7 @@
 body { font-family: Nyala, Roboto, "Helvetica Neue", sans-serif; }
 
 $my-typography-config: mat.define-typography-config(
+  $font-family: Nyala,
   $title: mat.define-typography-level(
     $font-family: "Pirata One",
     $font-size: 1.5rem
@@ -51,3 +52,5 @@ $my-typography-config: mat.define-typography-config(
 .caption {
   @include mat.typography-level($my-typography-config, 'caption');
 }
+
+@include mat.card-typography($my-typography-config);

@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MonsterStandee } from 'src/app/models/monster';
 
 @Component({
   selector: 'monster-standee',
   templateUrl: './monster-standee.component.html'
 })
 export class MonsterStandeeComponent {
-  standee = 1;
-  hitPoints = 5;
-  rank: 'basic' | 'elite' | 'boss' = 'basic';
+  @Input() standee: MonsterStandee = {
+    id: 0,
+    rank: 'basic',
+    hitPoints: 0,
+    conditions: []
+  }
 }
