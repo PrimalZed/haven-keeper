@@ -1,0 +1,53 @@
+@use '@angular/material' as mat;
+
+@font-face {
+  font-family: Hightower;
+  src: url(../assets/fonts/htowert.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Hightower;
+  src: url(../assets/fonts/htowerti.ttf) format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Nyala;
+  src: url(../assets/fonts/nyala.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Pirata One";
+  src: url(../assets/fonts/pirata-one-gloomhaven.ttf) format("truetype");
+}
+
+body { font-family: Nyala, Roboto, "Helvetica Neue", sans-serif; }
+
+$my-typography-config: mat.define-typography-config(
+  $title: mat.define-typography-level(
+    $font-family: "Pirata One",
+    $font-size: 1.5rem
+  ),
+  $body-1: mat.define-typography-level(
+    $font-family: Nyala,
+    $font-size: 1rem
+  ),
+  $caption: mat.define-typography-level(
+    $font-family: Hightower,
+    $font-size: 1rem
+  )
+);
+
+@include mat.core($my-typography-config);
+
+.title {
+  @include mat.typography-level($my-typography-config, 'title');
+}
+
+.body, .body-1 {
+  @include mat.typography-level($my-typography-config, 'body-1');
+}
+
+.caption {
+  @include mat.typography-level($my-typography-config, 'caption');
+}
