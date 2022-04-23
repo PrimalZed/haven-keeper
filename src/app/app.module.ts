@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { environment } from 'src/environments/environment';
+import { MonsterComponent } from './components/monster/monster.component';
+import { MonsterStandeeComponent } from './components/monster/standee/monster-standee.component';
 import { TabletopComponent } from './components/tabletop/tabletop.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +15,8 @@ import { MatModule } from './mat.module';
 @NgModule({
   declarations: [
     AppComponent,
+    MonsterComponent,
+    MonsterStandeeComponent,
     TabletopComponent
   ],
   imports: [
