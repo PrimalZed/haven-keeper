@@ -1,19 +1,15 @@
-import { Component, HostBinding, Input } from '@angular/core';
-import { Monster } from 'src/app/models/monster';
-import { MonsterLevel, MonsterStatCard } from 'src/app/models/monster-stat-card';
+import { Component, Input } from '@angular/core';
+import { Level } from 'src/app/models/level';
+import { BasicMonsterStatCard, MonsterLevel } from 'src/app/models/monster-stat-card';
 
 @Component({
-  selector: 'monster',
-  templateUrl: './monster.component.html',
-  styleUrls: ['./monster.component.scss']
+  selector: 'monster-stat-card',
+  templateUrl: './monster-stat-card.component.html',
+  styleUrls: ['./monster-stat-card.component.scss']
 })
-export class MonsterComponent {
-  @Input() public monster: Monster = {
-    key: 'placeholder',
-    level: 0,
-    standees: []
-  }
-  public statCard: MonsterStatCard = {
+export class MonsterStatCardComponent {
+  @Input() level: Level = 0;
+  @Input() statCard: BasicMonsterStatCard = {
     key: 'placeholder',
     kind: 'basic',
     name: 'Test Monster',
@@ -165,12 +161,13 @@ export class MonsterComponent {
         immunities: []
       }
     }
-  }
-
-  public initiative = 53;
-  private get rows() {
-    return 2 + (this.monster.standees.length ? 1 : 0);
   };
 
-  // @HostBinding('style.grid-row') get gridRow() { return `span ${this.rows}`}
+  public get basicLevel(): MonsterLevel {
+    return this.statCard.levels[this.level];
+  }
+
+  public get eliteLevel(): MonsterLevel {
+    return this.statCard.eliteLevels[this.level];
+  }
 }

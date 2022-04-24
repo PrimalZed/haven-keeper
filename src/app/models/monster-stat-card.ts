@@ -3,10 +3,11 @@ import { BonusKey } from './bonus';
 import { NegativeConditionKey } from './condition';
 import { Level } from './level';
 
-interface MonsterLevel {
+export interface MonsterLevel {
   hitPoints: number;
   movement: number;
   attack: number;
+  range: number;
   bonuses: { [key in BonusKey]?: number };
   attackEffects: AttackEffect[];
   immunities: NegativeConditionKey[];

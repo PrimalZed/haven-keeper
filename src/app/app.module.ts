@@ -6,8 +6,10 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { environment } from 'src/environments/environment';
 import { MonsterComponent } from './components/monster/monster.component';
+import { MonsterStatCardComponent } from './components/monster/monster-stat-card/monster-stat-card.component';
 import { MonsterStandeeComponent } from './components/monster/standee/monster-standee.component';
 import { TabletopComponent } from './components/tabletop/tabletop.component';
+import { AnyPipe } from './pipes/any.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatModule } from './mat.module';
@@ -17,7 +19,10 @@ import { MatModule } from './mat.module';
     AppComponent,
     MonsterComponent,
     MonsterStandeeComponent,
-    TabletopComponent
+    MonsterStatCardComponent,
+    TabletopComponent,
+
+    AnyPipe
   ],
   imports: [
     AppRoutingModule,
