@@ -1,6 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { Monster } from 'src/app/models/monster';
 
 @Component({
   selector: 'tabletop',
@@ -19,7 +20,23 @@ export class TabletopComponent {
         }
       })
     );
-  cards = [{ title: "First", rows: 2 }, { title: "Second", rows: 3 }, { title: "Third", rows: 1 }]
+
+  public cards: (Monster & { kind: 'monster' })[] = [{
+    kind: 'monster',
+    key: 'placeholder',
+    level: 0,
+    standees: [{ id: 1, rank: 'basic', hitPoints: 6, conditions: [] }]
+  },{
+    kind: 'monster',
+    key: 'placeholder',
+    level: 0,
+    standees: []
+  },{
+    kind: 'monster',
+    key: 'placeholder',
+    level: 0,
+    standees: []
+  }];
 
   constructor(
     private breakpointObserver: BreakpointObserver

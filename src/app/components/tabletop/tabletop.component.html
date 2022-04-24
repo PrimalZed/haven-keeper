@@ -1,3 +1,5 @@
 <div class="grid">
-  <monster *ngFor="let card of cards"></monster>
+  <ng-container *ngFor="let card of cards" [ngSwitch]="card.kind">
+    <monster *ngSwitchCase="'monster'" [monster]="card"></monster>
+  </ng-container>
 </div>
