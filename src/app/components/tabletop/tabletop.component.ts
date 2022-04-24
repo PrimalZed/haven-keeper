@@ -1,7 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { MonsterSet } from 'src/app/models/monster-set';
+import { MonsterSet } from 'models/monster-set';
 
 @Component({
   selector: 'tabletop',

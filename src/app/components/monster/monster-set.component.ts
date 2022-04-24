@@ -1,6 +1,6 @@
 import { Component, HostBinding, Input } from '@angular/core';
-import { MonsterSet } from 'src/app/models/monster-set';
-import { MonsterLevel, MonsterStatCard } from 'src/app/models/monster-stat-card';
+import { MonsterSet } from 'models/monster-set';
+import { MonsterLevel, MonsterStatCard } from 'models/monster-stat-card';
 
 @Component({
   selector: 'monster-set',

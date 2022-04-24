@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Level } from 'src/app/models/level';
-import { BasicMonsterStatCard, MonsterLevel } from 'src/app/models/monster-stat-card';
+import { Level } from 'models/level';
+import { BasicMonsterStatCard, MonsterLevel } from 'models/monster-stat-card';
 
 @Component({
   selector: 'monster-stat-card',
