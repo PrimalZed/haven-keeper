@@ -1,6 +1,7 @@
 import { Component, HostBinding, Input } from '@angular/core';
 import { MonsterSet } from 'models/monster-set';
-import { MonsterLevel, MonsterStatCard } from 'models/monster-stat-card';
+import { MonsterStatCard } from 'models/monster-stat-card';
+import { CatalogService } from 'services/catalog.service';
 
 @Component({
   selector: 'monster-set',
@@ -13,159 +14,7 @@ export class MonsterSetComponent {
     level: 0,
     standees: []
   }
-  public statCard: MonsterStatCard = {
-    key: 'placeholder',
-    kind: 'basic',
-    name: 'Test Monster',
-    levels: {
-      0: {
-        hitPoints: 5,
-        movement: 2,
-        attack: 1,
-        range: 1,
-        attackEffects: [],
-        bonuses: { },
-        immunities: []
-      },
-      1: {
-        hitPoints: 5,
-        movement: 2,
-        attack: 1,
-        range: 1,
-        attackEffects: [],
-        bonuses: { },
-        immunities: []
-      },
-      2: {
-        hitPoints: 5,
-        movement: 2,
-        attack: 1,
-        range: 1,
-        attackEffects: [],
-        bonuses: { },
-        immunities: []
-      },
-      3: {
-        hitPoints: 5,
-        movement: 2,
-        attack: 1,
-        range: 1,
-        attackEffects: [],
-        bonuses: { },
-        immunities: []
-      },
-      4: {
-        hitPoints: 5,
-        movement: 2,
-        attack: 1,
-        range: 1,
-        attackEffects: [],
-        bonuses: { },
-        immunities: []
-      },
-      5: {
-        hitPoints: 5,
-        movement: 2,
-        attack: 1,
-        range: 1,
-        attackEffects: [],
-        bonuses: { },
-        immunities: []
-      },
-      6: {
-        hitPoints: 5,
-        movement: 2,
-        attack: 1,
-        range: 1,
-        attackEffects: [],
-        bonuses: { },
-        immunities: []
-      },
-      7: {
-        hitPoints: 5,
-        movement: 2,
-        attack: 1,
-        range: 1,
-        attackEffects: [],
-        bonuses: { },
-        immunities: []
-      }
-    },
-    eliteLevels: {
-      0: {
-        hitPoints: 5,
-        movement: 2,
-        attack: 1,
-        range: 1,
-        attackEffects: [],
-        bonuses: { },
-        immunities: []
-      },
-      1: {
-        hitPoints: 5,
-        movement: 2,
-        attack: 1,
-        range: 1,
-        attackEffects: [],
-        bonuses: { },
-        immunities: []
-      },
-      2: {
-        hitPoints: 5,
-        movement: 2,
-        attack: 1,
-        range: 1,
-        attackEffects: [],
-        bonuses: { },
-        immunities: []
-      },
-      3: {
-        hitPoints: 5,
-        movement: 2,
-        attack: 1,
-        range: 1,
-        attackEffects: [],
-        bonuses: { },
-        immunities: []
-      },
-      4: {
-        hitPoints: 5,
-        movement: 2,
-        attack: 1,
-        range: 1,
-        attackEffects: [],
-        bonuses: { },
-        immunities: []
-      },
-      5: {
-        hitPoints: 5,
-        movement: 2,
-        attack: 1,
-        range: 1,
-        attackEffects: [],
-        bonuses: { },
-        immunities: []
-      },
-      6: {
-        hitPoints: 5,
-        movement: 2,
-        attack: 1,
-        range: 1,
-        attackEffects: [],
-        bonuses: { },
-        immunities: []
-      },
-      7: {
-        hitPoints: 5,
-        movement: 2,
-        attack: 1,
-        range: 1,
-        attackEffects: [],
-        bonuses: { },
-        immunities: []
-      }
-    }
-  }
+  public statCard: MonsterStatCard = this.catalogService.monsterEntities[this.monster.key];
 
   public initiative = 53;
   private get rows() {
@@ -173,4 +22,6 @@ export class MonsterSetComponent {
   };
 
   // @HostBinding('style.grid-row') get gridRow() { return `span ${this.rows}`}
+
+  constructor(private catalogService: CatalogService) { }
 }
