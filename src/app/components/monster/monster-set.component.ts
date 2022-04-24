@@ -1,14 +1,14 @@
 import { Component, HostBinding, Input } from '@angular/core';
-import { Monster } from 'src/app/models/monster';
+import { MonsterSet } from 'src/app/models/monster-set';
 import { MonsterLevel, MonsterStatCard } from 'src/app/models/monster-stat-card';
 
 @Component({
-  selector: 'monster',
-  templateUrl: './monster.component.html',
-  styleUrls: ['./monster.component.scss']
+  selector: 'monster-set',
+  templateUrl: './monster-set.component.html',
+  styleUrls: ['./monster-set.component.scss']
 })
-export class MonsterComponent {
-  @Input() public monster: Monster = {
+export class MonsterSetComponent {
+  @Input() public monster: MonsterSet = {
     key: 'placeholder',
     level: 0,
     standees: []

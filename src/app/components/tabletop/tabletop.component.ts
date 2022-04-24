@@ -1,7 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { Monster } from 'src/app/models/monster';
+import { MonsterSet } from 'src/app/models/monster-set';
 
 @Component({
   selector: 'tabletop',
@@ -21,7 +21,7 @@ export class TabletopComponent {
       })
     );
 
-  public cards: (Monster & { kind: 'monster' })[] = [{
+  public cards: (MonsterSet & { kind: 'monster' })[] = [{
     kind: 'monster',
     key: 'placeholder',
     level: 0,

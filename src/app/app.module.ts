@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { environment } from 'src/environments/environment';
-import { MonsterComponent } from './components/monster/monster.component';
+import { MonsterSetComponent } from './components/monster/monster-set.component';
 import { MonsterStatCardComponent } from './components/monster/monster-stat-card/monster-stat-card.component';
 import { MonsterStandeeComponent } from './components/monster/standee/monster-standee.component';
 import { TabletopComponent } from './components/tabletop/tabletop.component';
@@ -17,7 +17,7 @@ import { MatModule } from './mat.module';
 @NgModule({
   declarations: [
     AppComponent,
-    MonsterComponent,
+    MonsterSetComponent,
     MonsterStandeeComponent,
     MonsterStatCardComponent,
     TabletopComponent,

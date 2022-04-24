@@ -1,5 +1,5 @@
 <div class="grid">
   <ng-container *ngFor="let card of cards" [ngSwitch]="card.kind">
-    <monster *ngSwitchCase="'monster'" [monster]="card"></monster>
+    <monster-set *ngSwitchCase="'monster'" [monster]="card"></monster-set>
   </ng-container>
 </div>

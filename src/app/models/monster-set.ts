@@ -7,7 +7,7 @@ export interface MonsterStandee {
   conditions: any[];
 }
 
-export interface Monster {
+export interface MonsterSet {
   key: string;
   level: Level;
   standees: MonsterStandee[];

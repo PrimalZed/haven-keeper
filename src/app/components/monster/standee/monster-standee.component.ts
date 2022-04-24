@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { MonsterStandee } from 'src/app/models/monster';
+import { MonsterStandee } from 'src/app/models/monster-set';
 
 @Component({
   selector: 'monster-standee',
