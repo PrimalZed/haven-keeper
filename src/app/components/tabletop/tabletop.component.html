@@ -1,5 +1,8 @@
 <div class="grid">
-  <ng-container *ngFor="let card of cards" [ngSwitch]="card.kind">
+  <ng-container *ngFor="let card of cards$ | async" [ngSwitch]="card.kind">
     <monster-set *ngSwitchCase="'monster'" [monster]="card"></monster-set>
   </ng-container>
 </div>
+<button mat-icon-button (click)="addMonster()">
+  <mat-icon>add</mat-icon>
+</button>

@@ -1,7 +1,12 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MonsterSet } from 'models/monster-set';
+import { AppState } from 'store/app.state';
+import { selectCards } from 'store/tabletop/tabletop.selectors';
+import { addMonster } from 'store/tabletop/tabletop.actions';
 
 @Component({
   selector: 'tabletop',
@@ -21,24 +26,14 @@ export class TabletopComponent {
       })
     );
 
-  public cards: (MonsterSet & { kind: 'monster' })[] = [{
-    kind: 'monster',
-    key: 'placeholder',
-    level: 0,
-    standees: [{ id: 1, rank: 'basic', hitPoints: 6, conditions: [] }]
-  },{
-    kind: 'monster',
-    key: 'placeholder',
-    level: 0,
-    standees: []
-  },{
-    kind: 'monster',
-    key: 'placeholder',
-    level: 0,
-    standees: []
-  }];
+  public cards$: Observable<(MonsterSet & { kind: 'monster' })[]> = this.store.select(selectCards);
 
   constructor(
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private store: Store<AppState>
   ) { }
+
+  addMonster() {
+    this.store.dispatch(addMonster({ key: `placeholder${new Date().toISOString()}`, level: 0 }));
+  }
 }
