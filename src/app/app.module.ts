@@ -7,6 +7,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { StoreModule } from '@ngrx/store';
 
 import { environment } from 'src/environments/environment';
+import { AddCardDialogComponent } from './components/add-card-dialog/add-card-dialog.component';
 import { MonsterSetComponent } from './components/monster/monster-set.component';
 import { MonsterStatCardComponent } from './components/monster/monster-stat-card/monster-stat-card.component';
 import { MonsterStandeeComponent } from './components/monster/standee/monster-standee.component';
@@ -20,6 +21,7 @@ import { MatModule } from './mat.module';
 
 @NgModule({
   declarations: [
+    AddCardDialogComponent,
     AppComponent,
     MonsterSetComponent,
     MonsterStandeeComponent,

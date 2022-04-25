@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Add Monster</h1>
+<div mat-dialog-content>
+  <div>
+    <button *ngFor="let monster of monsters$ | async" i18n="monster:{{monster.key}}" [disabled]="monster.used" (click)="addMonster(monster.key)">
+      <div class="list-item-avatar"></div>
+      <div class="horizontal-spacer"></div>
+      <div>{{ monster.name }}</div>
+    </button>
+  </div>
+</div>

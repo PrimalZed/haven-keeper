@@ -7,6 +7,8 @@ import { MonsterSet } from 'models/monster-set';
 import { AppState } from 'store/app.state';
 import { selectCards } from 'store/tabletop/tabletop.selectors';
 import { addMonster } from 'store/tabletop/tabletop.actions';
+import { MatDialog } from '@angular/material/dialog';
+import { AddCardDialogComponent } from '../add-card-dialog/add-card-dialog.component';
 
 @Component({
   templateUrl: './tabletop.component.html',
@@ -30,10 +32,11 @@ export class TabletopComponent {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
+    private dialog: MatDialog,
     private store: Store<AppState>
   ) { }
 
-  addMonster() {
-    this.store.dispatch(addMonster({ key: 'cityGuard', level: 0 }));
+  openAddCardDialog() {
+    const dialogRef = this.dialog.open(AddCardDialogComponent);
   }
 }
