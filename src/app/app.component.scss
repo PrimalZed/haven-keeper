@@ -1,7 +1,7 @@
 @import 'breakpoints';
 
 .container {
-
+  height: calc(100% - 96px);
   @include xs {
     margin: 16px 16px;
   }

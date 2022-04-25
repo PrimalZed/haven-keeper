@@ -9,7 +9,6 @@ import { selectCards } from 'store/tabletop/tabletop.selectors';
 import { addMonster } from 'store/tabletop/tabletop.actions';
 
 @Component({
-  selector: 'tabletop',
   templateUrl: './tabletop.component.html',
   styleUrls: ['./tabletop.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
