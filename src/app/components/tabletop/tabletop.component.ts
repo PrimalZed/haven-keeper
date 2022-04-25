@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -11,7 +11,8 @@ import { addMonster } from 'store/tabletop/tabletop.actions';
 @Component({
   selector: 'tabletop',
   templateUrl: './tabletop.component.html',
-  styleUrls: ['./tabletop.component.scss']
+  styleUrls: ['./tabletop.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TabletopComponent {
   columns$ = this.breakpointObserver.observe([Breakpoints.XLarge, Breakpoints.Large, Breakpoints.Medium, Breakpoints.Small, Breakpoints.XSmall])
@@ -34,6 +35,6 @@ export class TabletopComponent {
   ) { }
 
   addMonster() {
-    this.store.dispatch(addMonster({ key: `placeholder${new Date().toISOString()}`, level: 0 }));
+    this.store.dispatch(addMonster({ key: 'cityGuard', level: 0 }));
   }
 }

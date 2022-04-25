@@ -1,5 +1,6 @@
 import { LayoutModule } from '@angular/cdk/layout';
-import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -11,6 +12,7 @@ import { MonsterStatCardComponent } from './components/monster/monster-stat-card
 import { MonsterStandeeComponent } from './components/monster/standee/monster-standee.component';
 import { TabletopComponent } from './components/tabletop/tabletop.component';
 import { AnyPipe } from './pipes/any.pipe';
+import { CatalogService } from 'services/catalog.service';
 import { tabletopReducer } from 'store/tabletop/tabletop.reducer';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +32,7 @@ import { MatModule } from './mat.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    HttpClientModule,
     LayoutModule,
     MatModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
@@ -42,7 +45,9 @@ import { MatModule } from './mat.module';
       tabletop: tabletopReducer
     })
   ],
-  providers: [],
+  providers: [
+    { provide: APP_INITIALIZER, useFactory: (catalogService: CatalogService) => () => catalogService.initialize(), deps: [CatalogService], multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

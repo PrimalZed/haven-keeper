@@ -1,165 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MonsterStatCard } from '../models/monster-stat-card';
+import { firstValueFrom, map, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { MonsterStatCard } from 'models/monster-stat-card';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CatalogService {
-  monsters: MonsterStatCard[] = [
-    {
-      key: 'placeholder',
-      kind: 'basic',
-      name: 'Test Monster',
-      levels: {
-        0: {
-          hitPoints: 5,
-          movement: 2,
-          attack: 1,
-          range: 1,
-          attackEffects: [],
-          bonuses: { },
-          immunities: []
-        },
-        1: {
-          hitPoints: 5,
-          movement: 2,
-          attack: 1,
-          range: 1,
-          attackEffects: [],
-          bonuses: { },
-          immunities: []
-        },
-        2: {
-          hitPoints: 5,
-          movement: 2,
-          attack: 1,
-          range: 1,
-          attackEffects: [],
-          bonuses: { },
-          immunities: []
-        },
-        3: {
-          hitPoints: 5,
-          movement: 2,
-          attack: 1,
-          range: 1,
-          attackEffects: [],
-          bonuses: { },
-          immunities: []
-        },
-        4: {
-          hitPoints: 5,
-          movement: 2,
-          attack: 1,
-          range: 1,
-          attackEffects: [],
-          bonuses: { },
-          immunities: []
-        },
-        5: {
-          hitPoints: 5,
-          movement: 2,
-          attack: 1,
-          range: 1,
-          attackEffects: [],
-          bonuses: { },
-          immunities: []
-        },
-        6: {
-          hitPoints: 5,
-          movement: 2,
-          attack: 1,
-          range: 1,
-          attackEffects: [],
-          bonuses: { },
-          immunities: []
-        },
-        7: {
-          hitPoints: 5,
-          movement: 2,
-          attack: 1,
-          range: 1,
-          attackEffects: [],
-          bonuses: { },
-          immunities: []
-        }
-      },
-      eliteLevels: {
-        0: {
-          hitPoints: 5,
-          movement: 2,
-          attack: 1,
-          range: 1,
-          attackEffects: [],
-          bonuses: { },
-          immunities: []
-        },
-        1: {
-          hitPoints: 5,
-          movement: 2,
-          attack: 1,
-          range: 1,
-          attackEffects: [],
-          bonuses: { },
-          immunities: []
-        },
-        2: {
-          hitPoints: 5,
-          movement: 2,
-          attack: 1,
-          range: 1,
-          attackEffects: [],
-          bonuses: { },
-          immunities: []
-        },
-        3: {
-          hitPoints: 5,
-          movement: 2,
-          attack: 1,
-          range: 1,
-          attackEffects: [],
-          bonuses: { },
-          immunities: []
-        },
-        4: {
-          hitPoints: 5,
-          movement: 2,
-          attack: 1,
-          range: 1,
-          attackEffects: [],
-          bonuses: { },
-          immunities: []
-        },
-        5: {
-          hitPoints: 5,
-          movement: 2,
-          attack: 1,
-          range: 1,
-          attackEffects: [],
-          bonuses: { },
-          immunities: []
-        },
-        6: {
-          hitPoints: 5,
-          movement: 2,
-          attack: 1,
-          range: 1,
-          attackEffects: [],
-          bonuses: { },
-          immunities: []
-        },
-        7: {
-          hitPoints: 5,
-          movement: 2,
-          attack: 1,
-          range: 1,
-          attackEffects: [],
-          bonuses: { },
-          immunities: []
-        }
-      }
-    }
-  ];
+  monsters: MonsterStatCard[] = [];
 
   get monsterEntities(): { [key: string]: MonsterStatCard } {
     return this.monsters
@@ -170,5 +19,19 @@ export class CatalogService {
         }),
         { }
       );
+  }
+
+  constructor(private http: HttpClient) { }
+
+  initialize(): Promise<void> {
+    const loadMonsters$ = this.http.get<MonsterStatCard[]>(`${environment.basePath}/assets/data/monsters.json`)
+      .pipe(
+        tap((monsters) => {
+          this.monsters = monsters;
+        }),
+        map((): void => void(0))
+      );
+    
+    return firstValueFrom(loadMonsters$);
   }
 }
