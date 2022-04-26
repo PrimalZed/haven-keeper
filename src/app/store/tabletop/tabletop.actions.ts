@@ -6,5 +6,10 @@ export const addMonster = createAction(
     props<{ key: string, level: Level }>()
 );
 
+export const addMonsterStandee = createAction(
+    "[Tabletop] Add Monster Standee",
+    props<{ key: string, id: number, rank: 'basic' | 'elite' }>()
+);
+
 export type TabletopActions =
     | typeof addMonster;

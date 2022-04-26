@@ -1,9 +1,11 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnDestroy } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable, ReplaySubject, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, withLatestFrom } from 'rxjs/operators';
 import { MonsterSet } from 'models/monster-set';
 import { MonsterStatCard } from 'models/monster-stat-card';
 import { CatalogService } from 'services/catalog.service';
+import { AddStandeeDialogComponent } from './add-standee-dialog/add-standee-dialog.component';
 
 @Component({
   selector: 'monster-set',
@@ -11,7 +13,7 @@ import { CatalogService } from 'services/catalog.service';
   styleUrls: ['./monster-set.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MonsterSetComponent {
+export class MonsterSetComponent implements OnDestroy {
   private monsterSubject: Subject<MonsterSet> = new ReplaySubject(1);
   public monster$: Observable<MonsterSet> = this.monsterSubject.asObservable();
   @Input() public set monster(value: MonsterSet) {
@@ -24,5 +26,25 @@ export class MonsterSetComponent {
 
   public initiative = 53;
 
-  constructor(private catalogService: CatalogService) { }
+  private openStandeeDialogSubject: Subject<void> = new Subject();
+  private openStandeeDialog$ = this.openStandeeDialogSubject
+    .pipe(
+      withLatestFrom(this.monster$, (v, monster) => monster),
+      map(({ key }) => this.dialog.open(AddStandeeDialogComponent, { data: { key } }))
+    );
+
+  private subscription = this.openStandeeDialog$.subscribe();
+
+  constructor(
+    private catalogService: CatalogService,
+    private dialog: MatDialog
+  ) { }
+
+  openStandeeDialog() {
+    this.openStandeeDialogSubject.next();
+  }
+
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
+  }
 }

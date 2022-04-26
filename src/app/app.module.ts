@@ -1,6 +1,7 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -9,6 +10,7 @@ import { StoreModule } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
 import { AddCardDialogComponent } from './components/add-card-dialog/add-card-dialog.component';
 import { MonsterSetComponent } from './components/monster/monster-set.component';
+import { AddStandeeDialogComponent } from './components/monster/add-standee-dialog/add-standee-dialog.component';
 import { MonsterStatCardComponent } from './components/monster/monster-stat-card/monster-stat-card.component';
 import { MonsterStandeeComponent } from './components/monster/standee/monster-standee.component';
 import { TabletopComponent } from './components/tabletop/tabletop.component';
@@ -22,6 +24,7 @@ import { MatModule } from './mat.module';
 @NgModule({
   declarations: [
     AddCardDialogComponent,
+    AddStandeeDialogComponent,
     AppComponent,
     MonsterSetComponent,
     MonsterStandeeComponent,
@@ -34,6 +37,7 @@ import { MatModule } from './mat.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     LayoutModule,
     MatModule,

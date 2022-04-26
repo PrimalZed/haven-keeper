@@ -1,0 +1,26 @@
+<h1 mat-dialog-title i18n>Add Standee</h1>
+<form #addStandeeNgForm="ngForm" (ngSubmit)="submit(addStandeeNgForm.form)">
+  <div mat-dialog-content>
+    <div>
+      <mat-label i18n="@@rank">Rank</mat-label>
+      <div>
+        <mat-button-toggle-group name="rank" ngModel="basic" required aria-label="Rank" i18n-aria-label="@@rank">
+          <mat-button-toggle value="basic" i18n="@@rankBasic">Basic</mat-button-toggle>
+          <mat-button-toggle value="elite" i18n="@@rankElite">Elite</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+    <div>
+      <mat-label i18n="@@standeeNumber">Standee Number</mat-label>
+      <div>
+        <mat-button-toggle-group name="id" [ngModel]="firstUnusedId$ | async" required aria-label="Standee Number" i18n-aria-label="@@standeeNumber">
+          <mat-button-toggle *ngFor="let standee of standees$ | async" [value]="standee.id" [disabled]="standee.used">{{ standee.id }}</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+  </div>
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" mat-dialog-close i18n="@@cancel">Cancel</button>
+    <button mat-raised-button type="submit" color="primary" [disabled]="!addStandeeNgForm.form.valid" i18n="@@finish">Finish</button>
+  </mat-dialog-actions>
+</form>

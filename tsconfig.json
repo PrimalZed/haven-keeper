@@ -7,7 +7,8 @@
     "paths": {
       "models/*": ["src/app/models/*"],
       "services/*": ["src/app/services/*"],
-      "store/*": ["src/app/store/*"]
+      "store/*": ["src/app/store/*"],
+      "validators/*": ["src/app/validators/*"]
     },
     "forceConsistentCasingInFileNames": true,
     "strict": true,
