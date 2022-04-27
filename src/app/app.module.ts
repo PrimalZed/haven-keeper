@@ -24,6 +24,7 @@ import { timeMachineReducer } from 'store/time-machine/time-machine.reducer';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatModule } from './mat.module';
+import { TabletopBottomComponent } from './components/tabletop-bottom/tabletop-bottom.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MatModule } from './mat.module';
     MonsterStatCardComponent,
     TabletopComponent,
 
-    AnyPipe
+    AnyPipe,
+     TabletopBottomComponent
   ],
   imports: [
     AppRoutingModule,
