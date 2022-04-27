@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
 import { environment } from 'src/environments/environment';
@@ -17,6 +18,9 @@ import { TabletopComponent } from './components/tabletop/tabletop.component';
 import { AnyPipe } from './pipes/any.pipe';
 import { CatalogService } from 'services/catalog.service';
 import { tabletopReducer } from 'store/tabletop/tabletop.reducer';
+import { TimeMachineEffects } from 'store/time-machine/time-machine.effects';
+import { timeMachineMetaReducers } from 'store/time-machine/time-machine.meta-reducers';
+import { timeMachineReducer } from 'store/time-machine/time-machine.reducer';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatModule } from './mat.module';
@@ -37,6 +41,7 @@ import { MatModule } from './mat.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    EffectsModule.forRoot([TimeMachineEffects]),
     FormsModule,
     HttpClientModule,
     LayoutModule,
@@ -48,8 +53,9 @@ import { MatModule } from './mat.module';
       registrationStrategy: 'registerWhenStable:30000'
     }),
     StoreModule.forRoot({
-      tabletop: tabletopReducer
-    })
+      tabletop: tabletopReducer,
+      timeMachine: timeMachineReducer
+    }, { metaReducers: [...timeMachineMetaReducers]})
   ],
   providers: [
     { provide: APP_INITIALIZER, useFactory: (catalogService: CatalogService) => () => catalogService.initialize(), deps: [CatalogService], multi: true }

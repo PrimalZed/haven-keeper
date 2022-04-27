@@ -6,10 +6,21 @@ export const addMonster = createAction(
     props<{ key: string, level: Level }>()
 );
 
+export const undoAddMonster = createAction(
+    "[Tabletop] Undo Add Monster",
+    props<{ key: string }>()
+);
+
 export const addMonsterStandee = createAction(
     "[Tabletop] Add Monster Standee",
     props<{ key: string, id: number, rank: 'basic' | 'elite' }>()
 );
 
+export const undoAddMonsterStandee = createAction(
+    "[Tabletop] Undo Add Monster Standee",
+    props<{ key: string, id: number }>()
+);
+
 export type TabletopActions =
-    | typeof addMonster;
+    | typeof addMonster
+    | typeof addMonsterStandee;
