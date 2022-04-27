@@ -2,7 +2,7 @@ import { Level } from './level';
 
 export interface MonsterStandee {
   id: number;
-  rank: 'basic' | 'elite' | 'boss';
+  rank: 'normal' | 'elite' | 'boss';
   hitPoints: number;
   conditions: any[];
 }

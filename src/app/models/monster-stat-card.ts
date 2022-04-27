@@ -24,9 +24,9 @@ export interface BossStatCard extends MonsterBase {
   specialLevels: { [level in Level]: string[]};
 }
 
-export interface BasicMonsterStatCard extends MonsterBase {
-  kind: 'basic';
+export interface NormalMonsterStatCard extends MonsterBase {
+  kind: 'normal';
   eliteLevels: { [level in Level]: MonsterLevel };
 }
 
-export type MonsterStatCard = BossStatCard | BasicMonsterStatCard;
+export type MonsterStatCard = BossStatCard | NormalMonsterStatCard;

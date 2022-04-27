@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Level } from 'models/level';
-import { BasicMonsterStatCard, MonsterLevel } from 'models/monster-stat-card';
+import { NormalMonsterStatCard, MonsterLevel } from 'models/monster-stat-card';
 
 @Component({
   selector: 'monster-stat-card',
@@ -9,9 +9,9 @@ import { BasicMonsterStatCard, MonsterLevel } from 'models/monster-stat-card';
 })
 export class MonsterStatCardComponent {
   @Input() level: Level = 0;
-  @Input() statCard: BasicMonsterStatCard = {
+  @Input() statCard: NormalMonsterStatCard = {
     key: 'placeholder',
-    kind: 'basic',
+    kind: 'normal',
     name: 'Test Monster',
     levels: {
       0: {
@@ -163,7 +163,7 @@ export class MonsterStatCardComponent {
     }
   };
 
-  public get basicLevel(): MonsterLevel {
+  public get normalLevel(): MonsterLevel {
     return this.statCard.levels[this.level];
   }
 

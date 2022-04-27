@@ -13,7 +13,7 @@ export const undoAddMonster = createAction(
 
 export const addMonsterStandee = createAction(
     "[Tabletop] Add Monster Standee",
-    props<{ key: string, id: number, rank: 'basic' | 'elite' }>()
+    props<{ key: string, id: number, rank: 'normal' | 'elite' }>()
 );
 
 export const drawMonsterAbilityCards = createAction(

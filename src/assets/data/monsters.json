@@ -1,7 +1,7 @@
 [
   {
     "key": "cityArcher",
-    "kind": "basic",
+    "kind": "normal",
     "name": "City Archer",
     "levels": {
       "0": {
@@ -154,7 +154,7 @@
   },
   {
     "key": "cityGuard",
-    "kind": "basic",
+    "kind": "normal",
     "name": "City Guard",
     "levels": {
       "0": {

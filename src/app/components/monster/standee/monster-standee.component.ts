@@ -8,7 +8,7 @@ import { MonsterStandee } from 'models/monster-set';
 export class MonsterStandeeComponent {
   @Input() standee: MonsterStandee = {
     id: 0,
-    rank: 'basic',
+    rank: 'normal',
     hitPoints: 0,
     conditions: []
   }
