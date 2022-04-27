@@ -9,8 +9,8 @@ export type MonsterAbility =
   }
   | {
     kind: 'attack';
-    range: number;
     modifier: number;
+    range: number;
     effects: AttackEffect[];
   }
   | {

@@ -1,0 +1,42 @@
+{
+  "cityArcher": [
+    {
+      "name": "Shoot 1",
+      "initiative": 11,
+      "abilities": [
+        { "kind": "movement", "amount": 2 },
+        { "kind": "attack", "modifier": 1, "range": 2, "effects": [] }
+      ],
+      "shuffle": false
+    },
+    {
+      "name": "Shoot 2",
+      "initiative": 33,
+      "abilities": [
+        { "kind": "movement", "amount": 1 },
+        { "kind": "attack", "modifier": -1, "range": 3, "effects": [] }
+      ],
+      "shuffle": false
+    }
+  ],
+  "cityGuard": [
+    {
+      "name": "Hit 1",
+      "initiative": 22,
+      "abilities": [
+        { "kind": "movement", "amount": 1 },
+        { "kind": "attack", "modifier": 1, "range": 0, "effects": [] }
+      ],
+      "shuffle": false
+    },
+    {
+      "name": "Hit 2",
+      "initiative": 44,
+      "abilities": [
+        { "kind": "movement", "amount": 2 },
+        { "kind": "attack", "modifier": -1, "range": 0, "effects": [] }
+      ],
+      "shuffle": false
+    }
+  ]
+}
