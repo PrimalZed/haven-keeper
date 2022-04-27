@@ -1,24 +1,29 @@
 import { Action, ActionReducer } from '@ngrx/store';
+import { MonsterSet } from 'models/monster-set';
 import { AppState } from 'store/app.state';
 import {
   addMonster,
   addMonsterStandee,
   drawMonsterAbilityCardsSuccess,
+  nextRound,
   undoAddMonster,
   undoAddMonsterStandee,
-  undoDrawMonsterAbilityCards
+  undoDrawMonsterAbilityCards,
+  undoNextRound
 } from 'store/tabletop/tabletop.actions';
 
 const trackActionTypes: string[] = [
   addMonster.type,
   addMonsterStandee.type,
-  drawMonsterAbilityCardsSuccess.type
+  drawMonsterAbilityCardsSuccess.type,
+  nextRound.type
 ];
 
 type ReversibleAction = 
   | ReturnType<typeof addMonster>
   | ReturnType<typeof addMonsterStandee>
-  | ReturnType<typeof drawMonsterAbilityCardsSuccess>;
+  | ReturnType<typeof drawMonsterAbilityCardsSuccess>
+  | ReturnType<typeof nextRound>;
 
 function getReverseAction(state: AppState, action: ReversibleAction): Action {
   switch (action.type) {
@@ -40,6 +45,18 @@ function getReverseAction(state: AppState, action: ReversibleAction): Action {
             { }
           )
       });
+    case nextRound.type:
+      return undoNextRound({
+        abilityCardIds: Object.values(state.tabletop.monsters.entities)
+          .filter((monster): monster is MonsterSet => Boolean(monster))
+          .reduce(
+            (acc, monster): { [key: string]: number } => ({
+              ...acc,
+              [monster.key]: monster.currentAbilityCardId
+            }),
+            { }
+          )
+      })
   }
   // throw `Unexpected Action: '${action.type}`;
 }

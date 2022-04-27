@@ -10,6 +10,16 @@ export const selectMonstersState = createSelector(
     (state) => state.monsters
 );
 
+export const selectTabletopStep = createSelector(
+    selectTabletopState,
+    (state) => state.step
+);
+
+export const selectRound = createSelector(
+    selectTabletopState,
+    (state) => state.round
+);
+
 export const {
     selectIds: selectMonsterKeysBase,
     selectEntities: selectMonsterEntities,

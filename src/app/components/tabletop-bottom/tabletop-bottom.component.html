@@ -1,17 +1,17 @@
 <mat-toolbar color="primary" style="justify-content: center;">
-  <button mat-icon-button (click)="openAddCardDialog()">
+  <button mat-icon-button title="Add Character or Monster" i18n-title (click)="openAddCardDialog()">
     <mat-icon>add</mat-icon>
   </button>
-  <button mat-icon-button>
+  <!-- <button mat-icon-button>
     <mat-icon>upcoming</mat-icon>
-  </button>
-  <button mat-icon-button (click)="drawMonsterAbilityCards()">
+  </button> -->
+  <button mat-icon-button title="Draw Monster Cards" i18n-title [disabled]="actionsActive$ | async" (click)="drawMonsterAbilityCards()">
     <mat-icon>new_releases</mat-icon>
   </button>
-  <button mat-icon-button>
+  <!-- <button mat-icon-button>
     <mat-icon>start</mat-icon>
-  </button>
-  <button mat-icon-button>
+  </button> -->
+  <button mat-icon-button title="Next Round" i18n-title [disabled]="cardSelectionActive$ | async" (click)="nextRound()">
     <mat-icon>input</mat-icon>
   </button>
 </mat-toolbar>

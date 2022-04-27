@@ -2,7 +2,9 @@
   <button mat-icon-button>
     <mat-icon>menu</mat-icon>
   </button>
-  <span i18n>{{ title }} app is running!</span>
+  <span i18n>{{ title }}</span>
+  <span class="horizontal-spacer"></span>
+  <span><span i18n="@@round">Round</span> {{ round$ | async }}</span>
   <span style="flex: 1 1 auto"></span>
   <button mat-icon-button [disabled]="!(hasPast$ | async)" (click)="undo()">
     <mat-icon>undo</mat-icon>

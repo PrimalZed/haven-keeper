@@ -4,13 +4,17 @@ import {
     addMonster,
     addMonsterStandee,
     drawMonsterAbilityCardsSuccess, 
+    nextRound, 
     undoAddMonster,
     undoAddMonsterStandee, 
-    undoDrawMonsterAbilityCards
+    undoDrawMonsterAbilityCards,
+    undoNextRound
 } from './tabletop.actions';
 import { TabletopState } from './tabletop.state';
 
 export const initialTabletopState: TabletopState = {
+    step: 'card-selection',
+    round: 1,
     monsters: monstersAdapter.getInitialState()
 };
 
@@ -55,6 +59,7 @@ export const tabletopReducer = createReducer<TabletopState>(
     })),
     on(drawMonsterAbilityCardsSuccess, (state, { abilityCardIds }) => ({
         ...state,
+        step: 'actions',
         monsters: monstersAdapter.map((monster) => ({
             ...monster,
             currentAbilityCardId: abilityCardIds[monster.key],
@@ -66,11 +71,30 @@ export const tabletopReducer = createReducer<TabletopState>(
     })),
     on(undoDrawMonsterAbilityCards, (state, { abilityCardIds }) => ({
         ...state,
+        step: 'card-selection',
         monsters: monstersAdapter.map((monster) => ({
             ...monster,
             currentAbilityCardId: abilityCardIds[monster.key].previousId,
             drawnAbilityCardIds: monster.drawnAbilityCardIds
                 .filter((id) => id !== abilityCardIds[monster.key].nextId)
+        }), state.monsters)
+    })),
+    on(nextRound, (state) => ({
+        ...state,
+        step: 'card-selection',
+        round: state.round + 1,
+        monsters: monstersAdapter.map((monster) => ({
+            ...monster,
+            currentAbilityCardId: null
+        }), state.monsters)
+    })),
+    on(undoNextRound, (state, { abilityCardIds }) => ({
+        ...state,
+        step: 'actions',
+        round: state.round - 1,
+        monsters: monstersAdapter.map((monster) => ({
+            ...monster,
+            currentAbilityCardId: abilityCardIds[monster.key]
         }), state.monsters)
     }))
 );

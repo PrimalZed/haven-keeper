@@ -16,6 +16,11 @@ export const addMonsterStandee = createAction(
     props<{ key: string, id: number, rank: 'normal' | 'elite' }>()
 );
 
+export const undoAddMonsterStandee = createAction(
+    "[Tabletop] Undo Add Monster Standee",
+    props<{ key: string, id: number }>()
+);
+
 export const drawMonsterAbilityCards = createAction(
     "[Tabletop] Draw Monster Ability Cards"
 );
@@ -30,9 +35,13 @@ export const undoDrawMonsterAbilityCards = createAction(
     props<{ abilityCardIds: { [key: string]: { previousId: number | null, nextId: number} } }>()
 );
 
-export const undoAddMonsterStandee = createAction(
-    "[Tabletop] Undo Add Monster Standee",
-    props<{ key: string, id: number }>()
+export const nextRound = createAction(
+    "[Tabletop] Next Round"
+);
+
+export const undoNextRound = createAction(
+    "[Tabletop] Undo Next Round",
+    props<{ abilityCardIds: { [key: string]: number | null } }>()
 );
 
 export type TabletopActions =

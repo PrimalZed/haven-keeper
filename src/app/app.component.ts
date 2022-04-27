@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { AppState } from 'store/app.state';
+import { selectRound } from 'store/tabletop/tabletop.selectors';
 import { redo, undo } from 'store/time-machine/time-machine.actions';
 import { selectFuture, selectPast } from 'store/time-machine/time-machine.selectors';
 
@@ -13,6 +14,8 @@ import { selectFuture, selectPast } from 'store/time-machine/time-machine.select
 })
 export class AppComponent {
   title = $localize`:@@title:Haven Keeper`;
+
+  public round$ = this.store.select(selectRound);
 
   public hasPast$ = this.store.select(selectPast)
     .pipe(
