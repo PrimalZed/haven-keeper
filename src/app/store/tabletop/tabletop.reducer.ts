@@ -1,6 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
 import { monstersAdapter } from './monsters.adapter';
-import { addMonster, addMonsterStandee, undoAddMonster, undoAddMonsterStandee } from './tabletop.actions';
+import {
+    addMonster,
+    addMonsterStandee,
+    drawMonsterAbilityCardsSuccess, 
+    undoAddMonster,
+    undoAddMonsterStandee, 
+    undoDrawMonsterAbilityCards
+} from './tabletop.actions';
 import { TabletopState } from './tabletop.state';
 
 export const initialTabletopState: TabletopState = {
@@ -11,7 +18,13 @@ export const tabletopReducer = createReducer<TabletopState>(
     initialTabletopState,
     on(addMonster, (state, { key, level }) => ({
         ...state,
-        monsters: monstersAdapter.addOne({ key, level, standees: [] }, state.monsters)
+        monsters: monstersAdapter.addOne({
+            key,
+            level,
+            standees: [],
+            currentAbilityCardId: null,
+            drawnAbilityCardIds: []
+        }, state.monsters)
     })),
     on(undoAddMonster, (state, { key }) => ({
         ...state,
@@ -39,5 +52,25 @@ export const tabletopReducer = createReducer<TabletopState>(
                 standees: x.standees.filter((y) => y.id !== id)
             })
         }, state.monsters)
+    })),
+    on(drawMonsterAbilityCardsSuccess, (state, { abilityCardIds }) => ({
+        ...state,
+        monsters: monstersAdapter.map((monster) => ({
+            ...monster,
+            currentAbilityCardId: abilityCardIds[monster.key],
+            drawnAbilityCardIds: [
+                ...monster.drawnAbilityCardIds,
+                abilityCardIds[monster.key]
+            ]
+        }), state.monsters)
+    })),
+    on(undoDrawMonsterAbilityCards, (state, { abilityCardIds }) => ({
+        ...state,
+        monsters: monstersAdapter.map((monster) => ({
+            ...monster,
+            currentAbilityCardId: abilityCardIds[monster.key].previousId,
+            drawnAbilityCardIds: monster.drawnAbilityCardIds
+                .filter((id) => id !== abilityCardIds[monster.key].nextId)
+        }), state.monsters)
     }))
 );

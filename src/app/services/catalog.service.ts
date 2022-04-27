@@ -23,6 +23,18 @@ export class CatalogService {
       );
   }
 
+  get monsterAbilityCardEntities(): { [id: number]: MonsterAbilityCard } {
+    return Object.values<MonsterAbilityCard[]>(this.monsterAbilityCards)
+      .flatMap(x => x)
+      .reduce(
+        (acc, card): { [id: number]: MonsterAbilityCard } => ({
+          ...acc,
+          [card.id]: card
+        }),
+        { }
+      );
+  }
+
   constructor(private http: HttpClient) { }
 
   initialize(): Promise<void> {

@@ -1,0 +1,11 @@
+<div *ngIf="!id" style="text-align: center;">No Card</div>
+<div *ngIf="card" class="active-card">
+  <div class="title">{{ card.name }}</div>
+  <ng-container *ngFor="let ability of card?.abilities" [ngSwitch]="ability.kind">
+    <div *ngSwitchCase="'movement'"><span i18n="@@move">Move</span> {{ (ability | any).modifier | modifier }}</div>
+    <div *ngSwitchCase="'attack'">
+      <div><span i18n="@@attack">Attack</span> {{ (ability | any).modifier | modifier }}</div>
+      <div *ngIf="(ability | any).range"><span i18n="@@range">Range</span> {{ (ability | any).range }}</div>
+    </div>
+  </ng-container>
+</div>

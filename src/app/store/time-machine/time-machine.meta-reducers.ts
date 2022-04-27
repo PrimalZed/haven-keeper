@@ -1,20 +1,24 @@
 import { Action, ActionReducer } from '@ngrx/store';
 import { AppState } from 'store/app.state';
-import { addMonster, addMonsterStandee, undoAddMonster, undoAddMonsterStandee } from 'store/tabletop/tabletop.actions';
-import { redo, redoSuccess, undo, undoSuccess } from './time-machine.actions';
+import {
+  addMonster,
+  addMonsterStandee,
+  drawMonsterAbilityCardsSuccess,
+  undoAddMonster,
+  undoAddMonsterStandee,
+  undoDrawMonsterAbilityCards
+} from 'store/tabletop/tabletop.actions';
 
-const timeMachineActionTypes: string[] = [
-  undo.type,
-  undoSuccess.type,
-  redo.type,
-  redoSuccess.type,
-  undoAddMonster.type,
-  undoAddMonsterStandee.type
+const trackActionTypes: string[] = [
+  addMonster.type,
+  addMonsterStandee.type,
+  drawMonsterAbilityCardsSuccess.type
 ];
 
 type ReversibleAction = 
   | ReturnType<typeof addMonster>
-  | ReturnType<typeof addMonsterStandee>;
+  | ReturnType<typeof addMonsterStandee>
+  | ReturnType<typeof drawMonsterAbilityCardsSuccess>;
 
 function getReverseAction(state: AppState, action: ReversibleAction): Action {
   switch (action.type) {
@@ -22,13 +26,27 @@ function getReverseAction(state: AppState, action: ReversibleAction): Action {
       return undoAddMonster({ key: action.key });
     case addMonsterStandee.type:
       return undoAddMonsterStandee({ key: action.key, id: action.id });
+    case drawMonsterAbilityCardsSuccess.type:
+      return undoDrawMonsterAbilityCards({
+        abilityCardIds: Object.entries(action.abilityCardIds)
+          .reduce(
+            (acc, [key, id]): { [key: string]: { previousId: number | null, nextId: number } } => ({
+              ...acc,
+              [key]: {
+                previousId: state.tabletop.monsters.entities[key]?.currentAbilityCardId,
+                nextId: id
+              }
+            }),
+            { }
+          )
+      });
   }
   // throw `Unexpected Action: '${action.type}`;
 }
 
 function logPast(nextReducer: ActionReducer<AppState>): ActionReducer<AppState> {
   return function(state, action) {
-    if (!state || action.type.startsWith('@ngrx/effects') || timeMachineActionTypes.includes(action.type)) {
+    if (!state || !trackActionTypes.includes(action.type)) {
       return nextReducer(state, action);
     }
     return nextReducer(

@@ -5,7 +5,7 @@ import { Element } from './element';
 export type MonsterAbility =
   | {
     kind: 'movement';
-    amount: number;
+    modifier: number;
   }
   | {
     kind: 'attack';
@@ -36,6 +36,7 @@ export type MonsterAbility =
   };
 
 export interface MonsterAbilityCard {
+  id: number;
   name: string;
   initiative: number;
   abilities: MonsterAbility[];

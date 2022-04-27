@@ -12,11 +12,15 @@ import { environment } from 'src/environments/environment';
 import { AddCardDialogComponent } from './components/add-card-dialog/add-card-dialog.component';
 import { MonsterSetComponent } from './components/monster/monster-set.component';
 import { AddStandeeDialogComponent } from './components/monster/add-standee-dialog/add-standee-dialog.component';
+import { MonsterAbilityCardComponent } from './components/monster/monster-ability-card/monster-ability-card.component';
 import { MonsterStatCardComponent } from './components/monster/monster-stat-card/monster-stat-card.component';
 import { MonsterStandeeComponent } from './components/monster/standee/monster-standee.component';
 import { TabletopComponent } from './components/tabletop/tabletop.component';
+import { TabletopBottomComponent } from './components/tabletop-bottom/tabletop-bottom.component';
 import { AnyPipe } from './pipes/any.pipe';
+import { ModifierPipe } from './pipes/modifier.pipe';
 import { CatalogService } from 'services/catalog.service';
+import { TabletopEffects } from 'store/tabletop/tabletop.effects';
 import { tabletopReducer } from 'store/tabletop/tabletop.reducer';
 import { TimeMachineEffects } from 'store/time-machine/time-machine.effects';
 import { timeMachineMetaReducers } from 'store/time-machine/time-machine.meta-reducers';
@@ -24,7 +28,6 @@ import { timeMachineReducer } from 'store/time-machine/time-machine.reducer';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatModule } from './mat.module';
-import { TabletopBottomComponent } from './components/tabletop-bottom/tabletop-bottom.component';
 
 @NgModule({
   declarations: [
@@ -37,13 +40,15 @@ import { TabletopBottomComponent } from './components/tabletop-bottom/tabletop-b
     TabletopComponent,
 
     AnyPipe,
-     TabletopBottomComponent
+     TabletopBottomComponent,
+     MonsterAbilityCardComponent,
+     ModifierPipe
   ],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
-    EffectsModule.forRoot([TimeMachineEffects]),
+    EffectsModule.forRoot([TabletopEffects, TimeMachineEffects]),
     FormsModule,
     HttpClientModule,
     LayoutModule,

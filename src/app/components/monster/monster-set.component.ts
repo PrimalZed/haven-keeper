@@ -24,12 +24,18 @@ export class MonsterSetComponent implements OnDestroy {
       map(({ key }) => this.catalogService.monsterEntities[key])
     );
 
-  public initiative = 53;
+  public initiative$ = this.monster$
+    .pipe(
+      map(({ currentAbilityCardId }) => currentAbilityCardId
+        ? this.catalogService.monsterAbilityCardEntities[currentAbilityCardId].initiative
+        : null
+      )
+    );
 
   private openStandeeDialogSubject: Subject<void> = new Subject();
   private openStandeeDialog$ = this.openStandeeDialogSubject
     .pipe(
-      withLatestFrom(this.monster$, (v, monster) => monster),
+      withLatestFrom(this.monster$, (_, monster) => monster),
       map(({ key }) => this.dialog.open(AddStandeeDialogComponent, { data: { key } }))
     );
 

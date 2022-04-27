@@ -16,6 +16,20 @@ export const addMonsterStandee = createAction(
     props<{ key: string, id: number, rank: 'basic' | 'elite' }>()
 );
 
+export const drawMonsterAbilityCards = createAction(
+    "[Tabletop] Draw Monster Ability Cards"
+);
+
+export const drawMonsterAbilityCardsSuccess = createAction(
+    "[Tabletop] Draw Monster Ability Cards Success",
+    props<{ abilityCardIds: { [key: string]: number } }>()
+);
+
+export const undoDrawMonsterAbilityCards = createAction(
+    "[Tabletop] Undo Draw Monster Ability Cards",
+    props<{ abilityCardIds: { [key: string]: { previousId: number | null, nextId: number} } }>()
+);
+
 export const undoAddMonsterStandee = createAction(
     "[Tabletop] Undo Add Monster Standee",
     props<{ key: string, id: number }>()
