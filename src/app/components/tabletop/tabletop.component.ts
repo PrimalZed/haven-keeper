@@ -2,6 +2,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
+import { Card } from 'models/card';
 import { AppState } from 'store/app.state';
 import { selectCards } from 'store/tabletop/cards.selector';
 
@@ -29,4 +30,8 @@ export class TabletopComponent {
     private breakpointObserver: BreakpointObserver,
     private store: Store<AppState>
   ) { }
+
+  trackCard(index: number, card: Card) {
+    return card.key;
+  }
 }
