@@ -4,8 +4,8 @@ import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { CatalogService } from 'services/catalog.service';
 import { AppState } from 'store/app.state';
-import { addMonster } from 'store/tabletop/tabletop.actions';
-import { selectMonsterKeys } from 'store/tabletop/tabletop.selectors';
+import { addMonster } from 'store/tabletop/monsters/monsters.actions';
+import { selectMonsterKeys } from 'store/tabletop/monsters/monsters.selectors';
 
 @Component({
   templateUrl: './add-card-dialog.component.html',

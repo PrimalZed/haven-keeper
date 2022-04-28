@@ -20,7 +20,7 @@ import { TabletopBottomComponent } from './components/tabletop-bottom/tabletop-b
 import { AnyPipe } from './pipes/any.pipe';
 import { ModifierPipe } from './pipes/modifier.pipe';
 import { CatalogService } from 'services/catalog.service';
-import { TabletopEffects } from 'store/tabletop/tabletop.effects';
+import { MonstersEffects } from 'store/tabletop/monsters/monsters.effects';
 import { tabletopReducer } from 'store/tabletop/tabletop.reducer';
 import { TimeMachineEffects } from 'store/time-machine/time-machine.effects';
 import { timeMachineMetaReducers } from 'store/time-machine/time-machine.meta-reducers';
@@ -48,7 +48,7 @@ import { MatModule } from './mat.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
-    EffectsModule.forRoot([TabletopEffects, TimeMachineEffects]),
+    EffectsModule.forRoot([MonstersEffects, TimeMachineEffects]),
     FormsModule,
     HttpClientModule,
     LayoutModule,

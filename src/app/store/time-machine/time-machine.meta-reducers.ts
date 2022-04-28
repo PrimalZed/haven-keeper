@@ -5,11 +5,13 @@ import {
   addMonster,
   addMonsterStandee,
   drawMonsterAbilityCardsSuccess,
-  infuseElement,
-  nextRound,
   undoAddMonster,
   undoAddMonsterStandee,
-  undoDrawMonsterAbilityCards,
+  undoDrawMonsterAbilityCards
+} from 'store/tabletop/monsters/monsters.actions';
+import {
+  infuseElement,
+  nextRound,
   undoInfuseElement,
   undoNextRound
 } from 'store/tabletop/tabletop.actions';

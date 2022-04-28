@@ -1,15 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
 import { ElementalInfusion } from 'models/element';
-import { monstersAdapter } from './monsters.adapter';
+import { monstersAdapter } from './monsters/monsters.adapter';
+import { monstersOns } from './monsters/monsters.ons';
 import {
-    addMonster,
-    addMonsterStandee,
-    drawMonsterAbilityCardsSuccess, 
     infuseElement, 
     nextRound, 
-    undoAddMonster,
-    undoAddMonsterStandee, 
-    undoDrawMonsterAbilityCards,
     undoInfuseElement,
     undoNextRound
 } from './tabletop.actions';
@@ -31,65 +26,7 @@ export const initialTabletopState: TabletopState = {
 
 export const tabletopReducer = createReducer<TabletopState>(
     initialTabletopState,
-    on(addMonster, (state, { key, level }) => ({
-        ...state,
-        monsters: monstersAdapter.addOne({
-            key,
-            level,
-            standees: [],
-            currentAbilityCardId: null,
-            drawnAbilityCardIds: []
-        }, state.monsters)
-    })),
-    on(undoAddMonster, (state, { key }) => ({
-        ...state,
-        monsters: monstersAdapter.removeOne(key, state.monsters)
-    })),
-    on(addMonsterStandee, (state, { key, id, rank }) => ({
-        ...state,
-        monsters: monstersAdapter.mapOne({
-            id: key,
-            map: (x) => ({
-                ...x,
-                standees: [
-                    ...x.standees,
-                    { id, rank, hitPoints: 5, conditions: [] }
-                ]
-            }) 
-        }, state.monsters)
-    })),
-    on(undoAddMonsterStandee, (state, { key, id }) => ({
-        ...state,
-        monsters: monstersAdapter.mapOne({
-            id: key,
-            map: (x) => ({
-                ...x,
-                standees: x.standees.filter((y) => y.id !== id)
-            })
-        }, state.monsters)
-    })),
-    on(drawMonsterAbilityCardsSuccess, (state, { abilityCardIds }) => ({
-        ...state,
-        step: 'actions',
-        monsters: monstersAdapter.map((monster) => ({
-            ...monster,
-            currentAbilityCardId: abilityCardIds[monster.key],
-            drawnAbilityCardIds: [
-                ...monster.drawnAbilityCardIds,
-                abilityCardIds[monster.key]
-            ]
-        }), state.monsters)
-    })),
-    on(undoDrawMonsterAbilityCards, (state, { abilityCardIds }) => ({
-        ...state,
-        step: 'card-selection',
-        monsters: monstersAdapter.map((monster) => ({
-            ...monster,
-            currentAbilityCardId: abilityCardIds[monster.key].previousId,
-            drawnAbilityCardIds: monster.drawnAbilityCardIds
-                .filter((id) => id !== abilityCardIds[monster.key].nextId)
-        }), state.monsters)
-    })),
+    ...monstersOns,
     on(infuseElement, (state, { element }) => ({
         ...state,
         elementalInfusion: {

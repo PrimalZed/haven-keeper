@@ -4,8 +4,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { AppState } from 'store/app.state';
-import { addMonsterStandee } from 'store/tabletop/tabletop.actions';
-import { selectMonsterEntities } from 'store/tabletop/tabletop.selectors';
+import { addMonsterStandee } from 'store/tabletop/monsters/monsters.actions';
+import { selectMonsterEntities } from 'store/tabletop/monsters/monsters.selectors';
 
 @Component({
   templateUrl: './add-standee-dialog.component.html',

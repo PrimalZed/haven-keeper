@@ -4,7 +4,8 @@ import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { AddCardDialogComponent } from 'components/add-card-dialog/add-card-dialog.component';
 import { AppState } from 'store/app.state';
-import { drawMonsterAbilityCards, nextRound } from 'store/tabletop/tabletop.actions';
+import { drawMonsterAbilityCards } from 'store/tabletop/monsters/monsters.actions';
+import { nextRound } from 'store/tabletop/tabletop.actions';
 import { selectTabletopStep } from 'store/tabletop/tabletop.selectors';
 
 @Component({

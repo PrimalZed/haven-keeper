@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MonsterSet } from 'models/monster-set';
 import { AppState } from 'store/app.state';
-import { selectCards } from 'store/tabletop/tabletop.selectors';
+import { selectCards } from 'store/tabletop/monsters/monsters.selectors';
 
 @Component({
   templateUrl: './tabletop.component.html',

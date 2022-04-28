@@ -4,11 +4,11 @@ import { Store } from '@ngrx/store';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { CatalogService } from 'services/catalog.service';
 import { AppState } from 'store/app.state';
-import { drawMonsterAbilityCards, drawMonsterAbilityCardsSuccess } from './tabletop.actions';
-import { selectMonsters } from './tabletop.selectors';
+import { drawMonsterAbilityCards, drawMonsterAbilityCardsSuccess } from './monsters.actions';
+import { selectMonsters } from './monsters.selectors';
 
 @Injectable()
-export class TabletopEffects {
+export class MonstersEffects {
   drawMonsterAbilities$ = createEffect(() => this.actions$
     .pipe(
       ofType(drawMonsterAbilityCards),
