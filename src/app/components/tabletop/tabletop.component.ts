@@ -1,4 +1,3 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -23,18 +22,6 @@ import { selectCards } from 'store/tabletop/cards.selector';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TabletopComponent {
-  columns$ = this.breakpointObserver.observe([Breakpoints.XLarge, Breakpoints.Large, Breakpoints.Medium, Breakpoints.Small, Breakpoints.XSmall])
-    .pipe(
-      map(({ breakpoints }) => {
-        if (breakpoints[Breakpoints.XLarge] || breakpoints[Breakpoints.Large] || breakpoints[Breakpoints.Medium]) {
-          return 2;
-        }
-        else {
-          return 1;
-        }
-      })
-    );
-
   public cards$ = this.store.select(selectCards)
     .pipe(
       map((cards) => cards
@@ -44,7 +31,6 @@ export class TabletopComponent {
     );
 
   constructor(
-    private breakpointObserver: BreakpointObserver,
     private catalogService: CatalogService,
     private store: Store<AppState>
   ) { }
