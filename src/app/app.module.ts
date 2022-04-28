@@ -21,13 +21,12 @@ import { AnyPipe } from './pipes/any.pipe';
 import { ModifierPipe } from './pipes/modifier.pipe';
 import { CatalogService } from 'services/catalog.service';
 import { MonstersEffects } from 'store/tabletop/monsters/monsters.effects';
-import { tabletopReducer } from 'store/tabletop/tabletop.reducer';
 import { TimeMachineEffects } from 'store/time-machine/time-machine.effects';
 import { timeMachineMetaReducers } from 'store/time-machine/time-machine.meta-reducers';
-import { timeMachineReducer } from 'store/time-machine/time-machine.reducer';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatModule } from './mat.module';
+import { APP_REDUCERS, getReducers } from 'store/app.reducers';
 
 @NgModule({
   declarations: [
@@ -59,13 +58,15 @@ import { MatModule } from './mat.module';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    StoreModule.forRoot({
-      tabletop: tabletopReducer,
-      timeMachine: timeMachineReducer
-    }, { metaReducers: [...timeMachineMetaReducers]})
+    StoreModule.forRoot(APP_REDUCERS, { metaReducers: [...timeMachineMetaReducers]})
   ],
   providers: [
-    { provide: APP_INITIALIZER, useFactory: (catalogService: CatalogService) => () => catalogService.initialize(), deps: [CatalogService], multi: true }
+    { provide: APP_INITIALIZER, useFactory: (catalogService: CatalogService) => () => catalogService.initialize(), deps: [CatalogService], multi: true },
+    {
+      provide: APP_REDUCERS,
+      useFactory: getReducers,
+      deps: [CatalogService]
+    }
   ],
   bootstrap: [AppComponent]
 })
