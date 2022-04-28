@@ -1,6 +1,7 @@
 import { Action, ActionReducer } from '@ngrx/store';
 import { MonsterSet } from 'models/monster-set';
 import { AppState } from 'store/app.state';
+import { addCharacter, undoAddCharacter } from 'store/tabletop/characters/characters.actions';
 import {
   addMonster,
   addMonsterStandee,
@@ -17,6 +18,7 @@ import {
 } from 'store/tabletop/tabletop.actions';
 
 const trackActionTypes: string[] = [
+  addCharacter.type,
   addMonster.type,
   addMonsterStandee.type,
   drawMonsterAbilityCardsSuccess.type,
@@ -24,7 +26,8 @@ const trackActionTypes: string[] = [
   nextRound.type
 ];
 
-type ReversibleAction = 
+type ReversibleAction =
+  | ReturnType<typeof addCharacter>
   | ReturnType<typeof addMonster>
   | ReturnType<typeof addMonsterStandee>
   | ReturnType<typeof drawMonsterAbilityCardsSuccess>
@@ -33,6 +36,8 @@ type ReversibleAction =
 
 function getReverseAction(state: AppState, action: ReversibleAction): Action {
   switch (action.type) {
+    case addCharacter.type:
+      return undoAddCharacter({ key: action.key });
     case addMonster.type:
       return undoAddMonster({ key: action.key });
     case addMonsterStandee.type:

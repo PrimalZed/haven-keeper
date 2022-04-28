@@ -1,11 +1,9 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { MonsterSet } from 'models/monster-set';
 import { AppState } from 'store/app.state';
-import { selectCards } from 'store/tabletop/monsters/monsters.selectors';
+import { selectCards } from 'store/tabletop/cards.selector';
 
 @Component({
   templateUrl: './tabletop.component.html',
@@ -25,7 +23,7 @@ export class TabletopComponent {
       })
     );
 
-  public cards$: Observable<(MonsterSet & { kind: 'monster' })[]> = this.store.select(selectCards);
+  public cards$ = this.store.select(selectCards);
 
   constructor(
     private breakpointObserver: BreakpointObserver,

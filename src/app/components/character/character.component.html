@@ -1,0 +1,22 @@
+<ng-container *ngIf="character$ | async as character">
+  <div *ngIf="statCard$ | async as statCard" class="mat-card character-card">
+    <div class="character-card-summons">
+      <button mat-icon-button title="Add Summon">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <div class="character-card-header title">
+      <div class="character-card-avatar"></div>
+      <div class="horizontal-spacer"></div>
+      <div style="flex: 1 1 auto;">
+        {{ character.key }}
+      </div>
+      <div>{{ character.initiative }}</div>
+    </div>
+    <div class="character-card-content">
+      <div>
+        {{ character.hitPoints }} / {{ statCard.hitPoints[character.level] }}
+      </div>
+    </div>
+  </div>
+</ng-container>

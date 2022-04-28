@@ -1,33 +1,37 @@
 import { createReducer, on } from '@ngrx/store';
 import { ElementalInfusion } from 'models/element';
 import { CatalogService } from 'services/catalog.service';
+import { charactersAdapter } from './characters/characters.adapter';
+import { getCharactersOns } from './characters/characters.ons';
 import { monstersAdapter } from './monsters/monsters.adapter';
 import { getMonstersOns } from './monsters/monsters.ons';
 import {
-    infuseElement, 
-    nextRound, 
-    undoInfuseElement,
-    undoNextRound
+  infuseElement, 
+  nextRound, 
+  undoInfuseElement,
+  undoNextRound
 } from './tabletop.actions';
 import { TabletopState } from './tabletop.state';
 
 export const initialTabletopState: TabletopState = {
-    step: 'card-selection',
-    round: 1,
-    elementalInfusion: {
-        'fire': 'inert',
-        'ice': 'inert',
-        'air': 'inert',
-        'earth': 'inert',
-        'light': 'inert',
-        'dark': 'inert'
-    },
-    monsters: monstersAdapter.getInitialState()
+  step: 'card-selection',
+  round: 1,
+  elementalInfusion: {
+    'fire': 'inert',
+    'ice': 'inert',
+    'air': 'inert',
+    'earth': 'inert',
+    'light': 'inert',
+    'dark': 'inert'
+  },
+  characters: charactersAdapter.getInitialState(),
+  monsters: monstersAdapter.getInitialState()
 };
 
 export function getTabletopReducer(catalogService: CatalogService) {
   return createReducer<TabletopState>(
     initialTabletopState,
+    ...getCharactersOns(catalogService),
     ...getMonstersOns(catalogService),
     on(infuseElement, (state, { element }) => ({
       ...state,

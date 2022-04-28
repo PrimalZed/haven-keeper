@@ -10,6 +10,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { environment } from 'src/environments/environment';
 import { AddCardDialogComponent } from './components/add-card-dialog/add-card-dialog.component';
+import { CharacterComponent } from './components/character/character.component';
 import { MonsterSetComponent } from './components/monster/monster-set.component';
 import { AddStandeeDialogComponent } from './components/monster/add-standee-dialog/add-standee-dialog.component';
 import { MonsterAbilityCardComponent } from './components/monster/monster-ability-card/monster-ability-card.component';
@@ -20,28 +21,29 @@ import { TabletopBottomComponent } from './components/tabletop-bottom/tabletop-b
 import { AnyPipe } from './pipes/any.pipe';
 import { ModifierPipe } from './pipes/modifier.pipe';
 import { CatalogService } from 'services/catalog.service';
+import { APP_REDUCERS, getReducers } from 'store/app.reducers';
 import { MonstersEffects } from 'store/tabletop/monsters/monsters.effects';
 import { TimeMachineEffects } from 'store/time-machine/time-machine.effects';
 import { timeMachineMetaReducers } from 'store/time-machine/time-machine.meta-reducers';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatModule } from './mat.module';
-import { APP_REDUCERS, getReducers } from 'store/app.reducers';
 
 @NgModule({
   declarations: [
     AddCardDialogComponent,
     AddStandeeDialogComponent,
     AppComponent,
+    CharacterComponent,
+    MonsterAbilityCardComponent,
     MonsterSetComponent,
     MonsterStandeeComponent,
     MonsterStatCardComponent,
     TabletopComponent,
+    TabletopBottomComponent,
 
     AnyPipe,
-     TabletopBottomComponent,
-     MonsterAbilityCardComponent,
-     ModifierPipe
+    ModifierPipe
   ],
   imports: [
     AppRoutingModule,
@@ -61,7 +63,12 @@ import { APP_REDUCERS, getReducers } from 'store/app.reducers';
     StoreModule.forRoot(APP_REDUCERS, { metaReducers: [...timeMachineMetaReducers]})
   ],
   providers: [
-    { provide: APP_INITIALIZER, useFactory: (catalogService: CatalogService) => () => catalogService.initialize(), deps: [CatalogService], multi: true },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (catalogService: CatalogService) => () => catalogService.initialize(),
+      deps: [CatalogService],
+      multi: true
+    },
     {
       provide: APP_REDUCERS,
       useFactory: getReducers,

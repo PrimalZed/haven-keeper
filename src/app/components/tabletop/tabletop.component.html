@@ -1,5 +1,6 @@
 <div class="grid">
   <ng-container *ngFor="let card of cards$ | async" [ngSwitch]="card.kind">
-    <monster-set *ngSwitchCase="'monster'" [monster]="card"></monster-set>
+    <character *ngSwitchCase="'character'" [character]="card | any"></character>
+    <monster-set *ngSwitchCase="'monster'" [monster]="card | any"></monster-set>
   </ng-container>
 </div>
