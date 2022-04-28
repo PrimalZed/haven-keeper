@@ -1,9 +1,9 @@
 import { createAction, props } from '@ngrx/store';
-import { Level } from 'models/level';
+import { ScenarioLevel } from 'models/scenario-level';
 
 export const addMonster = createAction(
   "[Tabletop] [Monsters] Add Monster",
-  props<{ key: string, level: Level }>()
+  props<{ key: string, level: ScenarioLevel }>()
 );
 
 export const undoAddMonster = createAction(

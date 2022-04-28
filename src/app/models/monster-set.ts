@@ -1,4 +1,4 @@
-import { Level } from './level';
+import { ScenarioLevel } from './scenario-level';
 
 export interface MonsterStandee {
   id: number;
@@ -9,7 +9,7 @@ export interface MonsterStandee {
 
 export interface MonsterSet {
   key: string;
-  level: Level;
+  level: ScenarioLevel;
   standees: MonsterStandee[];
   currentAbilityCardId: number | null;
   drawnAbilityCardIds: number[];

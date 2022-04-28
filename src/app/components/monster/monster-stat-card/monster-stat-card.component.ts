@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Level } from 'models/level';
+import { ScenarioLevel } from 'models/scenario-level';
 import { NormalMonsterStatCard, MonsterLevel } from 'models/monster-stat-card';
 
 @Component({
@@ -8,7 +8,7 @@ import { NormalMonsterStatCard, MonsterLevel } from 'models/monster-stat-card';
   styleUrls: ['./monster-stat-card.component.scss']
 })
 export class MonsterStatCardComponent {
-  @Input() level: Level = 0;
+  @Input() level: ScenarioLevel = 0;
   @Input() statCard: NormalMonsterStatCard = {
     key: 'placeholder',
     kind: 'normal',
