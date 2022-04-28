@@ -1,6 +1,6 @@
 import { AttackEffect } from './attack-effect';
 import { ConditionKey } from './condition';
-import { Element } from './element';
+import { Element, MixedElement } from './element';
 
 export type MonsterAbility =
   | {

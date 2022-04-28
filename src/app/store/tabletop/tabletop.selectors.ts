@@ -1,4 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { Element, ElementalInfusion } from 'models/element';
 import { MonsterSet } from 'models/monster-set';
 import { monstersAdapter } from './monsters.adapter';
 import { TabletopState } from './tabletop.state';
@@ -18,6 +19,18 @@ export const selectTabletopStep = createSelector(
 export const selectRound = createSelector(
     selectTabletopState,
     (state) => state.round
+);
+
+export const selectElementalInfusion = createSelector(
+    selectTabletopState,
+    (state): { [element in Element]: ElementalInfusion} => ({
+        'fire': state.elementalInfusion.fire,
+        'ice': state.elementalInfusion.ice,
+        'air': state.elementalInfusion.air,
+        'earth': state.elementalInfusion.earth,
+        'light': state.elementalInfusion.light,
+        'dark': state.elementalInfusion.dark
+    })
 );
 
 export const {

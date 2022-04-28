@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { Element, ElementalInfusion } from 'models/element';
 import { Level } from 'models/level';
 
 export const addMonster = createAction(
@@ -35,13 +36,26 @@ export const undoDrawMonsterAbilityCards = createAction(
     props<{ abilityCardIds: { [key: string]: { previousId: number | null, nextId: number} } }>()
 );
 
+export const infuseElement = createAction(
+    "[Tabletop] Infuse Element",
+    props<{ element: Element }>()
+);
+
+export const undoInfuseElement = createAction(
+    "[Tabletop] Undo Infuse Element",
+    props<{ element: Element }>()
+);
+
 export const nextRound = createAction(
     "[Tabletop] Next Round"
 );
 
 export const undoNextRound = createAction(
     "[Tabletop] Undo Next Round",
-    props<{ abilityCardIds: { [key: string]: number | null } }>()
+    props<{
+        elementalInfusion: { [element in Element]: ElementalInfusion },
+        abilityCardIds: { [key: string]: number | null }
+    }>()
 );
 
 export type TabletopActions =

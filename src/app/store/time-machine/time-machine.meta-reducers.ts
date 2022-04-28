@@ -5,10 +5,12 @@ import {
   addMonster,
   addMonsterStandee,
   drawMonsterAbilityCardsSuccess,
+  infuseElement,
   nextRound,
   undoAddMonster,
   undoAddMonsterStandee,
   undoDrawMonsterAbilityCards,
+  undoInfuseElement,
   undoNextRound
 } from 'store/tabletop/tabletop.actions';
 
@@ -16,6 +18,7 @@ const trackActionTypes: string[] = [
   addMonster.type,
   addMonsterStandee.type,
   drawMonsterAbilityCardsSuccess.type,
+  infuseElement.type,
   nextRound.type
 ];
 
@@ -23,6 +26,7 @@ type ReversibleAction =
   | ReturnType<typeof addMonster>
   | ReturnType<typeof addMonsterStandee>
   | ReturnType<typeof drawMonsterAbilityCardsSuccess>
+  | ReturnType<typeof infuseElement>
   | ReturnType<typeof nextRound>;
 
 function getReverseAction(state: AppState, action: ReversibleAction): Action {
@@ -45,8 +49,11 @@ function getReverseAction(state: AppState, action: ReversibleAction): Action {
             { }
           )
       });
+    case infuseElement.type:
+      return undoInfuseElement({ element: action.element });
     case nextRound.type:
       return undoNextRound({
+        elementalInfusion: { ...state.tabletop.elementalInfusion },
         abilityCardIds: Object.values(state.tabletop.monsters.entities)
           .filter((monster): monster is MonsterSet => Boolean(monster))
           .reduce(
