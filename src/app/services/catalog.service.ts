@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom, map, merge, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Character } from 'models/character';
 import { MonsterAbilityCard } from 'models/monster-ability-card';
 import { MonsterStatCard } from 'models/monster-stat-card';
 
@@ -9,8 +10,20 @@ import { MonsterStatCard } from 'models/monster-stat-card';
   providedIn: 'root'
 })
 export class CatalogService {
+  characters: Character[] = [];
   monsters: MonsterStatCard[] = [];
   monsterAbilityCards: { [key: string]: MonsterAbilityCard[] } = { };
+
+  get characterEntities(): { [key: string]: Character } {
+    return this.characters
+      .reduce(
+        (acc, character) => ({
+          ...acc,
+          [character.key]: character
+        }),
+        { }
+      );
+  }
 
   get monsterEntities(): { [key: string]: MonsterStatCard } {
     return this.monsters
@@ -38,6 +51,14 @@ export class CatalogService {
   constructor(private http: HttpClient) { }
 
   initialize(): Promise<void> {
+    const loadCharacters$ = this.http.get<Character[]>(`${environment.basePath}/assets/data/characters.json`)
+      .pipe(
+        tap((characters) => {
+          this.characters = characters;
+        }),
+        map((): void => void(0))
+      );
+
     const loadMonsters$ = this.http.get<MonsterStatCard[]>(`${environment.basePath}/assets/data/monsters.json`)
       .pipe(
         tap((monsters) => {
@@ -54,6 +75,10 @@ export class CatalogService {
         map((): void => void(0))
       );
     
-    return lastValueFrom(merge(loadMonsters$, loadMonsterCards$));
+    return lastValueFrom(merge(
+      loadCharacters$,
+      loadMonsters$,
+      loadMonsterCards$
+    ));
   }
 }
