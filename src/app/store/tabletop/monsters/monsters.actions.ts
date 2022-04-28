@@ -22,12 +22,13 @@ export const undoAddMonsterStandee = createAction(
 );
 
 export const drawMonsterAbilityCards = createAction(
-  "[Tabletop] [Monsters] Draw Monster Ability Cards"
+  "[Tabletop] [Monsters] Draw Monster Ability Cards",
+  props<{ characterInitiatives: { [key: string]: number } }>()
 );
 
 export const drawMonsterAbilityCardsSuccess = createAction(
   "[Tabletop] [Monsters] Draw Monster Ability Cards Success",
-  props<{ abilityCardIds: { [key: string]: number } }>()
+  props<{ characterInitiatives: { [key: string]: number }, abilityCardIds: { [key: string]: number } }>()
 );
 
 export const undoDrawMonsterAbilityCards = createAction(

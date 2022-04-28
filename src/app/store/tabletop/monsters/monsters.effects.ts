@@ -13,14 +13,16 @@ export class MonstersEffects {
     .pipe(
       ofType(drawMonsterAbilityCards),
       withLatestFrom(this.store.select(selectMonsters)),
-      map(([_, monsters]) => monsters
+      map(([{ characterInitiatives }, monsters]) => ({
+        characterInitiatives,
+        abilityCardIds: monsters
         .map(({ key, drawnAbilityCardIds }) => ({
           key,
           id: this.getRandom(
             this.catalogService.monsterAbilityCards[key]
               .map((card) => card.id)
               .filter((id) => !drawnAbilityCardIds.includes(id))
-            )
+          )
         }))
         .reduce(
           (acc, { key, id }): { [key: string]: number } => ({
@@ -29,8 +31,8 @@ export class MonstersEffects {
           }),
           { }
         )
-      ),
-      map((abilityCardIds) => drawMonsterAbilityCardsSuccess({ abilityCardIds }))
+      })),
+      map(({ characterInitiatives, abilityCardIds }) => drawMonsterAbilityCardsSuccess({ characterInitiatives, abilityCardIds }))
     )
   );
 

@@ -1,5 +1,6 @@
 import { on } from '@ngrx/store';
 import { CatalogService } from 'services/catalog.service';
+import { charactersAdapter } from '../characters/characters.adapter';
 import { TabletopState } from '../tabletop.state';
 import { addMonster, addMonsterStandee, drawMonsterAbilityCardsSuccess, undoAddMonster, undoAddMonsterStandee, undoDrawMonsterAbilityCards } from './monsters.actions';
 import { monstersAdapter } from './monsters.adapter';
@@ -43,9 +44,13 @@ export function getMonstersOns(catalogService: CatalogService) {
         })
       }, state.monsters)
     })),
-    on<TabletopState, [typeof drawMonsterAbilityCardsSuccess]>(drawMonsterAbilityCardsSuccess, (state, { abilityCardIds }) => ({
+    on<TabletopState, [typeof drawMonsterAbilityCardsSuccess]>(drawMonsterAbilityCardsSuccess, (state, { characterInitiatives, abilityCardIds }) => ({
       ...state,
       step: 'actions',
+      characters: charactersAdapter.map((character) => ({
+        ...character,
+        initiative: characterInitiatives[character.key]
+      }), state.characters),
       monsters: monstersAdapter.map((monster) => ({
         ...monster,
         currentAbilityCardId: abilityCardIds[monster.key],

@@ -28,6 +28,7 @@ import { timeMachineMetaReducers } from 'store/time-machine/time-machine.meta-re
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatModule } from './mat.module';
+import { CharacterInitiativeDialogComponent } from './components/character-initiative-dialog/character-initiative-dialog.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { MatModule } from './mat.module';
     TabletopBottomComponent,
 
     AnyPipe,
-    ModifierPipe
+    ModifierPipe,
+    CharacterInitiativeDialogComponent
   ],
   imports: [
     AppRoutingModule,

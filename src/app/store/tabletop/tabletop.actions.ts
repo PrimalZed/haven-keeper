@@ -19,6 +19,7 @@ export const undoNextRound = createAction(
     "[Tabletop] Undo Next Round",
     props<{
         elementalInfusion: { [element in Element]: ElementalInfusion },
+        characterInitiatives: { [key: string]: number | null },
         abilityCardIds: { [key: string]: number | null }
     }>()
 );

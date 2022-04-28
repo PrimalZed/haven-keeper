@@ -1,4 +1,5 @@
 import { Action, ActionReducer } from '@ngrx/store';
+import { Character } from 'models/character';
 import { MonsterSet } from 'models/monster-set';
 import { AppState } from 'store/app.state';
 import { addCharacter, undoAddCharacter } from 'store/tabletop/characters/characters.actions';
@@ -61,6 +62,15 @@ function getReverseAction(state: AppState, action: ReversibleAction): Action {
     case nextRound.type:
       return undoNextRound({
         elementalInfusion: { ...state.tabletop.elementalInfusion },
+        characterInitiatives: Object.values(state.tabletop.characters.entities)
+          .filter((character): character is Character => Boolean(character))
+          .reduce(
+            (acc, character): { [key: string]: number } => ({
+              ...acc,
+              [character.key]: character.initiative
+            }),
+            { }
+          ),
         abilityCardIds: Object.values(state.tabletop.monsters.entities)
           .filter((monster): monster is MonsterSet => Boolean(monster))
           .reduce(

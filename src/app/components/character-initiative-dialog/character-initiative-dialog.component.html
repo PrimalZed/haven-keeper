@@ -1,0 +1,15 @@
+<h1 mat-dialog-title i18n>Enter Character Initiatives</h1>
+<form #characterInitiativeNgForm="ngForm" (ngSubmit)="submit(characterInitiativeNgForm.form)">
+  <mat-dialog-content>
+    <div *ngFor="let characterKey of characterKeys$ | async">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>{{ characterKey }}</mat-label>
+        <input matInput type="number" [name]="characterKey" placeholder="Initiative" i18n-placeholder="@@initiative" ngModel required min="1" max="99">
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" mat-dialog-close i18n="@@cancel">Cancel</button>
+    <button mat-raised-button type="submit" color="primary" [disabled]="!characterInitiativeNgForm.form.valid" i18n="@@finish">Finish</button>
+  </mat-dialog-actions>
+</form>

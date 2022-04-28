@@ -77,16 +77,24 @@ export function getTabletopReducer(catalogService: CatalogService) {
         'light': state.elementalInfusion['light'] === 'strong' ? 'waning' : 'inert',
         'dark': state.elementalInfusion['dark'] === 'strong' ? 'waning' : 'inert'
       },
+      characters: charactersAdapter.map((character) => ({
+        ...character,
+        initiative: null
+      }), state.characters),
       monsters: monstersAdapter.map((monster) => ({
         ...monster,
         currentAbilityCardId: null
       }), state.monsters)
     })),
-    on(undoNextRound, (state, { abilityCardIds, elementalInfusion }) => ({
+    on(undoNextRound, (state, { elementalInfusion, characterInitiatives, abilityCardIds }) => ({
       ...state,
       step: 'actions',
       round: state.round - 1,
       elementalInfusion: { ...elementalInfusion },
+      characters: charactersAdapter.map((character) => ({
+        ...character,
+        initiative: characterInitiatives[character.key]
+      }), state.characters),
       monsters: monstersAdapter.map((monster) => ({
         ...monster,
         currentAbilityCardId: abilityCardIds[monster.key]
