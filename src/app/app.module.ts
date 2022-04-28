@@ -10,6 +10,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { environment } from 'src/environments/environment';
 import { AddCardDialogComponent } from './components/add-card-dialog/add-card-dialog.component';
+import { CharacterInitiativeDialogComponent } from './components/character-initiative-dialog/character-initiative-dialog.component';
 import { CharacterComponent } from './components/character/character.component';
 import { MonsterSetComponent } from './components/monster/monster-set.component';
 import { AddStandeeDialogComponent } from './components/monster/add-standee-dialog/add-standee-dialog.component';
@@ -18,6 +19,7 @@ import { MonsterStatCardComponent } from './components/monster/monster-stat-card
 import { MonsterStandeeComponent } from './components/monster/standee/monster-standee.component';
 import { TabletopComponent } from './components/tabletop/tabletop.component';
 import { TabletopBottomComponent } from './components/tabletop-bottom/tabletop-bottom.component';
+import { GlidePositionDirective } from './directives/glide-position.directive';
 import { AnyPipe } from './pipes/any.pipe';
 import { ModifierPipe } from './pipes/modifier.pipe';
 import { CatalogService } from 'services/catalog.service';
@@ -28,7 +30,6 @@ import { timeMachineMetaReducers } from 'store/time-machine/time-machine.meta-re
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatModule } from './mat.module';
-import { CharacterInitiativeDialogComponent } from './components/character-initiative-dialog/character-initiative-dialog.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,8 @@ import { CharacterInitiativeDialogComponent } from './components/character-initi
     MonsterStatCardComponent,
     TabletopComponent,
     TabletopBottomComponent,
+
+    GlidePositionDirective,
 
     AnyPipe,
     ModifierPipe,

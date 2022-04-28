@@ -1,6 +1,6 @@
 <div class="grid">
-  <ng-container *ngFor="let card of cards$ | async; trackBy: trackCard" [ngSwitch]="card.kind">
-    <character *ngSwitchCase="'character'" [character]="card | any"></character>
-    <monster-set *ngSwitchCase="'monster'" [monster]="card | any"></monster-set>
+  <ng-container *ngFor="let card of cards$ | async; trackBy: trackCard; index as index;" [ngSwitch]="card.kind">
+    <character *ngSwitchCase="'character'" [character]="card | any" @glideInOut [glidePosition]="index"></character>
+    <monster-set *ngSwitchCase="'monster'" [monster]="card | any" @glideInOut [glidePosition]="index"></monster-set>
   </ng-container>
 </div>

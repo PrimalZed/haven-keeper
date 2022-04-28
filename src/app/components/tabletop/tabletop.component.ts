@@ -1,15 +1,25 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { animate, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { Card } from 'models/card';
+import { CatalogService } from 'services/catalog.service';
 import { AppState } from 'store/app.state';
 import { selectCards } from 'store/tabletop/cards.selector';
-import { CatalogService } from 'services/catalog.service';
 
 @Component({
   templateUrl: './tabletop.component.html',
   styleUrls: ['./tabletop.component.scss'],
+  animations: [
+    trigger(
+      'glideInOut',
+      [
+        transition(':enter', [style({ opacity: 0, transform: 'translateX(25%)' }), animate('500ms ease-out')]),
+        transition(':leave', animate('500ms ease-out', style({ opacity: 0, transform: 'translateX(25%)' }))),
+      ]
+    )
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TabletopComponent {
