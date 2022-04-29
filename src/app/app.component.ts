@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
-import { Element } from 'models/element';
+import { Element, ElementalInfusion } from 'models/element';
 import { AppState } from 'store/app.state';
 import { clearTabletop, infuseElement } from 'store/tabletop/tabletop.actions';
 import { selectElementalInfusion, selectRound } from 'store/tabletop/tabletop.selectors';
@@ -46,6 +46,10 @@ export class AppComponent {
 
   redo() {
     this.store.dispatch(redo({ length: 1 }));
+  }
+
+  trackElementalInfusion(index: number, { element }: { element: Element }) {
+    return element
   }
 
   infuseElement(element: Element) {

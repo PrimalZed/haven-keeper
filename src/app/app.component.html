@@ -18,7 +18,7 @@
     </button>
   </mat-toolbar>
   <mat-toolbar color="primary" style="justify-content: center;">
-    <ng-container *ngFor="let elementalInfusion of elementalInfusions$ | async; let last = last">
+    <ng-container *ngFor="let elementalInfusion of elementalInfusions$ | async; trackBy: trackElementalInfusion; let last = last">
       <button mat-raised-button color="accent" (click)="infuseElement(elementalInfusion.element)">
         <div>{{ elementalInfusion.element }}</div>
         <div>{{ elementalInfusion.strength }}</div>

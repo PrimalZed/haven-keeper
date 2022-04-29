@@ -1,0 +1,71 @@
+@use '@angular/material' as mat;
+
+$rust-palette: (
+ 50: #ffe3cb,
+ 100: #f6c3ae,
+ 200: #d8a08b,
+ 300: #ba7e66,
+ 400: #a3644a,
+ 500: #8c4a30,
+ 600: #80412a,
+ 700: #703521,
+ 800: #61281b,
+ 900: #501a12,
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: rgba(black, 0.87),
+   400: rgba(black, 0.87),
+   500: white,
+   600: white,
+   700: white,
+   800: white,
+   900: white
+ )
+);
+
+$glacier-palette: (
+ 50: #d7f3ff,
+ 100: #b6dcea,
+ 200: #96c1d3,
+ 300: #74a7bb,
+ 400: #5a92a9,
+ 500: #3d7f97,
+ 600: #307086,
+ 700: #215c70,
+ 800: #13495a,
+ 900: #003443,
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: rgba(black, 0.87),
+   400: rgba(black, 0.87),
+   500: white,
+   600: white,
+   700: white,
+   800: white,
+   900: white
+ )
+);
+
+// @include mat.core();
+
+$my-primary: mat.define-palette($rust-palette, 700, 900, 300, 200);
+$my-accent: mat.define-palette($glacier-palette, 700, 900, 300, 200);
+
+$my-theme: mat.define-dark-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent
+ )
+));
+
+// Emit theme-dependent styles for common features used across multiple components.
+@include mat.core-theme($my-theme);
+
+// Emit styles for MatButton based on `$my-theme`. Because the configuration
+// passed to `define-light-theme` omits typography, `button-theme` will not
+// emit any typography styles.
+@include mat.all-component-themes($my-theme);

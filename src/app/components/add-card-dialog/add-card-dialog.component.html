@@ -1,18 +1,22 @@
 <h1 mat-dialog-title>Add Character or Monster</h1>
 <div mat-dialog-content>
   <div>
-    <button *ngFor="let character of characters$ | async" [disabled]="character.used" (click)="addCharacter(character.key)">
-      <div class="list-item-avatar"></div>
-      <div class="horizontal-spacer"></div>
-      <div>{{ character.key }}</div>
+    <button *ngFor="let character of characters$ | async" mat-raised-button color="accent" [disabled]="character.used" (click)="addCharacter(character.key)">
+      <div class="list-item-wrapper">
+        <div class="list-item-avatar"></div>
+        <div class="horizontal-spacer"></div>
+        <div>{{ character.key }}</div>
+      </div>
     </button>
   </div>
   <hr>
   <div>
-    <button *ngFor="let monster of monsters$ | async" i18n="monster:{{monster.key}}" [disabled]="monster.used" (click)="addMonster(monster.key)">
-      <div class="list-item-avatar"></div>
-      <div class="horizontal-spacer"></div>
-      <div>{{ monster.name }}</div>
+    <button *ngFor="let monster of monsters$ | async" mat-raised-button color="accent" i18n="monster:{{monster.key}}" [disabled]="monster.used" (click)="addMonster(monster.key)">
+      <div class="list-item-wrapper">
+        <div class="list-item-avatar"></div>
+        <div class="horizontal-spacer"></div>
+        <div>{{ monster.name }}</div>
+      </div>
     </button>
   </div>
 </div>

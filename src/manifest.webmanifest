@@ -1,8 +1,8 @@
 {
   "name": "Haven Keeper",
   "short_name": "Haven Keeper",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#703521",
+  "background_color": "#303030",
   "display": "standalone",
   "scope": "/haven-keeer/",
   "start_url": "/haven-keeper/",

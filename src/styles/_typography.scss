@@ -60,5 +60,3 @@ h1 {
 .caption {
   @include mat.typography-level($my-typography-config, 'caption');
 }
-
-@include mat.card-typography($my-typography-config);
