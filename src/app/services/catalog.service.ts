@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { lastValueFrom, map, merge, tap } from 'rxjs';
+import { map, merge, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CharacterStatCard } from 'models/character';
 import { MonsterAbilityCard } from 'models/monster-ability-card';
@@ -50,7 +50,7 @@ export class CatalogService {
 
   constructor(private http: HttpClient) { }
 
-  initialize(): Promise<void> {
+  initialize(): Observable<void> {
     const loadCharacters$ = this.http.get<CharacterStatCard[]>(`${environment.basePath}/assets/data/characters.json`)
       .pipe(
         tap((characters) => {
@@ -75,10 +75,10 @@ export class CatalogService {
         map((): void => void(0))
       );
     
-    return lastValueFrom(merge(
+    return merge(
       loadCharacters$,
       loadMonsters$,
       loadMonsterCards$
-    ));
+    );
   }
 }
