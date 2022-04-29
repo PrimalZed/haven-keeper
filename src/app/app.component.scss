@@ -7,15 +7,30 @@
 }
 
 .top {
-  position: sticky;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.top-padding {
+  flex: 0 0 128px;
 }
 
 .bottom {
-  position: sticky;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.bottom-padding {
+  flex: 0 0 64px;
 }
 
 .container {
-  height: calc(100% - 192px);
   flex: 1 1 auto;
   @include xs {
     margin: 16px 16px;
