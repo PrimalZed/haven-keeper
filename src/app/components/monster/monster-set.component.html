@@ -11,9 +11,12 @@
     </div>
     <div class="monster-card-content">
       <ng-container [ngSwitch]="statCard.kind">
-        <monster-stat-card *ngSwitchCase="'normal'" [level]="monster.level" [statCard]="statCard | any" style="width: 100%;"></monster-stat-card>
+        <monster-stat-card *ngSwitchCase="'normal'" [level]="monster.level" [statCard]="statCard | any" style="flex-grow: 1"></monster-stat-card>
       </ng-container>
-      <monster-ability-card [id]="monster.currentAbilityCardId" style="width: 100%;"></monster-ability-card>
+      <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center;">
+        <monster-ability-card [id]="monster.currentAbilityCardId" style="flex-grow: 1;"></monster-ability-card>
+        <div>{{ abilityCardsRemaining$ | async }} <span i18n>cards remaining</span></div>
+      </div>
     </div>
     <div class="monster-card-standees">
       <monster-standee *ngFor="let standee of monster.standees" [standee]="standee"></monster-standee>

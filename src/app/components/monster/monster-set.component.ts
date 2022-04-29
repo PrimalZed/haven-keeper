@@ -32,6 +32,11 @@ export class MonsterSetComponent implements OnDestroy {
       )
     );
 
+  public abilityCardsRemaining$ = this.monster$
+    .pipe(
+      map(({ key, drawnAbilityCardIds }) => this.catalogService.monsterAbilityCards[key].length - drawnAbilityCardIds.length)
+    );
+
   private openStandeeDialogSubject: Subject<void> = new Subject();
   private openStandeeDialog$ = this.openStandeeDialogSubject
     .pipe(
