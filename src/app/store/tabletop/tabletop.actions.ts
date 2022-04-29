@@ -26,7 +26,8 @@ export const undoNextRound = createAction(
   props<{
     elementalInfusion: { [element in Element]: ElementalInfusion },
     characterInitiatives: { [key: string]: number | null },
-    abilityCardIds: { [key: string]: number | null }
+    abilityCardIds: { [key: string]: number | null },
+    drawnAbilityCardIds: { [key: string]: number[] }
   }>()
 );
 

@@ -3,6 +3,7 @@ import { ElementalInfusion } from 'models/element';
 import { CatalogService } from 'services/catalog.service';
 import { charactersAdapter } from './characters/characters.adapter';
 import { getCharactersOns } from './characters/characters.ons';
+import { drawMonsterAbilityCards } from './monsters/monsters.actions';
 import { monstersAdapter } from './monsters/monsters.adapter';
 import { getMonstersOns } from './monsters/monsters.ons';
 import {
@@ -89,10 +90,13 @@ export function getTabletopReducer(catalogService: CatalogService) {
       }), state.characters),
       monsters: monstersAdapter.map((monster) => ({
         ...monster,
-        currentAbilityCardId: null
+        currentAbilityCardId: null,
+        drawnAbilityCardIds: monster.drawnAbilityCardIds.length >= catalogService.monsterAbilityCards[monster.key].length
+          ? []
+          : monster.drawnAbilityCardIds
       }), state.monsters)
     })),
-    on(undoNextRound, (state, { elementalInfusion, characterInitiatives, abilityCardIds }) => ({
+    on(undoNextRound, (state, { elementalInfusion, characterInitiatives, abilityCardIds, drawnAbilityCardIds }) => ({
       ...state,
       step: 'actions',
       round: state.round - 1,
@@ -103,7 +107,8 @@ export function getTabletopReducer(catalogService: CatalogService) {
       }), state.characters),
       monsters: monstersAdapter.map((monster) => ({
         ...monster,
-        currentAbilityCardId: abilityCardIds[monster.key]
+        currentAbilityCardId: abilityCardIds[monster.key],
+        drawnAbilityCardIds: drawnAbilityCardIds[monster.key]
       }), state.monsters)
     }))
   );

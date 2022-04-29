@@ -83,6 +83,15 @@ function getReverseAction(state: AppState, action: ReversibleAction): Action {
               [monster.key]: monster.currentAbilityCardId
             }),
             { }
+          ),
+        drawnAbilityCardIds: Object.values(state.tabletop.monsters.entities)
+          .filter((monster): monster is MonsterSet => Boolean(monster))
+          .reduce(
+            (acc, monster): { [key: string]: number } => ({
+              ...acc,
+              [monster.key]: monster.drawnAbilityCardIds
+            }),
+            { }
           )
       });
     case clearTabletop.type:
