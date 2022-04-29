@@ -25,6 +25,10 @@ body { font-family: Nyala, Roboto, "Helvetica Neue", sans-serif; }
 
 $my-typography-config: mat.define-typography-config(
   $font-family: Nyala,
+  $headline: mat.define-typography-level(
+    $font-family: "Pirata One",
+    $font-size: 2rem
+  ),
   $title: mat.define-typography-level(
     $font-family: "Pirata One",
     $font-size: 1.5rem
@@ -40,6 +44,10 @@ $my-typography-config: mat.define-typography-config(
 );
 
 @include mat.core($my-typography-config);
+
+h1 {
+  @include mat.typography-level($my-typography-config, 'headline');
+}
 
 .title {
   @include mat.typography-level($my-typography-config, 'title');
