@@ -9,7 +9,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "pwa": "npm run build && http-server -p 8080 -c-1 dist/haven-keeper"
+    "pwa": "npm run build && http-server -p 8080 -c-1 dist"
   },
   "private": true,
   "dependencies": {

@@ -1,11 +1,11 @@
 {
-  "name": "haven-keeper",
-  "short_name": "haven-keeper",
+  "name": "Haven Keeper",
+  "short_name": "Haven Keeper",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
-  "scope": "./",
-  "start_url": "./",
+  "scope": "/haven-keeer/",
+  "start_url": "/haven-keeper/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
