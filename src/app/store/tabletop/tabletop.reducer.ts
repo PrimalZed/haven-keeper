@@ -6,9 +6,11 @@ import { getCharactersOns } from './characters/characters.ons';
 import { monstersAdapter } from './monsters/monsters.adapter';
 import { getMonstersOns } from './monsters/monsters.ons';
 import {
+  clearTabletop,
   infuseElement, 
   loadTabletop, 
   nextRound, 
+  undoClearTabletop, 
   undoInfuseElement,
   undoNextRound
 } from './tabletop.actions';
@@ -35,6 +37,8 @@ export function getTabletopReducer(catalogService: CatalogService) {
     ...getCharactersOns(catalogService),
     ...getMonstersOns(catalogService),
     on(loadTabletop, (oldState, { state: newState }) => newState),
+    on(clearTabletop, (state) => ({ ...initialTabletopState })),
+    on(undoClearTabletop, (state, { oldState }) => ({ ...oldState })),
     on(infuseElement, (state, { element }) => ({
       ...state,
       elementalInfusion: {

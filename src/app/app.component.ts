@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { Element } from 'models/element';
 import { AppState } from 'store/app.state';
-import { infuseElement } from 'store/tabletop/tabletop.actions';
+import { clearTabletop, infuseElement } from 'store/tabletop/tabletop.actions';
 import { selectElementalInfusion, selectRound } from 'store/tabletop/tabletop.selectors';
 import { redo, undo } from 'store/time-machine/time-machine.actions';
 import { selectFuture, selectPast } from 'store/time-machine/time-machine.selectors';
@@ -50,5 +50,9 @@ export class AppComponent {
 
   infuseElement(element: Element) {
     this.store.dispatch(infuseElement({ element }));
+  }
+
+  clearTabletop() {
+   this.store.dispatch(clearTabletop()); 
   }
 }

@@ -1,7 +1,10 @@
 <mat-toolbar color="primary" class="top">
-  <button mat-icon-button>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>menu</mat-icon>
   </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="clearTabletop()">Clear Tabletop</button>
+  </mat-menu>
   <span i18n>{{ title }}</span>
   <span class="horizontal-spacer"></span>
   <span><span i18n="@@round">Round</span> {{ round$ | async }}</span>

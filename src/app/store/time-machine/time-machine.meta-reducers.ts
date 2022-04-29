@@ -12,8 +12,10 @@ import {
   undoDrawMonsterAbilityCards
 } from 'store/tabletop/monsters/monsters.actions';
 import {
+  clearTabletop,
   infuseElement,
   nextRound,
+  undoClearTabletop,
   undoInfuseElement,
   undoNextRound
 } from 'store/tabletop/tabletop.actions';
@@ -24,7 +26,8 @@ const trackActionTypes: string[] = [
   addMonsterStandee.type,
   drawMonsterAbilityCardsSuccess.type,
   infuseElement.type,
-  nextRound.type
+  nextRound.type,
+  clearTabletop.type
 ];
 
 type ReversibleAction =
@@ -33,7 +36,8 @@ type ReversibleAction =
   | ReturnType<typeof addMonsterStandee>
   | ReturnType<typeof drawMonsterAbilityCardsSuccess>
   | ReturnType<typeof infuseElement>
-  | ReturnType<typeof nextRound>;
+  | ReturnType<typeof nextRound>
+  | ReturnType<typeof clearTabletop>;
 
 function getReverseAction(state: AppState, action: ReversibleAction): Action {
   switch (action.type) {
@@ -80,7 +84,9 @@ function getReverseAction(state: AppState, action: ReversibleAction): Action {
             }),
             { }
           )
-      })
+      });
+    case clearTabletop.type:
+      return undoClearTabletop({ oldState: { ...state.tabletop } });
   }
   // throw `Unexpected Action: '${action.type}`;
 }
