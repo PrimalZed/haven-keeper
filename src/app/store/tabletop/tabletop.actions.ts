@@ -1,5 +1,11 @@
 import { createAction, props } from '@ngrx/store';
 import { Element, ElementalInfusion } from 'models/element';
+import { TabletopState } from './tabletop.state';
+
+export const loadTabletop = createAction(
+    "[Tabletop] Load Tabletop",
+    props<{ state: TabletopState }>()
+);
 
 export const infuseElement = createAction(
     "[Tabletop] Infuse Element",

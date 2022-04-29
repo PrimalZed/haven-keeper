@@ -1,0 +1,2 @@
+export type StoreName =
+  | 'tabletops';

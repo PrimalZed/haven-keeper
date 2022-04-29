@@ -23,6 +23,7 @@ import { GlidePositionDirective } from './directives/glide-position.directive';
 import { AnyPipe } from './pipes/any.pipe';
 import { ModifierPipe } from './pipes/modifier.pipe';
 import { CatalogService } from 'services/catalog.service';
+import { PersistenceService } from 'services/persistence.service';
 import { APP_REDUCERS, getReducers } from 'store/app.reducers';
 import { MonstersEffects } from 'store/tabletop/monsters/monsters.effects';
 import { TimeMachineEffects } from 'store/time-machine/time-machine.effects';
@@ -72,6 +73,12 @@ import { MatModule } from './mat.module';
       provide: APP_INITIALIZER,
       useFactory: (catalogService: CatalogService) => () => catalogService.initialize(),
       deps: [CatalogService],
+      multi: true
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (persistenceService: PersistenceService) => () => persistenceService.initialize(),
+      deps: [PersistenceService],
       multi: true
     },
     {
