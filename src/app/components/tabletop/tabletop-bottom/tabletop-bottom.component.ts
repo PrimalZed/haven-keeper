@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { iif, of, Subject } from 'rxjs';
+import { of, Subject } from 'rxjs';
 import { filter, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
-import { AddCardDialogComponent } from 'components/add-card-dialog/add-card-dialog.component';
-import { CharacterInitiativeDialogComponent } from 'components/character-initiative-dialog/character-initiative-dialog.component';
+import { AddCardDialogComponent } from 'components/tabletop/add-card-dialog/add-card-dialog.component';
+import { CharacterInitiativeDialogComponent } from 'components/tabletop/character-initiative-dialog/character-initiative-dialog.component';
 import { AppState } from 'store/app.state';
 import { drawMonsterAbilityCards } from 'store/tabletop/monsters/monsters.actions';
 import { nextRound } from 'store/tabletop/tabletop.actions';
@@ -12,6 +12,7 @@ import { selectTabletopStep } from 'store/tabletop/tabletop.selectors';
 import { selectCharacterKeys } from 'store/tabletop/characters/characters.selectors';
 
 @Component({
+  selector: 'tabletop-bottom',
   templateUrl: './tabletop-bottom.component.html',
   styleUrls: ['./tabletop-bottom.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

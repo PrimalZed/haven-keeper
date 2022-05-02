@@ -9,16 +9,16 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
 import { environment } from 'src/environments/environment';
-import { AddCardDialogComponent } from './components/add-card-dialog/add-card-dialog.component';
-import { CharacterInitiativeDialogComponent } from './components/character-initiative-dialog/character-initiative-dialog.component';
-import { CharacterComponent } from './components/character/character.component';
-import { MonsterSetComponent } from './components/monster/monster-set.component';
-import { AddStandeeDialogComponent } from './components/monster/add-standee-dialog/add-standee-dialog.component';
-import { MonsterAbilityCardComponent } from './components/monster/monster-ability-card/monster-ability-card.component';
-import { MonsterStatCardComponent } from './components/monster/monster-stat-card/monster-stat-card.component';
-import { MonsterStandeeComponent } from './components/monster/standee/monster-standee.component';
 import { TabletopComponent } from './components/tabletop/tabletop.component';
-import { TabletopBottomComponent } from './components/tabletop-bottom/tabletop-bottom.component';
+import { AddCardDialogComponent } from './components/tabletop/add-card-dialog/add-card-dialog.component';
+import { CharacterInitiativeDialogComponent } from './components/tabletop/character-initiative-dialog/character-initiative-dialog.component';
+import { CharacterComponent } from './components/tabletop/character/character.component';
+import { MonsterSetComponent } from './components/tabletop/monster/monster-set.component';
+import { AddStandeeDialogComponent } from './components/tabletop/monster/add-standee-dialog/add-standee-dialog.component';
+import { MonsterAbilityCardComponent } from './components/tabletop/monster/monster-ability-card/monster-ability-card.component';
+import { MonsterStatCardComponent } from './components/tabletop/monster/monster-stat-card/monster-stat-card.component';
+import { MonsterStandeeComponent } from './components/tabletop/monster/standee/monster-standee.component';
+import { TabletopBottomComponent } from './components/tabletop/tabletop-bottom/tabletop-bottom.component';
 import { GlidePositionDirective } from './directives/glide-position.directive';
 import { AnyPipe } from './pipes/any.pipe';
 import { ModifierPipe } from './pipes/modifier.pipe';
@@ -31,13 +31,13 @@ import { timeMachineMetaReducers } from 'store/time-machine/time-machine.meta-re
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatModule } from './mat.module';
-
 @NgModule({
   declarations: [
     AddCardDialogComponent,
     AddStandeeDialogComponent,
     AppComponent,
     CharacterComponent,
+    CharacterInitiativeDialogComponent,
     MonsterAbilityCardComponent,
     MonsterSetComponent,
     MonsterStandeeComponent,
@@ -48,8 +48,7 @@ import { MatModule } from './mat.module';
     GlidePositionDirective,
 
     AnyPipe,
-    ModifierPipe,
-    CharacterInitiativeDialogComponent
+    ModifierPipe
   ],
   imports: [
     AppRoutingModule,
