@@ -1,0 +1,11 @@
+<div class="grid">
+  <ng-container *ngFor="let card of cards$ | async; trackBy: trackCard; index as index;" [ngSwitch]="card.kind">
+    <character *ngSwitchCase="'character'" [character]="card | any" @glideInOut [glidePosition]="index"></character>
+    <monster-set *ngSwitchCase="'monster'" [monster]="card | any" @glideInOut [glidePosition]="index"></monster-set>
+  </ng-container>
+</div>
+<h1 *ngIf="!(cards$ | async)?.length" style="text-align: center;">
+  <div><mat-icon>add</mat-icon> Add Characters and Monsters</div>
+  <div><mat-icon>new_releases</mat-icon> Enter Initiative and Draw Monster Ability Cards</div>
+  <div><mat-icon>output</mat-icon> Next Round</div>
+</h1>

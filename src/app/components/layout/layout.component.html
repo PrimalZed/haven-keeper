@@ -1,1 +1,12 @@
-<p>layout works!</p>
+<div class="top">
+  <ng-content select="[top-bar]"></ng-content>
+</div>
+<div class="top-spacer"></div>
+<div class="container">
+  <ng-content></ng-content>
+  <router-outlet></router-outlet>
+</div>
+<div class="bottom-spacer"></div>
+<div class="bottom">
+  <ng-content select="[bottom-bar]"></ng-content>
+</div>

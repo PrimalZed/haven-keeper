@@ -9,7 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
 import { environment } from 'src/environments/environment';
-import { TabletopComponent } from './components/tabletop/tabletop.component';
+import { LayoutComponent } from 'components/layout/layout.component';
 import { AddCardDialogComponent } from './components/tabletop/add-card-dialog/add-card-dialog.component';
 import { CharacterInitiativeDialogComponent } from './components/tabletop/character-initiative-dialog/character-initiative-dialog.component';
 import { CharacterComponent } from './components/tabletop/character/character.component';
@@ -19,6 +19,9 @@ import { MonsterAbilityCardComponent } from './components/tabletop/monster/monst
 import { MonsterStatCardComponent } from './components/tabletop/monster/monster-stat-card/monster-stat-card.component';
 import { MonsterStandeeComponent } from './components/tabletop/monster/standee/monster-standee.component';
 import { TabletopBottomComponent } from './components/tabletop/tabletop-bottom/tabletop-bottom.component';
+import { TabletopTopComponent } from './components/tabletop/tabletop-top/tabletop-top.component';
+import { TabletopComponent } from './components/tabletop/tabletop.component';
+import { TabletopMainComponent } from './components/tabletop/tabletop-main.component';
 import { GlidePositionDirective } from './directives/glide-position.directive';
 import { AnyPipe } from './pipes/any.pipe';
 import { ModifierPipe } from './pipes/modifier.pipe';
@@ -38,17 +41,21 @@ import { MatModule } from './mat.module';
     AppComponent,
     CharacterComponent,
     CharacterInitiativeDialogComponent,
+    LayoutComponent,
     MonsterAbilityCardComponent,
     MonsterSetComponent,
     MonsterStandeeComponent,
     MonsterStatCardComponent,
     TabletopComponent,
     TabletopBottomComponent,
+    TabletopMainComponent,
+    TabletopTopComponent,
 
     GlidePositionDirective,
 
     AnyPipe,
-    ModifierPipe
+    ModifierPipe,
+    TabletopTopComponent
   ],
   imports: [
     AppRoutingModule,

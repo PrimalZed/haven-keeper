@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="clearTabletop()">Clear Tabletop</button>
+  </mat-menu>
+  <span i18n>{{ title }}</span>
+  <span class="horizontal-spacer"></span>
+  <span><span i18n="@@round">Round</span> {{ round$ | async }}</span>
+  <span style="flex: 1 1 auto"></span>
+  <button mat-icon-button [disabled]="!(hasPast$ | async)" (click)="undo()">
+    <mat-icon>undo</mat-icon>
+  </button>
+  <button mat-icon-button [disabled]="!(hasFuture$ | async)" (click)="redo()">
+    <mat-icon>redo</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-toolbar color="primary" style="justify-content: center;">
+  <ng-container *ngFor="let elementalInfusion of elementalInfusions$ | async; trackBy: trackElementalInfusion; let last = last">
+    <button mat-raised-button color="accent" (click)="infuseElement(elementalInfusion.element)">
+      <div>{{ elementalInfusion.element }}</div>
+      <div>{{ elementalInfusion.strength }}</div>
+    </button>
+    <div *ngIf="!last" class="horizontal-spacer"></div>
+  </ng-container>
+</mat-toolbar>
