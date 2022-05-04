@@ -11,9 +11,12 @@ import { StoreModule } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
 import { LayoutComponent } from 'components/layout/layout.component';
 import { P2pComponent } from './components/p2p/p2p.component';
+import { P2pBottomComponent } from './components/p2p/p2p-bottom/p2p-bottom.component';
+import { P2pGuestComponent } from './components/p2p/p2p-guest/p2p-guest.component';
 import { P2pMainComponent } from './components/p2p/p2p-main.component';
 import { P2pHostComponent } from './components/p2p/p2p-host/p2p-host.component';
-import { P2pGuestComponent } from './components/p2p/p2p-guest/p2p-guest.component';
+import { P2pHostConnectionComponent } from 'components/p2p/p2p-host/p2p-host-connection.component';
+import { P2pTopComponent } from './components/p2p/p2p-top/p2p-top.component';
 import { AddCardDialogComponent } from './components/tabletop/add-card-dialog/add-card-dialog.component';
 import { CharacterInitiativeDialogComponent } from './components/tabletop/character-initiative-dialog/character-initiative-dialog.component';
 import { CharacterComponent } from './components/tabletop/character/character.component';
@@ -54,9 +57,12 @@ import { MatModule } from './mat.module';
     MonsterStandeeComponent,
     MonsterStatCardComponent,
     P2pComponent,
+    P2pBottomComponent,
     P2pMainComponent,
     P2pHostComponent,
+    P2pHostConnectionComponent,
     P2pGuestComponent,
+    P2pTopComponent,
     TabletopComponent,
     TabletopBottomComponent,
     TabletopMainComponent,

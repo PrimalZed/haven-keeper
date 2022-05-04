@@ -1,9 +1,8 @@
-<p>p2p works!</p>
 <ng-container [ngSwitch]="role$ | async">
   <div *ngSwitchCase="null">
     <h2>Choose Role</h2>
-    <button (click)="chooseRole('host')">Host</button>
-    <button (click)="chooseRole('guest')">Guest</button>
+    <button (click)="chooseRole('host')" i18n="@@p2p-host">Host</button>
+    <button (click)="chooseRole('guest')" i18n="@@p2p-guest">Guest</button>
   </div>
   <p2p-host *ngSwitchCase="'host'"></p2p-host>
   <p2p-guest *ngSwitchCase="'guest'"></p2p-guest>

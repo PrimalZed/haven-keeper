@@ -1,8 +1,23 @@
-<form #ngForm="ngForm" (ngSubmit)="receiveHostOffer(ngForm.form)">
-  <textarea name="offer" ngModel required></textarea>
-  <div>
-    <button type="submit">Submit</button>
-  </div>
-</form>
-
-<textarea *ngIf="answer$ | async as answer" [ngModel]="answer" [ngModelOptions]="{ standalone: true }"></textarea>
+<div class="mat-card connection-card">
+  <div class="title" style="margin-bottom: 8px;">Host Connection</div>
+  <form #ngForm="ngForm" (ngSubmit)="receiveHostOffer(ngForm.form)">
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>Offer Code</mat-label>
+      <textarea matInput name="offer" ngModel required placeholder="Paste Offer Code Here" rows="5"></textarea>
+    </mat-form-field>
+    <div style="display: flex; justify-content: end;">
+      <button mat-button type="submit" color="accent">Submit</button>
+    </div>
+  </form>
+  <mat-tab-group *ngIf="answer$ | async as answer">
+    <mat-tab label="Text">
+      <mat-form-field appearance="fill" style="width: 100%;" (click)="copyAnswerCode(answer)">
+        <mat-label>Answer Code</mat-label>
+        <textarea matInput [ngModel]="answer" [ngModelOptions]="{ standalone: true }" disabled rows="5"></textarea>
+      </mat-form-field>
+      <div *ngIf="showCopied$ | async" class="overlay" @fadeOut>
+        <span class="mat-card copied">Copied!</span>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,7 @@
+<ng-container [ngSwitch]="role$ | async">
+  <mat-toolbar *ngSwitchCase="'host'" color="primary" style="justify-content: center;">
+    <button mat-icon-button title="Add Guest Connection" i18n-title (click)="addGuest()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-toolbar>
+</ng-container>

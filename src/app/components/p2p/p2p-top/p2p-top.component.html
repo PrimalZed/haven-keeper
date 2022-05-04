@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <a mat-icon-button routerLink="">
+    <mat-icon>arrow_back</mat-icon>
+  </a>
+  <span i18n>Peer to Peer</span>
+  <span class="horizontal-spacer"></span>
+  <ng-container [ngSwitch]="role$ | async">
+    <span *ngSwitchCase="'host'" i18n="@@p2p-host">Host</span>
+    <span *ngSwitchCase="'guest'" i18n="@@p2p-guest">Guest</span>
+  </ng-container>
+</mat-toolbar>

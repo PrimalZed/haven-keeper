@@ -1,0 +1,37 @@
+<form #ngForm="ngForm" class="mat-card connection-card" (ngSubmit)="receiveGuestAnswer(ngForm.form)">
+  <div class="title">
+    <mat-form-field style="width: 250px;">
+      <input matInput placeholder="Connection {{ index + 1 }}" [ngModel]="guest.name" (ngModelChange)="changeName($event)" [ngModelOptions]="{ standalone: true }">
+    </mat-form-field>
+  </div>
+  <div [ngSwitch]="guest.state" style="flex-grow: 1;">
+    <ng-container *ngSwitchCase="'pending'">
+      <mat-tab-group *ngIf="guest | any as pendingGuest">
+        <mat-tab label="Text">
+          <mat-form-field appearance="fill" style="width: 100%;" (click)="copyOfferCode(pendingGuest.offer)">
+            <mat-label>Offer Code</mat-label>
+            <textarea matInput [ngModel]="pendingGuest.offer" [ngModelOptions]="{ standalone: true }" disabled rows="5"></textarea>
+          </mat-form-field>
+          <div *ngIf="showCopied$ | async" class="overlay" @fadeOut>
+            <span class="mat-card copied">Copied!</span>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+      <div>
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Answer Code</mat-label>
+          <textarea matInput name="answer" ngModel required placeholder="Paste Answer Code Here" rows="5"></textarea>
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <div *ngSwitchCase="'stable'" class="title">Stable</div>
+  </div>
+  <div style="display: flex; justify-content: end;">
+    <button mat-button type="button" color="warn" (click)="remove()">
+      Remove
+    </button>
+    <button mat-button *ngIf="guest.state === 'pending'" type="submit" color="accent">
+      Submit
+    </button>
+  </div>
+</form>
