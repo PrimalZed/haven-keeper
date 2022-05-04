@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Element } from 'models/element';
 import { map } from 'rxjs/operators';
+import { TabletopService } from 'services/tabletop.service';
 import { AppState } from 'store/app.state';
 import { clearTabletop, infuseElement } from 'store/tabletop/tabletop.actions';
 import { selectElementalInfusion, selectRound } from 'store/tabletop/tabletop.selectors';
@@ -36,14 +37,14 @@ export class TabletopTopComponent {
       map((future) => Boolean(future.length))
     );
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>, private tabletopService: TabletopService) { }
 
   undo() {
-    this.store.dispatch(undo({ length: 1 }));
+    this.tabletopService.dispatch(undo({ length: 1 }));
   }
 
   redo() {
-    this.store.dispatch(redo({ length: 1 }));
+    this.tabletopService.dispatch(redo({ length: 1 }));
   }
 
   trackElementalInfusion(index: number, { element }: { element: Element }) {
@@ -51,10 +52,10 @@ export class TabletopTopComponent {
   }
 
   infuseElement(element: Element) {
-    this.store.dispatch(infuseElement({ element }));
+    this.tabletopService.dispatch(infuseElement({ element }));
   }
 
   clearTabletop() {
-   this.store.dispatch(clearTabletop()); 
+   this.tabletopService.dispatch(clearTabletop()); 
   }
 }

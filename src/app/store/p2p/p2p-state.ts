@@ -9,7 +9,8 @@ export interface HostP2pState {
 
 export interface GuestP2pState {
   role: 'guest';
-  hostConnection: RTCPeerConnection | null;
+  connection: RTCPeerConnection | null;
+  channel: RTCDataChannel | null;
 }
 
 export type P2pState =

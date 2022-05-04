@@ -5,6 +5,7 @@ import { of, Subject } from 'rxjs';
 import { filter, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import { AddCardDialogComponent } from 'components/tabletop/add-card-dialog/add-card-dialog.component';
 import { CharacterInitiativeDialogComponent } from 'components/tabletop/character-initiative-dialog/character-initiative-dialog.component';
+import { TabletopService } from 'services/tabletop.service';
 import { AppState } from 'store/app.state';
 import { drawMonsterAbilityCards } from 'store/tabletop/monsters/monsters.actions';
 import { nextRound } from 'store/tabletop/tabletop.actions';
@@ -41,7 +42,7 @@ export class TabletopBottomComponent implements OnDestroy {
         : of<{ [key: string]: number }>({ })
       ),
       tap((characterInitiatives) => {
-        this.store.dispatch(drawMonsterAbilityCards({ characterInitiatives }));
+        this.tabletopService.dispatch(drawMonsterAbilityCards({ characterInitiatives }));
       })
     );
 
@@ -49,7 +50,8 @@ export class TabletopBottomComponent implements OnDestroy {
 
   constructor(
     private dialog: MatDialog,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private tabletopService: TabletopService
   ) { }
 
   openAddCardDialog() {

@@ -31,6 +31,7 @@ import { AnyPipe } from './pipes/any.pipe';
 import { ModifierPipe } from './pipes/modifier.pipe';
 import { CatalogService } from 'services/catalog.service';
 import { PersistenceService } from 'services/persistence.service';
+import { TabletopService } from 'services/tabletop.service';
 import { APP_REDUCERS, getReducers } from 'store/app.reducers';
 import { P2pEffects } from 'store/p2p/p2p.effects';
 import { MonstersEffects } from 'store/tabletop/monsters/monsters.effects';
@@ -94,6 +95,12 @@ import { MatModule } from './mat.module';
       provide: APP_INITIALIZER,
       useFactory: (persistenceService: PersistenceService) => () => persistenceService.initialize(),
       deps: [PersistenceService],
+      multi: true
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (tabletopService: TabletopService) => () => tabletopService.initialize(),
+      deps: [TabletopService],
       multi: true
     },
     {

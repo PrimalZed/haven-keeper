@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { CatalogService } from 'services/catalog.service';
+import { TabletopService } from 'services/tabletop.service';
 import { AppState } from 'store/app.state';
 import { addCharacter } from 'store/tabletop/characters/characters.actions';
 import { selectCharacterKeys } from 'store/tabletop/characters/characters.selectors';
@@ -38,16 +39,17 @@ export class AddCardDialogComponent {
   constructor(
     private catalogService: CatalogService,
     public dialogRef: MatDialogRef<AddCardDialogComponent>,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private tabletopService: TabletopService
   ) { }
 
   addCharacter(key: string) {
-    this.store.dispatch(addCharacter({ key, level: 1 }));
+    this.tabletopService.dispatch(addCharacter({ key, level: 1 }));
     this.dialogRef.close();
   }
 
   addMonster(key: string) {
-    this.store.dispatch(addMonster({ key, level: 0 }));
+    this.tabletopService.dispatch(addMonster({ key, level: 0 }));
     this.dialogRef.close();
   }
 }

@@ -10,3 +10,8 @@ export const undoAddCharacter = createAction(
   "[Tabletop] [Characters] Undo Add Character",
   props<{ key: string }>()
 );
+
+export const CharactersActions = [
+  addCharacter,
+  undoAddCharacter
+];

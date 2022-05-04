@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { P2pState } from './p2p-state';
-import { chooseRole, receiveHostOfferSuccess, startGuestConnectionSuccess } from './p2p.actions';
+import { chooseRole, guestChannelSuccess, receiveHostOfferSuccess, startGuestConnectionSuccess } from './p2p.actions';
 
 const initialP2PState: P2pState = {
   role: null
@@ -18,7 +18,8 @@ export const p2pReducer = createReducer<P2pState>(
       case 'guest':
         return {
           role: 'guest',
-          hostConnection: null
+          connection: null,
+          channel: null
         }
     }
   }),
@@ -28,9 +29,15 @@ export const p2pReducer = createReducer<P2pState>(
       ? { guestConnectionSets:  [...state.guestConnectionSets, { connection, channel }] }
       : { }
   })),
-  on(receiveHostOfferSuccess, (state, { connection, answer }) => ({
+  on(receiveHostOfferSuccess, (state, { connection }) => ({
     role: 'guest',
-    hostConnection: connection,
-    answer
+    connection: connection,
+    channel: null
+  })),
+  on(guestChannelSuccess, (state, { channel }) => ({
+    ...state,
+    ...state.role === 'guest'
+      ? { channel }
+      : { }
   }))
 );

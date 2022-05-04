@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
+import { TabletopService } from 'services/tabletop.service';
 import { AppState } from 'store/app.state';
 import { addMonsterStandee } from 'store/tabletop/monsters/monsters.actions';
 import { selectMonsterEntities } from 'store/tabletop/monsters/monsters.selectors';
@@ -31,7 +32,8 @@ export class AddStandeeDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<AddStandeeDialogComponent>,
     @Inject(MAT_DIALOG_DATA) private data: { key: string },
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private tabletopService: TabletopService
   ) { }
 
   submit(form: FormGroup) {
@@ -39,7 +41,7 @@ export class AddStandeeDialogComponent {
       return;
     }
 
-    this.store.dispatch(addMonsterStandee({
+    this.tabletopService.dispatch(addMonsterStandee({
       key: this.data.key,
       ...form.value
     }));

@@ -44,5 +44,10 @@ export const selectGuestP2pState = createSelector(
 
 export const selectGuestAnswer = createSelector(
   selectGuestP2pState,
-  (state) => state?.hostConnection?.currentLocalDescription?.sdp
+  (state) => state?.connection?.currentLocalDescription?.sdp
+);
+
+export const selectGuestChannel = createSelector(
+  selectGuestP2pState,
+  (state) => state?.channel
 );

@@ -26,9 +26,10 @@ export const receiveHostOffer = createAction(
 
 export const receiveHostOfferSuccess = createAction(
   '[P2P] Receive Host Offer Success',
-  props<{ connection: RTCPeerConnection, answer: string }>()
+  props<{ connection: RTCPeerConnection }>()
 );
 
-export const guestIceSuccess = createAction(
-  '[P2P] Guest ICE Success'
+export const guestChannelSuccess = createAction(
+  '[P2P] Guest Channel Success',
+  props<{ channel: RTCDataChannel }>()
 );

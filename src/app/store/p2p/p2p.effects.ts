@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { concat, from, fromEvent } from 'rxjs';
-import { filter, map, mergeMap, switchMap, take, takeUntil, tap, withLatestFrom } from 'rxjs/operators';
+import { filter, map, mergeMap, switchMap, take, tap, withLatestFrom } from 'rxjs/operators';
 import { AppState } from 'store/app.state';
-import { loadTabletop } from 'store/tabletop/tabletop.actions';
+import { loadTabletop, TabletopActions } from 'store/tabletop/tabletop.actions';
 import { selectTabletopState } from 'store/tabletop/tabletop.selectors';
 import {
+  guestChannelSuccess,
   receiveGuestAnswer,
   receiveHostOffer,
   receiveHostOfferSuccess,
@@ -70,26 +71,7 @@ export class P2pEffects {
           ),
         dataChannel$: fromEvent<RTCDataChannelEvent>(connection, 'datachannel')
           .pipe(
-            tap((channelEvent) => {
-              channelEvent.channel.onopen = () => {
-                console.log(`data channel ${channelEvent.channel.label} opened`);
-              };
-            }),
-            switchMap((channelEvent) => {
-              const channelClose$ = fromEvent(channelEvent.channel, 'close')
-                .pipe(
-                  tap(() => {
-                    console.log(`data channel ${channelEvent.channel.label} closed`);
-                  }),
-                  take(1)
-                );
-
-              return fromEvent<MessageEvent<string>>(channelEvent.channel, 'message')
-                .pipe(
-                  takeUntil(channelClose$),
-                  map((messageEvent) => JSON.parse(messageEvent.data))
-                );
-            })
+            map((channelEvent) => guestChannelSuccess({ channel: channelEvent.channel }))
           )
       })),
       switchMap(({ connection, offer, ice$, dataChannel$ }) => concat(
@@ -99,7 +81,7 @@ export class P2pEffects {
             switchMap((answer) => connection.setLocalDescription(answer)),
             switchMap(() => ice$),
             map(() => connection.currentLocalDescription?.sdp as string),
-            map((answer) => receiveHostOfferSuccess({ connection, answer }))
+            map((answer) => receiveHostOfferSuccess({ connection }))
         ),
         dataChannel$
       ))
@@ -123,6 +105,29 @@ export class P2pEffects {
           })
         )
       )
+    ),
+    { dispatch: false }
+  );
+
+  propagateToGuests$ = createEffect(
+    () => this.actions$.pipe(
+      ofType(...TabletopActions),
+      map((action) => JSON.stringify(action)),
+      withLatestFrom(this.store.select(selectHostGuestConnections)),
+      map(([actionJson, connections]) => ({
+        actionJson,
+        channels: connections
+          .map((connection) => connection.channel)
+          .filter((channel) => channel.readyState === 'open')
+      })),
+      switchMap(({ actionJson, channels }) => from(channels)
+        .pipe(
+          map((channel) => ({ actionJson, channel }))
+        )
+      ),
+      tap(({ actionJson, channel }) => {
+        channel.send(actionJson);
+      })
     ),
     { dispatch: false }
   );
