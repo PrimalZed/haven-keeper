@@ -1,0 +1,18 @@
+<div *ngFor="let guest of guests$ | async; let index = index" [ngSwitch]="guest.state">
+  <ng-container *ngSwitchCase="'pending'">
+    <textarea [ngModel]="(guest | any).offer" [ngModelOptions]="{ standalone: true }" disabled></textarea>
+  
+    <form #ngForm="ngForm" (ngSubmit)="receiveGuestAnswer(index, ngForm.form)">
+      <textarea name="answer" ngModel required></textarea>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </ng-container>
+  <ng-container *ngSwitchCase="'stable'">Stable Connection</ng-container>
+</div>
+<div>
+  <button (click)="addGuest()">Add Guest</button>
+</div>
+
+

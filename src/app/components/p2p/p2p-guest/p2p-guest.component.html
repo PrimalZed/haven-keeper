@@ -1,0 +1,8 @@
+<form #ngForm="ngForm" (ngSubmit)="receiveHostOffer(ngForm.form)">
+  <textarea name="offer" ngModel required></textarea>
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
+<textarea *ngIf="answer$ | async as answer" [ngModel]="answer" [ngModelOptions]="{ standalone: true }"></textarea>

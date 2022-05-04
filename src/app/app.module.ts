@@ -10,6 +10,10 @@ import { StoreModule } from '@ngrx/store';
 
 import { environment } from 'src/environments/environment';
 import { LayoutComponent } from 'components/layout/layout.component';
+import { P2pComponent } from './components/p2p/p2p.component';
+import { P2pMainComponent } from './components/p2p/p2p-main.component';
+import { P2pHostComponent } from './components/p2p/p2p-host/p2p-host.component';
+import { P2pGuestComponent } from './components/p2p/p2p-guest/p2p-guest.component';
 import { AddCardDialogComponent } from './components/tabletop/add-card-dialog/add-card-dialog.component';
 import { CharacterInitiativeDialogComponent } from './components/tabletop/character-initiative-dialog/character-initiative-dialog.component';
 import { CharacterComponent } from './components/tabletop/character/character.component';
@@ -28,12 +32,14 @@ import { ModifierPipe } from './pipes/modifier.pipe';
 import { CatalogService } from 'services/catalog.service';
 import { PersistenceService } from 'services/persistence.service';
 import { APP_REDUCERS, getReducers } from 'store/app.reducers';
+import { P2pEffects } from 'store/p2p/p2p.effects';
 import { MonstersEffects } from 'store/tabletop/monsters/monsters.effects';
 import { TimeMachineEffects } from 'store/time-machine/time-machine.effects';
 import { timeMachineMetaReducers } from 'store/time-machine/time-machine.meta-reducers';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatModule } from './mat.module';
+
 @NgModule({
   declarations: [
     AddCardDialogComponent,
@@ -46,6 +52,10 @@ import { MatModule } from './mat.module';
     MonsterSetComponent,
     MonsterStandeeComponent,
     MonsterStatCardComponent,
+    P2pComponent,
+    P2pMainComponent,
+    P2pHostComponent,
+    P2pGuestComponent,
     TabletopComponent,
     TabletopBottomComponent,
     TabletopMainComponent,
@@ -54,14 +64,13 @@ import { MatModule } from './mat.module';
     GlidePositionDirective,
 
     AnyPipe,
-    ModifierPipe,
-    TabletopTopComponent
+    ModifierPipe
   ],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
-    EffectsModule.forRoot([MonstersEffects, TimeMachineEffects]),
+    EffectsModule.forRoot([MonstersEffects, P2pEffects, TimeMachineEffects]),
     FormsModule,
     HttpClientModule,
     LayoutModule,
@@ -72,7 +81,7 @@ import { MatModule } from './mat.module';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    StoreModule.forRoot(APP_REDUCERS, { metaReducers: [...timeMachineMetaReducers]})
+    StoreModule.forRoot(APP_REDUCERS, { metaReducers: [...timeMachineMetaReducers], runtimeChecks: { strictStateImmutability: false, strictActionImmutability: false }})
   ],
   providers: [
     {

@@ -4,8 +4,9 @@ import { IDBPDatabase, IDBPObjectStore, IDBPTransaction, openDB } from 'idb';
 import { PersistenceDbSchema } from 'persistence/persistence.db-schema';
 import { StoreName } from 'persistence/store-name';
 import { from } from 'rxjs';
-import { distinct, filter, skip, switchMap, tap } from 'rxjs/operators';
+import { distinct, filter, map, skip, switchMap, tap } from 'rxjs/operators';
 import { AppState } from 'store/app.state';
+import { selectP2pRole } from 'store/p2p/p2p.selectors';
 import { loadTabletop } from 'store/tabletop/tabletop.actions';
 import { selectTabletopState } from 'store/tabletop/tabletop.selectors';
 import { TabletopState } from 'store/tabletop/tabletop.state';
@@ -14,12 +15,17 @@ import { TabletopState } from 'store/tabletop/tabletop.state';
 export abstract class PersistenceService implements OnDestroy {
   private dbPromise = openDB<PersistenceDbSchema>('haven-keeper', 1, { upgrade: this.upgrade });
 
-  private save$ = this.store.select(selectTabletopState)
+  private save$ = this.store.select((state) => ({
+      tabletopState: selectTabletopState(state),
+      p2pRole: selectP2pRole(state)
+    }))
     .pipe(
       skip(1),
+      filter(({ p2pRole }) => p2pRole !== 'guest'),
+      map(({ tabletopState }) => tabletopState),
       distinct(),
-      switchMap((state) => this.dbPromise
-        .then((db) => db.put('tabletops', state, 0))
+      switchMap((tabletopState) => this.dbPromise
+        .then((db) => db.put('tabletops', tabletopState, 0))
       )
     );
   
