@@ -7,5 +7,6 @@
   <ng-container [ngSwitch]="role$ | async">
     <span *ngSwitchCase="'host'" i18n="@@p2p-host">Host</span>
     <span *ngSwitchCase="'guest'" i18n="@@p2p-guest">Guest</span>
+    <span *ngSwitchDefault i18n>Select Role</span>
   </ng-container>
 </mat-toolbar>
