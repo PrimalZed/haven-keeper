@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { merge, of, Subject, timer } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { AppState } from 'store/app.state';
-import { receiveGuestAnswer } from 'store/p2p/p2p.actions';
+import { closeConnection, receiveGuestAnswer } from 'store/p2p/p2p.actions';
 
 @Component({
   selector: 'p2p-host-connection',
@@ -55,6 +55,6 @@ export class P2pHostConnectionComponent {
   }
 
   remove() {
-    alert("Not Yet Implemented");
+    this.store.dispatch(closeConnection({ index: this.index }));
   }
 }

@@ -3,5 +3,13 @@
     <button mat-icon-button title="Add Guest Connection" i18n-title (click)="addGuest()">
       <mat-icon>add</mat-icon>
     </button>
+    <button mat-icon-button title="Leave Peer-to-Peer" i18n-title="@@p2p-leave" (click)="leave()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-toolbar *ngSwitchCase="'guest'" color="primary" style="justify-content: center;">
+    <button mat-icon-button title="Leave Peer-to-Peer" i18n-title="@@p2p-leave" (click)="leave()">
+      <mat-icon>logout</mat-icon>
+    </button>
   </mat-toolbar>
 </ng-container>

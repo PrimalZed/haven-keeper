@@ -19,6 +19,11 @@ export const receiveGuestAnswer = createAction(
   props<{ index: number, answer: string }>()
 );
 
+export const guestDisconnected = createAction(
+  '[P2P] Guest Disconnected',
+  props<{ remoteDescription: string }>()
+);
+
 export const receiveHostOffer = createAction(
   '[P2P] Receive Host Offer',
   props<{ offer: string }>()
@@ -32,4 +37,26 @@ export const receiveHostOfferSuccess = createAction(
 export const guestChannelSuccess = createAction(
   '[P2P] Guest Channel Success',
   props<{ channel: RTCDataChannel }>()
+);
+
+export const hostDisconnected = createAction(
+  '[P2P] Host Disconnected'
+);
+
+export const closeConnection = createAction(
+  '[P2P] Close Connection',
+  props<{ index: number }>()
+);
+
+export const closeConnectionSuccess = createAction(
+  '[P2P] Close Connection Success',
+  props<{ index: number }>()
+);
+
+export const leave = createAction(
+  '[P2P] Leave'
+);
+
+export const closeAllConnectionsSuccess = createAction(
+  '[P2P] Close All Connections Success'
 );

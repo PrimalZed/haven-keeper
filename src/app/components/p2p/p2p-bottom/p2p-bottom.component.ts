@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'store/app.state';
-import { startGuestConnection } from 'store/p2p/p2p.actions';
+import { leave, startGuestConnection } from 'store/p2p/p2p.actions';
 import { selectP2pRole } from 'store/p2p/p2p.selectors';
 
 @Component({
@@ -16,5 +16,9 @@ export class P2pBottomComponent {
 
   addGuest() {
     this.store.dispatch(startGuestConnection());
+  }
+
+  leave() {
+    this.store.dispatch(leave());
   }
 }
