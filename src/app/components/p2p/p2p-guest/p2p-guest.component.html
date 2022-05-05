@@ -6,7 +6,9 @@
       <textarea matInput name="offer" ngModel required placeholder="Paste Offer Code Here" rows="5"></textarea>
     </mat-form-field>
     <div style="display: flex; justify-content: end;">
-      <button mat-button type="submit" color="accent">Submit</button>
+      <button mat-icon-button type="submit" color="accent">
+        <mat-icon>done</mat-icon>
+      </button>
     </div>
   </form>
   <mat-tab-group *ngIf="answer$ | async as answer">

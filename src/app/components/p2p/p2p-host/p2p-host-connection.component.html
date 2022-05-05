@@ -27,11 +27,11 @@
     <div *ngSwitchCase="'stable'" class="title">Stable</div>
   </div>
   <div style="display: flex; justify-content: end;">
-    <button mat-button type="button" color="warn" (click)="remove()">
-      Remove
+    <button mat-icon-button type="button" color="warn" (click)="remove()">
+      <mat-icon>delete</mat-icon>
     </button>
-    <button mat-button *ngIf="guest.state === 'pending'" type="submit" color="accent">
-      Submit
+    <button mat-icon-button *ngIf="guest.state === 'pending'" type="submit" color="accent">
+      <mat-icon>done</mat-icon>
     </button>
   </div>
 </form>
