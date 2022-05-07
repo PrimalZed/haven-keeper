@@ -3,22 +3,26 @@
 @font-face {
   font-family: Hightower;
   src: url(../assets/fonts/htowert.ttf) format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: Hightower;
   src: url(../assets/fonts/htowerti.ttf) format("truetype");
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
   font-family: Nyala;
   src: url(../assets/fonts/nyala.ttf) format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Pirata One";
   src: url(../assets/fonts/pirata-one-gloomhaven.ttf) format("truetype");
+  font-display: swap;
 }
 
 body { font-family: Nyala, Roboto, "Helvetica Neue", sans-serif; }
