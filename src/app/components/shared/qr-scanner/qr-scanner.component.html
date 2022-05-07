@@ -1,0 +1,18 @@
+<button *ngIf="!scanning" mat-raised-button (click)="startScan()" color="accent">Start Scan</button>
+<ng-container *ngIf="scanning">
+  <div style="display: flex; align-items: start;">
+    <button mat-raised-button (click)="stopScan()" color="accent">Stop Scan</button>
+    <mat-form-field *ngIf="cameras.length" appearance="fill" style="padding-left: 1em; flex-grow: 1;">
+      <mat-label>Camera</mat-label>
+      <mat-select [(ngModel)]="activeCamera" [ngModelOptions]="{ standalone: true }">
+        <mat-option *ngFor="let activeCamera of cameras" [value]="activeCamera">
+          {{activeCamera.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <zxing-scanner [(device)]="activeCamera"
+    (camerasFound)="camerasFound($event)"
+    (scanSuccess)="scanSuccess($event)">
+  </zxing-scanner>
+</ng-container>

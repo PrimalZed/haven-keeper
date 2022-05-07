@@ -2,6 +2,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import * as QrCode from 'qrcode';
 import { merge, of, Subject, timer } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { AppState } from 'store/app.state';
@@ -25,6 +26,8 @@ export class P2pHostConnectionComponent {
   @Input() index!: number;
   @Input() guest!: { state: 'stable', name: string } | { state: 'pending', name: string, offer: string | undefined };
 
+  tabIndex: number = 0;
+
   private showCopiedSubject: Subject<void> = new Subject();
   showCopied$ = this.showCopiedSubject
     .pipe(
@@ -46,12 +49,24 @@ export class P2pHostConnectionComponent {
     this.showCopiedSubject.next();
   }
 
+  drawQrCode(offer: string | undefined, targetCanvas: HTMLElement) {
+    if (!offer) {
+      return;
+    }
+
+    QrCode.toCanvas(targetCanvas, offer, { color: { dark: '#303030', light: '#ffffffb3'}});
+  }
+
   receiveGuestAnswer(form: FormGroup) {
     if (!form.valid) {
       return;
     }
 
     this.store.dispatch(receiveGuestAnswer({ index: this.index, answer: form.value.answer }));
+  }
+
+  receiveQrCode(answer: string) {
+    this.store.dispatch(receiveGuestAnswer({ index: this.index, answer }));
   }
 
   remove() {

@@ -2,6 +2,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import * as QrCode from 'qrcode';
 import { merge, of, Subject, timer } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { AppState } from 'store/app.state';
@@ -23,6 +24,7 @@ import { selectGuestAnswer } from 'store/p2p/p2p.selectors';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class P2pGuestComponent {
+  tabIndex: number = 0;
   answer$ = this.store.select(selectGuestAnswer);
 
   private showCopiedSubject: Subject<void> = new Subject();
@@ -40,8 +42,20 @@ export class P2pGuestComponent {
     this.store.dispatch(receiveHostOffer({ offer: form.value.offer }));
   }
 
+  receiveQrCode(offer: string) {
+    this.store.dispatch(receiveHostOffer({ offer }));
+  }
+
   copyAnswerCode(answer: string) {
     navigator.clipboard.writeText(answer);
     this.showCopiedSubject.next();
+  }
+
+  drawQrCode(answer: string, targetCanvas: HTMLElement) {
+    if (!answer) {
+      return;
+    }
+
+    QrCode.toCanvas(targetCanvas, answer, { color: { dark: '#303030', light: '#ffffffb3'}});
   }
 }

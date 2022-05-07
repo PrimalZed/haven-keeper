@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 import { environment } from 'src/environments/environment';
 import { LayoutComponent } from 'components/layout/layout.component';
@@ -43,6 +44,8 @@ import { timeMachineMetaReducers } from 'store/time-machine/time-machine.meta-re
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatModule } from './mat.module';
+import { NgAfterViewInitDirective } from './directives/ng-after-view-init.directive';
+import { QrScannerComponent } from './components/shared/qr-scanner/qr-scanner.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +74,9 @@ import { MatModule } from './mat.module';
     GlidePositionDirective,
 
     AnyPipe,
-    ModifierPipe
+    ModifierPipe,
+    NgAfterViewInitDirective,
+    QrScannerComponent
   ],
   imports: [
     AppRoutingModule,
@@ -88,7 +93,8 @@ import { MatModule } from './mat.module';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    StoreModule.forRoot(APP_REDUCERS, { metaReducers: [...timeMachineMetaReducers], runtimeChecks: { strictStateImmutability: false, strictActionImmutability: false }})
+    StoreModule.forRoot(APP_REDUCERS, { metaReducers: [...timeMachineMetaReducers], runtimeChecks: { strictStateImmutability: false, strictActionImmutability: false }}),
+    ZXingScannerModule
   ],
   providers: [
     {
