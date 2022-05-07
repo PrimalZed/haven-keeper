@@ -7,8 +7,10 @@
     "paths": {
       "components/*": ["src/app/components/*"],
       "models/*": ["src/app/models/*"],
+      "p2p/*": ["src/app/modules/p2p/*"],
       "persistence/*": ["src/app/persistence/*"],
       "services/*": ["src/app/services/*"],
+      "shared/*": ["src/app/modules/shared/*"],
       "store/*": ["src/app/store/*"],
       "validators/*": ["src/app/validators/*"]
     },

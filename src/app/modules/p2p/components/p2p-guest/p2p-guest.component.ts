@@ -13,7 +13,7 @@ import { selectGuestAnswer } from 'store/p2p/p2p.selectors';
 @Component({
   selector: 'p2p-guest',
   templateUrl: './p2p-guest.component.html',
-  styleUrls: ['./../p2p.component.scss'],
+  styleUrls: ['./../../p2p.component.scss'],
   animations: [
     trigger(
       'fadeOut',

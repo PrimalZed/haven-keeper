@@ -13,7 +13,7 @@ import { GuestConnection } from 'store/p2p/p2p.selectors';
 @Component({
   selector: 'p2p-host-connection',
   templateUrl: './p2p-host-connection.component.html',
-  styleUrls: ['./../p2p.component.scss',],
+  styleUrls: ['./../../p2p.component.scss',],
   animations: [
     trigger(
       'fadeOut',
