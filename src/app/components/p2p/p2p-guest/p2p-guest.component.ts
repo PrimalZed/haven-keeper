@@ -1,10 +1,11 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import * as QrCode from 'qrcode';
+import * as Qrious from 'qrious';
 import { merge, of, Subject, timer } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
+import { QRIOUS_OPTIONS } from 'src/app/app.constants';
 import { AppState } from 'store/app.state';
 import { receiveHostOffer } from 'store/p2p/p2p.actions';
 import { selectGuestAnswer } from 'store/p2p/p2p.selectors';
@@ -33,7 +34,10 @@ export class P2pGuestComponent {
       switchMap(() => merge(of(true), timer(2000).pipe(map(() => false))))
     );
 
-  constructor(private store: Store<AppState>) { }
+  constructor(
+    @Inject(QRIOUS_OPTIONS) private qriousOptions: QRiousOptions,
+    private store: Store<AppState>
+  ) { }
 
   receiveHostOffer(form: FormGroup) {
     if (!form.valid) {
@@ -56,6 +60,10 @@ export class P2pGuestComponent {
       return;
     }
 
-    QrCode.toCanvas(targetCanvas, answer, { color: { dark: '#303030', light: '#ffffffb3'}});
+    new Qrious({
+      ...this.qriousOptions,
+      element: targetCanvas,
+      value: answer
+    });
   }
 }

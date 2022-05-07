@@ -29,7 +29,7 @@
     "@ngrx/store": "^13.1.0",
     "@zxing/ngx-scanner": "^3.5.0",
     "idb": "^7.0.1",
-    "qrcode": "^1.5.0",
+    "qrious": "^4.0.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
