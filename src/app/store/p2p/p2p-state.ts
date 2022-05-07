@@ -4,7 +4,7 @@ export interface NoP2pState {
 
 export interface HostP2pState {
   role: 'host';
-  guestConnectionSets:  { connection: RTCPeerConnection, channel: RTCDataChannel }[];
+  guestConnectionSets:  { name?: string | undefined, connection: RTCPeerConnection, channel: RTCDataChannel }[];
 }
 
 export interface GuestP2pState {

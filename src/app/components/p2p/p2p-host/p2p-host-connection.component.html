@@ -1,9 +1,12 @@
 <form #ngForm="ngForm" class="mat-card connection-card" (ngSubmit)="receiveGuestAnswer(ngForm.form)">
-  <div class="title">
+  <form #nameNgForm="ngForm" class="title" (ngSubmit)="changeName(nameNgModel.control.value)">
     <mat-form-field style="width: 250px;">
-      <input matInput placeholder="Connection {{ index + 1 }}" [ngModel]="guest.name" (ngModelChange)="changeName($event)" [ngModelOptions]="{ standalone: true }">
+      <input matInput placeholder="Connection {{ index + 1 }}" [ngModel]="guest.name" [ngModelOptions]="{ standalone: true }" #nameNgModel="ngModel">
+      <button *ngIf="nameNgModel.control.dirty" mat-icon-button matSuffix type="submit">
+        <mat-icon>save</mat-icon>
+      </button>
     </mat-form-field>
-  </div>
+  </form>
   <div [ngSwitch]="guest.state" style="flex-grow: 1;">
     <ng-container *ngSwitchCase="'pending'">
       <mat-tab-group *ngIf="guest | any as pendingGuest" [(selectedIndex)]="tabIndex">

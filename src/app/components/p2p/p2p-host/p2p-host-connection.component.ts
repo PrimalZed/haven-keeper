@@ -6,7 +6,8 @@ import * as QrCode from 'qrcode';
 import { merge, of, Subject, timer } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { AppState } from 'store/app.state';
-import { closeConnection, receiveGuestAnswer } from 'store/p2p/p2p.actions';
+import { closeConnection, receiveGuestAnswer, setGuestConnectionName } from 'store/p2p/p2p.actions';
+import { GuestConnection } from 'store/p2p/p2p.selectors';
 
 @Component({
   selector: 'p2p-host-connection',
@@ -24,7 +25,7 @@ import { closeConnection, receiveGuestAnswer } from 'store/p2p/p2p.actions';
 })
 export class P2pHostConnectionComponent {
   @Input() index!: number;
-  @Input() guest!: { state: 'stable', name: string } | { state: 'pending', name: string, offer: string | undefined };
+  @Input() guest!: GuestConnection;
 
   tabIndex: number = 0;
 
@@ -37,7 +38,7 @@ export class P2pHostConnectionComponent {
   constructor(private store: Store<AppState>) { }
 
   changeName(name: string) {
-    alert("Not Yet Implemented");
+    this.store.dispatch(setGuestConnectionName({ index: this.index, name }));
   }
 
   copyOfferCode(offer: string | undefined) {

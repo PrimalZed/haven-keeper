@@ -14,6 +14,11 @@ export const startGuestConnectionSuccess = createAction(
   props<{ connection: RTCPeerConnection, channel: RTCDataChannel }>()
 );
 
+export const setGuestConnectionName = createAction(
+  '[P2P] Set Guest Connection Name',
+  props<{ index: number, name: string }>()
+);
+
 export const receiveGuestAnswer = createAction(
   '[P2P] Receive Guest Answer',
   props<{ index: number, answer: string }>()

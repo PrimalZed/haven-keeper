@@ -8,6 +8,7 @@ import {
   guestDisconnected,
   hostDisconnected,
   receiveHostOfferSuccess,
+  setGuestConnectionName,
   startGuestConnectionSuccess
 } from './p2p.actions';
 
@@ -36,6 +37,18 @@ export const p2pReducer = createReducer<P2pState>(
     ...state,
     ...state.role === 'host'
       ? { guestConnectionSets:  [...state.guestConnectionSets, { connection, channel }] }
+      : { }
+  })),
+  on(setGuestConnectionName, (state, { index, name }) => ({
+    ...state,
+    ...state.role === 'host'
+      ? {
+        guestConnectionSets: state.guestConnectionSets
+          .map((x, i) => i === index
+            ? { ...x, name }
+            : x
+          )
+    }
       : { }
   })),
   on(receiveHostOfferSuccess, (state, { connection }) => ({
