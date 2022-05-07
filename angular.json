@@ -26,8 +26,12 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "./webpack.config.js",
+              "replaceDuplicatePlugins": true
+            },
             "outputPath": "dist/haven-keeper",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -63,7 +67,6 @@
                 }
               ],
               "baseHref": "/haven-keeper/",
-              "deployUrl": "/haven-keeper/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
