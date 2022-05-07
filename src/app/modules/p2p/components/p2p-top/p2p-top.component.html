@@ -9,4 +9,8 @@
     <span *ngSwitchCase="'guest'" i18n="@@p2p-guest">Guest</span>
     <span *ngSwitchDefault i18n>Select Role</span>
   </ng-container>
+  <span style="flex-grow: 1;"></span>
+  <button mat-icon-button type="button" (click)="openHelpDialog()">
+    <mat-icon>help</mat-icon>
+  </button>
 </mat-toolbar>

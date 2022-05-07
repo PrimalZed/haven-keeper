@@ -13,6 +13,7 @@ import { P2pTopComponent } from './components/p2p-top/p2p-top.component';
 import { P2pComponent } from './p2p.component';
 import { SharedModule } from 'shared/shared.module';
 import { CommonModule } from '@angular/common';
+import { P2pHelpComponent } from './components/p2p-help/p2p-help.component';
 
 const routes: Routes = [
   { path: '', component: P2pComponent }
@@ -28,6 +29,7 @@ const routes: Routes = [
     P2pGuestComponent,
     P2pTopComponent,
     QrScannerComponent,
+    P2pHelpComponent,
     
   ],
   imports: [
