@@ -11,6 +11,7 @@
     <ng-container *ngSwitchCase="'pending'">
       <mat-tab-group *ngIf="guest | any as pendingGuest" [(selectedIndex)]="tabIndex">
         <mat-tab label="Text">
+          <h2>Copy Offer Code to Send to Guest</h2>
           <mat-form-field appearance="fill" style="width: 100%;" (click)="copyOfferCode(pendingGuest.offer)">
             <mat-label>Offer Code</mat-label>
             <textarea matInput [ngModel]="pendingGuest.offer" [ngModelOptions]="{ standalone: true }" disabled rows="5"></textarea>
@@ -21,12 +22,14 @@
         </mat-tab>
         <mat-tab label="QR Code">
           <ng-template matTabContent>
+            <h2>Present for Guest to Scan</h2>
             <qr-canvas *ngIf="pendingGuest.offer" [value]="pendingGuest.offer"></qr-canvas>
           </ng-template>
         </mat-tab>
       </mat-tab-group>
       <mat-tab-group [(selectedIndex)]="tabIndex">
         <mat-tab label="Text">
+          <h2>Enter Guest Answer Code</h2>
           <mat-form-field appearance="fill" style="width: 100%;">
             <mat-label>Answer Code</mat-label>
             <textarea matInput name="answer" ngModel required placeholder="Paste Answer Code Here" rows="5"></textarea>
@@ -34,6 +37,7 @@
         </mat-tab>
         <mat-tab label="QR Code">
           <ng-template matTabContent>
+            <h2>Scan Guest Answer QR Code</h2>
             <qr-scanner (scanSuccess)="receiveQrCode($event)"></qr-scanner>
           </ng-template>
         </mat-tab>

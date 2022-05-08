@@ -1,9 +1,10 @@
 <div class="mat-card connection-card" [ngSwitch]="connectionState$ | async">
   <ng-container *ngSwitchCase="'pending'">
     <div class="title" style="margin-bottom: 8px;">Host Connection</div>
-    <mat-tab-group [(selectedIndex)]="tabIndex">
+    <mat-tab-group *ngIf="!(answer$ | async)" [(selectedIndex)]="tabIndex">
       <mat-tab label="Text">
         <form #ngForm="ngForm" (ngSubmit)="receiveHostOffer(ngForm.form)">
+          <h2>Enter Host Offer Code</h2>
           <mat-form-field appearance="fill" style="width: 100%;">
             <mat-label>Offer Code</mat-label>
             <textarea matInput name="offer" ngModel required placeholder="Paste Offer Code Here" rows="5"></textarea>
@@ -17,12 +18,14 @@
       </mat-tab>
       <mat-tab label="QR Code">
         <ng-template matTabContent>
+          <h2>Scan Host Offer QR Code</h2>
           <qr-scanner (scanSuccess)="receiveQrCode($event)"></qr-scanner>
         </ng-template>
       </mat-tab>
     </mat-tab-group>
     <mat-tab-group *ngIf="answer$ | async as answer" [(selectedIndex)]="tabIndex">
       <mat-tab label="Text">
+        <h2>Copy Answer Code to Send to Host</h2>
         <mat-form-field appearance="fill" style="width: 100%;" (click)="copyAnswerCode(answer)">
           <mat-label>Answer Code</mat-label>
           <textarea matInput [ngModel]="answer" [ngModelOptions]="{ standalone: true }" disabled rows="5"></textarea>
@@ -33,6 +36,7 @@
       </mat-tab>
       <mat-tab label="QR Code">
         <ng-template matTabContent>
+          <h2>Present for Host to Scan</h2>
           <qr-canvas [value]="answer"></qr-canvas>
         </ng-template>
       </mat-tab>
