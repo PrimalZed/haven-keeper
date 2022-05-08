@@ -16,14 +16,14 @@ export const selectHostP2pState = createSelector(
 );
 
 export type GuestConnection =
-  | { state: 'stable', name: string | undefined }
+  | { state: 'connected', name: string | undefined }
   | { state: 'pending', name: string | undefined, offer: string | undefined };
 export const selectHostGuests = createSelector(
   selectHostP2pState,
   (state) => state?.guestConnectionSets
-    .map((x): GuestConnection => x.connection.signalingState === 'stable'
+    .map((x): GuestConnection => x.connection.connectionState === 'connected'
       ? {
-        state: 'stable',
+        state: 'connected',
         name: x.name
       }
       : {

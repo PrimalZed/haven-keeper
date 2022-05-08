@@ -1,12 +1,12 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { merge, of, Subject, timer } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { fromEvent, merge, of, Subject, timer } from 'rxjs';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { AppState } from 'store/app.state';
 import { receiveHostOffer } from 'store/p2p/p2p.actions';
-import { selectGuestAnswer } from 'store/p2p/p2p.selectors';
+import { selectGuestAnswer, selectGuestP2pState } from 'store/p2p/p2p.selectors';
 
 @Component({
   selector: 'p2p-guest',
@@ -22,15 +22,40 @@ import { selectGuestAnswer } from 'store/p2p/p2p.selectors';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class P2pGuestComponent {
+export class P2pGuestComponent implements OnDestroy {
   tabIndex: number = 0;
+
+  private state$ = this.store.select(selectGuestP2pState);
+
+  connectionState$ = this.state$
+    .pipe(
+      map((state) => state?.connection?.connectionState === 'connected'
+        ? 'connected'
+        : 'pending'
+      )
+    );
   answer$ = this.store.select(selectGuestAnswer);
+
+  private releaseGuestState$ = this.state$
+    .pipe(
+      map((state) => state?.connection),
+      switchMap((connection) => connection
+        ? fromEvent(connection, 'connectionstatechange')
+        : of(void(0))
+      ),
+      map(() => void(0)),
+      tap(() => {
+        selectGuestP2pState.release();
+      })
+    );
 
   private showCopiedSubject: Subject<void> = new Subject();
   showCopied$ = this.showCopiedSubject
     .pipe(
       switchMap(() => merge(of(true), timer(2000).pipe(map(() => false))))
     );
+
+  private subscription = this.releaseGuestState$.subscribe();
 
   constructor(
     private store: Store<AppState>
@@ -50,5 +75,9 @@ export class P2pGuestComponent {
   copyAnswerCode(answer: string) {
     navigator.clipboard.writeText(answer);
     this.showCopiedSubject.next();
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
   }
 }
