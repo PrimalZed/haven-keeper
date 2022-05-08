@@ -35,7 +35,7 @@ export class QrCanvasComponent implements OnDestroy {
           backgroundAlpha: 0.5,
           size: (() => {
             if (breakpoints[Breakpoints.XSmall]) {
-              return 250;
+              return 225;
             }
             else if (breakpoints[Breakpoints.Small]) {
               return 300;
