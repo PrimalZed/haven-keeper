@@ -32,9 +32,7 @@
     </mat-tab>
     <mat-tab label="QR Code">
       <ng-template matTabContent>
-        <div style="display: flex; justify-content: center;" (ngAfterViewInit)="drawQrCode(answer, qrCanvas)">
-          <canvas #qrCanvas></canvas>
-        </div>
+        <qr-canvas [value]="answer"></qr-canvas>
       </ng-template>
     </mat-tab>
   </mat-tab-group>

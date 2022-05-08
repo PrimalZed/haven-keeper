@@ -2,10 +2,8 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import * as Qrious from 'qrious';
 import { merge, of, Subject, timer } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { QRIOUS_OPTIONS } from 'src/app/app.constants';
 import { AppState } from 'store/app.state';
 import { receiveHostOffer } from 'store/p2p/p2p.actions';
 import { selectGuestAnswer } from 'store/p2p/p2p.selectors';
@@ -35,7 +33,6 @@ export class P2pGuestComponent {
     );
 
   constructor(
-    @Inject(QRIOUS_OPTIONS) private qriousOptions: QRiousOptions,
     private store: Store<AppState>
   ) { }
 
@@ -53,17 +50,5 @@ export class P2pGuestComponent {
   copyAnswerCode(answer: string) {
     navigator.clipboard.writeText(answer);
     this.showCopiedSubject.next();
-  }
-
-  drawQrCode(answer: string, targetCanvas: HTMLElement) {
-    if (!answer) {
-      return;
-    }
-
-    new Qrious({
-      ...this.qriousOptions,
-      element: targetCanvas,
-      value: answer
-    });
   }
 }
