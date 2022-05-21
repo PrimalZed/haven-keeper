@@ -1,5 +1,6 @@
 import { InjectionToken } from '@angular/core';
-import { ActionReducerMap } from '@ngrx/store';
+import { rootEffectsInit } from '@ngrx/effects';
+import { ActionReducerMap, createReducer, on } from '@ngrx/store';
 import { CatalogService } from 'services/catalog.service';
 import { AppState } from './app.state';
 import { p2pReducer } from './p2p/p2p.reducer';
@@ -12,6 +13,7 @@ export function getReducers(catalogService: CatalogService): ActionReducerMap<Ap
   return {
     p2p: p2pReducer,
     tabletop: getTabletopReducer(catalogService),
-    timeMachine: timeMachineReducer
+    timeMachine: timeMachineReducer,
+    initialized: createReducer<boolean>(false, on(rootEffectsInit, () => true))
   };
 }

@@ -17,9 +17,11 @@ export abstract class PersistenceService implements OnDestroy {
 
   private save$ = this.store.select((state) => ({
       tabletopState: selectTabletopState(state),
-      p2pRole: selectP2pRole(state)
+      p2pRole: selectP2pRole(state),
+      initialized: state.initialized
     }))
     .pipe(
+      filter(({ initialized }) => initialized),
       skip(1),
       filter(({ p2pRole }) => p2pRole !== 'guest'),
       map(({ tabletopState }) => tabletopState),

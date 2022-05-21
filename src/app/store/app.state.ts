@@ -5,5 +5,6 @@ import { TimeMachineState } from './time-machine/time-machine.state';
 export interface AppState {
     p2p: P2pState;
     tabletop: TabletopState;
-    timeMachine: TimeMachineState
+    timeMachine: TimeMachineState;
+    initialized: boolean;
 }
