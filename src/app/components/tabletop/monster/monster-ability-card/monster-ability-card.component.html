@@ -2,10 +2,10 @@
 <div *ngIf="card" class="active-card">
   <div class="title">{{ card.name }}</div>
   <ng-container *ngFor="let ability of card?.abilities" [ngSwitch]="ability.kind">
-    <div *ngSwitchCase="'movement'"><span i18n="@@move">Move</span> {{ $any(ability).modifier | modifier }}</div>
+    <div *ngSwitchCase="'move'"><span title="Move" i18n-title="@@move" class="gloomhaven-ability-icons">M</span> {{ $any(ability).modifier | modifier }}</div>
     <div *ngSwitchCase="'attack'">
-      <div><span i18n="@@attack">Attack</span> {{ $any(ability).modifier | modifier }}</div>
-      <div *ngIf="$any(ability).range"><span i18n="@@range">Range</span> {{ $any(ability).range }}</div>
+      <div><span title="Attack" i18n-title="@@attack" class="gloomhaven-ability-icons">K</span> {{ $any(ability).modifier | modifier }}</div>
+      <div *ngIf="$any(ability).range"><span title="Range" i18n-title="@@range" class="gloomhaven-ability-icons">G</span> {{ $any(ability).range }}</div>
     </div>
   </ng-container>
 </div>

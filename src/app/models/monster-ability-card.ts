@@ -1,10 +1,10 @@
 import { AttackEffect } from './attack-effect';
 import { ConditionKey } from './condition';
-import { Element, MixedElement } from './element';
+import { Element } from './element';
 
 export type MonsterAbility =
   | {
-    kind: 'movement';
+    kind: 'move';
     modifier: number;
   }
   | {
