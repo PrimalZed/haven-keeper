@@ -33,6 +33,12 @@ import { TimeMachineEffects } from 'store/time-machine/time-machine.effects';
 import { timeMachineMetaReducers } from 'store/time-machine/time-machine.meta-reducers';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ElementIceComponent } from './components/tabletop/elements/element-ice/element-ice.component';
+import { ElementAirComponent } from './components/tabletop/elements/element-air/element-air.component';
+import { ElementDarkComponent } from './components/tabletop/elements/element-dark/element-dark.component';
+import { ElementEarthComponent } from './components/tabletop/elements/element-earth/element-earth.component';
+import { ElementFireComponent } from './components/tabletop/elements/element-fire/element-fire.component';
+import { ElementLightComponent } from './components/tabletop/elements/element-light/element-light.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +58,13 @@ import { AppComponent } from './app.component';
 
     GlidePositionDirective,
 
-    ModifierPipe
+    ModifierPipe,
+     ElementIceComponent,
+     ElementAirComponent,
+     ElementDarkComponent,
+     ElementEarthComponent,
+     ElementFireComponent,
+     ElementLightComponent
   ],
   imports: [
     AppRoutingModule,

@@ -19,9 +19,38 @@
 </mat-toolbar>
 <mat-toolbar color="primary" style="justify-content: center;">
   <ng-container *ngFor="let elementalInfusion of elementalInfusions$ | async; trackBy: trackElementalInfusion; let last = last">
-    <button mat-raised-button color="accent" (click)="infuseElement(elementalInfusion.element)">
-      <div>{{ elementalInfusion.element }}</div>
-      <div>{{ elementalInfusion.strength }}</div>
+    <button mat-icon-button [ngSwitch]="elementalInfusion.element" (click)="infuseElement(elementalInfusion.element)">
+      <div style="height: 100%; position: relative;">
+        <div class="svg-container" [@elementalInfusion]="elementalInfusion.strength">
+          <svg viewBox="-1 -1 2 2">
+            <circle r="1" fill="#ddd" />
+          </svg>
+        </div>
+        <ng-container *ngSwitchCase="'air'">
+          <element-air class="svg-container" appearance="outline" [@invertedElementalInfusion]="elementalInfusion.strength"></element-air>
+          <element-air class="svg-container" [@elementalInfusion]="elementalInfusion.strength"></element-air>
+        </ng-container>
+        <ng-container *ngSwitchCase="'dark'">
+          <element-dark class="svg-container" appearance="outline" [@invertedElementalInfusion]="elementalInfusion.strength"></element-dark>
+          <element-dark class="svg-container" [@elementalInfusion]="elementalInfusion.strength"></element-dark>
+        </ng-container>
+        <ng-container *ngSwitchCase="'earth'">
+          <element-earth class="svg-container" appearance="outline" [@invertedElementalInfusion]="elementalInfusion.strength"></element-earth>
+          <element-earth class="svg-container" [@elementalInfusion]="elementalInfusion.strength"></element-earth>
+        </ng-container>
+        <ng-container *ngSwitchCase="'fire'">
+          <element-fire class="svg-container" appearance="outline" [@invertedElementalInfusion]="elementalInfusion.strength"></element-fire>
+          <element-fire class="svg-container" [@elementalInfusion]="elementalInfusion.strength"></element-fire>
+        </ng-container>
+        <ng-container *ngSwitchCase="'ice'">
+          <element-ice class="svg-container" appearance="outline" [@invertedElementalInfusion]="elementalInfusion.strength"></element-ice>
+          <element-ice class="svg-container" [@elementalInfusion]="elementalInfusion.strength"></element-ice>
+        </ng-container>
+        <ng-container *ngSwitchCase="'light'">
+          <element-light class="svg-container" appearance="outline" [@invertedElementalInfusion]="elementalInfusion.strength"></element-light>
+          <element-light class="svg-container" [@elementalInfusion]="elementalInfusion.strength"></element-light>
+        </ng-container>
+      </div>
     </button>
     <div *ngIf="!last" class="horizontal-spacer"></div>
   </ng-container>
