@@ -1,6 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { Element, ElementalInfusion } from 'models/element';
 import { CharactersActions } from './characters/characters.actions';
+import { MonsterAbilityDecksActions } from './monster-ability-decks/monster-ability-decks.actions';
 import { MonstersActions } from './monsters/monsters.actions';
 import { TabletopState } from './tabletop.state';
 
@@ -45,6 +46,7 @@ export const undoClearTabletop = createAction(
 export const TabletopActions = [
   ...CharactersActions,
   ...MonstersActions,
+  ...MonsterAbilityDecksActions,
   infuseElement,
   undoInfuseElement,
   nextRound,

@@ -1,8 +1,9 @@
 import { on } from '@ngrx/store';
+import { getAbilityDeckKey } from 'models/monster-stat-card';
 import { CatalogService } from 'services/catalog.service';
-import { charactersAdapter } from '../characters/characters.adapter';
+import { monsterAbilityDecksAdapter } from '../monster-ability-decks/monster-ability-decks.adapter';
 import { TabletopState } from '../tabletop.state';
-import { addMonster, addMonsterStandee, drawMonsterAbilityCardsSuccess, undoAddMonster, undoAddMonsterStandee, undoDrawMonsterAbilityCards } from './monsters.actions';
+import { addMonster, addMonsterStandee, undoAddMonster, undoAddMonsterStandee } from './monsters.actions';
 import { monstersAdapter } from './monsters.adapter';
 
 export function getMonstersOns(catalogService: CatalogService) {
@@ -12,10 +13,13 @@ export function getMonstersOns(catalogService: CatalogService) {
       monsters: monstersAdapter.addOne({
         key,
         level,
-        standees: [],
+        standees: []
+      }, state.monsters),
+      monsterAbilityDecks: monsterAbilityDecksAdapter.addOne({
+        key: getAbilityDeckKey(catalogService.monsterEntities[key]),
         currentAbilityCardId: null,
         drawnAbilityCardIds: []
-      }, state.monsters)
+      }, state.monsterAbilityDecks)
     })),
     on<TabletopState, [typeof undoAddMonster]>(undoAddMonster, (state, { key }) => ({
       ...state,
@@ -43,32 +47,6 @@ export function getMonstersOns(catalogService: CatalogService) {
           standees: x.standees.filter((y) => y.id !== id)
         })
       }, state.monsters)
-    })),
-    on<TabletopState, [typeof drawMonsterAbilityCardsSuccess]>(drawMonsterAbilityCardsSuccess, (state, { characterInitiatives, abilityCardIds }) => ({
-      ...state,
-      step: 'actions',
-      characters: charactersAdapter.map((character) => ({
-        ...character,
-        initiative: characterInitiatives[character.key]
-      }), state.characters),
-      monsters: monstersAdapter.map((monster) => ({
-        ...monster,
-        currentAbilityCardId: abilityCardIds[monster.key],
-        drawnAbilityCardIds: [
-          ...monster.drawnAbilityCardIds,
-          abilityCardIds[monster.key]
-        ]
-      }), state.monsters)
-    })),
-    on<TabletopState, [typeof undoDrawMonsterAbilityCards]>(undoDrawMonsterAbilityCards, (state, { abilityCardIds }) => ({
-      ...state,
-      step: 'card-selection',
-      monsters: monstersAdapter.map((monster) => ({
-        ...monster,
-        currentAbilityCardId: abilityCardIds[monster.key].previousId,
-        drawnAbilityCardIds: monster.drawnAbilityCardIds
-          .filter((id) => id !== abilityCardIds[monster.key].nextId)
-      }), state.monsters)
     }))
   ];
 }

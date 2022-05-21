@@ -7,7 +7,7 @@ import { AddCardDialogComponent } from 'components/tabletop/add-card-dialog/add-
 import { CharacterInitiativeDialogComponent } from 'components/tabletop/character-initiative-dialog/character-initiative-dialog.component';
 import { TabletopService } from 'services/tabletop.service';
 import { AppState } from 'store/app.state';
-import { drawMonsterAbilityCards } from 'store/tabletop/monsters/monsters.actions';
+import { drawMonsterAbilityCards } from 'store/tabletop/monster-ability-decks/monster-ability-decks.actions';
 import { nextRound } from 'store/tabletop/tabletop.actions';
 import { selectTabletopStep } from 'store/tabletop/tabletop.selectors';
 import { selectCharacterKeys } from 'store/tabletop/characters/characters.selectors';

@@ -28,7 +28,7 @@ import { TabletopService } from 'services/tabletop.service';
 import { SharedModule } from 'shared/shared.module';
 import { APP_REDUCERS, getReducers } from 'store/app.reducers';
 import { P2pEffects } from 'store/p2p/p2p.effects';
-import { MonstersEffects } from 'store/tabletop/monsters/monsters.effects';
+import { MonsterAbilityDecksEffects } from 'store/tabletop/monster-ability-decks/monster-ability-decks.effects';
 import { TimeMachineEffects } from 'store/time-machine/time-machine.effects';
 import { timeMachineMetaReducers } from 'store/time-machine/time-machine.meta-reducers';
 import { AppRoutingModule } from './app-routing.module';
@@ -70,7 +70,7 @@ import { ElementLightComponent } from './components/tabletop/elements/element-li
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
-    EffectsModule.forRoot([MonstersEffects, P2pEffects, TimeMachineEffects]),
+    EffectsModule.forRoot([MonsterAbilityDecksEffects, P2pEffects, TimeMachineEffects]),
     HttpClientModule,
     LayoutModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

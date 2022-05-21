@@ -12,7 +12,7 @@ import { MonsterStatCard } from 'models/monster-stat-card';
 export class CatalogService {
   characters: CharacterStatCard[] = [];
   monsters: MonsterStatCard[] = [];
-  monsterAbilityCards: { [key: string]: MonsterAbilityCard[] } = { };
+  monsterAbilityDecks: { [key: string]: MonsterAbilityCard[] } = { };
 
   get characterEntities(): { [key: string]: CharacterStatCard } {
     return this.characters
@@ -37,7 +37,7 @@ export class CatalogService {
   }
 
   get monsterAbilityCardEntities(): { [id: number]: MonsterAbilityCard } {
-    return Object.values<MonsterAbilityCard[]>(this.monsterAbilityCards)
+    return Object.values<MonsterAbilityCard[]>(this.monsterAbilityDecks)
       .flatMap(x => x)
       .reduce(
         (acc, card): { [id: number]: MonsterAbilityCard } => ({
@@ -67,10 +67,10 @@ export class CatalogService {
         map((): void => void(0))
       );
 
-    const loadMonsterCards$ = this.http.get<{ [key: string]: MonsterAbilityCard[] }>(`${environment.basePath}/assets/data/monster-ability-cards.json`)
+    const loadMonsterAbilityDecks$ = this.http.get<{ [key: string]: MonsterAbilityCard[] }>(`${environment.basePath}/assets/data/monster-ability-decks.json`)
       .pipe(
-        tap((monsterAbilityCards) => {
-          this.monsterAbilityCards = monsterAbilityCards;
+        tap((monsterAbilityDecks) => {
+          this.monsterAbilityDecks = monsterAbilityDecks;
         }),
         map((): void => void(0))
       );
@@ -78,7 +78,7 @@ export class CatalogService {
     return merge(
       loadCharacters$,
       loadMonsters$,
-      loadMonsterCards$
+      loadMonsterAbilityDecks$
     );
   }
 }

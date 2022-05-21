@@ -3,6 +3,7 @@
     "key": "cityArcher",
     "kind": "normal",
     "name": "City Archer",
+    "abilityDeckKey": "archer",
     "levels": {
       "0": {
         "hitPoints": 5,
@@ -156,6 +157,7 @@
     "key": "cityGuard",
     "kind": "normal",
     "name": "City Guard",
+    "abilityDeckKey": "guard",
     "levels": {
       "0": {
         "hitPoints": 5,

@@ -1,15 +1,17 @@
 import { Action, ActionReducer } from '@ngrx/store';
 import { Character } from 'models/character';
-import { MonsterSet } from 'models/monster-set';
+import { MonsterAbilityDeck } from 'models/monster-ability-deck';
 import { AppState } from 'store/app.state';
 import { addCharacter, undoAddCharacter } from 'store/tabletop/characters/characters.actions';
 import {
+  drawMonsterAbilityCardsSuccess,
+  undoDrawMonsterAbilityCards
+} from 'store/tabletop/monster-ability-decks/monster-ability-decks.actions';
+import {
   addMonster,
   addMonsterStandee,
-  drawMonsterAbilityCardsSuccess,
   undoAddMonster,
   undoAddMonsterStandee,
-  undoDrawMonsterAbilityCards
 } from 'store/tabletop/monsters/monsters.actions';
 import {
   clearTabletop,
@@ -54,7 +56,7 @@ function getReverseAction(state: AppState, action: ReversibleAction): Action {
             (acc, [key, id]): { [key: string]: { previousId: number | null, nextId: number } } => ({
               ...acc,
               [key]: {
-                previousId: state.tabletop.monsters.entities[key]?.currentAbilityCardId,
+                previousId: state.tabletop.monsterAbilityDecks.entities[key]?.currentAbilityCardId,
                 nextId: id
               }
             }),
@@ -75,21 +77,21 @@ function getReverseAction(state: AppState, action: ReversibleAction): Action {
             }),
             { }
           ),
-        abilityCardIds: Object.values(state.tabletop.monsters.entities)
-          .filter((monster): monster is MonsterSet => Boolean(monster))
+        abilityCardIds: Object.values(state.tabletop.monsterAbilityDecks.entities)
+          .filter((monsterAbilityDeck): monsterAbilityDeck is MonsterAbilityDeck => Boolean(monsterAbilityDeck))
           .reduce(
-            (acc, monster): { [key: string]: number } => ({
+            (acc, monsterAbilityDeck): { [key: string]: number } => ({
               ...acc,
-              [monster.key]: monster.currentAbilityCardId
+              [monsterAbilityDeck.key]: monsterAbilityDeck.currentAbilityCardId
             }),
             { }
           ),
-        drawnAbilityCardIds: Object.values(state.tabletop.monsters.entities)
-          .filter((monster): monster is MonsterSet => Boolean(monster))
+        drawnAbilityCardIds: Object.values(state.tabletop.monsterAbilityDecks.entities)
+          .filter((monsterAbilityDeck): monsterAbilityDeck is MonsterAbilityDeck => Boolean(monsterAbilityDeck))
           .reduce(
-            (acc, monster): { [key: string]: number } => ({
+            (acc, monsterAbilityDeck): { [key: string]: number } => ({
               ...acc,
-              [monster.key]: monster.drawnAbilityCardIds
+              [monsterAbilityDeck.key]: monsterAbilityDeck.drawnAbilityCardIds
             }),
             { }
           )

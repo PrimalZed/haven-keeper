@@ -11,6 +11,4 @@ export interface MonsterSet {
   key: string;
   level: ScenarioLevel;
   standees: MonsterStandee[];
-  currentAbilityCardId: number | null;
-  drawnAbilityCardIds: number[];
 }

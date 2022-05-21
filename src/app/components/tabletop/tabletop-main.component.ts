@@ -1,8 +1,11 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Dictionary } from '@ngrx/entity';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { Card } from 'models/card';
+import { MonsterAbilityDeck } from 'models/monster-ability-deck';
+import { getAbilityDeckKey } from 'models/monster-stat-card';
 import { CatalogService } from 'services/catalog.service';
 import { AppState } from 'store/app.state';
 import { selectCards } from 'store/tabletop/cards.selector';
@@ -25,9 +28,9 @@ import { selectCards } from 'store/tabletop/cards.selector';
 export class TabletopMainComponent {
   public cards$ = this.store.select(selectCards)
     .pipe(
-      map((cards) => cards
+      map(({ cards, monsterAbilityDecks }) => cards
         .slice()
-        .sort((a, b) => this.getInitiative(a) - this.getInitiative(b))
+        .sort((a, b) => this.getInitiative(a, monsterAbilityDecks) - this.getInitiative(b, monsterAbilityDecks))
       )
     );
 
@@ -40,14 +43,17 @@ export class TabletopMainComponent {
     return card.key;
   }
 
-  private getInitiative(card: Card) {
+  private getInitiative(card: Card, monsterAbilityDecks: Dictionary<MonsterAbilityDeck>) {
     switch (card.kind) {
       case 'character':
         return card.initiative ?? 0;
       case 'monster':
-        return card.currentAbilityCardId
-          ? this.catalogService.monsterAbilityCardEntities[card.currentAbilityCardId].initiative
-          : 0
+        const monster = this.catalogService.monsterEntities[card.key];
+        const monsterAbilityDeck = monsterAbilityDecks[getAbilityDeckKey(monster)];
+
+        return monsterAbilityDeck?.currentAbilityCardId
+          ? this.catalogService.monsterAbilityCardEntities[monsterAbilityDeck.currentAbilityCardId].initiative
+          : 0;
     }
   }
 }

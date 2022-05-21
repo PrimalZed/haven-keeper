@@ -3,7 +3,8 @@ import { ElementalInfusion } from 'models/element';
 import { CatalogService } from 'services/catalog.service';
 import { charactersAdapter } from './characters/characters.adapter';
 import { getCharactersOns } from './characters/characters.ons';
-import { drawMonsterAbilityCards } from './monsters/monsters.actions';
+import { monsterAbilityDecksAdapter } from './monster-ability-decks/monster-ability-decks.adapter';
+import { getMonsterAbilityDecksOns } from './monster-ability-decks/monster-ability-decks.ons';
 import { monstersAdapter } from './monsters/monsters.adapter';
 import { getMonstersOns } from './monsters/monsters.ons';
 import {
@@ -29,7 +30,8 @@ export const initialTabletopState: TabletopState = {
     'dark': 'inert'
   },
   characters: charactersAdapter.getInitialState(),
-  monsters: monstersAdapter.getInitialState()
+  monsters: monstersAdapter.getInitialState(),
+  monsterAbilityDecks: monsterAbilityDecksAdapter.getInitialState()
 };
 
 export function getTabletopReducer(catalogService: CatalogService) {
@@ -37,6 +39,7 @@ export function getTabletopReducer(catalogService: CatalogService) {
     initialTabletopState,
     ...getCharactersOns(catalogService),
     ...getMonstersOns(catalogService),
+    ...getMonsterAbilityDecksOns(),
     on(loadTabletop, (oldState, { state: newState }) => newState),
     on(clearTabletop, (state) => ({ ...initialTabletopState })),
     on(undoClearTabletop, (state, { oldState }) => ({ ...oldState })),
@@ -88,13 +91,13 @@ export function getTabletopReducer(catalogService: CatalogService) {
         ...character,
         initiative: null
       }), state.characters),
-      monsters: monstersAdapter.map((monster) => ({
-        ...monster,
+      monsterAbilityDecks: monsterAbilityDecksAdapter.map((monsterAbilityDeck) => ({
+        ...monsterAbilityDeck,
         currentAbilityCardId: null,
-        drawnAbilityCardIds: monster.drawnAbilityCardIds.length >= catalogService.monsterAbilityCards[monster.key].length
+        drawnAbilityCardIds: monsterAbilityDeck.drawnAbilityCardIds.length >= catalogService.monsterAbilityDecks[monsterAbilityDeck.key].length
           ? []
-          : monster.drawnAbilityCardIds
-      }), state.monsters)
+          : monsterAbilityDeck.drawnAbilityCardIds
+      }), state.monsterAbilityDecks)
     })),
     on(undoNextRound, (state, { elementalInfusion, characterInitiatives, abilityCardIds, drawnAbilityCardIds }) => ({
       ...state,

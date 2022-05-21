@@ -1,5 +1,4 @@
 import { createSelector } from '@ngrx/store';
-import { Card } from 'models/card';
 import { selectTabletopState } from '../tabletop.selectors';
 import { monstersAdapter } from './monsters.adapter';
 

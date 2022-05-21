@@ -26,7 +26,14 @@ export interface BossStatCard extends MonsterBase {
 
 export interface NormalMonsterStatCard extends MonsterBase {
   kind: 'normal';
+  abilityDeckKey: string;
   eliteLevels: { [level in ScenarioLevel]: MonsterLevel };
 }
 
 export type MonsterStatCard = BossStatCard | NormalMonsterStatCard;
+
+export function getAbilityDeckKey(statCard: MonsterStatCard) {
+  return statCard.kind === 'normal'
+    ? statCard.abilityDeckKey
+    : 'boss';
+}

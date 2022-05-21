@@ -1,5 +1,5 @@
 {
-  "cityArcher": [
+  "archer": [
     {
       "id": 1,
       "name": "Shoot 1",
@@ -21,7 +21,7 @@
       "shuffle": false
     }
   ],
-  "cityGuard": [
+  "guard": [
     {
       "id": 3,
       "name": "Hit 1",
