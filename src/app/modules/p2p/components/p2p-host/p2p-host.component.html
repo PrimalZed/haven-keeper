@@ -1,4 +1,4 @@
 <div *ngFor="let guest of guests$ | async; let index = index; let last = last" [ngSwitch]="guest.state">
-  <p2p-host-connection [index]="index" [guest]="guest | any"></p2p-host-connection>
+  <p2p-host-connection [index]="index" [guest]="$any(guest)"></p2p-host-connection>
   <div *ngIf="!last" class="vertical-spacer"></div>
 </div>

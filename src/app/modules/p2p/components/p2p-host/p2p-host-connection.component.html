@@ -9,7 +9,7 @@
   </form>
   <div [ngSwitch]="guest.state" style="flex-grow: 1;">
     <ng-container *ngSwitchCase="'pending'">
-      <mat-tab-group *ngIf="guest | any as pendingGuest" [(selectedIndex)]="tabIndex">
+      <mat-tab-group *ngIf="$any(guest) as pendingGuest" [(selectedIndex)]="tabIndex">
         <mat-tab label="Text">
           <h2>Copy Offer Code to Send to Guest</h2>
           <mat-form-field appearance="fill" style="width: 100%;" (click)="copyOfferCode(pendingGuest.offer)">

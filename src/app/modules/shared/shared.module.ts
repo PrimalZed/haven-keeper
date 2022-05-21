@@ -4,15 +4,12 @@ import { RouterModule } from '@angular/router';
 import { MatModule } from 'src/app/mat.module';
 import { LayoutComponent } from './components/layout/layout.component';
 import { NgAfterViewInitDirective } from './directives/ng-after-view-init.directive';
-import { AnyPipe } from './pipes/any.pipe';
 
 @NgModule({
   declarations: [
     LayoutComponent,
 
-    NgAfterViewInitDirective,
-
-    AnyPipe
+    NgAfterViewInitDirective
   ],
   imports: [
     FormsModule,
@@ -23,8 +20,6 @@ import { AnyPipe } from './pipes/any.pipe';
     LayoutComponent,
 
     NgAfterViewInitDirective,
-
-    AnyPipe,
 
     FormsModule,
     MatModule
