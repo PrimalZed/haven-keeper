@@ -9,13 +9,13 @@
       </div>
       <div>{{ initiative$ | async }}</div>
     </div>
-    <div class="monster-card-content">
+    <div class="monster-card-content card-content">
       <ng-container [ngSwitch]="statCard.kind">
         <monster-stat-card *ngSwitchCase="'normal'" [level]="monster.level" [statCard]="$any(statCard)" style="flex-grow: 1"></monster-stat-card>
       </ng-container>
       <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center;">
         <monster-ability-card *ngIf="abilityDeck$ | async as abilityDeck" [id]="abilityDeck.currentAbilityCardId" style="flex-grow: 1;"></monster-ability-card>
-        <div>{{ abilityCardsRemaining$ | async }} <span i18n>cards remaining</span></div>
+        <div class="card-content-sm">{{ abilityCardsRemaining$ | async }} <span i18n>cards remaining</span></div>
       </div>
     </div>
     <div class="monster-card-standees">

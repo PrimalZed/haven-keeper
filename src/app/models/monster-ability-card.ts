@@ -1,4 +1,5 @@
 import { AttackEffect } from './attack-effect';
+import { BonusKey } from './bonus';
 import { ConditionKey } from './condition';
 import { Element } from './element';
 
@@ -10,8 +11,9 @@ export type MonsterAbility =
   | {
     kind: 'attack';
     modifier: number;
-    range: number;
-    effects: AttackEffect[];
+    target?: number;
+    range?: number;
+    effects?: AttackEffect[];
   }
   | {
     kind: 'heal';
@@ -20,10 +22,15 @@ export type MonsterAbility =
     range: number;
   }
   | {
+    kind: 'bonus';
+    bonus: BonusKey;
+    amount: number;
+  }
+  | {
     kind: 'condition';
     condition: ConditionKey;
     target: 'self' | 'ally' | 'enemy';
-    range: number;
+    range?: number;
     consumeElement?: Element;
   }
   | {
@@ -33,6 +40,10 @@ export type MonsterAbility =
   | {
     kind: 'loot';
     range: number;
+  }
+  | {
+    kind: 'special';
+    description: string;
   };
 
 export interface MonsterAbilityCard {
@@ -40,5 +51,5 @@ export interface MonsterAbilityCard {
   name: string;
   initiative: number;
   abilities: MonsterAbility[];
-  shuffle: boolean;
+  shuffle?: true;
 }

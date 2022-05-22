@@ -1,0 +1,42 @@
+<ng-container [ngSwitch]="condition">
+  <ng-container *ngSwitchCase="'curse'">
+    <span i18n="@@curse">CURSE</span>
+    <span>&nbsp;</span>
+    <span class="gloomhaven-condition-icons">C</span>
+  </ng-container>
+  <ng-container *ngSwitchCase="'disarm'">
+    <span i18n="@@disarm">DISARM</span>
+    <span>&nbsp;</span>
+    <span class="gloomhaven-condition-icons">D</span>
+  </ng-container>
+  <ng-container *ngSwitchCase="'immobilize'">
+    <span i18n="@@immobilize">IMMOBILIZE</span>
+    <span>&nbsp;</span>
+    <span class="gloomhaven-condition-icons">I</span>
+  </ng-container>
+  <ng-container *ngSwitchCase="'muddle'">
+    <span i18n="@@muddle">MUDDLE</span>
+    <span>&nbsp;</span>
+    <span class="gloomhaven-condition-icons">M</span>
+  </ng-container>
+  <ng-container *ngSwitchCase="'poison'">
+    <span i18n="@@poison">POISON</span>
+    <span>&nbsp;</span>
+    <span class="gloomhaven-condition-icons">P</span>
+  </ng-container>
+  <ng-container *ngSwitchCase="'strengthen'">
+    <span i18n="@@strengthen">STRENGTHEN</span>
+    <span>&nbsp;</span>
+    <span class="gloomhaven-condition-icons">S</span>
+  </ng-container>
+  <ng-container *ngSwitchCase="'stun'">
+    <span i18n="@@stun">STUN</span>
+    <span>&nbsp;</span>
+    <span class="gloomhaven-condition-icons">U</span>
+  </ng-container>
+  <ng-container *ngSwitchCase="'wound'">
+    <span i18n="@@wound">WOUND</span>
+    <span>&nbsp;</span>
+    <span class="gloomhaven-condition-icons">W</span>
+  </ng-container>
+</ng-container>

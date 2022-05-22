@@ -7,7 +7,7 @@ export interface MonsterLevel {
   hitPoints: number;
   movement: number;
   attack: number;
-  range: number;
+  range?: number;
   bonuses: { [key in BonusKey]?: number };
   attackEffects: AttackEffect[];
   immunities: NegativeConditionKey[];

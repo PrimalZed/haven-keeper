@@ -1,46 +1,154 @@
 {
-  "archer": [
-    {
-      "id": 1,
-      "name": "Shoot 1",
-      "initiative": 11,
-      "abilities": [
-        { "kind": "move", "modifier": 2 },
-        { "kind": "attack", "modifier": 1, "range": 2, "effects": [] }
-      ],
-      "shuffle": false
-    },
-    {
-      "id": 2,
-      "name": "Shoot 2",
-      "initiative": 33,
-      "abilities": [
-        { "kind": "move", "modifier": 1 },
-        { "kind": "attack", "modifier": -1, "range": 3, "effects": [] }
-      ],
-      "shuffle": false
-    }
-  ],
   "guard": [
     {
-      "id": 3,
-      "name": "Hit 1",
-      "initiative": 22,
+      "id": 524,
+      "name": "Guard",
+      "initiative": 15,
       "abilities": [
-        { "kind": "move", "modifier": 1 },
-        { "kind": "attack", "modifier": 1, "range": 0, "effects": [] }
+        { "kind": "bonus", "bonus": "shield", "amount": 1 },
+        { "kind": "bonus", "bonus": "retaliate", "amount": 2 }
       ],
-      "shuffle": false
+      "shuffle": true
     },
     {
-      "id": 4,
-      "name": "Hit 2",
+      "id": 525,
+      "name": "Guard",
+      "initiative": 30,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1 }
+      ]
+    },
+    {
+      "id": 526,
+      "name": "Guard",
+      "initiative": 35,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 0, "range": 2 }
+      ]
+    },
+    {
+      "id": 527,
+      "name": "Guard",
+      "initiative": 50,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 528,
+      "name": "Guard",
+      "initiative": 50,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 529,
+      "name": "Guard",
+      "initiative": 70,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1 }
+      ]
+    },
+    {
+      "id": 530,
+      "name": "Guard",
+      "initiative": 55,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 0 },
+        { "kind": "condition", "condition": "strengthen", "target": "self" }
+      ]
+    },
+    {
+      "id": 531,
+      "name": "Guard",
+      "initiative": 15,
+      "abilities": [
+        { "kind": "bonus", "bonus": "shield", "amount": 1 },
+        { "kind": "attack", "modifier": 0, "effects": [{ "kind": "condition", "condition": "poison" }] }
+      ],
+      "shuffle": true
+    }
+  ],
+  "archer": [
+    {
+      "id": 532,
+      "name": "Archer",
+      "initiative": 16,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1 }
+      ]
+    },
+    {
+      "id": 533,
+      "name": "Archer",
+      "initiative": 31,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 534,
+      "name": "Archer",
+      "initiative": 32,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 1, "range": -1 }
+      ]
+    },
+    {
+      "id": 535,
+      "name": "Archer",
       "initiative": 44,
       "abilities": [
-        { "kind": "move", "modifier": 2 },
-        { "kind": "attack", "modifier": -1, "range": 0, "effects": [] }
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1 }
+      ]
+    },
+    {
+      "id": 536,
+      "name": "Archer",
+      "initiative": 56,
+      "abilities": [
+        { "kind": "attack", "modifier": -1, "target": 2 }
+      ]
+    },
+    {
+      "id": 537,
+      "name": "Archer",
+      "initiative": 68,
+      "abilities": [
+        { "kind": "attack", "modifier": 1, "range": 1 }
       ],
-      "shuffle": false
+      "shuffle": true
+    },
+    {
+      "id": 538,
+      "name": "Archer",
+      "initiative": 14,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": -1 },
+        { "kind": "special", "description": "Create a 3 damage trap in an adjacent empty hex closest to an enemy."}
+      ]
+    },
+    {
+      "id": 539,
+      "name": "Archer",
+      "initiative": 29,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1, "range": 1, "effects": [{ "kind": "condition", "condition": "immobilize" }] }
+      ],
+      "shuffle": true
     }
   ]
 }

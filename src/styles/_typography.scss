@@ -25,6 +25,12 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Sakkal Majalla";
+  src: url(../assets/fonts/majalla.ttf) format("truetype");
+  font-display: swap;
+}
+
 body { font-family: Nyala, Roboto, "Helvetica Neue", sans-serif; }
 
 $my-typography-config: mat.define-typography-config(
@@ -63,4 +69,18 @@ h1 {
 
 .caption {
   @include mat.typography-level($my-typography-config, 'caption');
+}
+
+.card-content {
+  font-family: "Sakkal Majalla";
+  font-size: 1.2rem;
+  .card-content-sm {
+    font-size: 0.9rem;
+  }
+}
+
+.card-id {
+  font-family: Calibri;
+  font-size: 0.6rem;
+  font-weight: bold;
 }

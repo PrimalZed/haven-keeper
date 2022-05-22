@@ -1,11 +1,56 @@
-<div *ngIf="!id" style="text-align: center;">No Card</div>
-<div *ngIf="card" class="active-card">
+<div *ngIf="!card" style="text-align: center;">No Card</div>
+<div *ngIf="card" style="display: flex; flex-direction: column; align-items: center;">
   <div class="title">{{ card.name }}</div>
   <ng-container *ngFor="let ability of card?.abilities" [ngSwitch]="ability.kind">
-    <div *ngSwitchCase="'move'"><span title="Move" i18n-title="@@move" class="gloomhaven-ability-icons">M</span> {{ $any(ability).modifier | modifier }}</div>
-    <div *ngSwitchCase="'attack'">
-      <div><span title="Attack" i18n-title="@@attack" class="gloomhaven-ability-icons">K</span> {{ $any(ability).modifier | modifier }}</div>
-      <div *ngIf="$any(ability).range"><span title="Range" i18n-title="@@range" class="gloomhaven-ability-icons">G</span> {{ $any(ability).range }}</div>
+    <div *ngSwitchCase="'move'">
+      <span i18n="@@move">Move</span>
+      <span>&nbsp;</span>
+      <span class="gloomhaven-ability-icons">M</span>
+      <span>&nbsp;</span>
+      <span>{{ $any(ability).modifier | modifier }}</span>
+    </div>
+    <div *ngSwitchCase="'attack'" style="text-align: center;">
+      <div>
+        <span i18n="@@attack">Attack</span>
+        <span>&nbsp;</span>
+        <span class="gloomhaven-ability-icons">K</span>
+        <span>&nbsp;</span>
+        <span>{{ $any(ability).modifier | modifier }}</span>
+      </div>
+      <div *ngIf="$any(ability).range" class="card-content-sm">
+        <span i18n="@@range">Range</span>
+        <span>&nbsp;</span>
+        <span class="gloomhaven-ability-icons">G</span>
+        <span>&nbsp;</span>
+        <span>{{ $any(ability).range | modifier }}</span>
+      </div>
+      <div *ngFor="let effect of $any(ability).effects" [ngSwitch]="effect.kind" class="card-content-sm">
+        <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>
+      </div>
+    </div>
+    <div *ngSwitchCase="'bonus'" [ngSwitch]="$any(ability).bonus">
+      <ng-container *ngSwitchCase="'retaliate'">
+        <span i18n="@@retaliate">Retaliate</span>
+        <span>&nbsp;</span>
+        <span class="gloomhaven-ability-icons">R</span>
+      </ng-container>
+      <ng-container *ngSwitchCase="'shield'">
+        <span i18n="@@shield">Shield</span>
+        <span>&nbsp;</span>
+        <span class="gloomhaven-ability-icons">S</span>
+      </ng-container>
+      <span>&nbsp;</span>
+      <span>{{ $any(ability).amount }}</span>
+    </div>
+    <div *ngSwitchCase="'condition'" style="text-align: center;">
+      <div>
+        <condition [condition]="$any(ability).condition"></condition>
+      </div>
+      <div class="card-content-sm">{{ $any(ability).target }}</div>
+    </div>
+    <div *ngSwitchCase="'special'" class="card-content-sm">
+      <div>{{ $any(ability).description }}</div>
     </div>
   </ng-container>
 </div>
+<div *ngIf="id" class="card-id">{{ id }}</div>

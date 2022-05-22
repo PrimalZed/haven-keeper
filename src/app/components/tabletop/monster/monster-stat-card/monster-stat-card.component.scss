@@ -1,8 +1,17 @@
-.normal-numbers {
-  display: flex;
-  justify-content: center;
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: baseline;
+  > *:nth-child(3n+1) {
+    text-align: right;
+  }
+  > *:nth-child(3n+2) {
+    text-align: center;
+  }
+  > *:nth-child(3n) {
+    text-align: left;
+  }
 }
-
 .level {
   text-align: center;
 }

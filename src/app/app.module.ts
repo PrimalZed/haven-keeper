@@ -39,6 +39,7 @@ import { ElementDarkComponent } from './components/tabletop/elements/element-dar
 import { ElementEarthComponent } from './components/tabletop/elements/element-earth/element-earth.component';
 import { ElementFireComponent } from './components/tabletop/elements/element-fire/element-fire.component';
 import { ElementLightComponent } from './components/tabletop/elements/element-light/element-light.component';
+import { ConditionComponent } from './components/tabletop/condition/condition.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { ElementLightComponent } from './components/tabletop/elements/element-li
      ElementDarkComponent,
      ElementEarthComponent,
      ElementFireComponent,
-     ElementLightComponent
+     ElementLightComponent,
+     ConditionComponent
   ],
   imports: [
     AppRoutingModule,
