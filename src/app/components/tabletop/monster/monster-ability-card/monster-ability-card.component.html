@@ -53,4 +53,7 @@
     </div>
   </ng-container>
 </div>
-<div *ngIf="id" class="card-id">{{ id }}</div>
+<div *ngIf="id" style="display: flex; justify-content: space-between; align-items: baseline;">
+  <div class="card-id">{{ id }}</div>
+  <div *ngIf="card.shuffle" class="gloomhaven-ability-icons" style="font-size: 1.8rem;">@</div>
+</div>

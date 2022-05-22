@@ -17,6 +17,7 @@
 * V: recover
 * X: experience
 * Z: teleport
+* @: shuffle
 
 Missing: spent
 
@@ -31,7 +32,7 @@ Missing: spent
 * U: stun
 * V: invisible
 * W: wound
-* Z: vanishing hand? intangible?
+* Z: regenerate
 
 # Effects
 * A: add target
