@@ -95,6 +95,7 @@ export function getTabletopReducer(catalogService: CatalogService) {
         ...monsterAbilityDeck,
         currentAbilityCardId: null,
         drawnAbilityCardIds: monsterAbilityDeck.drawnAbilityCardIds.length >= catalogService.monsterAbilityDecks[monsterAbilityDeck.key].length
+          || catalogService.monsterAbilityDecks[monsterAbilityDeck.key].find(x => x.id === monsterAbilityDeck.currentAbilityCardId)?.shuffle
           ? []
           : monsterAbilityDeck.drawnAbilityCardIds
       }), state.monsterAbilityDecks)
