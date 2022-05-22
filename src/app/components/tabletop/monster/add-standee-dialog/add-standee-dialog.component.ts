@@ -22,6 +22,14 @@ export class AddStandeeDialogComponent {
         .map((id) => ({ id, used: usedIds.includes(id) }))
       )
     );
+  public firstRowStandees$ = this.standees$
+    .pipe(
+      map((standees) => standees.filter(({ id }) => id <= 5))
+    );
+  public secondRowStandees$ = this.standees$
+    .pipe(
+      map((standees) => standees.filter(({ id }) => id > 5))
+    );
 
   public firstUnusedId$ = this.standees$
     .pipe(

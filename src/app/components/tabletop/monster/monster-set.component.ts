@@ -57,6 +57,13 @@ export class MonsterSetComponent implements OnDestroy {
       map(({ key, drawnAbilityCardIds }) => this.catalogService.monsterAbilityDecks[key].length - drawnAbilityCardIds.length)
     );
 
+  public standees$ = this.monster$
+    .pipe(
+      map(({ standees }) => [...standees]
+        .sort((a, b) => (a.id - this.getRankFactor(a.rank)) - (b.id - this.getRankFactor(b.rank)))
+      )
+    );
+
   private openStandeeDialogSubject: Subject<void> = new Subject();
   private openStandeeDialog$ = this.openStandeeDialogSubject
     .pipe(
@@ -71,6 +78,17 @@ export class MonsterSetComponent implements OnDestroy {
     private dialog: MatDialog,
     private store: Store<AppState>
   ) { }
+
+  private getRankFactor(rank: 'normal' | 'elite' | 'boss') {
+    switch (rank) {
+      case 'boss':
+        return 20;
+      case 'elite':
+        return 10;
+      case 'normal':
+        return 0;
+    }
+  }
 
   openStandeeDialog() {
     this.openStandeeDialogSubject.next();

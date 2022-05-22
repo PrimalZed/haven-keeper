@@ -1,5 +1,9 @@
-<div class="title" style="display: flex; padding-right: 8px;">
-  <div>{{ standee.id }}</div>
-  <div i18n>{{ standee.rank }}</div>
+<div style="display: flex; align-items: baseline;">
+  <div class="title" [title]="standee.rank" i18n-title="@@{{standee.rank}}"
+    [style.color]="standee.rank === 'boss' ? 'red' : standee.rank === 'elite' ? 'yellow' : null">
+    {{ standee.id }}
+  </div>
+  <div class="horizontal-spacer"></div>
+  <div class="gloomhaven-ability-icons">H</div>
   <div>{{ standee.hitPoints }}</div>
 </div>

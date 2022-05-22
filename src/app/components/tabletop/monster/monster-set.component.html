@@ -18,8 +18,8 @@
         <div class="card-content-sm">{{ abilityCardsRemaining$ | async }} <span i18n>cards remaining</span></div>
       </div>
     </div>
-    <div class="monster-card-standees">
-      <monster-standee *ngFor="let standee of monster.standees" [standee]="standee"></monster-standee>
+    <div class="monster-card-standees card-content">
+      <monster-standee *ngFor="let standee of standees$ | async" [standee]="standee"></monster-standee>
       <button mat-icon-button (click)="openStandeeDialog()">
         <mat-icon>add</mat-icon>
       </button>

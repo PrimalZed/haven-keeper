@@ -6,15 +6,20 @@
       <div>
         <mat-button-toggle-group name="rank" ngModel="normal" required aria-label="Rank" i18n-aria-label="@@rank">
           <mat-button-toggle value="normal" i18n="@@rankNormal">Normal</mat-button-toggle>
-          <mat-button-toggle value="elite" i18n="@@rankElite">Elite</mat-button-toggle>
+          <mat-button-toggle value="elite" style="color: yellow;" i18n="@@rankElite">Elite</mat-button-toggle>
         </mat-button-toggle-group>
       </div>
     </div>
     <div>
       <mat-label i18n="@@standeeNumber">Standee Number</mat-label>
       <div>
-        <mat-button-toggle-group name="id" [ngModel]="firstUnusedId$ | async" required aria-label="Standee Number" i18n-aria-label="@@standeeNumber">
-          <mat-button-toggle *ngFor="let standee of standees$ | async" [value]="standee.id" [disabled]="standee.used">{{ standee.id }}</mat-button-toggle>
+        <mat-button-toggle-group name="id" style="display: block;" [ngModel]="firstUnusedId$ | async" required aria-label="Standee Number" i18n-aria-label="@@standeeNumber">
+          <div style="display: flex; justify-content: space-evenly;">
+            <mat-button-toggle *ngFor="let standee of firstRowStandees$ | async" [value]="standee.id" [disabled]="standee.used">{{ standee.id }}</mat-button-toggle>
+          </div>
+          <div style="display: flex; justify-content: space-evenly; border-top: 1px solid #595959;">
+            <mat-button-toggle *ngFor="let standee of secondRowStandees$ | async" [value]="standee.id" [disabled]="standee.used">{{ standee.id }}</mat-button-toggle>
+          </div>
         </mat-button-toggle-group>
       </div>
     </div>
