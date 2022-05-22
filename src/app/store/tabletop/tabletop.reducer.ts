@@ -12,15 +12,18 @@ import {
   infuseElement, 
   loadTabletop, 
   nextRound, 
+  setScenarioLevel, 
   undoClearTabletop, 
   undoInfuseElement,
-  undoNextRound
+  undoNextRound,
+  undoSetScenarioLevel
 } from './tabletop.actions';
 import { TabletopState } from './tabletop.state';
 
 export const initialTabletopState: TabletopState = {
   step: 'card-selection',
   round: 1,
+  level: null,
   elementalInfusion: {
     'fire': 'inert',
     'ice': 'inert',
@@ -74,6 +77,14 @@ export function getTabletopReducer(catalogService: CatalogService) {
           }
         })(state.elementalInfusion[element])
       }
+    })),
+    on(setScenarioLevel, (state, { level }) => ({
+      ...state,
+      level
+    })),
+    on(undoSetScenarioLevel, (state, { previousLevel }) => ({
+      ...state,
+      level: previousLevel
     })),
     on(nextRound, (state) => ({
       ...state,

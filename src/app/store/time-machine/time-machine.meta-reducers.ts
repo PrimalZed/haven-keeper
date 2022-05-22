@@ -17,9 +17,11 @@ import {
   clearTabletop,
   infuseElement,
   nextRound,
+  setScenarioLevel,
   undoClearTabletop,
   undoInfuseElement,
-  undoNextRound
+  undoNextRound,
+  undoSetScenarioLevel
 } from 'store/tabletop/tabletop.actions';
 
 const trackActionTypes: string[] = [
@@ -28,6 +30,7 @@ const trackActionTypes: string[] = [
   addMonsterStandee.type,
   drawMonsterAbilityCardsSuccess.type,
   infuseElement.type,
+  setScenarioLevel.type,
   nextRound.type,
   clearTabletop.type
 ];
@@ -38,6 +41,7 @@ type ReversibleAction =
   | ReturnType<typeof addMonsterStandee>
   | ReturnType<typeof drawMonsterAbilityCardsSuccess>
   | ReturnType<typeof infuseElement>
+  | ReturnType<typeof setScenarioLevel>
   | ReturnType<typeof nextRound>
   | ReturnType<typeof clearTabletop>;
 
@@ -65,6 +69,8 @@ function getReverseAction(state: AppState, action: ReversibleAction): Action {
       });
     case infuseElement.type:
       return undoInfuseElement({ element: action.element });
+    case setScenarioLevel.type:
+      return undoSetScenarioLevel({ previousLevel: state.tabletop.level });
     case nextRound.type:
       return undoNextRound({
         elementalInfusion: { ...state.tabletop.elementalInfusion },

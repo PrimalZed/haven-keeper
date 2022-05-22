@@ -1,5 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { Element, ElementalInfusion } from 'models/element';
+import { ScenarioLevel } from 'models/scenario-level';
 import { TabletopState } from './tabletop.state';
 
 export const selectTabletopState = createFeatureSelector<TabletopState>('tabletop');
@@ -24,4 +25,9 @@ export const selectElementalInfusion = createSelector(
     'light': state.elementalInfusion.light,
     'dark': state.elementalInfusion.dark
   })
+);
+
+export const selectScenarioLevel = createSelector(
+  selectTabletopState,
+  (state): ScenarioLevel | null => state.level
 );

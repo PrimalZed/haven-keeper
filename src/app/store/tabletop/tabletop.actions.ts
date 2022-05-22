@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { Element, ElementalInfusion } from 'models/element';
+import { ScenarioLevel } from 'models/scenario-level';
 import { CharactersActions } from './characters/characters.actions';
 import { MonsterAbilityDecksActions } from './monster-ability-decks/monster-ability-decks.actions';
 import { MonstersActions } from './monsters/monsters.actions';
@@ -18,6 +19,16 @@ export const infuseElement = createAction(
 export const undoInfuseElement = createAction(
   "[Tabletop] Undo Infuse Element",
   props<{ element: Element }>()
+);
+
+export const setScenarioLevel = createAction(
+  "[Tabletop] Set Scenario Level",
+  props<{ level: ScenarioLevel }>()
+);
+
+export const undoSetScenarioLevel = createAction(
+  "[Tabletop] Undo Set Scenario Level",
+  props<{ previousLevel: ScenarioLevel | null }>()
 );
 
 export const nextRound = createAction(
@@ -49,6 +60,8 @@ export const TabletopActions = [
   ...MonsterAbilityDecksActions,
   infuseElement,
   undoInfuseElement,
+  setScenarioLevel,
+  undoSetScenarioLevel,
   nextRound,
   undoNextRound,
   clearTabletop,

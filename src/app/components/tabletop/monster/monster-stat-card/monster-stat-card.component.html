@@ -1,17 +1,18 @@
-<div class="stat-grid">
-  <div>{{ normalLevel.hitPoints }}</div>
-  <div title="Hit Points" i18n-title="@@hitPoints" class="gloomhaven-ability-icons">H</div>
-  <div style="color: yellow;">{{ eliteLevel.hitPoints }}</div>
-  <div>{{ normalLevel.movement }}</div>
-  <div title="Movement" i18n-title="@@movement" class="gloomhaven-ability-icons">M</div>
-  <div style="color: yellow;">{{ eliteLevel.movement }}</div>
-  <div>{{ normalLevel.attack }}</div>
-  <div title="Attack" i18n-title="@@attack" class="gloomhaven-ability-icons">K</div>
-  <div style="color: yellow;">{{ eliteLevel.attack }}</div>
-  <ng-container *ngIf="normalLevel.range || eliteLevel.range">
-    <div>{{ normalLevel.range }}</div>
-    <div title="Range" i18n-title="@@range" class="gloomhaven-ability-icons">G</div>
-    <div style="color: yellow;">{{ eliteLevel.range }}</div>
+<div class="stat-grid" *ngIf="normalLevel$ | async as normalLevel">
+  <ng-container *ngIf="eliteLevel$ | async as eliteLevel">
+    <div>{{ normalLevel.hitPoints }}</div>
+    <div title="Hit Points" i18n-title="@@hitPoints" class="gloomhaven-ability-icons">H</div>
+    <div style="color: yellow;">{{ eliteLevel.hitPoints }}</div>
+    <div>{{ normalLevel.movement }}</div>
+    <div title="Movement" i18n-title="@@movement" class="gloomhaven-ability-icons">M</div>
+    <div style="color: yellow;">{{ eliteLevel.movement }}</div>
+    <div>{{ normalLevel.attack }}</div>
+    <div title="Attack" i18n-title="@@attack" class="gloomhaven-ability-icons">K</div>
+    <div style="color: yellow;">{{ eliteLevel.attack }}</div>
+    <ng-container *ngIf="normalLevel.range || eliteLevel.range">
+      <div>{{ normalLevel.range }}</div>
+      <div title="Range" i18n-title="@@range" class="gloomhaven-ability-icons">G</div>
+      <div style="color: yellow;">{{ eliteLevel.range }}</div>
+    </ng-container>
   </ng-container>
 </div>
-<div class="level">Level: {{ level }}</div>

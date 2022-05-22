@@ -8,11 +8,10 @@ import { monstersAdapter } from './monsters.adapter';
 
 export function getMonstersOns(catalogService: CatalogService) {
   return [
-    on<TabletopState, [typeof addMonster]>(addMonster, (state, { key, level }) => ({
+    on<TabletopState, [typeof addMonster]>(addMonster, (state, { key }) => ({
       ...state,
       monsters: monstersAdapter.addOne({
         key,
-        level,
         standees: []
       }, state.monsters),
       monsterAbilityDecks: monsterAbilityDecksAdapter.addOne({
@@ -33,7 +32,22 @@ export function getMonstersOns(catalogService: CatalogService) {
           ...x,
           standees: [
             ...x.standees,
-            { id, rank, hitPoints: 5, conditions: [] }
+            {
+              id,
+              rank,
+              hitPoints: (() => {
+                const statCard = catalogService.monsterEntities[x.key];
+                switch (rank) {
+                  case 'elite':
+                    if (statCard.kind === 'boss') {
+                      throw 'Can\'t add elite standee for boss';
+                    }
+                    return statCard.eliteLevels[state.level ?? 0].hitPoints;
+                  case 'normal':
+                    return statCard.levels[state.level ?? 0].hitPoints;
+                } 
+              })(),
+              conditions: [] }
           ]
         })
       }, state.monsters)

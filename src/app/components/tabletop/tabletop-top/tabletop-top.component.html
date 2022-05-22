@@ -6,9 +6,13 @@
     <button mat-menu-item (click)="clearTabletop()">Clear Tabletop</button>
     <a mat-menu-item routerLink="p2p">Peer-to-Peer</a>
   </mat-menu>
-  <span i18n>{{ title }}</span>
+  <span *ngIf="showTitle$ | async" i18n>{{ title }}</span>
   <span class="horizontal-spacer"></span>
   <span><span i18n="@@round">Round</span> {{ round$ | async }}</span>
+  <ng-container *ngIf="level$ | async as level">
+    <span class="horizontal-spacer"></span>
+    <span><span i18n="@@level">Level</span> {{ level }}</span>
+  </ng-container>
   <span style="flex: 1 1 auto"></span>
   <button mat-icon-button [disabled]="!(hasPast$ | async)" (click)="undo()">
     <mat-icon>undo</mat-icon>

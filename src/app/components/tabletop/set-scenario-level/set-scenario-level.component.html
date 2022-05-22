@@ -1,0 +1,4 @@
+<h1 mat-dialog-title>Set Scenario Level</h1>
+<div mat-dialog-content style="display: flex; gap: 0.5em; flex-wrap: wrap;">
+  <button *ngFor="let level of levels" mat-raised-button color="accent" (click)="setScenarioLevel(level)">{{ level }}</button>
+</div>

@@ -9,6 +9,5 @@ export interface MonsterStandee {
 
 export interface MonsterSet {
   key: string;
-  level: ScenarioLevel;
   standees: MonsterStandee[];
 }

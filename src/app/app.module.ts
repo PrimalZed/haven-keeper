@@ -40,6 +40,7 @@ import { ElementEarthComponent } from './components/tabletop/elements/element-ea
 import { ElementFireComponent } from './components/tabletop/elements/element-fire/element-fire.component';
 import { ElementLightComponent } from './components/tabletop/elements/element-light/element-light.component';
 import { ConditionComponent } from './components/tabletop/condition/condition.component';
+import { SetScenarioLevelComponent } from './components/tabletop/set-scenario-level/set-scenario-level.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { ConditionComponent } from './components/tabletop/condition/condition.co
      ElementEarthComponent,
      ElementFireComponent,
      ElementLightComponent,
-     ConditionComponent
+     ConditionComponent,
+     SetScenarioLevelComponent
   ],
   imports: [
     AppRoutingModule,
