@@ -11,16 +11,28 @@ import { environment } from 'src/environments/environment';
 import { AddCardDialogComponent } from './components/tabletop/add-card-dialog/add-card-dialog.component';
 import { CharacterInitiativeDialogComponent } from './components/tabletop/character-initiative-dialog/character-initiative-dialog.component';
 import { CharacterComponent } from './components/tabletop/character/character.component';
+import { ConditionComponent } from './components/tabletop/condition/condition.component';
+import { ConditionToggleComponent } from './components/tabletop/condition-toggle/condition-toggle.component';
+import { ElementIceComponent } from './components/tabletop/elements/element-ice/element-ice.component';
+import { ElementAirComponent } from './components/tabletop/elements/element-air/element-air.component';
+import { ElementDarkComponent } from './components/tabletop/elements/element-dark/element-dark.component';
+import { ElementEarthComponent } from './components/tabletop/elements/element-earth/element-earth.component';
+import { ElementFireComponent } from './components/tabletop/elements/element-fire/element-fire.component';
+import { ElementLightComponent } from './components/tabletop/elements/element-light/element-light.component';
 import { MonsterSetComponent } from './components/tabletop/monster/monster-set.component';
 import { AddStandeeDialogComponent } from './components/tabletop/monster/add-standee-dialog/add-standee-dialog.component';
 import { MonsterAbilityCardComponent } from './components/tabletop/monster/monster-ability-card/monster-ability-card.component';
 import { MonsterStatCardComponent } from './components/tabletop/monster/monster-stat-card/monster-stat-card.component';
+import { MonsterStandeeDialogComponent } from './components/tabletop/monster/standee/standee-dialog/monster-standee-dialog.component';
 import { MonsterStandeeComponent } from './components/tabletop/monster/standee/monster-standee.component';
+import { SetScenarioLevelComponent } from './components/tabletop/set-scenario-level/set-scenario-level.component';
 import { TabletopBottomComponent } from './components/tabletop/tabletop-bottom/tabletop-bottom.component';
 import { TabletopTopComponent } from './components/tabletop/tabletop-top/tabletop-top.component';
 import { TabletopComponent } from './components/tabletop/tabletop.component';
 import { TabletopMainComponent } from './components/tabletop/tabletop-main.component';
 import { GlidePositionDirective } from './directives/glide-position.directive';
+import { NgLetDirective } from './directives/ng-let.directive';
+import { MaxHitPointsPipe } from './pipes/max-hit-points.pipe';
 import { ModifierPipe } from './pipes/modifier.pipe';
 import { CatalogService } from 'services/catalog.service';
 import { PersistenceService } from 'services/persistence.service';
@@ -33,14 +45,6 @@ import { TimeMachineEffects } from 'store/time-machine/time-machine.effects';
 import { timeMachineMetaReducers } from 'store/time-machine/time-machine.meta-reducers';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ElementIceComponent } from './components/tabletop/elements/element-ice/element-ice.component';
-import { ElementAirComponent } from './components/tabletop/elements/element-air/element-air.component';
-import { ElementDarkComponent } from './components/tabletop/elements/element-dark/element-dark.component';
-import { ElementEarthComponent } from './components/tabletop/elements/element-earth/element-earth.component';
-import { ElementFireComponent } from './components/tabletop/elements/element-fire/element-fire.component';
-import { ElementLightComponent } from './components/tabletop/elements/element-light/element-light.component';
-import { ConditionComponent } from './components/tabletop/condition/condition.component';
-import { SetScenarioLevelComponent } from './components/tabletop/set-scenario-level/set-scenario-level.component';
 
 @NgModule({
   declarations: [
@@ -49,26 +53,30 @@ import { SetScenarioLevelComponent } from './components/tabletop/set-scenario-le
     AppComponent,
     CharacterComponent,
     CharacterInitiativeDialogComponent,
+    ConditionComponent,
+    ConditionToggleComponent,
+    ElementIceComponent,
+    ElementAirComponent,
+    ElementDarkComponent,
+    ElementEarthComponent,
+    ElementFireComponent,
+    ElementLightComponent,
     MonsterAbilityCardComponent,
     MonsterSetComponent,
     MonsterStandeeComponent,
+    MonsterStandeeDialogComponent,
     MonsterStatCardComponent,
+    SetScenarioLevelComponent,
     TabletopComponent,
     TabletopBottomComponent,
     TabletopMainComponent,
     TabletopTopComponent,
 
     GlidePositionDirective,
+    NgLetDirective,
 
-    ModifierPipe,
-     ElementIceComponent,
-     ElementAirComponent,
-     ElementDarkComponent,
-     ElementEarthComponent,
-     ElementFireComponent,
-     ElementLightComponent,
-     ConditionComponent,
-     SetScenarioLevelComponent
+    MaxHitPointsPipe,
+    ModifierPipe
   ],
   imports: [
     AppRoutingModule,

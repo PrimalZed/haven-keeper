@@ -12,6 +12,8 @@ import {
   addMonsterStandee,
   undoAddMonster,
   undoAddMonsterStandee,
+  undoUpdateMonsterStandee,
+  updateMonsterStandee,
 } from 'store/tabletop/monsters/monsters.actions';
 import {
   clearTabletop,
@@ -28,6 +30,7 @@ const trackActionTypes: string[] = [
   addCharacter.type,
   addMonster.type,
   addMonsterStandee.type,
+  updateMonsterStandee.type,
   drawMonsterAbilityCardsSuccess.type,
   infuseElement.type,
   setScenarioLevel.type,
@@ -39,6 +42,7 @@ type ReversibleAction =
   | ReturnType<typeof addCharacter>
   | ReturnType<typeof addMonster>
   | ReturnType<typeof addMonsterStandee>
+  | ReturnType<typeof updateMonsterStandee>
   | ReturnType<typeof drawMonsterAbilityCardsSuccess>
   | ReturnType<typeof infuseElement>
   | ReturnType<typeof setScenarioLevel>
@@ -53,6 +57,16 @@ function getReverseAction(state: AppState, action: ReversibleAction): Action {
       return undoAddMonster({ key: action.key });
     case addMonsterStandee.type:
       return undoAddMonsterStandee({ key: action.key, id: action.id });
+    case updateMonsterStandee.type:
+      const standee = state.tabletop.monsters.entities[action.key]
+        ?.standees
+        .find(x => x.id === action.id);
+      return undoUpdateMonsterStandee({
+        key: action.key,
+        id: action.id,
+        previousHitPoints: standee?.hitPoints ?? 0,
+        previousConditions: standee?.conditions ?? []
+      });
     case drawMonsterAbilityCardsSuccess.type:
       return undoDrawMonsterAbilityCards({
         abilityCardIds: Object.entries(action.abilityCardIds)

@@ -1,9 +1,15 @@
-<div style="display: flex; align-items: baseline;">
-  <div class="title" [title]="standee.rank" i18n-title="@@{{standee.rank}}"
-    [style.color]="standee.rank === 'boss' ? 'red' : standee.rank === 'elite' ? 'yellow' : null">
-    {{ standee.id }}
+<button mat-stroked-button (click)="emitClick($event)">
+  <div>
+    <div class="title" [title]="standee.rank" i18n-title="@@{{standee.rank}}"
+      [style.color]="standee.rank === 'boss' ? 'red' : standee.rank === 'elite' ? 'yellow' : null">
+      {{ standee.id }}
+    </div>
+    <div class="horizontal-spacer"></div>
+    <div class="gloomhaven-ability-icons">H</div>
+    <div>{{ standee.hitPoints }}</div>
+    <ng-container *ngIf="standee.conditions.length">
+      <div class="horizontal-spacer"></div>
+      <condition *ngFor="let condition of standee.conditions" [condition]="condition"></condition>
+    </ng-container>
   </div>
-  <div class="horizontal-spacer"></div>
-  <div class="gloomhaven-ability-icons">H</div>
-  <div>{{ standee.hitPoints }}</div>
-</div>
+</button>

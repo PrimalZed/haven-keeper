@@ -9,6 +9,7 @@
       "models/*": ["src/app/models/*"],
       "p2p/*": ["src/app/modules/p2p/*"],
       "persistence/*": ["src/app/persistence/*"],
+      "pipes/*": ["src/app/pipes/*"],
       "services/*": ["src/app/services/*"],
       "shared/*": ["src/app/modules/shared/*"],
       "store/*": ["src/app/store/*"],

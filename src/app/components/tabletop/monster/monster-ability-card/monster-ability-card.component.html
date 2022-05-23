@@ -25,7 +25,7 @@
         <span>{{ $any(ability).range | modifier }}</span>
       </div>
       <div *ngFor="let effect of $any(ability).effects" [ngSwitch]="effect.kind" class="card-content-sm">
-        <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>
+        <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition" [showLabel]="true"></condition>
       </div>
     </div>
     <div *ngSwitchCase="'bonus'" [ngSwitch]="$any(ability).bonus">
@@ -44,7 +44,7 @@
     </div>
     <div *ngSwitchCase="'condition'" style="text-align: center;">
       <div>
-        <condition [condition]="$any(ability).condition"></condition>
+        <condition [condition]="$any(ability).condition" [showLabel]="true"></condition>
       </div>
       <div class="card-content-sm">{{ $any(ability).target }}</div>
     </div>

@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>{{ statCard.name }} {{standee.id}}</h1>
+<form #standeeNgForm="ngForm" (ngSubmit)="submit(standeeNgForm.form)">
+  <div mat-dialog-content>
+    <div *ngLet="[statCard.key, (scenarioLevel$ | async) ?? 0, standee.rank] | maxHitPoints as maxHitPoints">
+      <mat-form-field appearance="fill">
+        <mat-label i18n="@@hitPoints">Hit Points</mat-label>
+        <span matPrefix class="gloomhaven-ability-icons" style="margin-right: 8px;">H</span>
+        <input type="number" matInput name="hitPoints" #hitPointsNgModel="ngModel" [ngModel]="standee.hitPoints" min="0" [max]="maxHitPoints">
+        <mat-error *ngIf="hitPointsNgModel.control.hasError('min') || hitPointsNgModel.control.hasError('max')">
+          Hit Points must be between 0 and {{ maxHitPoints }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div ngModelGroup="conditions">
+      <mat-label i18n="@@conditions">Conditions</mat-label>
+      <div style="display: flex; flex-wrap: wrap;">
+        <condition-toggle *ngFor="let condition of conditions" [name]="condition.key" [condition]="condition.key" [ngModel]="condition.active">
+        </condition-toggle>
+      </div>
+    </div>
+  </div>
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" mat-dialog-close i18n="@@cancel">Cancel</button>
+    <button mat-raised-button type="submit" color="primary" [disabled]="!standeeNgForm.form.valid" i18n="@@finish">Finish</button>
+  </mat-dialog-actions>
+</form>

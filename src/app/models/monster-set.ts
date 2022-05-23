@@ -1,10 +1,10 @@
-import { ScenarioLevel } from './scenario-level';
+import { ConditionKey } from './condition';
 
 export interface MonsterStandee {
   id: number;
   rank: 'normal' | 'elite' | 'boss';
   hitPoints: number;
-  conditions: any[];
+  conditions: ConditionKey[];
 }
 
 export interface MonsterSet {

@@ -8,4 +8,5 @@ import { ConditionKey } from 'models/condition';
 })
 export class ConditionComponent {
   @Input() condition!: ConditionKey
+  @Input() showLabel: boolean = false;
 }

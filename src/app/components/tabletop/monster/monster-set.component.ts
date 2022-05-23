@@ -1,15 +1,17 @@
 import { ChangeDetectionStrategy, Component, Input, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { Observable, ReplaySubject, Subject } from 'rxjs';
+import { merge, Observable, ReplaySubject, Subject } from 'rxjs';
 import { filter, map, switchMap, withLatestFrom } from 'rxjs/operators';
-import { MonsterSet } from 'models/monster-set';
+import { MonsterSet, MonsterStandee } from 'models/monster-set';
 import { getAbilityDeckKey, MonsterStatCard } from 'models/monster-stat-card';
 import { CatalogService } from 'services/catalog.service';
 import { AddStandeeDialogComponent } from './add-standee-dialog/add-standee-dialog.component';
+import { MonsterStandeeDialogComponent } from './standee/standee-dialog/monster-standee-dialog.component';
 import { MonsterAbilityDeck } from 'models/monster-ability-deck';
 import { selectMonsterAbilityDeckEntities } from 'store/tabletop/monster-ability-decks/monster-ability-decks.selectors';
 import { selectMonsterEntities } from 'store/tabletop/monsters/monsters.selectors';
+import { selectScenarioLevel } from 'store/tabletop/tabletop.selectors';
 import { AppState } from 'store/app.state';
 
 @Component({
@@ -64,14 +66,32 @@ export class MonsterSetComponent implements OnDestroy {
       )
     );
 
-  private openStandeeDialogSubject: Subject<void> = new Subject();
-  private openStandeeDialog$ = this.openStandeeDialogSubject
+  public scenarioLevel$ = this.store.select(selectScenarioLevel);
+
+  private openAddStandeeDialogSubject: Subject<void> = new Subject();
+  private openAddStandeeDialog$ = this.openAddStandeeDialogSubject
     .pipe(
       withLatestFrom(this.monster$, (_, monster) => monster),
       map(({ key }) => this.dialog.open(AddStandeeDialogComponent, { data: { key } }))
     );
 
-  private subscription = this.openStandeeDialog$.subscribe();
+  private openUpdateStandeeDialogSubject: Subject<MonsterStandee> = new Subject();
+  private openUpdateStandeeDialog$ = this.openUpdateStandeeDialogSubject
+    .pipe(
+      withLatestFrom(this.monster$),
+      map(([standee, monster]) => this.dialog.open(
+        MonsterStandeeDialogComponent,
+        {
+          data: {
+            statCard: this.catalogService.monsterEntities[monster.key],
+            standee: standee
+          }
+        }
+      ))
+    )
+
+  private subscription = merge(this.openAddStandeeDialog$, this.openUpdateStandeeDialog$)
+    .subscribe();
 
   constructor(
     private catalogService: CatalogService,
@@ -90,8 +110,12 @@ export class MonsterSetComponent implements OnDestroy {
     }
   }
 
-  openStandeeDialog() {
-    this.openStandeeDialogSubject.next();
+  openAddStandeeDialog() {
+    this.openAddStandeeDialogSubject.next();
+  }
+
+  openUpdateStandeeDialog(standee: MonsterStandee) {
+    this.openUpdateStandeeDialogSubject.next(standee);
   }
 
   ngOnDestroy() {

@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { ConditionKey } from 'models/condition';
 
 export const addMonster = createAction(
   "[Tabletop] [Monsters] Add Monster",
@@ -20,9 +21,21 @@ export const undoAddMonsterStandee = createAction(
   props<{ key: string, id: number }>()
 );
 
+export const updateMonsterStandee = createAction(
+  "[Tabletop] [Monsters] Update Monster Standee",
+  props<{ key: string, id: number, hitPoints: number, conditions: ConditionKey[] }>()
+);
+
+export const undoUpdateMonsterStandee = createAction(
+  "[Tabletop] [Monsters] Undo Update Monster Standee",
+  props<{ key: string, id: number, previousHitPoints: number, previousConditions: ConditionKey[] }>()
+);
+
 export const MonstersActions = [
   addMonster,
   undoAddMonster,
   addMonsterStandee,
-  undoAddMonsterStandee
+  undoAddMonsterStandee,
+  updateMonsterStandee,
+  undoUpdateMonsterStandee
 ];

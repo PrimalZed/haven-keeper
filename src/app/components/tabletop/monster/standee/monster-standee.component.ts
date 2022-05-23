@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { MonsterStandee } from 'models/monster-set';
 
 @Component({
@@ -8,5 +8,13 @@ import { MonsterStandee } from 'models/monster-set';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MonsterStandeeComponent {
+  @Input() maxHitPoints!: number;
   @Input() standee!: MonsterStandee;
+
+  @Output() click: EventEmitter<void> = new EventEmitter();
+  
+  emitClick(event: MouseEvent) {
+    event.stopPropagation();
+    this.click.emit();
+  }
 }

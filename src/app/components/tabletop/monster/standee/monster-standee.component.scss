@@ -1,5 +1,11 @@
-:host {
-  padding: 4px;
-  border: 1px solid currentColor;
-  border-radius: 4px;
+button {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  ::ng-deep .mat-button-wrapper > div {
+    display: flex;
+    align-items: baseline;
+    font-family: 'Sakkal Majalla';
+    font-size: 1.2rem;
+    line-height: normal;
+  }
 }
