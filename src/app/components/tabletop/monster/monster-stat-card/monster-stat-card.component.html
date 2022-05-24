@@ -1,18 +1,61 @@
 <div class="stat-grid" *ngIf="normalLevel$ | async as normalLevel">
   <ng-container *ngIf="eliteLevel$ | async as eliteLevel">
-    <div>{{ normalLevel.hitPoints }}</div>
-    <div title="Hit Points" i18n-title="@@hitPoints" class="gloomhaven-ability-icons">H</div>
-    <div style="color: yellow;">{{ eliteLevel.hitPoints }}</div>
-    <div>{{ normalLevel.movement }}</div>
-    <div title="Movement" i18n-title="@@movement" class="gloomhaven-ability-icons">M</div>
-    <div style="color: yellow;">{{ eliteLevel.movement }}</div>
-    <div>{{ normalLevel.attack }}</div>
-    <div title="Attack" i18n-title="@@attack" class="gloomhaven-ability-icons">K</div>
-    <div style="color: yellow;">{{ eliteLevel.attack }}</div>
+    <div class="header-normal" i18n="@@normal">Normal</div>
+    <div class="header-spacer"></div>
+    <div class="header-elite" style="color: yellow;" i18n="@@elite">Elite</div>
+
+    <div class="bonuses-normal">
+      <div *ngFor="let bonus of normalLevel.bonuses | keyvalue" [ngSwitch]="bonus.key">
+        <span *ngSwitchCase="'retaliate'" class="gloomhaven-ability-icons">R</span>
+        <span *ngSwitchCase="'shield'" class="gloomhaven-ability-icons">S</span>
+        {{ bonus.value }}
+      </div>
+      <div *ngFor="let effect of normalLevel.attackEffects" [ngSwitch]="effect.kind">
+        <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>
+        <ng-container *ngSwitchCase="'pierce'">
+          <span class="gloomhaven-effect-icons">P</span>
+          <span>{{ $any(effect).amount }}</span>
+        </ng-container>
+        <ng-container *ngSwitchCase="'target'">
+          <span class="gloomhaven-ability-icons">T</span>
+          <span>{{ $any(effect).amount }}</span>
+        </ng-container>
+      </div>
+    </div>
+    <div class="bonuses-elite">
+      <div *ngFor="let bonus of eliteLevel.bonuses | keyvalue" [ngSwitch]="bonus.key">
+        <span *ngSwitchCase="'retaliate'" class="gloomhaven-ability-icons">R</span>
+        <span *ngSwitchCase="'shield'" class="gloomhaven-ability-icons">S</span>
+        {{ bonus.value }}
+      </div>
+      <div *ngFor="let effect of eliteLevel.attackEffects" [ngSwitch]="effect.kind">
+        <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>
+        <ng-container *ngSwitchCase="'pierce'">
+          <span class="gloomhaven-effect-icons">P</span>
+          <span>{{ $any(effect).amount }}</span>
+        </ng-container>
+        <ng-container *ngSwitchCase="'target'">
+          <span class="gloomhaven-ability-icons">T</span>
+          <span>{{ $any(effect).amount }}</span>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="stat-normal">{{ normalLevel.hitPoints }}</div>
+    <div title="Hit Points" i18n-title="@@hitPoints" class="stat-icon gloomhaven-ability-icons">H</div>
+    <div class="stat-elite" style="color: yellow;">{{ eliteLevel.hitPoints }}</div>
+    
+    <div class="stat-normal">{{ normalLevel.movement }}</div>
+    <div title="Movement" i18n-title="@@movement" class="stat-icon gloomhaven-ability-icons">M</div>
+    <div class="stat-elite" style="color: yellow;">{{ eliteLevel.movement }}</div>
+    
+    <div class="stat-normal">{{ normalLevel.attack }}</div>
+    <div title="Attack" i18n-title="@@attack" class="stat-icon gloomhaven-ability-icons">K</div>
+    <div class="stat-elite" style="color: yellow;">{{ eliteLevel.attack }}</div>
     <ng-container *ngIf="normalLevel.range || eliteLevel.range">
-      <div>{{ normalLevel.range }}</div>
-      <div title="Range" i18n-title="@@range" class="gloomhaven-ability-icons">G</div>
-      <div style="color: yellow;">{{ eliteLevel.range }}</div>
+      <div class="stat-normal">{{ normalLevel.range }}</div>
+      <div title="Range" i18n-title="@@range" class="stat-icon gloomhaven-ability-icons">G</div>
+      <div class="stat-elite" style="color: yellow;">{{ eliteLevel.range }}</div>
     </ng-container>
   </ng-container>
 </div>
