@@ -20,7 +20,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## TODO
 Codify monster and monster ability card data from https://github.com/any2cards/worldhaven/tree/master/images
 
-Level attack effects, bonuses, immunities
+Monster level immunities
 
 Remove Standee
 
@@ -38,8 +38,6 @@ Update Character Health, Conditions
   reuse monster-standee-dialog?
 
 Boss Card
-
-Condition icons
 
 Character/Monster Portraits
 

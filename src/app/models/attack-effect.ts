@@ -1,13 +1,12 @@
 import { ConditionKey } from './condition';
 import { Element } from './element';
 
+export type EffectKey = 'add-target' | 'pierce' | 'push' | 'pull';
+
 export type AttackEffect = 
   | {
-    kind: 'add';
-    amount: number;
-  }
-  | {
-    kind: 'pierce';
+    kind: 'effect';
+    effect: EffectKey;
     amount: number;
   }
   | {
@@ -21,14 +20,6 @@ export type AttackEffect =
   | {
     kind: 'condition';
     condition: ConditionKey;
-  }
-  | {
-    kind: 'push';
-    amount: number;
-  }
-  | {
-    kind: 'pull';
-    amount: number;
   }
   | {
     kind: 'other';

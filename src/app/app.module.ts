@@ -45,6 +45,8 @@ import { TimeMachineEffects } from 'store/time-machine/time-machine.effects';
 import { timeMachineMetaReducers } from 'store/time-machine/time-machine.meta-reducers';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EffectComponent } from './components/tabletop/effect/effect.component';
+import { RhombusComponent } from './components/tabletop/rhombus/rhombus.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import { AppComponent } from './app.component';
     NgLetDirective,
 
     MaxHitPointsPipe,
-    ModifierPipe
+    ModifierPipe,
+    EffectComponent,
+    RhombusComponent
   ],
   imports: [
     AppRoutingModule,

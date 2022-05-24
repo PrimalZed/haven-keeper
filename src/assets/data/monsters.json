@@ -257,7 +257,7 @@
         "movement": 1,
         "attack": 3,
         "range": 5,
-        "attackEffects": [{ "kind": "pierce", "amount": 1 }],
+        "attackEffects": [{ "kind": "effect", "effect": "pierce", "amount": 1 }],
         "bonuses": { "shield": 1 },
         "immunities": []
       },
@@ -266,7 +266,7 @@
         "movement": 1,
         "attack": 4,
         "range": 5,
-        "attackEffects": [{ "kind": "pierce", "amount": 2 }],
+        "attackEffects": [{ "kind": "effect", "effect": "pierce", "amount": 2 }],
         "bonuses": { "shield": 1 },
         "immunities": []
       },
@@ -275,7 +275,7 @@
         "movement": 2,
         "attack": 4,
         "range": 5,
-        "attackEffects": [{ "kind": "pierce", "amount": 2 }],
+        "attackEffects": [{ "kind": "effect", "effect": "pierce", "amount": 2 }],
         "bonuses": { "shield": 2 },
         "immunities": []
       },
@@ -284,7 +284,7 @@
         "movement": 2,
         "attack": 4,
         "range": 6,
-        "attackEffects": [{ "kind": "pierce", "amount": 2 }],
+        "attackEffects": [{ "kind": "effect", "effect": "pierce", "amount": 2 }],
         "bonuses": { "shield": 2 },
         "immunities": []
       },
@@ -293,7 +293,7 @@
         "movement": 2,
         "attack": 5,
         "range": 6,
-        "attackEffects": [{ "kind": "pierce", "amount": 3 }],
+        "attackEffects": [{ "kind": "effect", "effect": "pierce", "amount": 3 }],
         "bonuses": { "shield": 2 },
         "immunities": []
       },
@@ -302,7 +302,7 @@
         "movement": 3,
         "attack": 6,
         "range": 6,
-        "attackEffects": [{ "kind": "pierce", "amount": 3 }],
+        "attackEffects": [{ "kind": "effect", "effect": "pierce", "amount": 3 }],
         "bonuses": { "shield": 2 },
         "immunities": []
       },
@@ -311,7 +311,7 @@
         "movement": 3,
         "attack": 6,
         "range": 7,
-        "attackEffects": [{ "kind": "pierce", "amount": 3 }],
+        "attackEffects": [{ "kind": "effect", "effect": "pierce", "amount": 3 }],
         "bonuses": { "shield": 3 },
         "immunities": []
       }
