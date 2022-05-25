@@ -24,8 +24,6 @@ Monster level immunities
 
 Remove Standee
 
-Don't draw cards for monsters with no standees
-
 Monster Summon
   Update Summon health, conditions
   Remove summon

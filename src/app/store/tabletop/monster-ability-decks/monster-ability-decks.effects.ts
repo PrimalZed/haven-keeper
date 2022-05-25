@@ -1,21 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
+import { MonsterAbilityDeck } from 'models/monster-ability-deck';
+import { getAbilityDeckKey } from 'models/monster-stat-card';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { CatalogService } from 'services/catalog.service';
 import { AppState } from 'store/app.state';
+import { selectMonsters } from '../monsters/monsters.selectors';
 import { drawMonsterAbilityCard, drawMonsterAbilityCards, drawMonsterAbilityCardsSuccess, drawMonsterAbilityCardSuccess } from './monster-ability-decks.actions';
-import { selectMonsterAbilityDeckEntities, selectMonsterAbilityDecks } from './monster-ability-decks.selectors';
+import { selectMonsterAbilityDeckEntities } from './monster-ability-decks.selectors';
 
 @Injectable()
 export class MonsterAbilityDecksEffects {
   drawMonsterAbilities$ = createEffect(() => this.actions$
     .pipe(
       ofType(drawMonsterAbilityCards),
-      withLatestFrom(this.store.select(selectMonsterAbilityDecks)),
-      map(([{ characterInitiatives }, monsterAbilityDecks]) => ({
+      withLatestFrom(this.store.select(selectMonsters), this.store.select(selectMonsterAbilityDeckEntities)),
+      map(([{ characterInitiatives }, monsters, monsterAbilityDecks]) => ({
         characterInitiatives,
-        abilityCardIds: monsterAbilityDecks
+        abilityCardIds: monsters
+          .filter((monster) => Boolean(monster.standees.length))
+          .map((monster) => getAbilityDeckKey(this.catalogService.monsterEntities[monster.key]))
+          .filter((deckKey, index, arr) => index === arr.indexOf(deckKey))
+          .map((deckKey) => monsterAbilityDecks[deckKey])
+          .filter((monsterAbilityDeck): monsterAbilityDeck is MonsterAbilityDeck => Boolean(monsterAbilityDeck))
           .map(({ key, drawnAbilityCardIds }) => ({
             key,
             id: this.getRandom(

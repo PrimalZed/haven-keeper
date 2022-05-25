@@ -15,11 +15,13 @@ export function getMonsterAbilityDecksOns() {
       }), state.characters),
       monsterAbilityDecks: monsterAbilityDecksAdapter.map((monsterAbilityDeck) => ({
         ...monsterAbilityDeck,
-        currentAbilityCardId: abilityCardIds[monsterAbilityDeck.key],
-        drawnAbilityCardIds: [
-          ...monsterAbilityDeck.drawnAbilityCardIds,
-          abilityCardIds[monsterAbilityDeck.key]
-        ]
+        currentAbilityCardId: abilityCardIds[monsterAbilityDeck.key] ?? monsterAbilityDeck.currentAbilityCardId,
+        drawnAbilityCardIds: abilityCardIds[monsterAbilityDeck.key]
+          ? [
+            ...monsterAbilityDeck.drawnAbilityCardIds,
+            abilityCardIds[monsterAbilityDeck.key]
+          ]
+          : monsterAbilityDeck.drawnAbilityCardIds
       }), state.monsterAbilityDecks)
     })),
     on<TabletopState, [typeof undoDrawMonsterAbilityCards]>(undoDrawMonsterAbilityCards, (state, { abilityCardIds }) => ({
@@ -27,9 +29,13 @@ export function getMonsterAbilityDecksOns() {
       step: 'card-selection',
       monsterAbilityDecks: monsterAbilityDecksAdapter.map((monsterAbilityDeck) => ({
         ...monsterAbilityDeck,
-        currentAbilityCardId: abilityCardIds[monsterAbilityDeck.key].previousId,
-        drawnAbilityCardIds: monsterAbilityDeck.drawnAbilityCardIds
-          .filter((id) => id !== abilityCardIds[monsterAbilityDeck.key].nextId)
+        currentAbilityCardId: abilityCardIds[monsterAbilityDeck.key]
+          ? abilityCardIds[monsterAbilityDeck.key].previousId
+          : monsterAbilityDeck.currentAbilityCardId,
+        drawnAbilityCardIds: abilityCardIds[monsterAbilityDeck.key]
+          ? monsterAbilityDeck.drawnAbilityCardIds
+            .filter((id) => id !== abilityCardIds[monsterAbilityDeck.key].nextId)
+          : monsterAbilityDeck.drawnAbilityCardIds
       }), state.monsterAbilityDecks)
     })),
     on<TabletopState, [typeof drawMonsterAbilityCardSuccess]>(drawMonsterAbilityCardSuccess, (state, { key, cardId }) => ({
