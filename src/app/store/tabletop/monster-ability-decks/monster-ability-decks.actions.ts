@@ -15,8 +15,24 @@ export const undoDrawMonsterAbilityCards = createAction(
   props<{ abilityCardIds: { [key: string]: { previousId: number | null, nextId: number} } }>()
 );
 
+export const drawMonsterAbilityCard = createAction(
+  "[Tabletop] [Monster Ability Decks] Draw Monster Ability Card",
+  props<{ key: string }>()
+);
+
+export const drawMonsterAbilityCardSuccess = createAction(
+  "[Tabletop] [Monster Ability Decks] Draw Monster Ability Card Success",
+  props<{ key: string, cardId: number }>()
+);
+
+export const undoDrawMonsterAbilityCard = createAction(
+  "[Tabletop] [Monster Ability Decks] Undo Draw Monster Ability Card",
+  props<{ key: string, cardId: number }>()
+);
+
 export const MonsterAbilityDecksActions = [
   drawMonsterAbilityCards,
   drawMonsterAbilityCardsSuccess,
-  undoDrawMonsterAbilityCards
+  undoDrawMonsterAbilityCards,
+  drawMonsterAbilityCard
 ];

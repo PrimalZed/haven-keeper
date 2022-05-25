@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { merge, Observable, ReplaySubject, Subject } from 'rxjs';
+import { combineLatest, merge, Observable, ReplaySubject, Subject } from 'rxjs';
 import { filter, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { MonsterSet, MonsterStandee } from 'models/monster-set';
 import { getAbilityDeckKey, MonsterStatCard } from 'models/monster-stat-card';
@@ -11,9 +11,11 @@ import { MonsterStandeeDialogComponent } from './standee/standee-dialog/monster-
 import { MonsterAbilityDeck } from 'models/monster-ability-deck';
 import { selectMonsterAbilityDeckEntities } from 'store/tabletop/monster-ability-decks/monster-ability-decks.selectors';
 import { selectMonsterEntities } from 'store/tabletop/monsters/monsters.selectors';
-import { selectScenarioLevel } from 'store/tabletop/tabletop.selectors';
+import { selectScenarioLevel, selectTabletopStep } from 'store/tabletop/tabletop.selectors';
 import { AppState } from 'store/app.state';
 import { MonsterAbilityDeckDialogComponent } from './monster-ability-deck-dialog/monster-ability-deck-dialog.component';
+import { drawMonsterAbilityCard } from 'store/tabletop/monster-ability-decks/monster-ability-decks.actions';
+import { TabletopService } from 'services/tabletop.service';
 
 @Component({
   selector: 'monster-set',
@@ -67,6 +69,19 @@ export class MonsterSetComponent implements OnDestroy {
       )
     );
 
+  public drawCardEligible$ = combineLatest([
+    this.abilityDeck$,
+    this.monster$,
+    this.store.select(selectTabletopStep)
+  ])
+    .pipe(
+      map(([abilityDeck, monster, tabletopStep]) =>
+        !abilityDeck.currentAbilityCardId
+        && Boolean(monster.standees.length)
+        && tabletopStep === 'actions'
+      )
+    );
+
   public scenarioLevel$ = this.store.select(selectScenarioLevel);
 
   private openAddStandeeDialogSubject: Subject<void> = new Subject();
@@ -97,7 +112,8 @@ export class MonsterSetComponent implements OnDestroy {
   constructor(
     private catalogService: CatalogService,
     private dialog: MatDialog,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private tabletopService: TabletopService
   ) { }
 
   private getRankFactor(rank: 'normal' | 'elite' | 'boss') {
@@ -117,6 +133,10 @@ export class MonsterSetComponent implements OnDestroy {
 
   openUpdateStandeeDialog(standee: MonsterStandee) {
     this.openUpdateStandeeDialogSubject.next(standee);
+  }
+
+  drawAbilityCard(key: string) {
+    this.tabletopService.dispatch(drawMonsterAbilityCard({ key }))
   }
 
   viewDrawnAbilityCards(abilityDeck: MonsterAbilityDeck) {

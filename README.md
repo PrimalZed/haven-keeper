@@ -26,8 +26,6 @@ Remove Standee
 
 Don't draw cards for monsters with no standees
 
-Draw card for monster added during turn phase
-
 Monster Summon
   Update Summon health, conditions
   Remove summon

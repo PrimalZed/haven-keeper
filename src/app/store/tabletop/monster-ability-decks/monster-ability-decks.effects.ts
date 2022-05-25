@@ -4,8 +4,8 @@ import { Store } from '@ngrx/store';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { CatalogService } from 'services/catalog.service';
 import { AppState } from 'store/app.state';
-import { drawMonsterAbilityCards, drawMonsterAbilityCardsSuccess } from './monster-ability-decks.actions';
-import { selectMonsterAbilityDecks } from './monster-ability-decks.selectors';
+import { drawMonsterAbilityCard, drawMonsterAbilityCards, drawMonsterAbilityCardsSuccess, drawMonsterAbilityCardSuccess } from './monster-ability-decks.actions';
+import { selectMonsterAbilityDeckEntities, selectMonsterAbilityDecks } from './monster-ability-decks.selectors';
 
 @Injectable()
 export class MonsterAbilityDecksEffects {
@@ -33,6 +33,25 @@ export class MonsterAbilityDecksEffects {
           )
       })),
       map(({ characterInitiatives, abilityCardIds }) => drawMonsterAbilityCardsSuccess({ characterInitiatives, abilityCardIds }))
+    )
+  );
+
+  drawMonsterAbility$ = createEffect(() => this.actions$
+    .pipe(
+      ofType(drawMonsterAbilityCard),
+      withLatestFrom(this.store.select(selectMonsterAbilityDeckEntities)),
+      map(([{ key }, monsterAbilityDecks]) => ({
+        key,
+        drawnAbilityCardIds: monsterAbilityDecks[key]?.drawnAbilityCardIds ?? []
+      })),
+      map(({ key, drawnAbilityCardIds }) => drawMonsterAbilityCardSuccess({
+        key,
+        cardId: this.getRandom(
+          this.catalogService.monsterAbilityDecks[key]
+            .map((card) => card.id)
+            .filter((id) => !drawnAbilityCardIds.includes(id))
+          )
+      }))
     )
   );
 

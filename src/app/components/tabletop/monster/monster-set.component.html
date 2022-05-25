@@ -15,6 +15,11 @@
       </ng-container>
       <div *ngIf="abilityDeck$ | async as abilityDeck" style="flex-grow: 1; display: flex; flex-direction: column; align-items: center;">
         <monster-ability-card [id]="abilityDeck.currentAbilityCardId" style="flex-grow: 1;"></monster-ability-card>
+        <div *ngIf="drawCardEligible$ | async">
+          <button mat-stroked-button color="accent" (click)="drawAbilityCard(abilityDeck.key)">
+            Draw Ability Card
+          </button>
+        </div>
         <div class="card-content-sm" style="display: flex; align-items: center; gap: 0.25rem;">
           <span>{{ abilityCardsRemaining$ | async }}</span>
           <span i18n>cards remaining</span>

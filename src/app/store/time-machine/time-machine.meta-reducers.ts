@@ -4,8 +4,10 @@ import { MonsterAbilityDeck } from 'models/monster-ability-deck';
 import { AppState } from 'store/app.state';
 import { addCharacter, undoAddCharacter } from 'store/tabletop/characters/characters.actions';
 import {
+  drawMonsterAbilityCardSuccess,
   drawMonsterAbilityCardsSuccess,
-  undoDrawMonsterAbilityCards
+  undoDrawMonsterAbilityCards,
+  undoDrawMonsterAbilityCard
 } from 'store/tabletop/monster-ability-decks/monster-ability-decks.actions';
 import {
   addMonster,
@@ -32,6 +34,7 @@ const trackActionTypes: string[] = [
   addMonsterStandee.type,
   updateMonsterStandee.type,
   drawMonsterAbilityCardsSuccess.type,
+  drawMonsterAbilityCardSuccess.type,
   infuseElement.type,
   setScenarioLevel.type,
   nextRound.type,
@@ -44,6 +47,7 @@ type ReversibleAction =
   | ReturnType<typeof addMonsterStandee>
   | ReturnType<typeof updateMonsterStandee>
   | ReturnType<typeof drawMonsterAbilityCardsSuccess>
+  | ReturnType<typeof drawMonsterAbilityCardSuccess>
   | ReturnType<typeof infuseElement>
   | ReturnType<typeof setScenarioLevel>
   | ReturnType<typeof nextRound>
@@ -80,6 +84,11 @@ function getReverseAction(state: AppState, action: ReversibleAction): Action {
             }),
             { }
           )
+      });
+    case drawMonsterAbilityCardSuccess.type:
+      return undoDrawMonsterAbilityCard({
+        key: action.key,
+        cardId: action.cardId
       });
     case infuseElement.type:
       return undoInfuseElement({ element: action.element });

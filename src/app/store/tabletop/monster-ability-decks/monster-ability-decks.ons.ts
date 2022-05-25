@@ -1,7 +1,7 @@
 import { on } from '@ngrx/store';
 import { charactersAdapter } from '../characters/characters.adapter';
 import { TabletopState } from '../tabletop.state';
-import { drawMonsterAbilityCardsSuccess, undoDrawMonsterAbilityCards } from './monster-ability-decks.actions';
+import { drawMonsterAbilityCardsSuccess, drawMonsterAbilityCardSuccess, undoDrawMonsterAbilityCard, undoDrawMonsterAbilityCards } from './monster-ability-decks.actions';
 import { monsterAbilityDecksAdapter } from './monster-ability-decks.adapter';
 
 export function getMonsterAbilityDecksOns() {
@@ -31,6 +31,38 @@ export function getMonsterAbilityDecksOns() {
         drawnAbilityCardIds: monsterAbilityDeck.drawnAbilityCardIds
           .filter((id) => id !== abilityCardIds[monsterAbilityDeck.key].nextId)
       }), state.monsterAbilityDecks)
+    })),
+    on<TabletopState, [typeof drawMonsterAbilityCardSuccess]>(drawMonsterAbilityCardSuccess, (state, { key, cardId }) => ({
+      ...state,
+      monsterAbilityDecks: monsterAbilityDecksAdapter.mapOne(
+        {
+          id: key,
+          map: (monsterAbilityDeck) => ({
+            ...monsterAbilityDeck,
+            currentAbilityCardId: cardId,
+            drawnAbilityCardIds: [
+              ...monsterAbilityDeck.drawnAbilityCardIds,
+              cardId
+            ]
+          })
+        },
+        state.monsterAbilityDecks
+      )
+    })),
+    on<TabletopState, [typeof undoDrawMonsterAbilityCard]>(undoDrawMonsterAbilityCard, (state, { key, cardId }) => ({
+      ...state,
+      monsterAbilityDecks: monsterAbilityDecksAdapter.mapOne(
+        {
+          id: key,
+          map: (monsterAbilityDeck) => ({
+            ...monsterAbilityDeck,
+            currentAbilityCardId: null,
+            drawnAbilityCardIds: monsterAbilityDeck.drawnAbilityCardIds
+              .filter((id) => id !== cardId)
+          })
+        },
+        state.monsterAbilityDecks
+      )
     }))
   ];
 }
