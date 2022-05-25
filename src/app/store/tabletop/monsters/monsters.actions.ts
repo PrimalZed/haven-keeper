@@ -31,11 +31,23 @@ export const undoUpdateMonsterStandee = createAction(
   props<{ key: string, id: number, previousHitPoints: number, previousConditions: ConditionKey[] }>()
 );
 
+export const removeMonsterStandee = createAction(
+  "[Tabletop] [Monsters] Remove Monster Standee",
+  props<{ key: string, id: number }>()
+);
+
+export const undoRemoveMonsterStandee = createAction(
+  "[Tabletop] [Monsters] Undo Remove Monster Standee",
+  props<{ key: string, id: number, rank: 'normal' | 'elite' | 'boss', hitPoints: number, conditions: ConditionKey[] }>()
+);
+
 export const MonstersActions = [
   addMonster,
   undoAddMonster,
   addMonsterStandee,
   undoAddMonsterStandee,
   updateMonsterStandee,
-  undoUpdateMonsterStandee
+  undoUpdateMonsterStandee,
+  removeMonsterStandee,
+  undoRemoveMonsterStandee
 ];

@@ -7,7 +7,7 @@ import { MonsterStandee } from 'models/monster-set';
 import { MonsterStatCard } from 'models/monster-stat-card';
 import { TabletopService } from 'services/tabletop.service';
 import { AppState } from 'store/app.state';
-import { updateMonsterStandee } from 'store/tabletop/monsters/monsters.actions';
+import { removeMonsterStandee, updateMonsterStandee } from 'store/tabletop/monsters/monsters.actions';
 import { selectScenarioLevel } from 'store/tabletop/tabletop.selectors';
 
 @Component({
@@ -47,6 +47,11 @@ export class MonsterStandeeDialogComponent {
         .map(([condition, active]) => condition as ConditionKey)
     };
     this.tabletopService.dispatch(updateMonsterStandee({ key: this.statCard.key, id: this.standee.id, ...updateMonsterStandeeProps }));
+    this.dialogRef.close();
+  }
+
+  remove() {
+    this.tabletopService.dispatch(removeMonsterStandee({ key: this.statCard.key, id: this.standee.id }));
     this.dialogRef.close();
   }
 }

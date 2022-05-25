@@ -1,6 +1,7 @@
 import { Action, ActionReducer } from '@ngrx/store';
 import { Character } from 'models/character';
 import { MonsterAbilityDeck } from 'models/monster-ability-deck';
+import { MonsterStandee } from 'models/monster-set';
 import { AppState } from 'store/app.state';
 import { addCharacter, undoAddCharacter } from 'store/tabletop/characters/characters.actions';
 import {
@@ -12,8 +13,10 @@ import {
 import {
   addMonster,
   addMonsterStandee,
+  removeMonsterStandee,
   undoAddMonster,
   undoAddMonsterStandee,
+  undoRemoveMonsterStandee,
   undoUpdateMonsterStandee,
   updateMonsterStandee,
 } from 'store/tabletop/monsters/monsters.actions';
@@ -33,6 +36,7 @@ const trackActionTypes: string[] = [
   addMonster.type,
   addMonsterStandee.type,
   updateMonsterStandee.type,
+  removeMonsterStandee.type,
   drawMonsterAbilityCardsSuccess.type,
   drawMonsterAbilityCardSuccess.type,
   infuseElement.type,
@@ -46,6 +50,7 @@ type ReversibleAction =
   | ReturnType<typeof addMonster>
   | ReturnType<typeof addMonsterStandee>
   | ReturnType<typeof updateMonsterStandee>
+  | ReturnType<typeof removeMonsterStandee>
   | ReturnType<typeof drawMonsterAbilityCardsSuccess>
   | ReturnType<typeof drawMonsterAbilityCardSuccess>
   | ReturnType<typeof infuseElement>
@@ -62,14 +67,22 @@ function getReverseAction(state: AppState, action: ReversibleAction): Action {
     case addMonsterStandee.type:
       return undoAddMonsterStandee({ key: action.key, id: action.id });
     case updateMonsterStandee.type:
-      const standee = state.tabletop.monsters.entities[action.key]
+      const updateStandeeTarget = state.tabletop.monsters.entities[action.key]
         ?.standees
         .find(x => x.id === action.id);
       return undoUpdateMonsterStandee({
         key: action.key,
         id: action.id,
-        previousHitPoints: standee?.hitPoints ?? 0,
-        previousConditions: standee?.conditions ?? []
+        previousHitPoints: updateStandeeTarget?.hitPoints ?? 0,
+        previousConditions: updateStandeeTarget?.conditions ?? []
+      });
+    case removeMonsterStandee.type:
+      const removeStandeeTarget = state.tabletop.monsters.entities[action.key]
+        ?.standees
+        .find(x => x.id === action.id) as MonsterStandee;
+      return undoRemoveMonsterStandee({
+        key: action.key,
+        ...removeStandeeTarget
       });
     case drawMonsterAbilityCardsSuccess.type:
       return undoDrawMonsterAbilityCards({

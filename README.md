@@ -22,8 +22,6 @@ Codify monster and monster ability card data from https://github.com/any2cards/w
 
 Monster level immunities
 
-Remove Standee
-
 Monster Summon
   Update Summon health, conditions
   Remove summon
