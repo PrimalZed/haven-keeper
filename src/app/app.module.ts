@@ -13,6 +13,7 @@ import { CharacterInitiativeDialogComponent } from './components/tabletop/charac
 import { CharacterComponent } from './components/tabletop/character/character.component';
 import { ConditionComponent } from './components/tabletop/condition/condition.component';
 import { ConditionToggleComponent } from './components/tabletop/condition-toggle/condition-toggle.component';
+import { EffectComponent } from './components/tabletop/effect/effect.component';
 import { ElementIceComponent } from './components/tabletop/elements/element-ice/element-ice.component';
 import { ElementAirComponent } from './components/tabletop/elements/element-air/element-air.component';
 import { ElementDarkComponent } from './components/tabletop/elements/element-dark/element-dark.component';
@@ -22,9 +23,11 @@ import { ElementLightComponent } from './components/tabletop/elements/element-li
 import { MonsterSetComponent } from './components/tabletop/monster/monster-set.component';
 import { AddStandeeDialogComponent } from './components/tabletop/monster/add-standee-dialog/add-standee-dialog.component';
 import { MonsterAbilityCardComponent } from './components/tabletop/monster/monster-ability-card/monster-ability-card.component';
+import { MonsterAbilityDeckDialogComponent } from './components/tabletop/monster/monster-ability-deck-dialog/monster-ability-deck-dialog.component';
 import { MonsterStatCardComponent } from './components/tabletop/monster/monster-stat-card/monster-stat-card.component';
 import { MonsterStandeeDialogComponent } from './components/tabletop/monster/standee/standee-dialog/monster-standee-dialog.component';
 import { MonsterStandeeComponent } from './components/tabletop/monster/standee/monster-standee.component';
+import { RhombusComponent } from './components/tabletop/rhombus/rhombus.component';
 import { SetScenarioLevelComponent } from './components/tabletop/set-scenario-level/set-scenario-level.component';
 import { TabletopBottomComponent } from './components/tabletop/tabletop-bottom/tabletop-bottom.component';
 import { TabletopTopComponent } from './components/tabletop/tabletop-top/tabletop-top.component';
@@ -45,8 +48,6 @@ import { TimeMachineEffects } from 'store/time-machine/time-machine.effects';
 import { timeMachineMetaReducers } from 'store/time-machine/time-machine.meta-reducers';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EffectComponent } from './components/tabletop/effect/effect.component';
-import { RhombusComponent } from './components/tabletop/rhombus/rhombus.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { RhombusComponent } from './components/tabletop/rhombus/rhombus.componen
     CharacterInitiativeDialogComponent,
     ConditionComponent,
     ConditionToggleComponent,
+    EffectComponent,
     ElementIceComponent,
     ElementAirComponent,
     ElementDarkComponent,
@@ -64,10 +66,12 @@ import { RhombusComponent } from './components/tabletop/rhombus/rhombus.componen
     ElementFireComponent,
     ElementLightComponent,
     MonsterAbilityCardComponent,
+    MonsterAbilityDeckDialogComponent,
     MonsterSetComponent,
     MonsterStandeeComponent,
     MonsterStandeeDialogComponent,
     MonsterStatCardComponent,
+    RhombusComponent,
     SetScenarioLevelComponent,
     TabletopComponent,
     TabletopBottomComponent,
@@ -78,9 +82,7 @@ import { RhombusComponent } from './components/tabletop/rhombus/rhombus.componen
     NgLetDirective,
 
     MaxHitPointsPipe,
-    ModifierPipe,
-    EffectComponent,
-    RhombusComponent
+    ModifierPipe
   ],
   imports: [
     AppRoutingModule,

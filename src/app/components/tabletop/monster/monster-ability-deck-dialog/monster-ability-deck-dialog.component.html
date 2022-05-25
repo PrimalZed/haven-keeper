@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Monster Cards</h1>
+<div mat-dialog-content>
+  <h3>Spent Cards</h3>
+  <div class="card-content">
+    <monster-ability-card *ngFor="let id of abilityDeck.drawnAbilityCardIds" [id]="id"></monster-ability-card>
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <h3>Remaining Cards</h3>
+    <button mat-icon-button (click)="toggleRemainingVisibility()">
+      <mat-icon *ngIf="!showRemainingCards">visibility</mat-icon>
+      <mat-icon *ngIf="showRemainingCards">visibility_off</mat-icon>
+    </button>
+  </div>
+  <div *ngIf="showRemainingCards" class="card-content">
+    <monster-ability-card *ngFor="let id of remainingCardIds" [id]="id"></monster-ability-card>
+  </div>
+</div>

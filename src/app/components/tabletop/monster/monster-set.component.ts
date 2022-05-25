@@ -13,6 +13,7 @@ import { selectMonsterAbilityDeckEntities } from 'store/tabletop/monster-ability
 import { selectMonsterEntities } from 'store/tabletop/monsters/monsters.selectors';
 import { selectScenarioLevel } from 'store/tabletop/tabletop.selectors';
 import { AppState } from 'store/app.state';
+import { MonsterAbilityDeckDialogComponent } from './monster-ability-deck-dialog/monster-ability-deck-dialog.component';
 
 @Component({
   selector: 'monster-set',
@@ -116,6 +117,10 @@ export class MonsterSetComponent implements OnDestroy {
 
   openUpdateStandeeDialog(standee: MonsterStandee) {
     this.openUpdateStandeeDialogSubject.next(standee);
+  }
+
+  viewDrawnAbilityCards(abilityDeck: MonsterAbilityDeck) {
+    this.dialog.open(MonsterAbilityDeckDialogComponent, { data: { abilityDeck } });
   }
 
   ngOnDestroy() {

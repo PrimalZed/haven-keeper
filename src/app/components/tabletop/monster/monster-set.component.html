@@ -13,9 +13,15 @@
       <ng-container [ngSwitch]="statCard.kind">
         <monster-stat-card *ngSwitchCase="'normal'" [statCard]="$any(statCard)"></monster-stat-card>
       </ng-container>
-      <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center;">
-        <monster-ability-card *ngIf="abilityDeck$ | async as abilityDeck" [id]="abilityDeck.currentAbilityCardId" style="flex-grow: 1;"></monster-ability-card>
-        <div class="card-content-sm">{{ abilityCardsRemaining$ | async }} <span i18n>cards remaining</span></div>
+      <div *ngIf="abilityDeck$ | async as abilityDeck" style="flex-grow: 1; display: flex; flex-direction: column; align-items: center;">
+        <monster-ability-card [id]="abilityDeck.currentAbilityCardId" style="flex-grow: 1;"></monster-ability-card>
+        <div class="card-content-sm" style="display: flex; align-items: center; gap: 0.25rem;">
+          <span>{{ abilityCardsRemaining$ | async }}</span>
+          <span i18n>cards remaining</span>
+          <button mat-icon-button (click)="viewDrawnAbilityCards(abilityDeck)">
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </div>
       </div>
     </div>
     <div class="monster-card-standees card-content">

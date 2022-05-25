@@ -28,8 +28,6 @@ Don't draw cards for monsters with no standees
 
 Draw card for monster added during turn phase
 
-View spent & remaining monster cards
-
 Monster Summon
   Update Summon health, conditions
   Remove summon
