@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { of, Subject, Subscription } from 'rxjs';
+import { CharacterLevel } from 'models/character';
+import { merge, of, Subject, Subscription } from 'rxjs';
 import { filter, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import { CatalogService } from 'services/catalog.service';
 import { TabletopService } from 'services/tabletop.service';
@@ -11,6 +12,7 @@ import { selectCharacterKeys } from 'store/tabletop/characters/characters.select
 import { addMonster } from 'store/tabletop/monsters/monsters.actions';
 import { selectMonsterKeys } from 'store/tabletop/monsters/monsters.selectors';
 import { selectScenarioLevel } from 'store/tabletop/tabletop.selectors';
+import { CharacterLevelDialogComponent } from '../character-level-dialog/character-level-dialog.component';
 import { SetScenarioLevelComponent } from '../set-scenario-level/set-scenario-level.component';
 
 @Component({
@@ -40,6 +42,23 @@ export class AddCardDialogComponent implements OnDestroy {
       )
     );
 
+  private addCharacterSubject: Subject<string> = new Subject();
+  private addCharacter$ = this.addCharacterSubject
+    .pipe(
+      switchMap((key) =>
+        this.dialog.open<CharacterLevelDialogComponent, any, { success: boolean, level: CharacterLevel }>(CharacterLevelDialogComponent)
+          .afterClosed()
+          .pipe(
+            filter((result) => Boolean(result?.success)),
+            map((result) => ({ key, level: result?.level ?? 1 }))
+          )
+      ),
+      tap(({ key, level }) => {
+        this.tabletopService.dispatch(addCharacter({ key, level }));
+        this.dialogRef.close();
+      })
+    );
+
   private addMonsterSubject: Subject<string> = new Subject();
   private addMonster$ = this.addMonsterSubject
     .pipe(
@@ -59,7 +78,7 @@ export class AddCardDialogComponent implements OnDestroy {
       })
     );
 
-  private subscription: Subscription = this.addMonster$.subscribe();
+  private subscription: Subscription = merge(this.addCharacter$, this.addMonster$).subscribe();
 
   constructor(
     private catalogService: CatalogService,
@@ -70,8 +89,7 @@ export class AddCardDialogComponent implements OnDestroy {
   ) { }
 
   addCharacter(key: string) {
-    this.tabletopService.dispatch(addCharacter({ key, level: 1 }));
-    this.dialogRef.close();
+    this.addCharacterSubject.next(key);
   }
 
   addMonster(key: string) {

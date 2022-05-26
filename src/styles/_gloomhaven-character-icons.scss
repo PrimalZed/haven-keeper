@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'Gloomhaven Character Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../assets/fonts/gloomhaven-characters.otf) format("opentype");
+  font-display: swap;
+}
+
+.gloomhaven-character-icons {
+  font-family: 'Gloomhaven Character Icons';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}

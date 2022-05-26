@@ -48,6 +48,8 @@ import { TimeMachineEffects } from 'store/time-machine/time-machine.effects';
 import { timeMachineMetaReducers } from 'store/time-machine/time-machine.meta-reducers';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CharacterIconComponent } from './components/tabletop/character-icon/character-icon.component';
+import { CharacterLevelDialogComponent } from './components/tabletop/character-level-dialog/character-level-dialog.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,9 @@ import { AppComponent } from './app.component';
     NgLetDirective,
 
     MaxHitPointsPipe,
-    ModifierPipe
+    ModifierPipe,
+    CharacterIconComponent,
+    CharacterLevelDialogComponent
   ],
   imports: [
     AppRoutingModule,

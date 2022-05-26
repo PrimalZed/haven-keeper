@@ -1,7 +1,17 @@
-button {
-  width: 100%;
-  margin-bottom: 4px;
-  padding: 8px 16px;
+.character-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.monster-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  > button {
+    padding: 8px 16px;
+  }
 }
 
 .list-item-wrapper {
