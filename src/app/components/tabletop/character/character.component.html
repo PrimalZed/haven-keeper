@@ -9,7 +9,7 @@
       <div class="character-card-avatar"></div>
       <div class="horizontal-spacer"></div>
       <div style="flex: 1 1 auto;">
-        {{ character.key }}
+        <character-icon [key]="character.key" size="lg"></character-icon>
       </div>
       <div>{{ character.initiative }}</div>
     </div>

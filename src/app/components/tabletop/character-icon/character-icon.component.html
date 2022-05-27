@@ -1,20 +1,10 @@
-<ng-container [ngSwitch]="key">
-  <ng-container *ngSwitchCase="'brute'">
-    <span class="gloomhaven-character-icons">A</span>
+<span class="gloomhaven-character-icons" [style.font-size]="size === 'lg' ? '3rem' : '2.5rem'" [style.text-shadow]="shadow ? '0 1px 1px black, 1px 1px 1px black' : null">
+  <ng-container [ngSwitch]="key">
+    <ng-container *ngSwitchCase="'brute'">A</ng-container>
+    <ng-container *ngSwitchCase="'cragheart'">E</ng-container>
+    <ng-container *ngSwitchCase="'mindthief'">F</ng-container>
+    <ng-container *ngSwitchCase="'scoundrel'">D</ng-container>
+    <ng-container *ngSwitchCase="'spellweaver'">C</ng-container>
+    <ng-container *ngSwitchCase="'tinkerer'">B</ng-container>
   </ng-container>
-  <ng-container *ngSwitchCase="'cragheart'">
-    <span class="gloomhaven-character-icons">E</span>
-  </ng-container>
-  <ng-container *ngSwitchCase="'mindthief'">
-    <span class="gloomhaven-character-icons">F</span>
-  </ng-container>
-  <ng-container *ngSwitchCase="'scoundrel'">
-    <span class="gloomhaven-character-icons">D</span>
-  </ng-container>
-  <ng-container *ngSwitchCase="'spellweaver'">
-    <span class="gloomhaven-character-icons">C</span>
-  </ng-container>
-  <ng-container *ngSwitchCase="'tinkerer'">
-    <span class="gloomhaven-character-icons">B</span>
-  </ng-container>
-</ng-container>
+</span>
