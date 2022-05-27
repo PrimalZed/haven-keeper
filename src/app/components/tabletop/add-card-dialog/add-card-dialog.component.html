@@ -9,8 +9,8 @@
   <div class="monster-list">
     <button *ngFor="let monster of monsters$ | async" mat-raised-button color="accent" class="title" i18n="monster:{{monster.key}}" [disabled]="monster.used" (click)="addMonster(monster.key)">
       <div class="list-item-wrapper">
-        <div class="list-item-avatar"></div>
-        <div class="horizontal-spacer"></div>
+        <!-- <div class="list-item-avatar"></div>
+        <div class="horizontal-spacer"></div> -->
         <div>{{ monster.name }}</div>
       </div>
     </button>
