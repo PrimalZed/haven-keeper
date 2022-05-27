@@ -21,7 +21,6 @@
             {{ character.hitPoints }} / {{ statCard.hitPoints[character.level] }}
           </div>
           <div *ngIf="character.conditions.length" class="images">
-            <div class="horizontal-spacer-sm"></div>
             <condition *ngFor="let condition of character.conditions" [condition]="condition"></condition>
           </div>
         </div>

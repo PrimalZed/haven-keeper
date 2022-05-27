@@ -10,7 +10,6 @@
       <div>{{ standee.hitPoints }}</div>
     </div>
     <div *ngIf="standee.conditions.length" class="images">
-      <div class="horizontal-spacer-sm"></div>
       <condition *ngFor="let condition of standee.conditions" [condition]="condition"></condition>
     </div>
   </div>
