@@ -23,7 +23,7 @@
 </mat-toolbar>
 <mat-toolbar color="primary" style="justify-content: center;">
   <ng-container *ngFor="let elementalInfusion of elementalInfusions$ | async; trackBy: trackElementalInfusion; let last = last">
-    <button mat-icon-button [ngSwitch]="elementalInfusion.element" (click)="infuseElement(elementalInfusion.element)">
+    <button mat-icon-button [ngSwitch]="elementalInfusion.element" (click)="infuseElement(elementalInfusion.element)" style="width: 50px; height: 50px;">
       <div style="height: 100%; position: relative;">
         <div class="svg-container" [@elementalInfusion]="elementalInfusion.strength">
           <svg viewBox="-1 -1 2 2">
