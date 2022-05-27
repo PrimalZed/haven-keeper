@@ -46,14 +46,14 @@ export class TabletopMainComponent {
   private getInitiative(card: Card, monsterAbilityDecks: Dictionary<MonsterAbilityDeck>) {
     switch (card.kind) {
       case 'character':
-        return card.initiative ?? 0;
+        return card.initiative ?? Infinity;
       case 'monster':
         const monster = this.catalogService.monsterEntities[card.key];
         const monsterAbilityDeck = monsterAbilityDecks[getAbilityDeckKey(monster)];
 
         return monsterAbilityDeck?.currentAbilityCardId
           ? this.catalogService.monsterAbilityCardEntities[monsterAbilityDeck.currentAbilityCardId].initiative
-          : 0;
+          : Infinity;
     }
   }
 }
