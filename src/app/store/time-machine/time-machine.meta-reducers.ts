@@ -3,7 +3,12 @@ import { Character } from 'models/character';
 import { MonsterAbilityDeck } from 'models/monster-ability-deck';
 import { MonsterStandee } from 'models/monster-set';
 import { AppState } from 'store/app.state';
-import { addCharacter, undoAddCharacter } from 'store/tabletop/characters/characters.actions';
+import {
+  addCharacter,
+  undoAddCharacter,
+  undoUpdateCharacter,
+  updateCharacter
+} from 'store/tabletop/characters/characters.actions';
 import {
   drawMonsterAbilityCardSuccess,
   drawMonsterAbilityCardsSuccess,
@@ -33,6 +38,7 @@ import {
 
 const trackActionTypes: string[] = [
   addCharacter.type,
+  updateCharacter.type,
   addMonster.type,
   addMonsterStandee.type,
   updateMonsterStandee.type,
@@ -47,6 +53,7 @@ const trackActionTypes: string[] = [
 
 type ReversibleAction =
   | ReturnType<typeof addCharacter>
+  | ReturnType<typeof updateCharacter>
   | ReturnType<typeof addMonster>
   | ReturnType<typeof addMonsterStandee>
   | ReturnType<typeof updateMonsterStandee>
@@ -62,6 +69,13 @@ function getReverseAction(state: AppState, action: ReversibleAction): Action {
   switch (action.type) {
     case addCharacter.type:
       return undoAddCharacter({ key: action.key });
+    case updateCharacter.type:
+      const updateCharacterTarget = state.tabletop.characters.entities[action.key];
+      return undoUpdateCharacter({
+        key: action.key,
+        previousHitPoints: updateCharacterTarget?.hitPoints ?? 0,
+        previousConditions: updateCharacterTarget?.conditions ?? []
+      });
     case addMonster.type:
       return undoAddMonster({ key: action.key });
     case addMonsterStandee.type:

@@ -20,12 +20,12 @@ import { ElementDarkComponent } from './components/tabletop/elements/element-dar
 import { ElementEarthComponent } from './components/tabletop/elements/element-earth/element-earth.component';
 import { ElementFireComponent } from './components/tabletop/elements/element-fire/element-fire.component';
 import { ElementLightComponent } from './components/tabletop/elements/element-light/element-light.component';
+import { FigureDialogComponent } from './components/tabletop/figure-dialog/figure-dialog.component';
 import { MonsterSetComponent } from './components/tabletop/monster/monster-set.component';
 import { AddStandeeDialogComponent } from './components/tabletop/monster/add-standee-dialog/add-standee-dialog.component';
 import { MonsterAbilityCardComponent } from './components/tabletop/monster/monster-ability-card/monster-ability-card.component';
 import { MonsterAbilityDeckDialogComponent } from './components/tabletop/monster/monster-ability-deck-dialog/monster-ability-deck-dialog.component';
 import { MonsterStatCardComponent } from './components/tabletop/monster/monster-stat-card/monster-stat-card.component';
-import { MonsterStandeeDialogComponent } from './components/tabletop/monster/standee/standee-dialog/monster-standee-dialog.component';
 import { MonsterStandeeComponent } from './components/tabletop/monster/standee/monster-standee.component';
 import { RhombusComponent } from './components/tabletop/rhombus/rhombus.component';
 import { SetScenarioLevelComponent } from './components/tabletop/set-scenario-level/set-scenario-level.component';
@@ -67,11 +67,11 @@ import { CharacterLevelDialogComponent } from './components/tabletop/character-l
     ElementEarthComponent,
     ElementFireComponent,
     ElementLightComponent,
+    FigureDialogComponent,
     MonsterAbilityCardComponent,
     MonsterAbilityDeckDialogComponent,
     MonsterSetComponent,
     MonsterStandeeComponent,
-    MonsterStandeeDialogComponent,
     MonsterStatCardComponent,
     RhombusComponent,
     SetScenarioLevelComponent,

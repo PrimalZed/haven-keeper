@@ -1,11 +1,14 @@
-<h1 mat-dialog-title>{{ statCard.name }} {{standee.id}}</h1>
+<h1 mat-dialog-title [ngSwitch]="kind">
+  <character-icon *ngSwitchCase="'character'" [key]="key"></character-icon>
+  <ng-container *ngSwitchCase="'monster'">{{ name }} {{ $any(figure).id }}</ng-container>
+</h1>
 <form #standeeNgForm="ngForm" (ngSubmit)="submit(standeeNgForm.form)">
   <div mat-dialog-content>
-    <div *ngLet="[statCard.key, (scenarioLevel$ | async) ?? 0, standee.rank] | maxHitPoints as maxHitPoints">
+    <div>
       <mat-form-field appearance="fill">
         <mat-label i18n="@@hitPoints">Hit Points</mat-label>
         <span matPrefix class="gloomhaven-ability-icons" style="margin-right: 8px;">H</span>
-        <input type="number" matInput name="hitPoints" #hitPointsNgModel="ngModel" [ngModel]="standee.hitPoints" min="0" [max]="maxHitPoints">
+        <input type="number" matInput name="hitPoints" #hitPointsNgModel="ngModel" [ngModel]="figure.hitPoints" min="0" [max]="maxHitPoints">
         <mat-error *ngIf="hitPointsNgModel.control.hasError('min') || hitPointsNgModel.control.hasError('max')">
           Hit Points must be between 0 and {{ maxHitPoints }}
         </mat-error>
@@ -21,7 +24,7 @@
   </div>
   <mat-dialog-actions align="end">
     <button mat-button type="button" mat-dialog-close i18n="@@cancel">Cancel</button>
-    <button mat-raised-button type="button" color="warn" i18n="@@remove" (click)="remove()">Remove</button>
+    <button *ngIf="kind === 'monster'" mat-raised-button type="button" color="warn" i18n="@@remove" (click)="remove()">Remove</button>
     <button mat-raised-button type="submit" color="primary" [disabled]="!standeeNgForm.form.valid" i18n="@@finish">Finish</button>
   </mat-dialog-actions>
 </form>

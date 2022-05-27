@@ -1,3 +1,5 @@
+import { ConditionKey } from './condition';
+
 export type CharacterLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
 export interface CharacterStatCard {
@@ -9,5 +11,6 @@ export interface Character {
   key: string;
   level: CharacterLevel;
   hitPoints: number;
+  conditions: ConditionKey[];
   initiative: number | null;
 }

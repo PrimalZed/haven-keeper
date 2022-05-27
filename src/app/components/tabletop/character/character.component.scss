@@ -20,11 +20,10 @@
   background-color: lime;
 }
 
-.character-card-content {
-  flex: 1 1 auto;
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 8px;
+.card-content button ::ng-deep .mat-button-wrapper {
+  font-family: 'Sakkal Majalla';
+  font-size: 1.2rem;
+  line-height: normal;
 }
 
 .character-card-summons {

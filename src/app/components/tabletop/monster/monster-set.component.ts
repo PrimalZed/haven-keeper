@@ -3,12 +3,13 @@ import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { combineLatest, merge, Observable, ReplaySubject, Subject } from 'rxjs';
 import { filter, map, switchMap, withLatestFrom } from 'rxjs/operators';
+import { FigureDialogComponent } from 'components/tabletop/figure-dialog/figure-dialog.component';
 import { MonsterSet, MonsterStandee } from 'models/monster-set';
 import { getAbilityDeckKey, MonsterStatCard } from 'models/monster-stat-card';
 import { CatalogService } from 'services/catalog.service';
 import { AddStandeeDialogComponent } from './add-standee-dialog/add-standee-dialog.component';
-import { MonsterStandeeDialogComponent } from './standee/standee-dialog/monster-standee-dialog.component';
 import { MonsterAbilityDeck } from 'models/monster-ability-deck';
+import { getMaxHitPoints } from 'pipes/max-hit-points.pipe';
 import { selectMonsterAbilityDeckEntities } from 'store/tabletop/monster-ability-decks/monster-ability-decks.selectors';
 import { selectMonsterEntities } from 'store/tabletop/monsters/monsters.selectors';
 import { selectScenarioLevel, selectTabletopStep } from 'store/tabletop/tabletop.selectors';
@@ -30,7 +31,7 @@ export class MonsterSetComponent implements OnDestroy {
       switchMap((monsterKey) => this.store.select(selectMonsterEntities)
         .pipe(map((monsterEntities) => monsterEntities[monsterKey]))
       ),
-      filter((monster): monster is MonsterSet => Boolean(monster)),
+      filter((monster): monster is MonsterSet => Boolean(monster))
     );
   @Input() public set monsterKey(value: string) {
     this.monsterKeySubject.next(value);
@@ -91,22 +92,24 @@ export class MonsterSetComponent implements OnDestroy {
       map(({ key }) => this.dialog.open(AddStandeeDialogComponent, { data: { key } }))
     );
 
-  private openUpdateStandeeDialogSubject: Subject<MonsterStandee> = new Subject();
-  private openUpdateStandeeDialog$ = this.openUpdateStandeeDialogSubject
+  private openUpdateFigureDialogSubject: Subject<MonsterStandee> = new Subject();
+  private openUpdateFigureDialog$ = this.openUpdateFigureDialogSubject
     .pipe(
-      withLatestFrom(this.monster$),
-      map(([standee, monster]) => this.dialog.open(
-        MonsterStandeeDialogComponent,
+      withLatestFrom(this.monster$, this.scenarioLevel$),
+      map(([standee, monster, scenarioLevel]) => this.dialog.open(
+        FigureDialogComponent,
         {
           data: {
+            maxHitPoints: getMaxHitPoints(this.catalogService.monsterEntities[monster.key], scenarioLevel ?? 0, standee.rank),
+            kind: 'monster',
             statCard: this.catalogService.monsterEntities[monster.key],
-            standee: standee
+            figure: standee
           }
         }
       ))
     )
 
-  private subscription = merge(this.openAddStandeeDialog$, this.openUpdateStandeeDialog$)
+  private subscription = merge(this.openAddStandeeDialog$, this.openUpdateFigureDialog$)
     .subscribe();
 
   constructor(
@@ -131,8 +134,8 @@ export class MonsterSetComponent implements OnDestroy {
     this.openAddStandeeDialogSubject.next();
   }
 
-  openUpdateStandeeDialog(standee: MonsterStandee) {
-    this.openUpdateStandeeDialogSubject.next(standee);
+  openUpdateFigureDialog(standee: MonsterStandee) {
+    this.openUpdateFigureDialogSubject.next(standee);
   }
 
   drawAbilityCard(key: string) {

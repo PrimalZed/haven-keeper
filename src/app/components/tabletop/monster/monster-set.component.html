@@ -1,4 +1,3 @@
-
 <ng-container *ngIf="monster$ | async as monster">
   <div *ngIf="statCard$ | async as statCard" class="mat-card monster-card">
     <div class="monster-card-header title">
@@ -32,7 +31,7 @@
     <div class="monster-card-standees card-content">
       <monster-standee *ngFor="let standee of standees$ | async" [standee]="standee"
         [maxHitPoints]="[monster.key, (scenarioLevel$ | async) ?? 0, standee.rank] | maxHitPoints"
-        (click)="openUpdateStandeeDialog(standee)">
+        (click)="openUpdateFigureDialog(standee)">
       </monster-standee>
       <button mat-icon-button (click)="openAddStandeeDialog()">
         <mat-icon>add</mat-icon>
