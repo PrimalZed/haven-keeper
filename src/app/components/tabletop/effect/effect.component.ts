@@ -4,9 +4,7 @@ import { EffectKey } from 'models/attack-effect';
 @Component({
   selector: 'effect',
   templateUrl: './effect.component.html',
-  styles: [
-    `rhombus { font-size: 2rem; }`
-  ],
+  styles: [`:host { display: flex; align-items: center; }`, `img { height: 32px; }`],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EffectComponent {

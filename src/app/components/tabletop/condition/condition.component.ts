@@ -4,7 +4,7 @@ import { ConditionKey } from 'models/condition';
 @Component({
   selector: 'condition',
   templateUrl: './condition.component.html',
-  styles: [`rhombus { font-size: 2rem; }`],
+  styles: [`:host { display: flex; align-items: center; }`, `img { height: 32px; }`],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConditionComponent {

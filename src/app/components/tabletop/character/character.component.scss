@@ -29,8 +29,17 @@
     line-height: normal;
     > div {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       gap: 0.2em;
+      .text {
+        display: flex;
+        align-items: baseline;
+        gap: 0.2em;
+      }
+      .images {
+        display: flex;
+        gap: 0.2em;
+      }
     }
   }
 }

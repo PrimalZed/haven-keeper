@@ -1,44 +1,35 @@
-<span style="display: inline-flex; align-items: center; gap: 0.2em;">
-  <ng-container [ngSwitch]="effect">
-    <ng-container *ngSwitchCase="'add-target'">
-      <ng-container *ngIf="showLabel">
-        <span i18n="@@addTarget">ADD TARGET</span>
-        <span>&nbsp;</span>
-      </ng-container>
-      <rhombus>
-        <span class="gloomhaven-effect-icons" style="color: #a91f23;">A</span>
-      </rhombus>
+<ng-container [ngSwitch]="effect">
+  <ng-container *ngSwitchCase="'add-target'">
+    <ng-container *ngIf="showLabel">
+      <span i18n="@@addTarget">ADD TARGET</span>
+      <span class="horizontal-spacer-sm"></span>
     </ng-container>
-    <ng-container *ngSwitchCase="'pierce'">
-      <ng-container *ngIf="showLabel">
-        <span i18n="@@pierce">PIERCE</span>
-        <span>&nbsp;</span>
-      </ng-container>
-      <rhombus>
-        <span class="gloomhaven-effect-icons" style="color: #c98d4f;">P</span>
-      </rhombus>
-    </ng-container>
-    <ng-container *ngSwitchCase="'pull'">
-      <ng-container *ngIf="showLabel">
-        <span i18n="@@pull">PULL</span>
-        <span>&nbsp;</span>
-      </ng-container>
-      <rhombus>
-        <span class="gloomhaven-effect-icons" style="color: #4f5050;">L</span>
-      </rhombus>
-    </ng-container>
-    <ng-container *ngSwitchCase="'push'">
-      <ng-container *ngIf="showLabel">
-        <span i18n="@@push">PUSH</span>
-        <span>&nbsp;</span>
-      </ng-container>
-      <rhombus>
-        <span class="gloomhaven-effect-icons" style="color: #4f5050;">S</span>
-      </rhombus>
-    </ng-container>
-    <ng-container *ngSwitchDefault>
-      {{ effect }}
-    </ng-container>
+    <span>add target</span>
   </ng-container>
-  <span>{{ amount }}</span>
-</span>
+  <ng-container *ngSwitchCase="'pierce'">
+    <ng-container *ngIf="showLabel">
+      <span i18n="@@pierce">PIERCE</span>
+      <span class="horizontal-spacer-sm"></span>
+    </ng-container>
+    <img src="assets/images/conditions/pierce-fh.svg">
+  </ng-container>
+  <ng-container *ngSwitchCase="'pull'">
+    <ng-container *ngIf="showLabel">
+      <span i18n="@@pull">PULL</span>
+      <span class="horizontal-spacer-sm"></span>
+    </ng-container>
+    <img src="assets/images/conditions/pull-fh.svg">
+  </ng-container>
+  <ng-container *ngSwitchCase="'push'">
+    <ng-container *ngIf="showLabel">
+      <span i18n="@@push">PUSH</span>
+      <span class="horizontal-spacer-sm"></span>
+    </ng-container>
+    <img src="assets/images/conditions/push-fh.svg">
+  </ng-container>
+  <ng-container *ngSwitchDefault>
+    {{ effect }}
+  </ng-container>
+</ng-container>
+<span class="horizontal-spacer-sm"></span>
+<span>{{ amount }}</span>

@@ -1,15 +1,17 @@
 <button mat-stroked-button (click)="emitClick($event)">
   <div>
-    <div class="title" [title]="standee.rank" i18n-title="@@{{standee.rank}}"
-      [style.color]="standee.rank === 'boss' ? 'red' : standee.rank === 'elite' ? 'yellow' : null">
-      {{ standee.id }}
+    <div class="text">
+      <div class="title" [title]="standee.rank" i18n-title="@@{{standee.rank}}"
+        [style.color]="standee.rank === 'boss' ? 'red' : standee.rank === 'elite' ? 'yellow' : null">
+        {{ standee.id }}
+      </div>
+      <div class="horizontal-spacer-sm"></div>
+      <div class="gloomhaven-ability-icons">H</div>
+      <div>{{ standee.hitPoints }}</div>
     </div>
-    <div class="horizontal-spacer-sm"></div>
-    <div class="gloomhaven-ability-icons">H</div>
-    <div>{{ standee.hitPoints }}</div>
-    <ng-container *ngIf="standee.conditions.length">
+    <div *ngIf="standee.conditions.length" class="images">
       <div class="horizontal-spacer-sm"></div>
       <condition *ngFor="let condition of standee.conditions" [condition]="condition"></condition>
-    </ng-container>
+    </div>
   </div>
 </button>

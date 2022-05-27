@@ -1,93 +1,108 @@
 <ng-container [ngSwitch]="condition">
+  <ng-container *ngSwitchCase="'bane'">
+    <ng-container *ngIf="showLabel">
+      <span i18n="@@bane">BANE</span>
+      <span class="horizontal-spacer-sm"></span>
+    </ng-container>
+    <img src="assets/images/conditions/bane.svg">
+  </ng-container>
+  <ng-container *ngSwitchCase="'bless'">
+    <ng-container *ngIf="showLabel">
+      <span i18n="@@bless">BLESS</span>
+      <span class="horizontal-spacer-sm"></span>
+    </ng-container>
+    <img src="assets/images/conditions/bless-fh.svg">
+  </ng-container>
+  <ng-container *ngSwitchCase="'brittle'">
+    <ng-container *ngIf="showLabel">
+      <span i18n="@@brittle">BRITTLE</span>
+      <span class="horizontal-spacer-sm"></span>
+    </ng-container>
+    <img src="assets/images/conditions/brittle.svg">
+  </ng-container>
   <ng-container *ngSwitchCase="'curse'">
     <ng-container *ngIf="showLabel">
       <span i18n="@@curse">CURSE</span>
-      <span>&nbsp;</span>
+      <span class="horizontal-spacer-sm"></span>
     </ng-container>
-    <rhombus>
-      <span class="gloomhaven-condition-icons" style="color: #7d58a4;">C</span>
-    </rhombus>
+    <img src="assets/images/conditions/curse-fh.svg">
   </ng-container>
   <ng-container *ngSwitchCase="'disarm'">
     <ng-container *ngIf="showLabel">
       <span i18n="@@disarm">DISARM</span>
-      <span>&nbsp;</span>
+      <span class="horizontal-spacer-sm"></span>
     </ng-container>
-    <rhombus>
-      <span class="gloomhaven-condition-icons" style="color: #69797d;">D</span>
-    </rhombus>
+    <img src="assets/images/conditions/disarm.svg">
   </ng-container>
   <ng-container *ngSwitchCase="'immobilize'">
     <ng-container *ngIf="showLabel">
       <span i18n="@@immobilize">IMMOBILIZE</span>
-      <span>&nbsp;</span>
+      <span class="horizontal-spacer-sm"></span>
     </ng-container>
-    <rhombus>
-      <span class="gloomhaven-condition-icons" style="color: #9b3430;">I</span>
-    </rhombus>
+    <img src="assets/images/conditions/immobilize.svg">
+  </ng-container>
+  <ng-container *ngSwitchCase="'impair'">
+    <ng-container *ngIf="showLabel">
+      <span i18n="@@impair">IMPAIR</span>
+      <span class="horizontal-spacer-sm"></span>
+    </ng-container>
+    <img src="assets/images/conditions/impair.svg">
   </ng-container>
   <ng-container *ngSwitchCase="'invisible'">
     <ng-container *ngIf="showLabel">
       <span i18n="@@invisible">INVISIBLE</span>
-      <span>&nbsp;</span>
+      <span class="horizontal-spacer-sm"></span>
     </ng-container>
-    <rhombus>
-      <span class="gloomhaven-condition-icons" style="color: #151514;">V</span>
-    </rhombus>
+    <img src="assets/images/conditions/invisible.svg">
   </ng-container>
   <ng-container *ngSwitchCase="'muddle'">
     <ng-container *ngIf="showLabel">
       <span i18n="@@muddle">MUDDLE</span>
-      <span>&nbsp;</span>
+      <span class="horizontal-spacer-sm"></span>
     </ng-container>
-    <rhombus>
-      <span class="gloomhaven-condition-icons" style="color: #705844;">M</span>
-    </rhombus>
+    <img src="assets/images/conditions/muddle.svg">
   </ng-container>
   <ng-container *ngSwitchCase="'poison'">
     <ng-container *ngIf="showLabel">
       <span i18n="@@poison">POISON</span>
-      <span>&nbsp;</span>
+      <span class="horizontal-spacer-sm"></span>
     </ng-container>
-    <rhombus>
-      <span class="gloomhaven-condition-icons" style="color: #7c7f68;">P</span>
-    </rhombus>
+    <img src="assets/images/conditions/poison.svg">
   </ng-container>
   <ng-container *ngSwitchCase="'regenerate'">
     <ng-container *ngIf="showLabel">
       <span i18n="@@regenerate">REGENERATE</span>
-      <span>&nbsp;</span>
+      <span class="horizontal-spacer-sm"></span>
     </ng-container>
-    <rhombus>
-      <span class="gloomhaven-condition-icons" style="color: #69797d;">Z</span>
-    </rhombus>
+    <img src="assets/images/conditions/regenerate.svg">
   </ng-container>
   <ng-container *ngSwitchCase="'strengthen'">
     <ng-container *ngIf="showLabel">
       <span i18n="@@strengthen">STRENGTHEN</span>
-      <span>&nbsp;</span>
+      <span class="horizontal-spacer-sm"></span>
     </ng-container>
-    <rhombus>
-      <span class="gloomhaven-condition-icons" style="color: #4a97d2;">S</span>
-    </rhombus>
+    <img src="assets/images/conditions/strengthen.svg">
   </ng-container>
   <ng-container *ngSwitchCase="'stun'">
     <ng-container *ngIf="showLabel">
       <span i18n="@@stun">STUN</span>
-      <span>&nbsp;</span>
+      <span class="horizontal-spacer-sm"></span>
     </ng-container>
-    <rhombus>
-      <span class="gloomhaven-condition-icons" style="color: #2e4668;">U</span>
-    </rhombus>
+    <img src="assets/images/conditions/stun.svg">
+  </ng-container>
+  <ng-container *ngSwitchCase="'ward'">
+    <ng-container *ngIf="showLabel">
+      <span i18n="@@ward">WARD</span>
+      <span class="horizontal-spacer-sm"></span>
+    </ng-container>
+    <img src="assets/images/conditions/ward.svg">
   </ng-container>
   <ng-container *ngSwitchCase="'wound'">
     <ng-container *ngIf="showLabel">
       <span i18n="@@wound">WOUND</span>
-      <span>&nbsp;</span>
+      <span class="horizontal-spacer-sm"></span>
     </ng-container>
-    <rhombus>
-      <span class="gloomhaven-condition-icons" style="color: #e56225;">W</span>
-    </rhombus>
+    <img src="assets/images/conditions/wound.svg">
   </ng-container>
   <ng-container *ngSwitchDefault>
     {{ condition }}
