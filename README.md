@@ -26,9 +26,6 @@ Monster Summon
   Update Summon health, conditions
   Remove summon
 
-Update Character Health, Conditions
-  reuse monster-standee-dialog?
-
 Boss Card
 
 Character/Monster Portraits

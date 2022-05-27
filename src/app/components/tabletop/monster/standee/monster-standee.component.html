@@ -4,11 +4,11 @@
       [style.color]="standee.rank === 'boss' ? 'red' : standee.rank === 'elite' ? 'yellow' : null">
       {{ standee.id }}
     </div>
-    <div class="horizontal-spacer"></div>
+    <div class="horizontal-spacer-sm"></div>
     <div class="gloomhaven-ability-icons">H</div>
     <div>{{ standee.hitPoints }}</div>
     <ng-container *ngIf="standee.conditions.length">
-      <div class="horizontal-spacer"></div>
+      <div class="horizontal-spacer-sm"></div>
       <condition *ngFor="let condition of standee.conditions" [condition]="condition"></condition>
     </ng-container>
   </div>

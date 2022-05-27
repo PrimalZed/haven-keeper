@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FigureDialogComponent } from 'components/tabletop/figure-dialog/figure-dialog.component';
 import { Character, CharacterStatCard } from 'models/character';
@@ -8,7 +8,8 @@ import { CatalogService } from 'services/catalog.service';
 @Component({
   selector: 'character',
   templateUrl: './character.component.html',
-  styleUrls: ['./character.component.scss']
+  styleUrls: ['./character.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterComponent implements OnDestroy {
   private characterSubject: Subject<Character> = new ReplaySubject(1);

@@ -1,11 +1,14 @@
 button {
   padding-top: 6px;
   padding-bottom: 6px;
-  ::ng-deep .mat-button-wrapper > div {
-    display: flex;
-    align-items: baseline;
+  ::ng-deep .mat-button-wrapper {
     font-family: 'Sakkal Majalla';
     font-size: 1.2rem;
     line-height: normal;
+    > div {
+      display: flex;
+      align-items: baseline;
+      gap: 0.2em;
+    }
   }
 }
