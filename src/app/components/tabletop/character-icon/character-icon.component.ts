@@ -10,6 +10,4 @@ export class CharacterIconComponent {
   @Input() key!: string;
 
   @Input() size: 'md' | 'lg' = 'md';
-
-  @Input() shadow: boolean = true;
 }

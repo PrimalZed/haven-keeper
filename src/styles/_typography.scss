@@ -41,7 +41,7 @@ $my-typography-config: mat.define-typography-config(
   ),
   $title: mat.define-typography-level(
     $font-family: "Pirata One",
-    $font-size: 1.5rem
+    $font-size: 2rem
   ),
   $body-1: mat.define-typography-level(
     $font-family: Nyala,
@@ -71,6 +71,13 @@ h1 {
   @include mat.typography-level($my-typography-config, 'caption');
 }
 
+body, button {
+  text-shadow: 0 1px 1px black, 1px 1px 1px black;
+}
+.mat-button-disabled, .mat-toolbar .mat-icon-button {
+  text-shadow: none;
+}
+
 .card-content {
   font-family: "Sakkal Majalla";
   font-size: 1.2rem;
@@ -83,4 +90,5 @@ h1 {
   font-family: Calibri;
   font-size: 0.6rem;
   font-weight: bold;
+  text-shadow: none;
 }

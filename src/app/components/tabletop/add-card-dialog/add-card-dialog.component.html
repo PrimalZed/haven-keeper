@@ -2,7 +2,7 @@
 <div mat-dialog-content>
   <div class="character-list">
     <button *ngFor="let character of characters$ | async" mat-stroked-button class="title" [disabled]="character.used" (click)="addCharacter(character.key)">
-      <character-icon [key]="character.key" [shadow]="!character.used"></character-icon>
+      <character-icon [key]="character.key"></character-icon>
     </button>
   </div>
   <hr>
