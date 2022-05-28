@@ -14,6 +14,7 @@ export type MonsterAbility =
     target?: number;
     range?: number;
     effects?: AttackEffect[];
+    aoe?: any;
   }
   | {
     kind: 'heal';
@@ -34,6 +35,12 @@ export type MonsterAbility =
     consumeElement?: Element;
   }
   | {
+    kind: 'forcedMovement';
+    direction: 'push' | 'pull';
+    amount: number;
+    target?: 'adjacent'
+  }
+  | {
     kind: 'infuseElement'
     element: Element;
   }
@@ -44,6 +51,10 @@ export type MonsterAbility =
   | {
     kind: 'special';
     id: number;
+  }
+  | {
+    kind: 'other';
+    description: string;
   };
 
 export interface MonsterAbilityCard {

@@ -9,23 +9,29 @@
       <span>&nbsp;</span>
       <span>{{ $any(ability).modifier | modifier }}</span>
     </div>
-    <div *ngSwitchCase="'attack'" style="text-align: center;">
-      <div>
-        <span i18n="@@attack">Attack</span>
-        <span>&nbsp;</span>
-        <span class="gloomhaven-ability-icons">K</span>
-        <span>&nbsp;</span>
-        <span>{{ $any(ability).modifier | modifier }}</span>
+    <div *ngSwitchCase="'attack'" style="display: flex; justify-content: center; align-items: center; gap: 0.25em;">
+      <div style="flex-grow: 1; text-align: center;">
+        <div>
+          <span i18n="@@attack">Attack</span>
+          <span>&nbsp;</span>
+          <span class="gloomhaven-ability-icons">K</span>
+          <span>&nbsp;</span>
+          <span>{{ $any(ability).modifier | modifier }}</span>
+        </div>
+        <div *ngIf="$any(ability).range" class="card-content-sm">
+          <span i18n="@@range">Range</span>
+          <span>&nbsp;</span>
+          <span class="gloomhaven-ability-icons">G</span>
+          <span>&nbsp;</span>
+          <span>{{ $any(ability).range | modifier }}</span>
+        </div>
+        <div *ngFor="let effect of $any(ability).effects" [ngSwitch]="effect.kind" class="card-content-sm">
+          <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition" [showLabel]="true"></condition>
+        </div>
       </div>
-      <div *ngIf="$any(ability).range" class="card-content-sm">
-        <span i18n="@@range">Range</span>
-        <span>&nbsp;</span>
-        <span class="gloomhaven-ability-icons">G</span>
-        <span>&nbsp;</span>
-        <span>{{ $any(ability).range | modifier }}</span>
-      </div>
-      <div *ngFor="let effect of $any(ability).effects" [ngSwitch]="effect.kind" class="card-content-sm">
-        <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition" [showLabel]="true"></condition>
+      <div *ngIf="$any(ability).aoe">
+        <div>TODO</div>
+        <div>AOE</div>
       </div>
     </div>
     <div *ngSwitchCase="'bonus'" [ngSwitch]="$any(ability).bonus">
@@ -48,12 +54,26 @@
       </div>
       <div class="card-content-sm">{{ $any(ability).target }}</div>
     </div>
+    <div *ngSwitchCase="'forcedMovement'" style="text-align: center;">
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <ng-container [ngSwitch]="$any(ability).direction">
+          <span *ngSwitchCase="'pull'" i18n="@@pull">PULL</span>
+          <span *ngSwitchCase="'push'" i18n="@@push">PUSH</span>
+        </ng-container>
+        <span>&nbsp;</span>
+        <effect [effect]="$any(ability).direction"></effect>
+        <span>&nbsp;</span>
+        <span>{{ $any(ability).amount }}</span>
+      </div>
+      <div *ngIf="$any(ability).target === 'adjacent'" class="card-content-sm" i18n="@@targetAllAdjacentEnemies">Target all adjacent enemies</div>
+    </div>
     <div *ngSwitchCase="'special'">
       <div>
         <span i18n="@@special">Special </span>
         <span>{{ $any(ability).id }}</span>
       </div>
     </div>
+    <div *ngSwitchCase="'other'" class="card-content-sm">{{ $any(ability).description }}</div>
   </ng-container>
 </div>
 <div *ngIf="id" style="display: flex; justify-content: space-between; align-items: baseline;">

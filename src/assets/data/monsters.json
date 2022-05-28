@@ -1,5 +1,115 @@
 [
   {
+    "key": "ancientArtillery",
+    "kind": "normal",
+    "name": "Ancient Artillery",
+    "abilityDeckKey": "ancientArtillery",
+    "levels": {
+      "0": {
+        "hitPoints": 4,
+        "movement": 0,
+        "attack": 2,
+        "range": 4
+      },
+      "1": {
+        "hitPoints": 6,
+        "movement": 0,
+        "attack": 2,
+        "range": 4
+      },
+      "2": {
+        "hitPoints": 7,
+        "movement": 0,
+        "attack": 2,
+        "range": 5
+      },
+      "3": {
+        "hitPoints": 8,
+        "movement": 0,
+        "attack": 3,
+        "range": 5
+      },
+      "4": {
+        "hitPoints": 9,
+        "movement": 0,
+        "attack": 4,
+        "range": 5
+      },
+      "5": {
+        "hitPoints": 11,
+        "movement": 0,
+        "attack": 4,
+        "range": 6
+      },
+      "6": {
+        "hitPoints": 14,
+        "movement": 0,
+        "attack": 4,
+        "range": 6
+      },
+      "7": {
+        "hitPoints": 16,
+        "movement": 0,
+        "attack": 4,
+        "range": 7
+      }
+    },
+    "eliteLevels": {
+      "0": {
+        "hitPoints": 7,
+        "movement": 0,
+        "attack": 3,
+        "range": 5
+      },
+      "1": {
+        "hitPoints": 9,
+        "movement": 0,
+        "attack": 3,
+        "range": 5
+      },
+      "2": {
+        "hitPoints": 11,
+        "movement": 0,
+        "attack": 3,
+        "range": 6
+      },
+      "3": {
+        "hitPoints": 13,
+        "movement": 0,
+        "attack": 4,
+        "range": 6
+      },
+      "4": {
+        "hitPoints": 13,
+        "movement": 0,
+        "attack": 4,
+        "range": 6,
+        "attackEffects": [{ "kind": "target", "amount": 2 }]
+      },
+      "5": {
+        "hitPoints": 15,
+        "movement": 0,
+        "attack": 4,
+        "range": 7,
+        "attackEffects": [{ "kind": "target", "amount": 2 }]
+      },
+      "6": {
+        "hitPoints": 16,
+        "movement": 0,
+        "attack": 5,
+        "range": 7,
+        "attackEffects": [{ "kind": "target", "amount": 2 }]
+      },
+      "7": {
+        "hitPoints": 20,
+        "movement": 0,
+        "attack": 5,
+        "range": 7,
+        "attackEffects": [{ "kind": "target", "amount": 2 }]
+      }
+    }
+  },
+  {
     "key": "banditArcher",
     "kind": "normal",
     "name": "Bandit Archer",

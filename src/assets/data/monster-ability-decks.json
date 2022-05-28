@@ -137,7 +137,7 @@
       "abilities": [
         { "kind": "move", "modifier": -1 },
         { "kind": "attack", "modifier": -1 },
-        { "kind": "special", "description": "Create a 3 damage trap in an adjacent empty hex closest to an enemy."}
+        { "kind": "other", "description": "Create a 3 damage trap in an adjacent empty hex closest to an enemy."}
       ]
     },
     {
@@ -218,6 +218,80 @@
       "abilities": [
         { "kind": "move", "modifier": -1 },
         { "kind": "attack", "modifier": -1, "range": 3, "target": 2 }
+      ]
+    }
+  ],
+  "ancientArtillery": [
+    {
+      "id": 700,
+      "name": "Ancient Artillery",
+      "initiative": 46,
+      "abilities": [
+        { "kind": "attack", "modifier": -1, "range": 2 }
+      ]
+    },
+    {
+      "id": 701,
+      "name": "Ancient Artillery",
+      "initiative": 71,
+      "abilities": [
+        { "kind": "attack", "modifier": 0 },
+        { "kind": "other", "description": "All adjacent enemies suffer 2 damage."}
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 702,
+      "name": "Ancient Artillery",
+      "initiative": 71,
+      "abilities": [
+        { "kind": "attack", "modifier": 0 },
+        { "kind": "other", "description": "All adjacent enemies suffer 2 damage."}
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 703,
+      "name": "Ancient Artillery",
+      "initiative": 37,
+      "abilities": [
+        { "kind": "forcedMovement", "direction": "push", "amount": 1, "target": "adjacent" },
+        { "kind": "attack", "modifier": -1, "range": -1, "aoe": [{ "length": 1 },{ "length": 2 }] }
+      ]
+    },
+    {
+      "id": 704,
+      "name": "Ancient Artillery",
+      "initiative": 37,
+      "abilities": [
+        { "kind": "forcedMovement", "direction": "push", "amount": 1, "target": "adjacent" },
+        { "kind": "attack", "modifier": -1, "range": -1, "aoe": [{ "length": 2 },{ "length": 3 }, { "length": 2 }] }
+      ]
+    },
+    {
+      "id": 705,
+      "name": "Ancient Artillery",
+      "initiative": 95,
+      "abilities": [
+        { "kind": "attack", "modifier": 1 }
+      ]
+    },
+    {
+      "id": 706,
+      "name": "Ancient Artillery",
+      "initiative": 17,
+      "abilities": [
+        { "kind": "forcedMovement", "direction": "push", "amount": 2, "target": "adjacent" },
+        { "kind": "bonus", "bonus": "shield", "amount": 2 },
+        { "kind": "attack", "modifier": -2 }
+      ]
+    },
+    {
+      "id": 707,
+      "name": "Ancient Artillery",
+      "initiative": 46,
+      "abilities": [
+        { "kind": "attack", "modifier": -1, "effects": [{ "kind": "condition", "condition": "immobilize" }], "aoe": [{ "length": 1 },{ "length": 2 }] }
       ]
     }
   ]
