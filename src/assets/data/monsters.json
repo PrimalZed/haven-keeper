@@ -1096,5 +1096,124 @@
         "attackEffects": [{ "kind": "condition", "condition": "curse" }]
       }
     }
+  },
+  {
+    "key": "livingBones",
+    "kind": "normal",
+    "name": "Living Bones",
+    "abilityDeckKey": "livingBones",
+    "levels": {
+      "0": {
+        "hitPoints": 5,
+        "movement": 2,
+        "attack": 1,
+        "attackEffects": [{ "kind": "target", "amount": 2 }]
+      },
+      "1": {
+        "hitPoints": 5,
+        "movement": 3,
+        "attack": 1,
+        "bonuses": { "shield": 1 },
+        "attackEffects": [{ "kind": "target", "amount": 2 }]
+      },
+      "2": {
+        "hitPoints": 5,
+        "movement": 3,
+        "attack": 2,
+        "bonuses": { "shield": 1 },
+        "attackEffects": [{ "kind": "target", "amount": 2 }]
+      },
+      "3": {
+        "hitPoints": 7,
+        "movement": 3,
+        "attack": 2,
+        "bonuses": { "shield": 1 },
+        "attackEffects": [{ "kind": "target", "amount": 2 }]
+      },
+      "4": {
+        "hitPoints": 7,
+        "movement": 3,
+        "attack": 3,
+        "attackEffects": [{ "kind": "target", "amount": 2 }]
+      },
+      "5": {
+        "hitPoints": 9,
+        "movement": 3,
+        "attack": 3,
+        "bonuses": { "shield": 1 },
+        "attackEffects": [{ "kind": "target", "amount": 2 }]
+      },
+      "6": {
+        "hitPoints": 10,
+        "movement": 4,
+        "attack": 3,
+        "bonuses": { "shield": 1 },
+        "attackEffects": [{ "kind": "target", "amount": 2 }]
+      },
+      "7": {
+        "hitPoints": 13,
+        "movement": 4,
+        "attack": 3,
+        "bonuses": { "shield": 1 },
+        "attackEffects": [{ "kind": "target", "amount": 2 }]
+      }
+    },
+    "eliteLevels": {
+      "0": {
+        "hitPoints": 6,
+        "movement": 4,
+        "attack": 2,
+        "attackEffects": [{ "kind": "target", "amount": 2 }]
+      },
+      "1": {
+        "hitPoints": 6,
+        "movement": 4,
+        "attack": 2,
+        "bonuses": { "shield": 1 },
+        "attackEffects": [{ "kind": "target", "amount": 3 }]
+      },
+      "2": {
+        "hitPoints": 7,
+        "movement": 4,
+        "attack": 3,
+        "bonuses": { "shield": 1 },
+        "attackEffects": [{ "kind": "target", "amount": 3 }]
+      },
+      "3": {
+        "hitPoints": 10,
+        "movement": 4,
+        "attack": 3,
+        "bonuses": { "shield": 1 },
+        "attackEffects": [{ "kind": "target", "amount": 3 }]
+      },
+      "4": {
+        "hitPoints": 11,
+        "movement": 4,
+        "attack": 4,
+        "bonuses": { "shield": 1 },
+        "attackEffects": [{ "kind": "target", "amount": 3 }]
+      },
+      "5": {
+        "hitPoints": 11,
+        "movement": 4,
+        "attack": 4,
+        "bonuses": { "shield": 2 },
+        "attackEffects": [{ "kind": "target", "amount": 3 }]
+      },
+      "6": {
+        "hitPoints": 11,
+        "movement": 6,
+        "attack": 4,
+        "bonuses": { "shield": 2 },
+        "attackEffects": [{ "kind": "target", "amount": 3 }]
+      },
+      "7": {
+        "hitPoints": 14,
+        "movement":6,
+        "attack": 4,
+        "bonuses": { "shield": 2 },
+        "attackEffects": [{ "kind": "target", "amount": 3 }]
+      }
+    }
   }
 ]

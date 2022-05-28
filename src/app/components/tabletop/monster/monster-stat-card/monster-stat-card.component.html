@@ -8,14 +8,17 @@
       <div *ngFor="let bonus of normalLevel.bonuses | keyvalue" [ngSwitch]="bonus.key">
         <span *ngSwitchCase="'retaliate'" class="gloomhaven-ability-icons">R</span>
         <span *ngSwitchCase="'shield'" class="gloomhaven-ability-icons">S</span>
-        {{ bonus.value }}
+        <span>&nbsp;</span>
+        <span>{{ bonus.value }}</span>
       </div>
       <div *ngFor="let effect of normalLevel.attackEffects" [ngSwitch]="effect.kind">
         <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>
         <effect *ngSwitchCase="'effect'" [effect]="$any(effect).effect" [amount]="$any(effect).amount"></effect>
         <div *ngSwitchCase="'target'">
           <span i18n="@@target">Target</span>
+          <span>&nbsp;</span>
           <span class="gloomhaven-ability-icons">T</span>
+          <span>&nbsp;</span>
           <span>{{ $any(effect).amount }}</span>
         </div>
         <div *ngSwitchCase="'other'" class="card-content-sm">{{ $any(effect).description }}</div>
@@ -28,7 +31,8 @@
       <div *ngFor="let bonus of eliteLevel.bonuses | keyvalue" [ngSwitch]="bonus.key">
         <span *ngSwitchCase="'retaliate'" class="gloomhaven-ability-icons">R</span>
         <span *ngSwitchCase="'shield'" class="gloomhaven-ability-icons">S</span>
-        {{ bonus.value }}
+        <span>&nbsp;</span>
+        <span>{{ bonus.value }}</span>
       </div>
       <div *ngFor="let effect of eliteLevel.attackEffects" [ngSwitch]="effect.kind">
         <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>

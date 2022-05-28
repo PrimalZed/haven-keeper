@@ -1,4 +1,80 @@
 {
+  "livingBones": [
+    {
+      "id": 516,
+      "name": "Living Bones",
+      "initiative": 64,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1 }
+      ]
+    },
+    {
+      "id": 517,
+      "name": "Living Bones",
+      "initiative": 20,
+      "abilities": [
+        { "kind": "move", "modifier": -2 },
+        { "kind": "attack", "modifier": 0 },
+        { "kind": "heal", "amount": 2, "target": "self"}
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 518,
+      "name": "Living Bones",
+      "initiative": 25,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1 }
+      ]
+    },
+    {
+      "id": 519,
+      "name": "Living Bones",
+      "initiative": 45,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 520,
+      "name": "Living Bones",
+      "initiative": 45,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 521,
+      "name": "Living Bones",
+      "initiative": 81,
+      "abilities": [
+        { "kind": "attack", "modifier": 2 }
+      ]
+    },
+    {
+      "id": 522,
+      "name": "Living Bones",
+      "initiative": 74,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0, "effects": [{ "kind": "other", "description": "Target one enemy with all attacks" }] }
+      ]
+    },
+    {
+      "id": 523,
+      "name": "Living Bones",
+      "initiative": 12,
+      "abilities": [
+        { "kind": "bonus", "bonus": "shield", "amount": 1 },
+        { "kind": "heal", "amount": 2, "target": "self" }
+      ],
+      "shuffle": true
+    }
+  ],
   "guard": [
     {
       "id": 524,
