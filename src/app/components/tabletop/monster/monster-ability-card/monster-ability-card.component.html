@@ -10,7 +10,7 @@
       <span>{{ $any(ability).modifier | modifier }}</span>
     </div>
     <div *ngSwitchCase="'attack'" style="display: flex; justify-content: center; align-items: center; gap: 0.25em;">
-      <div style="flex-grow: 1; text-align: center;">
+      <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center;">
         <div>
           <span i18n="@@attack">Attack</span>
           <span>&nbsp;</span>
@@ -33,7 +33,7 @@
           <span>{{ $any(ability).target }}</span>
         </div>
         <div *ngFor="let effect of $any(ability).effects" [ngSwitch]="effect.kind" class="card-content-sm">
-          <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition" [showLabel]="true"></condition>
+          <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition" [showLabel]="true" size="sm"></condition>
         </div>
       </div>
       <div *ngIf="$any(ability).aoe">
