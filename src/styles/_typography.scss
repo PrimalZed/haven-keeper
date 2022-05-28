@@ -58,6 +58,10 @@ $my-typography-config: mat.define-typography-config(
 h1 {
   @include mat.typography-level($my-typography-config, 'headline');
 }
+h3 {
+  font-weight: normal;
+  font-size: 1.75rem;
+}
 
 .title {
   @include mat.typography-level($my-typography-config, 'title');
@@ -88,7 +92,7 @@ body, button {
 
 .card-id {
   font-family: Calibri;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   font-weight: bold;
   text-shadow: none;
 }
