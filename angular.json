@@ -40,7 +40,16 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "src/assets/",
+                "output": "/assets/",
+                "ignore": [
+                  "images/characters/*",
+                  "images/**/*.png",
+                  "**/svgs/*"
+                ]
+              },
               "src/manifest.webmanifest"
             ],
             "styles": [
@@ -117,7 +126,16 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "src/assets/",
+                "output": "/assets/",
+                "ignore": [
+                  "images/characters/*",
+                  "images/**/*.png",
+                  "**/svgs/*"
+                ]
+              },
               "src/manifest.webmanifest"
             ],
             "styles": [
