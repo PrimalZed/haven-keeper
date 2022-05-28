@@ -8,6 +8,11 @@
     <div *ngFor="let effect of level.attackEffects" [ngSwitch]="effect.kind">
       <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>
       <effect *ngSwitchCase="'effect'" [effect]="$any(effect).effect" [amount]="$any(effect).amount"></effect>
+      <div *ngSwitchCase="'target'">
+        <span i18n="@@target">Target</span>
+        <span class="gloomhaven-ability-icons">T</span>
+        <span>{{ $any(effect).amount }}</span>
+      </div>
     </div>
     <div *ngIf="level.immunities?.length" style="display: flex; flex-wrap: wrap;">
       <condition *ngFor="let condition of level.immunities" [condition]="condition"></condition>

@@ -13,6 +13,11 @@
       <div *ngFor="let effect of normalLevel.attackEffects" [ngSwitch]="effect.kind">
         <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>
         <effect *ngSwitchCase="'effect'" [effect]="$any(effect).effect" [amount]="$any(effect).amount"></effect>
+        <div *ngSwitchCase="'target'">
+          <span i18n="@@target">Target</span>
+          <span class="gloomhaven-ability-icons">T</span>
+          <span>{{ $any(effect).amount }}</span>
+        </div>
       </div>
       <div *ngIf="normalLevel.immunities?.length" style="display: flex; flex-wrap: wrap;">
         <condition *ngFor="let condition of normalLevel.immunities" [condition]="condition"></condition>
@@ -27,6 +32,13 @@
       <div *ngFor="let effect of eliteLevel.attackEffects" [ngSwitch]="effect.kind">
         <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>
         <effect *ngSwitchCase="'effect'" [effect]="$any(effect).effect" [amount]="$any(effect).amount"></effect>
+        <div *ngSwitchCase="'target'">
+          <span i18n="@@target">Target</span>
+          <span>&nbsp;</span>
+          <span class="gloomhaven-ability-icons">T</span>
+          <span>&nbsp;</span>
+          <span>{{ $any(effect).amount }}</span>
+        </div>
       </div>
       <div *ngIf="eliteLevel.immunities?.length" style="display: flex; flex-wrap: wrap;">
         <condition *ngFor="let condition of eliteLevel.immunities" [condition]="condition"></condition>
