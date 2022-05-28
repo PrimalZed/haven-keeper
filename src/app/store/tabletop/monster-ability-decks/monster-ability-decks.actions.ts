@@ -34,5 +34,7 @@ export const MonsterAbilityDecksActions = [
   drawMonsterAbilityCards,
   drawMonsterAbilityCardsSuccess,
   undoDrawMonsterAbilityCards,
-  drawMonsterAbilityCard
+  drawMonsterAbilityCard,
+  drawMonsterAbilityCardSuccess,
+  undoDrawMonsterAbilityCard
 ];
