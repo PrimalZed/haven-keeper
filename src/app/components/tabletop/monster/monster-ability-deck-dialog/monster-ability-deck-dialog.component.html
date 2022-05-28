@@ -2,7 +2,10 @@
 <div mat-dialog-content>
   <h3>Spent Cards</h3>
   <div class="card-content">
-    <monster-ability-card *ngFor="let id of abilityDeck.drawnAbilityCardIds" [id]="id"></monster-ability-card>
+    <ng-container *ngFor="let id of abilityDeck.drawnAbilityCardIds; let last = last">
+      <monster-ability-card [id]="id"></monster-ability-card>
+      <hr *ngIf="!last">
+    </ng-container>
   </div>
   <div style="display: flex; justify-content: space-between; align-items: center;">
     <h3>Remaining Cards</h3>
@@ -12,6 +15,9 @@
     </button>
   </div>
   <div *ngIf="showRemainingCards" class="card-content">
-    <monster-ability-card *ngFor="let id of remainingCardIds" [id]="id"></monster-ability-card>
+    <ng-container *ngFor="let id of remainingCardIds; let last = last">
+      <monster-ability-card [id]="id"></monster-ability-card>
+      <hr *ngIf="!last">
+    </ng-container>
   </div>
 </div>
