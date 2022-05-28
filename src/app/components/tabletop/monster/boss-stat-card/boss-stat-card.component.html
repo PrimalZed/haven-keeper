@@ -13,6 +13,7 @@
         <span class="gloomhaven-ability-icons">T</span>
         <span>{{ $any(effect).amount }}</span>
       </div>
+      <div *ngSwitchCase="'other'" class="card-content-sm">{{ $any(effect).description }}</div>
     </div>
     <div *ngIf="level.immunities?.length" style="display: flex; flex-wrap: wrap;">
       <condition *ngFor="let condition of level.immunities" [condition]="condition"></condition>

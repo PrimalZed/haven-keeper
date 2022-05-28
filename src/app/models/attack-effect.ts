@@ -23,5 +23,5 @@ export type AttackEffect =
   }
   | {
     kind: 'other';
-    text: string;
+    description: string;
   };

@@ -18,6 +18,7 @@
           <span class="gloomhaven-ability-icons">T</span>
           <span>{{ $any(effect).amount }}</span>
         </div>
+        <div *ngSwitchCase="'other'" class="card-content-sm">{{ $any(effect).description }}</div>
       </div>
       <div *ngIf="normalLevel.immunities?.length" style="display: flex; flex-wrap: wrap;">
         <condition *ngFor="let condition of normalLevel.immunities" [condition]="condition"></condition>
@@ -39,6 +40,7 @@
           <span>&nbsp;</span>
           <span>{{ $any(effect).amount }}</span>
         </div>
+        <div *ngSwitchCase="'other'" class="card-content-sm">{{ $any(effect).description }}</div>
       </div>
       <div *ngIf="eliteLevel.immunities?.length" style="display: flex; flex-wrap: wrap;">
         <condition *ngFor="let condition of eliteLevel.immunities" [condition]="condition"></condition>
