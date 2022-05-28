@@ -48,6 +48,18 @@
       <span>&nbsp;</span>
       <span>{{ $any(ability).amount }}</span>
     </div>
+    <div *ngSwitchCase="'heal'" style="text-align: center;">
+      <div>
+        <span i18n="@@attack">Heal</span>
+        <span>&nbsp;</span>
+        <span class="gloomhaven-ability-icons">H</span>
+        <span>&nbsp;</span>
+        <span>{{ $any(ability).amount }}</span>
+      </div>
+      <div class="card-content-sm" [ngSwitch]="$any(ability).target">
+        <span *ngSwitchCase="'self'" i18n="@@self">Self</span>
+      </div>
+    </div>
     <div *ngSwitchCase="'condition'" style="text-align: center;">
       <div>
         <condition [condition]="$any(ability).condition" [showLabel]="true"></condition>
