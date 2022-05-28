@@ -221,6 +221,82 @@
       ]
     }
   ],
+  "imp": [
+    {
+      "id": 676,
+      "name": "Imp",
+      "initiative": 5,
+      "abilities": [
+        { "kind": "bonus", "bonus": "shield", "amount": 5 },
+        { "kind": "heal", "amount": 1, "target": "self" }
+      ]
+    },
+    {
+      "id": 677,
+      "name": "Imp",
+      "initiative": 37,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 678,
+      "name": "Imp",
+      "initiative": 37,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 679,
+      "name": "Imp",
+      "initiative": 42,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "heal", "amount": 2, "range": 3 }
+      ]
+    },
+    {
+      "id": 680,
+      "name": "Imp",
+      "initiative": 43,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1, "target": 2, "effects": [{ "kind": "condition", "condition": "poison" }] }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 681,
+      "name": "Imp",
+      "initiative": 76,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1 }
+      ]
+    },
+    {
+      "id": 682,
+      "name": "Imp",
+      "initiative": 43,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1, "target": 2, "effects": [{ "kind": "condition", "condition": "curse" }] }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 683,
+      "name": "Imp",
+      "initiative": 24,
+      "abilities": [
+        { "kind": "condition", "condition": "strengthen", "target": "ally", "range": 2 },
+        { "kind": "condition", "condition": "muddle", "target": "enemy", "range": 2 }
+      ]
+    }
+  ],
   "ancientArtillery": [
     {
       "id": 700,
