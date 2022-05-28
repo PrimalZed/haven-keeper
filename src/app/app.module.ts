@@ -27,7 +27,6 @@ import { MonsterAbilityCardComponent } from './components/tabletop/monster/monst
 import { MonsterAbilityDeckDialogComponent } from './components/tabletop/monster/monster-ability-deck-dialog/monster-ability-deck-dialog.component';
 import { MonsterStatCardComponent } from './components/tabletop/monster/monster-stat-card/monster-stat-card.component';
 import { MonsterStandeeComponent } from './components/tabletop/monster/standee/monster-standee.component';
-import { RhombusComponent } from './components/tabletop/rhombus/rhombus.component';
 import { SetScenarioLevelComponent } from './components/tabletop/set-scenario-level/set-scenario-level.component';
 import { TabletopBottomComponent } from './components/tabletop/tabletop-bottom/tabletop-bottom.component';
 import { TabletopTopComponent } from './components/tabletop/tabletop-top/tabletop-top.component';
@@ -74,7 +73,6 @@ import { BossStatCardComponent } from './components/tabletop/monster/boss-stat-c
     MonsterSetComponent,
     MonsterStandeeComponent,
     MonsterStatCardComponent,
-    RhombusComponent,
     SetScenarioLevelComponent,
     TabletopComponent,
     TabletopBottomComponent,
