@@ -8,9 +8,9 @@ export interface MonsterLevel {
   movement: number;
   attack: number;
   range?: number;
-  bonuses: { [key in BonusKey]?: number };
-  attackEffects: AttackEffect[];
-  immunities: NegativeConditionKey[];
+  bonuses?: { [key in BonusKey]?: number };
+  attackEffects?: AttackEffect[];
+  immunities?: NegativeConditionKey[];
 }
 
 interface MonsterBase {

@@ -9,7 +9,7 @@
       <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>
       <effect *ngSwitchCase="'effect'" [effect]="$any(effect).effect" [amount]="$any(effect).amount"></effect>
     </div>
-    <div *ngIf="level.immunities.length" style="display: flex; flex-wrap: wrap;">
+    <div *ngIf="level.immunities?.length" style="display: flex; flex-wrap: wrap;">
       <condition *ngFor="let condition of level.immunities" [condition]="condition"></condition>
     </div>
     <ng-container *ngIf="specials$ | async as specials">

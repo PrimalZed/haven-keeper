@@ -9,73 +9,49 @@
         "hitPoints": 4,
         "movement": 2,
         "attack": 2,
-        "range": 3,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "range": 3
       },
       "1": {
         "hitPoints": 5,
         "movement": 2,
         "attack": 2,
-        "range": 4,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "range": 4
       },
       "2": {
         "hitPoints": 6,
         "movement": 3,
         "attack": 2,
-        "range": 4,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "range": 4
       },
       "3": {
         "hitPoints": 6,
         "movement": 3,
         "attack": 3,
-        "range": 4,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "range": 4
       },
       "4": {
         "hitPoints": 8,
         "movement": 3,
         "attack": 3,
-        "range": 4,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "range": 4
       },
       "5": {
         "hitPoints": 10,
         "movement": 3,
         "attack": 3,
-        "range": 5,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "range": 5
       },
       "6": {
         "hitPoints": 10,
         "movement": 3,
         "attack": 4,
-        "range": 5,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "range": 5
       },
       "7": {
         "hitPoints": 13,
         "movement": 3,
         "attack": 4,
-        "range": 5,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "range": 5
       }
     },
     "eliteLevels": {
@@ -83,73 +59,53 @@
         "hitPoints": 6,
         "movement": 2,
         "attack": 3,
-        "range": 3,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "range": 3
       },
       "1": {
         "hitPoints": 7,
         "movement": 2,
         "attack": 3,
-        "range": 5,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "range": 5
       },
       "2": {
         "hitPoints": 9,
         "movement": 3,
         "attack": 3,
-        "range": 5,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "range": 5
       },
       "3": {
         "hitPoints": 10,
         "movement": 3,
         "attack": 4,
-        "range": 5,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "range": 5
       },
       "4": {
         "hitPoints": 10,
         "movement": 3,
         "attack": 4,
         "range": 6,
-        "attackEffects": [{ "kind": "condition", "condition": "poison" }],
-        "bonuses": { },
-        "immunities": []
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
       },
       "5": {
         "hitPoints": 12,
         "movement": 4,
         "attack": 4,
         "range": 6,
-        "attackEffects": [{ "kind": "condition", "condition": "poison" }],
-        "bonuses": { },
-        "immunities": []
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
       },
       "6": {
         "hitPoints": 13,
         "movement": 4,
         "attack": 5,
         "range": 6,
-        "attackEffects": [{ "kind": "condition", "condition": "poison" }],
-        "bonuses": { },
-        "immunities": []
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
       },
       "7": {
         "hitPoints": 17,
         "movement": 4,
         "attack": 5,
         "range": 6,
-        "attackEffects": [{ "kind": "condition", "condition": "poison" }],
-        "bonuses": { },
-        "immunities": []
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
       }
     }
   },
@@ -163,83 +119,64 @@
         "hitPoints": 4,
         "movement": 1,
         "attack": 2,
-        "range": 3,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "range": 3
       },
       "1": {
         "hitPoints": 5,
         "movement": 1,
         "attack": 2,
-        "range": 4,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "range": 4
       },
       "2": {
         "hitPoints": 6,
         "movement": 1,
         "attack": 3,
-        "range": 4,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "range": 4
       },
       "3": {
         "hitPoints": 6,
         "movement": 2,
         "attack": 3,
         "range": 4,
-        "attackEffects": [],
         "bonuses": {
           "shield": 1
-        },
-        "immunities": []
+        }
       },
       "4": {
         "hitPoints": 8,
         "movement": 2,
         "attack": 3,
         "range": 5,
-        "attackEffects": [],
         "bonuses": {
           "shield": 1
-         },
-        "immunities": []
+         }
       },
       "5": {
         "hitPoints": 9,
         "movement": 2,
         "attack": 4,
         "range": 5,
-        "attackEffects": [],
         "bonuses": {
           "shield": 1
-         },
-        "immunities": []
+         }
       },
       "6": {
         "hitPoints": 9,
         "movement": 3,
         "attack": 4,
         "range": 5,
-        "attackEffects": [],
         "bonuses": {
           "shield": 2
-         },
-        "immunities": []
+         }
       },
       "7": {
         "hitPoints": 10,
         "movement": 3,
         "attack": 4,
         "range": 6,
-        "attackEffects": [],
         "bonuses": {
           "shield": 2
-         },
-        "immunities": []
+         }
       }
     },
     "eliteLevels": {
@@ -247,10 +184,7 @@
         "hitPoints": 6,
         "movement": 1,
         "attack": 3,
-        "range": 4,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "range": 4
       },
       "1": {
         "hitPoints": 6,
@@ -258,8 +192,7 @@
         "attack": 3,
         "range": 5,
         "attackEffects": [{ "kind": "effect", "effect": "pierce", "amount": 1 }],
-        "bonuses": { "shield": 1 },
-        "immunities": []
+        "bonuses": { "shield": 1 }
       },
       "2": {
         "hitPoints": 7,
@@ -267,8 +200,7 @@
         "attack": 4,
         "range": 5,
         "attackEffects": [{ "kind": "effect", "effect": "pierce", "amount": 2 }],
-        "bonuses": { "shield": 1 },
-        "immunities": []
+        "bonuses": { "shield": 1 }
       },
       "3": {
         "hitPoints": 8,
@@ -276,8 +208,7 @@
         "attack": 4,
         "range": 5,
         "attackEffects": [{ "kind": "effect", "effect": "pierce", "amount": 2 }],
-        "bonuses": { "shield": 2 },
-        "immunities": []
+        "bonuses": { "shield": 2 }
       },
       "4": {
         "hitPoints": 10,
@@ -285,8 +216,7 @@
         "attack": 4,
         "range": 6,
         "attackEffects": [{ "kind": "effect", "effect": "pierce", "amount": 2 }],
-        "bonuses": { "shield": 2 },
-        "immunities": []
+        "bonuses": { "shield": 2 }
       },
       "5": {
         "hitPoints": 11,
@@ -294,8 +224,7 @@
         "attack": 5,
         "range": 6,
         "attackEffects": [{ "kind": "effect", "effect": "pierce", "amount": 3 }],
-        "bonuses": { "shield": 2 },
-        "immunities": []
+        "bonuses": { "shield": 2 }
       },
       "6": {
         "hitPoints": 12,
@@ -303,8 +232,7 @@
         "attack": 6,
         "range": 6,
         "attackEffects": [{ "kind": "effect", "effect": "pierce", "amount": 3 }],
-        "bonuses": { "shield": 2 },
-        "immunities": []
+        "bonuses": { "shield": 2 }
       },
       "7": {
         "hitPoints": 13,
@@ -312,8 +240,7 @@
         "attack": 6,
         "range": 7,
         "attackEffects": [{ "kind": "effect", "effect": "pierce", "amount": 3 }],
-        "bonuses": { "shield": 3 },
-        "immunities": []
+        "bonuses": { "shield": 3 }
       }
     }
   },
@@ -326,132 +253,95 @@
       "0": {
         "hitPoints": 5,
         "movement": 2,
-        "attack": 2,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "attack": 2
       },
       "1": {
         "hitPoints": 6,
         "movement": 3,
-        "attack": 2,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "attack": 2
       },
       "2": {
         "hitPoints": 6,
         "movement": 3,
-        "attack": 3,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "attack": 3
       },
       "3": {
         "hitPoints": 9,
         "movement": 3,
-        "attack": 3,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "attack": 3
       },
       "4": {
         "hitPoints": 10,
         "movement": 4,
-        "attack": 3,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "attack": 3
       },
       "5": {
         "hitPoints": 11,
         "movement": 4,
-        "attack": 4,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "attack": 4
       },
       "6": {
         "hitPoints": 14,
         "movement": 4,
-        "attack": 4,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "attack": 4
       },
       "7": {
         "hitPoints": 16,
         "movement": 5,
-        "attack": 4,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "attack": 4
       }
     },
     "eliteLevels": {
       "0": {
         "hitPoints": 9,
         "movement": 2,
-        "attack": 3,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "attack": 3
       },
       "1": {
         "hitPoints": 9,
         "movement": 2,
         "attack": 3,
-        "attackEffects": [],
-        "bonuses": { "shield": 1 },
-        "immunities": []
+        "bonuses": { "shield": 1 }
       },
       "2": {
         "hitPoints": 10,
         "movement": 2,
         "attack": 4,
-        "attackEffects": [],
-        "bonuses": { "shield": 1 },
-        "immunities": []
+        "bonuses": { "shield": 1 }
       },
       "3": {
         "hitPoints": 10,
         "movement": 3,
         "attack": 4,
-        "attackEffects": [],
-        "bonuses": { "shield": 2 },
-        "immunities": []
+        "bonuses": { "shield": 2 }
       },
       "4": {
         "hitPoints": 11,
         "movement": 3,
         "attack": 4,
         "attackEffects": [{ "kind": "condition", "condition": "muddle" }],
-        "bonuses": { "shield": 2 },
-        "immunities": []
+        "bonuses": { "shield": 2 }
       },
       "5": {
         "hitPoints": 12,
         "movement": 3,
         "attack": 5,
         "attackEffects": [{ "kind": "condition", "condition": "muddle" }],
-        "bonuses": { "shield": 2 },
-        "immunities": []
+        "bonuses": { "shield": 2 }
       },
       "6": {
         "hitPoints": 14,
         "movement": 3,
         "attack": 5,
         "attackEffects": [{ "kind": "condition", "condition": "muddle" }],
-        "bonuses": { "shield": 2 },
-        "immunities": []
+        "bonuses": { "shield": 2 }
       },
       "7": {
         "hitPoints": 14,
         "movement": 3,
         "attack": 5,
         "attackEffects": [{ "kind": "condition", "condition": "muddle" }],
-        "bonuses": { "shield": 3 },
-        "immunities": []
+        "bonuses": { "shield": 3 }
       }
     }
   },
@@ -464,66 +354,49 @@
       "0": {
         "hitPoints": 5,
         "movement": 2,
-        "attack": 2,
-        "attackEffects": [],
-        "bonuses": { },
-        "immunities": []
+        "attack": 2
       },
       "1": {
         "hitPoints": 6,
         "movement": 2,
         "attack": 2,
-        "attackEffects": [],
-        "bonuses": { "shield": 1 },
-        "immunities": []
+        "bonuses": { "shield": 1 }
       },
       "2": {
         "hitPoints": 7,
         "movement": 2,
         "attack": 3,
-        "attackEffects": [],
-        "bonuses": { "shield": 1 },
-        "immunities": []
+        "bonuses": { "shield": 1 }
       },
       "3": {
         "hitPoints": 8,
         "movement": 2,
         "attack": 3,
-        "attackEffects": [],
-        "bonuses": { "shield": 1 },
-        "immunities": []
+        "bonuses": { "shield": 1 }
       },
       "4": {
         "hitPoints": 9,
         "movement": 3,
         "attack": 3,
-        "attackEffects": [],
-        "bonuses": { "shield": 1 },
-        "immunities": []
+        "bonuses": { "shield": 1 }
       },
       "5": {
         "hitPoints": 10,
         "movement": 3,
         "attack": 3,
-        "attackEffects": [],
-        "bonuses": { "shield": 2 },
-        "immunities": []
+        "bonuses": { "shield": 2 }
       },
       "6": {
         "hitPoints": 11,
         "movement": 3,
         "attack": 4,
-        "attackEffects": [],
-        "bonuses": { "shield": 2 },
-        "immunities": []
+        "bonuses": { "shield": 2 }
       },
       "7": {
         "hitPoints": 13,
         "movement": 3,
         "attack": 4,
-        "attackEffects": [],
-        "bonuses": { "shield": 2 },
-        "immunities": []
+        "bonuses": { "shield": 2 }
       }
     },
     "eliteLevels": {
@@ -531,65 +404,49 @@
         "hitPoints": 6,
         "movement": 2,
         "attack": 3,
-        "attackEffects": [],
-        "bonuses": { "shield": 1 },
-        "immunities": []
+        "bonuses": { "shield": 1 }
       },
       "1": {
         "hitPoints": 6,
         "movement": 2,
         "attack": 3,
-        "attackEffects": [],
-        "bonuses": { "shield": 2 },
-        "immunities": []
+        "bonuses": { "shield": 2 }
       },
       "2": {
         "hitPoints": 9,
         "movement": 2,
         "attack": 3,
-        "attackEffects": [],
-        "bonuses": { "shield": 2 },
-        "immunities": []
+        "bonuses": { "shield": 2 }
       },
       "3": {
         "hitPoints": 9,
         "movement": 2,
         "attack": 4,
-        "attackEffects": [],
-        "bonuses": { "retaliate": 1, "shield": 2 },
-        "immunities": []
+        "bonuses": { "retaliate": 1, "shield": 2 }
       },
       "4": {
         "hitPoints": 10,
         "movement": 3,
         "attack": 4,
-        "attackEffects": [],
-        "bonuses": { "retaliate": 2, "shield": 2 },
-        "immunities": []
+        "bonuses": { "retaliate": 2, "shield": 2 }
       },
       "5": {
         "hitPoints": 12,
         "movement": 3,
         "attack": 4,
-        "attackEffects": [],
-        "bonuses": { "retaliate": 2, "shield": 3 },
-        "immunities": []
+        "bonuses": { "retaliate": 2, "shield": 3 }
       },
       "6": {
         "hitPoints": 13,
         "movement": 3,
         "attack": 5,
-        "attackEffects": [],
-        "bonuses": { "retaliate": 3, "shield": 3 },
-        "immunities": []
+        "bonuses": { "retaliate": 3, "shield": 3 }
       },
       "7": {
         "hitPoints": 14,
         "movement": 3,
         "attack": 6,
-        "attackEffects": [],
-        "bonuses": { "retaliate": 3, "shield": 3 },
-        "immunities": []
+        "bonuses": { "retaliate": 3, "shield": 3 }
       }
     }
   },
@@ -602,64 +459,48 @@
         "hitPoints": 8,
         "movement": 3,
         "attack": 3,
-        "attackEffects": [],
-        "bonuses": { },
         "immunities": ["curse","immobilize","stun"]
       },
       "1": {
         "hitPoints": 10,
         "movement": 3,
         "attack": 3,
-        "attackEffects": [],
-        "bonuses": { },
         "immunities": ["curse","immobilize","stun"]
       },
       "2": {
         "hitPoints": 12,
         "movement": 4,
         "attack": 3,
-        "attackEffects": [],
-        "bonuses": { },
         "immunities": ["curse","immobilize","stun"]
       },
       "3": {
         "hitPoints": 13,
         "movement": 4,
         "attack": 4,
-        "attackEffects": [],
-        "bonuses": { },
         "immunities": ["curse","immobilize","stun"]
       },
       "4": {
         "hitPoints": 15,
         "movement": 4,
         "attack": 4,
-        "attackEffects": [],
-        "bonuses": { },
         "immunities": ["curse","immobilize","stun"]
       },
       "5": {
         "hitPoints": 16,
         "movement": 5,
         "attack": 5,
-        "attackEffects": [],
-        "bonuses": { },
         "immunities": ["curse","immobilize","stun"]
       },
       "6": {
         "hitPoints": 19,
         "movement": 5,
         "attack": 5,
-        "attackEffects": [],
-        "bonuses": { },
         "immunities": ["curse","immobilize","stun"]
       },
       "7": {
         "hitPoints": 23,
         "movement": 5,
         "attack": 5,
-        "attackEffects": [],
-        "bonuses": { },
         "immunities": ["curse","immobilize","stun"]
       }
     },
