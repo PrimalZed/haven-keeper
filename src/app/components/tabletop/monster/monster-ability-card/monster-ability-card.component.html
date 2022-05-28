@@ -25,6 +25,13 @@
           <span>&nbsp;</span>
           <span>{{ $any(ability).range | modifier }}</span>
         </div>
+        <div *ngIf="$any(ability).target" class="card-content-sm">
+          <span i18n="@@target">Target</span>
+          <span>&nbsp;</span>
+          <span class="gloomhaven-ability-icons">T</span>
+          <span>&nbsp;</span>
+          <span>{{ $any(ability).target }}</span>
+        </div>
         <div *ngFor="let effect of $any(ability).effects" [ngSwitch]="effect.kind" class="card-content-sm">
           <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition" [showLabel]="true"></condition>
         </div>
@@ -56,15 +63,38 @@
         <span>&nbsp;</span>
         <span>{{ $any(ability).amount }}</span>
       </div>
+      <div *ngIf="$any(ability).range" class="card-content-sm">
+        <span i18n="@@range">Range</span>
+        <span>&nbsp;</span>
+        <span class="gloomhaven-ability-icons">G</span>
+        <span>&nbsp;</span>
+        <span>{{ $any(ability).range | modifier }}</span>
+      </div>
       <div class="card-content-sm" [ngSwitch]="$any(ability).target">
         <span *ngSwitchCase="'self'" i18n="@@self">Self</span>
       </div>
     </div>
-    <div *ngSwitchCase="'condition'" style="text-align: center;">
+    <div *ngSwitchCase="'condition'" style="display: flex; flex-direction: column; align-items: center;">
       <div>
         <condition [condition]="$any(ability).condition" [showLabel]="true"></condition>
       </div>
-      <div class="card-content-sm">{{ $any(ability).target }}</div>
+      <div class="card-content-sm" style="text-align: center;" [ngSwitch]="$any(ability).target">
+        <span *ngSwitchCase="'self'" i18n="@@self">Self</span>
+        <ng-container *ngSwitchCase="'ally'">
+          <span>Affect all allies within Range</span>
+          <span>&nbsp;</span>
+          <span class="gloomhaven-ability-icons">G</span>
+          <span>&nbsp;</span>
+          <span>{{ $any(ability).range }}</span>
+        </ng-container>
+        <ng-container *ngSwitchCase="'enemy'">
+          <span>Target all enemies within Range</span>
+          <span>&nbsp;</span>
+          <span class="gloomhaven-ability-icons">G</span>
+          <span>&nbsp;</span>
+          <span>{{ $any(ability).range }}</span>
+        </ng-container>
+      </div>
     </div>
     <div *ngSwitchCase="'forcedMovement'" style="text-align: center;">
       <div style="display: flex; justify-content: center; align-items: center;">

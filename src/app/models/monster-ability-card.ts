@@ -19,8 +19,8 @@ export type MonsterAbility =
   | {
     kind: 'heal';
     amount: number;
-    target: 'self' | 'ally';
-    range: number;
+    target?: 'self' | 'ally';
+    range?: number;
   }
   | {
     kind: 'bonus';
