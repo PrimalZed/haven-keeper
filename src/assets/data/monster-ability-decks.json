@@ -221,6 +221,89 @@
       ]
     }
   ],
+  "cultist": [
+    {
+      "id": 604,
+      "name": "Cultist",
+      "initiative": 10,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": -1 }
+      ],
+      "deathAbilities": [
+        { "kind": "attack", "modifier": 2, "aoe": [{ "length": 2 }, { "length": 3, "origin": 1 }, { "length": 2 }] }
+      ]
+    },
+    {
+      "id": 605,
+      "name": "Cultist",
+      "initiative": 10,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": -1 }
+      ],
+      "deathAbilities": [
+        { "kind": "attack", "modifier": 2, "aoe": [{ "length": 2 }, { "length": 3, "origin": 1 }, { "length": 2 }] }
+      ]
+    },
+    {
+      "id": 606,
+      "name": "Cultist",
+      "initiative": 27,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 607,
+      "name": "Cultist",
+      "initiative": 27,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 608,
+      "name": "Cultist",
+      "initiative": 39,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 0 },
+        { "kind": "heal", "amount": 1, "target": "self" }
+      ]
+    },
+    {
+      "id": 609,
+      "name": "Cultist",
+      "initiative": 63,
+      "abilities": [
+        { "kind": "other", "description": "Summon normal Living Bones" },
+        { "kind": "other", "description": "Cultist suffers 2 damage." }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 610,
+      "name": "Cultist",
+      "initiative": 63,
+      "abilities": [
+        { "kind": "other", "description": "Summon normal Living Bones" },
+        { "kind": "other", "description": "Cultist suffers 2 damage." }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 611,
+      "name": "Cultist",
+      "initiative": 31,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "heal", "amount": 3, "range": 3 }
+      ]
+    }
+  ],
   "imp": [
     {
       "id": 676,
@@ -341,7 +424,7 @@
       "initiative": 37,
       "abilities": [
         { "kind": "forcedMovement", "direction": "push", "amount": 1, "target": "adjacent" },
-        { "kind": "attack", "modifier": -1, "range": -1, "aoe": [{ "length": 2 },{ "length": 3 }, { "length": 2 }] }
+        { "kind": "attack", "modifier": -1, "range": -1, "aoe": [{ "length": 2 },{ "length": 3}, { "length": 2 }] }
       ]
     },
     {

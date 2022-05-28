@@ -62,5 +62,6 @@ export interface MonsterAbilityCard {
   name: string;
   initiative: number;
   abilities: MonsterAbility[];
+  deathAbilities?: MonsterAbility[];
   shuffle?: true;
 }
