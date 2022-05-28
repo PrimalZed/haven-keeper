@@ -31,7 +31,19 @@ export class FigureDialogComponent {
     }
   })();
   public maxHitPoints: number = this.data.maxHitPoints;
-  public kind: 'character' | 'monster' = this.data.kind;
+  public kind: 'character' | 'monster' | 'boss' = (() => {
+    switch (this.data.kind) {
+      case 'character':
+        return 'character';
+      case 'monster':
+        switch (this.data.statCard.kind) {
+          case 'normal':
+            return 'monster';
+          case 'boss':
+            return 'boss';
+        }
+    }
+  })();
   public figure: Character | MonsterStandee = this.data.figure;
   public conditions: { key: ConditionKey, active: boolean }[] = conditions
     .filter((key) => !['bless', 'curse'].includes(key))
