@@ -11,21 +11,21 @@
       <span i18n="@@pierce">PIERCE</span>
       <span class="horizontal-spacer-sm"></span>
     </ng-container>
-    <img src="assets/images/conditions/pierce-fh.svg">
+    <img [class]="size" src="assets/images/conditions/pierce-fh.svg">
   </ng-container>
   <ng-container *ngSwitchCase="'pull'">
     <ng-container *ngIf="showLabel">
       <span i18n="@@pull">PULL</span>
       <span class="horizontal-spacer-sm"></span>
     </ng-container>
-    <img src="assets/images/conditions/pull-fh.svg">
+    <img [class]="size" src="assets/images/conditions/pull-fh.svg">
   </ng-container>
   <ng-container *ngSwitchCase="'push'">
     <ng-container *ngIf="showLabel">
       <span i18n="@@push">PUSH</span>
       <span class="horizontal-spacer-sm"></span>
     </ng-container>
-    <img src="assets/images/conditions/push-fh.svg">
+    <img [class]="size" src="assets/images/conditions/push-fh.svg">
   </ng-container>
   <ng-container *ngSwitchDefault>
     {{ effect }}

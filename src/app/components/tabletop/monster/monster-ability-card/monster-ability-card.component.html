@@ -34,6 +34,7 @@
         </div>
         <div *ngFor="let effect of $any(ability).effects" [ngSwitch]="effect.kind" class="card-content-sm">
           <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition" [showLabel]="true" size="sm"></condition>
+          <effect *ngSwitchCase="'effect'" [effect]="$any(effect).effect" [amount]="$any(effect).amount" [showLabel]="true" size="sm"></effect>
           <div *ngSwitchCase="'other'">{{ $any(effect).description }}</div>
         </div>
       </div>
@@ -76,12 +77,18 @@
       </div>
     </div>
     <div *ngSwitchCase="'condition'" style="display: flex; flex-direction: column; align-items: center;">
-      <div>
-        <condition [condition]="$any(ability).condition" [showLabel]="true"></condition>
+      <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem;">
+        <ng-container *ngFor="let condition of $any(ability).conditions; let first = first">
+          <span *ngIf="!first"> and </span>
+          <condition [condition]="condition" [showLabel]="true"></condition>
+        </ng-container>
       </div>
       <div class="card-content-sm" style="text-align: center;" [ngSwitch]="$any(ability).target">
         <span *ngSwitchCase="'self'" i18n="@@self">Self</span>
         <ng-container *ngSwitchCase="'ally'">
+          <span>Affect one adjacent ally</span>
+        </ng-container>
+        <ng-container *ngSwitchCase="'allAllies'">
           <span>Affect all allies within Range</span>
           <span>&nbsp;</span>
           <span class="gloomhaven-ability-icons">G</span>
@@ -89,6 +96,9 @@
           <span>{{ $any(ability).range }}</span>
         </ng-container>
         <ng-container *ngSwitchCase="'enemy'">
+          <span>Target one adjacent enemy</span>
+        </ng-container>
+        <ng-container *ngSwitchCase="'allEnemies'">
           <span>Target all enemies within Range</span>
           <span>&nbsp;</span>
           <span class="gloomhaven-ability-icons">G</span>
@@ -116,7 +126,7 @@
         <span>{{ $any(ability).id }}</span>
       </div>
     </div>
-    <div *ngSwitchCase="'other'" class="card-content-sm">{{ $any(ability).description }}</div>
+    <div *ngSwitchCase="'other'">{{ $any(ability).description }}</div>
   </ng-container>
 </div>
 <div *ngIf="id" style="display: flex; justify-content: space-between; align-items: baseline;">

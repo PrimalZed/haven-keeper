@@ -29,8 +29,8 @@ export type MonsterAbility =
   }
   | {
     kind: 'condition';
-    condition: ConditionKey;
-    target: 'self' | 'ally' | 'enemy';
+    conditions: ConditionKey[];
+    target: 'self' | 'ally' | 'allAllies' | 'enemy' | 'allEnemies';
     range?: number;
     consumeElement?: Element;
   }

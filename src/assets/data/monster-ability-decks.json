@@ -138,7 +138,7 @@
       "abilities": [
         { "kind": "move", "modifier": -1 },
         { "kind": "attack", "modifier": 0 },
-        { "kind": "condition", "condition": "strengthen", "target": "self" }
+        { "kind": "condition", "conditions": ["strengthen"], "target": "self" }
       ]
     },
     {
@@ -225,6 +225,83 @@
         { "kind": "attack", "modifier": -1, "range": 1, "effects": [{ "kind": "condition", "condition": "immobilize" }] }
       ],
       "shuffle": true
+    }
+  ],
+  "livingCorpse": [
+    {
+      "id": 564,
+      "name": "Living Corpse",
+      "initiative": 21,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "condition", "conditions": ["muddle", "immobilize"], "target": "enemy" }
+      ]
+    },
+    {
+      "id": 565,
+      "name": "Living Corpse",
+      "initiative": 47,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1 }
+      ]
+    },
+    {
+      "id": 566,
+      "name": "Living Corpse",
+      "initiative": 66,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 567,
+      "name": "Living Corpse",
+      "initiative": 66,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 568,
+      "name": "Living Corpse",
+      "initiative": 82,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1 }
+      ]
+    },
+    {
+      "id": 569,
+      "name": "Living Corpse",
+      "initiative": 91,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "other", "description": "Living Corpse suffers 1 damage."}
+      ]
+    },
+    {
+      "id": 570,
+      "name": "Living Corpse",
+      "initiative": 71,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 1 },
+        { "kind": "condition", "conditions": ["poison"], "target": "allEnemies" }
+      ]
+    },
+    {
+      "id": 571,
+      "name": "Living Corpse",
+      "initiative": 32,
+      "abilities": [
+        { "kind": "attack", "modifier": 2, "effects": [{ "kind": "effect", "effect": "push", "amount": 1 }] },
+        { "kind": "other", "description": "Living Corpse suffers 1 damage." }
+      ]
     }
   ],
   "boss": [
@@ -451,8 +528,8 @@
       "name": "Imp",
       "initiative": 24,
       "abilities": [
-        { "kind": "condition", "condition": "strengthen", "target": "ally", "range": 2 },
-        { "kind": "condition", "condition": "muddle", "target": "enemy", "range": 2 }
+        { "kind": "condition", "conditions": ["strengthen"], "target": "allAllies", "range": 2 },
+        { "kind": "condition", "conditions": ["muddle"], "target": "allEnemies", "range": 2 }
       ]
     }
   ],
