@@ -50,6 +50,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterIconComponent } from './components/tabletop/character-icon/character-icon.component';
 import { CharacterLevelDialogComponent } from './components/tabletop/character-level-dialog/character-level-dialog.component';
+import { BossStatCardComponent } from './components/tabletop/monster/boss-stat-card/boss-stat-card.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { CharacterLevelDialogComponent } from './components/tabletop/character-l
     MaxHitPointsPipe,
     ModifierPipe,
     CharacterIconComponent,
-    CharacterLevelDialogComponent
+    CharacterLevelDialogComponent,
+    BossStatCardComponent
   ],
   imports: [
     AppRoutingModule,

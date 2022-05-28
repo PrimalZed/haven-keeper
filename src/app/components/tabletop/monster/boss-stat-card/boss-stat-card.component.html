@@ -1,0 +1,39 @@
+<div *ngIf="level$ | async as level" class="stat-card">
+  <div class="bonuses">
+    <div *ngFor="let bonus of level.bonuses | keyvalue" [ngSwitch]="bonus.key">
+      <span *ngSwitchCase="'retaliate'" class="gloomhaven-ability-icons">R</span>
+      <span *ngSwitchCase="'shield'" class="gloomhaven-ability-icons">S</span>
+      {{ bonus.value }}
+    </div>
+    <div *ngFor="let effect of level.attackEffects" [ngSwitch]="effect.kind">
+      <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>
+      <effect *ngSwitchCase="'effect'" [effect]="$any(effect).effect" [amount]="$any(effect).amount"></effect>
+    </div>
+    <div *ngIf="level.immunities.length" style="display: flex; flex-wrap: wrap;">
+      <condition *ngFor="let condition of level.immunities" [condition]="condition"></condition>
+    </div>
+    <ng-container *ngIf="specials$ | async as specials">
+      <div>
+        <span>1: </span>
+        <span class="card-content-sm">{{ specials[1] }}</span>
+      </div>
+      <div>
+        <span>2: </span>
+        <span class="card-content-sm">{{ specials[2] }}</span>
+      </div>
+    </ng-container>
+  </div>
+  <div class="stat">{{ level.hitPoints }} x C</div>
+  <div title="Hit Points" i18n-title="@@hitPoints" class="stat-icon gloomhaven-ability-icons">H</div>
+
+  <div class="stat">{{ level.movement }}</div>
+  <div title="Movement" i18n-title="@@movement" class="stat-icon gloomhaven-ability-icons">M</div>
+  
+  <div class="stat">{{ level.attack }}</div>
+  <div title="Attack" i18n-title="@@attack" class="stat-icon gloomhaven-ability-icons">K</div>
+  
+  <ng-container *ngIf="level.range">
+    <div class="stat">{{ level.range }}</div>
+    <div title="Range" i18n-title="@@range" class="stat-icon gloomhaven-ability-icons">G</div>
+  </ng-container>
+</div>

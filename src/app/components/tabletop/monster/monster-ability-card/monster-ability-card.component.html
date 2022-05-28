@@ -48,8 +48,11 @@
       </div>
       <div class="card-content-sm">{{ $any(ability).target }}</div>
     </div>
-    <div *ngSwitchCase="'special'" class="card-content-sm">
-      <div>{{ $any(ability).description }}</div>
+    <div *ngSwitchCase="'special'">
+      <div>
+        <span i18n="@@special">Special </span>
+        <span>{{ $any(ability).id }}</span>
+      </div>
     </div>
   </ng-container>
 </div>

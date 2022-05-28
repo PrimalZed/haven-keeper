@@ -1,0 +1,23 @@
+.stat-card {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: repeat(4, auto);
+  grid-auto-flow: row dense;
+  column-gap: 0.2em;
+  align-items: baseline;
+
+  > .bonuses {
+    grid-column: 3 / 4;
+    grid-row: 1 / -1;
+  }
+
+  > .stat {
+    grid-column: 1 / 2;
+    text-align: right;
+  }
+
+  > .stat-icon {
+    grid-column: 2 / 3;
+    text-align: center;
+  }
+}

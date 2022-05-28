@@ -10,10 +10,29 @@ export function getMonstersOns(catalogService: CatalogService) {
   return [
     on<TabletopState, [typeof addMonster]>(addMonster, (state, { key }) => ({
       ...state,
-      monsters: monstersAdapter.addOne({
-        key,
-        standees: []
-      }, state.monsters),
+      monsters: monstersAdapter.addOne(
+        (() => {
+          const statCard = catalogService.monsterEntities[key];
+          switch (statCard.kind) {
+            case 'normal':
+              return {
+                key,
+                standees: []
+              };
+            case 'boss':
+              return {
+                key,
+                standees: [{
+                  id: 0,
+                  rank: 'boss',
+                  hitPoints: statCard.levels[state.level ?? 0].hitPoints * state.characters.ids.length,
+                  conditions: []
+                }]
+              };
+          }
+        })(),
+        state.monsters
+      ),
       monsterAbilityDecks: monsterAbilityDecksAdapter.addOne({
         key: getAbilityDeckKey(catalogService.monsterEntities[key]),
         currentAbilityCardId: null,

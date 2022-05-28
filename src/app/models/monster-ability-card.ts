@@ -43,7 +43,7 @@ export type MonsterAbility =
   }
   | {
     kind: 'special';
-    description: string;
+    id: number;
   };
 
 export interface MonsterAbilityCard {

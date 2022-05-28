@@ -1,11 +1,13 @@
 <button mat-stroked-button (click)="emitClick($event)">
   <div>
     <div class="text">
-      <div class="title" [title]="standee.rank" i18n-title="@@{{standee.rank}}"
-        [style.color]="standee.rank === 'boss' ? 'red' : standee.rank === 'elite' ? 'yellow' : null">
-        {{ standee.id }}
-      </div>
-      <div class="horizontal-spacer-sm"></div>
+      <ng-container *ngIf="standee.rank !== 'boss'">
+        <div class="title" [title]="standee.rank" i18n-title="@@{{standee.rank}}"
+          [style.color]="standee.rank === 'elite' ? 'yellow' : null">
+          {{ standee.id }}
+        </div>
+        <div class="horizontal-spacer-sm"></div>
+      </ng-container>
       <div class="gloomhaven-ability-icons">H</div>
       <div>{{ standee.hitPoints }}</div>
     </div>

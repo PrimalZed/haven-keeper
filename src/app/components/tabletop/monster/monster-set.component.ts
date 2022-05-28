@@ -17,6 +17,7 @@ import { AppState } from 'store/app.state';
 import { MonsterAbilityDeckDialogComponent } from './monster-ability-deck-dialog/monster-ability-deck-dialog.component';
 import { drawMonsterAbilityCard } from 'store/tabletop/monster-ability-decks/monster-ability-decks.actions';
 import { TabletopService } from 'services/tabletop.service';
+import { selectCharacterKeys } from 'store/tabletop/characters/characters.selectors';
 
 @Component({
   selector: 'monster-set',
@@ -95,12 +96,13 @@ export class MonsterSetComponent implements OnDestroy {
   private openUpdateFigureDialogSubject: Subject<MonsterStandee> = new Subject();
   private openUpdateFigureDialog$ = this.openUpdateFigureDialogSubject
     .pipe(
-      withLatestFrom(this.monster$, this.scenarioLevel$),
-      map(([standee, monster, scenarioLevel]) => this.dialog.open(
+      withLatestFrom(this.monster$, this.scenarioLevel$, this.store.select(selectCharacterKeys)),
+      map(([standee, monster, scenarioLevel, characterKeys]) => this.dialog.open(
         FigureDialogComponent,
         {
           data: {
-            maxHitPoints: getMaxHitPoints(this.catalogService.monsterEntities[monster.key], scenarioLevel ?? 0, standee.rank),
+            maxHitPoints: getMaxHitPoints(this.catalogService.monsterEntities[monster.key], scenarioLevel ?? 0, standee.rank)
+              * (standee.rank === 'boss' ? characterKeys.length : 1),
             kind: 'monster',
             statCard: this.catalogService.monsterEntities[monster.key],
             figure: standee

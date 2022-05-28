@@ -21,7 +21,7 @@ interface MonsterBase {
 
 export interface BossStatCard extends MonsterBase {
   kind: 'boss';
-  specialLevels: { [level in ScenarioLevel]: string[]};
+  specialLevels: { [level in ScenarioLevel]: { 1: string, 2: string } };
 }
 
 export interface NormalMonsterStatCard extends MonsterBase {

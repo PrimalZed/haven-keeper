@@ -14,6 +14,9 @@
         <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>
         <effect *ngSwitchCase="'effect'" [effect]="$any(effect).effect" [amount]="$any(effect).amount"></effect>
       </div>
+      <div *ngIf="normalLevel.immunities.length" style="display: flex; flex-wrap: wrap;">
+        <condition *ngFor="let condition of normalLevel.immunities" [condition]="condition"></condition>
+      </div>
     </div>
     <div class="bonuses-elite">
       <div *ngFor="let bonus of eliteLevel.bonuses | keyvalue" [ngSwitch]="bonus.key">
@@ -24,6 +27,9 @@
       <div *ngFor="let effect of eliteLevel.attackEffects" [ngSwitch]="effect.kind">
         <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>
         <effect *ngSwitchCase="'effect'" [effect]="$any(effect).effect" [amount]="$any(effect).amount"></effect>
+      </div>
+      <div *ngIf="eliteLevel.immunities.length" style="display: flex; flex-wrap: wrap;">
+        <condition *ngFor="let condition of eliteLevel.immunities" [condition]="condition"></condition>
       </div>
     </div>
 

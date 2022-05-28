@@ -150,5 +150,75 @@
       ],
       "shuffle": true
     }
+  ],
+  "boss": [
+    {
+      "id": 572,
+      "name": "Boss",
+      "initiative": 11,
+      "abilities": [
+        { "kind": "special", "id": 2 }
+      ]
+    },
+    {
+      "id": 573,
+      "name": "Boss",
+      "initiative": 14,
+      "abilities": [
+        { "kind": "special", "id": 2 }
+      ]
+    },
+    {
+      "id": 574,
+      "name": "Boss",
+      "initiative": 17,
+      "abilities": [
+        { "kind": "special", "id": 2 }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 575,
+      "name": "Boss",
+      "initiative": 85,
+      "abilities": [
+        { "kind": "special", "id": 1 }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 576,
+      "name": "Boss",
+      "initiative": 79,
+      "abilities": [
+        { "kind": "special", "id": 1 }
+      ]
+    },
+    {
+      "id": 577,
+      "name": "Boss",
+      "initiative": 73,
+      "abilities": [
+        { "kind": "special", "id": 1 }
+      ]
+    },
+    {
+      "id": 578,
+      "name": "Boss",
+      "initiative": 36,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 579,
+      "name": "Boss",
+      "initiative": 52,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": -1, "range": 3, "target": 2 }
+      ]
+    }
   ]
 }

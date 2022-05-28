@@ -20,13 +20,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## TODO
 Codify monster and monster ability card data from https://github.com/any2cards/worldhaven/tree/master/images
 
-Monster level immunities
-
 Monster Summon
   Update Summon health, conditions
   Remove summon
-
-Boss Card
 
 Character/Monster Portraits
 

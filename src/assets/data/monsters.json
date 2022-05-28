@@ -592,5 +592,110 @@
         "immunities": []
       }
     }
+  },
+  {
+    "key": "banditCommander",
+    "kind": "boss",
+    "name": "Bandit Commander",
+    "levels": {
+      "0": {
+        "hitPoints": 8,
+        "movement": 3,
+        "attack": 3,
+        "attackEffects": [],
+        "bonuses": { },
+        "immunities": ["curse","immobilize","stun"]
+      },
+      "1": {
+        "hitPoints": 10,
+        "movement": 3,
+        "attack": 3,
+        "attackEffects": [],
+        "bonuses": { },
+        "immunities": ["curse","immobilize","stun"]
+      },
+      "2": {
+        "hitPoints": 12,
+        "movement": 4,
+        "attack": 3,
+        "attackEffects": [],
+        "bonuses": { },
+        "immunities": ["curse","immobilize","stun"]
+      },
+      "3": {
+        "hitPoints": 13,
+        "movement": 4,
+        "attack": 4,
+        "attackEffects": [],
+        "bonuses": { },
+        "immunities": ["curse","immobilize","stun"]
+      },
+      "4": {
+        "hitPoints": 15,
+        "movement": 4,
+        "attack": 4,
+        "attackEffects": [],
+        "bonuses": { },
+        "immunities": ["curse","immobilize","stun"]
+      },
+      "5": {
+        "hitPoints": 16,
+        "movement": 5,
+        "attack": 5,
+        "attackEffects": [],
+        "bonuses": { },
+        "immunities": ["curse","immobilize","stun"]
+      },
+      "6": {
+        "hitPoints": 19,
+        "movement": 5,
+        "attack": 5,
+        "attackEffects": [],
+        "bonuses": { },
+        "immunities": ["curse","immobilize","stun"]
+      },
+      "7": {
+        "hitPoints": 23,
+        "movement": 5,
+        "attack": 5,
+        "attackEffects": [],
+        "bonuses": { },
+        "immunities": ["curse","immobilize","stun"]
+      }
+    },
+    "specialLevels": {
+      "0": {
+        "1": "Move to next door and reveal room",
+        "2": "Summon Living Bones"
+      },
+      "1": {
+        "1": "Move to next door and reveal room",
+        "2": "Summon Living Bones"
+      },
+      "2": {
+        "1": "Move to next door and reveal room",
+        "2": "Summon Living Bones"
+      },
+      "3": {
+        "1": "Move to next door and reveal room",
+        "2": "Summon Living Bones"
+      },
+      "4": {
+        "1": "Move to next door and reveal room",
+        "2": "Summon Living Bones"
+      },
+      "5": {
+        "1": "Move to next door and reveal room",
+        "2": "Summon Living Bones"
+      },
+      "6": {
+        "1": "Move to next door and reveal room",
+        "2": "Summon Living Bones"
+      },
+      "7": {
+        "1": "Move to next door and reveal room",
+        "2": "Summon Living Bones"
+      }
+    }
   }
 ]
