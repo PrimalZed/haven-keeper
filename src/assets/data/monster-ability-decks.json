@@ -457,6 +457,85 @@
       ]
     }
   ],
+  "earthDemon": [
+    {
+      "id": 636,
+      "name": "Earth Demon",
+      "initiative": 40,
+      "abilities": [
+        { "kind": "heal", "amount": 3, "target": "self" },
+        { "kind": "condition", "conditions": ["immobilize"], "target": "allEnemies", "range": 3, "consumeElement": "earth" }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 637,
+      "name": "Earth Demon",
+      "initiative": 42,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1 }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 638,
+      "name": "Earth Demon",
+      "initiative": 62,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 },
+        { "kind": "infuseElement", "element": "earth" }
+      ]
+    },
+    {
+      "id": 639,
+      "name": "Earth Demon",
+      "initiative": 71,
+      "abilities": [
+        { "kind": "attack", "modifier": 0, "range": 4, "elementEnhancements": {  "air": { "target": 2 } } }
+      ]
+    },
+    {
+      "id": 640,
+      "name": "Earth Demon",
+      "initiative": 83,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1 },
+        { "kind": "infuseElement", "element": "earth" }
+      ]
+    },
+    {
+      "id": 641,
+      "name": "Earth Demon",
+      "initiative": 93,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": -1 },
+        { "kind": "forcedMovement", "direction": "push", "amount": 1, "consumeElement": "earth" }
+      ]
+    },
+    {
+      "id": 642,
+      "name": "Earth Demon",
+      "initiative": 79,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": 0, "elementEnhancements": { "air": { "modifier": -2 } } }
+      ]
+    },
+    {
+      "id": 643,
+      "name": "Earth Demon",
+      "initiative": 87,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1, "aoe": [{ "length": 2 }, { "length": "2", "origin": 0 }] },
+        { "kind": "infuseElement", "element": "earth", "consumeElement": "wild" }
+      ]
+    }
+  ],
   "imp": [
     {
       "id": 676,
