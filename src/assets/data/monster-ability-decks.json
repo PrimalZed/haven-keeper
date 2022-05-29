@@ -457,6 +457,90 @@
       ]
     }
   ],
+  "flameDemon": [
+    {
+      "id": 628,
+      "name": "Flame Demon",
+      "initiative": 3,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1 },
+        { "kind": "infuseElement", "element": "fire" }
+      ]
+    },
+    {
+      "id": 629,
+      "name": "Flame Demon",
+      "initiative": 24,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 },
+        { "kind": "infuseElement", "element": "fire" }
+      ]
+    },
+    {
+      "id": 630,
+      "name": "Flame Demon",
+      "initiative": 46,
+      "abilities": [
+        { "kind": "attack", "modifier": 0, "elementEnhancements": { "fire": { "aoe": [{ "length": 2 }, { "length": 3 }, { "length": 2 }] } } }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 631,
+      "name": "Flame Demon",
+      "initiative": 49,
+      "abilities": [
+        {
+          "kind": "attack",
+          "modifier": 0,
+          "aoe": [{ "length": 1, "offset": 1 }, { "length": "1", "offset": "1" }, { "length": 1, "origin": 1 }],
+          "elementalEnhancements": { "fire": { "modifier": 1, "conditions": ["wound"] } }
+        }
+      ]
+    },
+    {
+      "id": 632,
+      "name": "Flame Demon",
+      "initiative": 67,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1, "range": -1 },
+        { "kind": "infuseElement", "element": "fire" }
+      ]
+    },
+    {
+      "id": 633,
+      "name": "Flame Demon",
+      "initiative": 77,
+      "abilities": [
+        { "kind": "attack", "modifier": 0, "target": "adjacent" },
+        { "kind": "other", "description": "Flame Demon suffers 1 damage.", "consumeElement": "ice" }
+      ]
+    },
+    {
+      "id": 634,
+      "name": "Flame Demon",
+      "initiative": 77,
+      "abilities": [
+        { "kind": "other", "description": "All adjacent enemies suffer 2 damage.", "consumeElement": "fire" },
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -2, "target": 2, "effects": [{ "kind": "condition", "condition": "wound" }] }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 635,
+      "name": "Flame Demon",
+      "initiative": 8,
+      "abilities": [
+        { "kind": "move", "amount": -1 },
+        { "kind": "other", "description": "Create a 4 damage trap in an adjacent empty hex closest to an enemy." },
+        { "kind": "infuseElement", "element": "fire", "consumeElement": "wild" }
+      ]
+    }
+  ],
   "earthDemon": [
     {
       "id": 636,

@@ -1196,6 +1196,173 @@
     }
   },
   {
+    "key": "flameDemon",
+    "kind": "normal",
+    "name": "Flame Demon",
+    "abilityDeckKey": "flameDemon",
+    "flying": true,
+    "levels": {
+      "0": {
+        "hitPoints": 2,
+        "movement": 3,
+        "attack": 2,
+        "range": 3,
+        "bonuses": {
+          "shield": 2
+        }
+      },
+      "1": {
+        "hitPoints": 2,
+        "movement": 3,
+        "attack": 2,
+        "range": 3,
+        "bonuses": {
+          "shield": 3
+        }
+      },
+      "2": {
+        "hitPoints": 3,
+        "movement": 3,
+        "attack": 3,
+        "range": 3,
+        "bonuses": {
+          "shield": 3
+        }
+      },
+      "3": {
+        "hitPoints": 3,
+        "movement": 3,
+        "attack": 3,
+        "range": 4,
+        "bonuses": {
+          "retaliate": { "amount": 2, "range": 2 },
+          "shield": 2
+        }
+      },
+      "4": {
+        "hitPoints": 3,
+        "movement": 4,
+        "attack": 3,
+        "range": 4,
+        "bonuses": {
+          "retaliate": { "amount": 3, "range": 2 },
+          "shield": 3
+        }
+      },
+      "5": {
+        "hitPoints": 4,
+        "movement": 4,
+        "attack": 3,
+        "range": 4,
+        "bonuses": {
+          "retaliate": { "amount": 3, "range": 2 },
+          "shield": 4
+        }
+      },
+      "6": {
+        "hitPoints": 4,
+        "movement": 4,
+        "attack": 4,
+        "range": 4,
+        "bonuses": {
+          "retaliate": { "amount": 4, "range": 2 },
+          "shield": 4
+        }
+      },
+      "7": {
+        "hitPoints": 5,
+        "movement": 4,
+        "attack": 4,
+        "range": 5,
+        "bonuses": {
+          "retaliate": { "amount": 4, "range": 3 },
+          "shield": 4
+        }
+      }
+    },
+    "eliteLevels": {
+      "0": {
+        "hitPoints": 3,
+        "movement": 3,
+        "attack": 2,
+        "range": 3,
+        "bonuses": {
+          "shield": 3
+        }
+      },
+      "1": {
+        "hitPoints": 3,
+        "movement": 3,
+        "attack": 2,
+        "range": 4,
+        "bonuses": {
+          "retaliate": { "amount": 2, "range": 2 },
+          "shield": 4
+        }
+      },
+      "2": {
+        "hitPoints": 4,
+        "movement": 3,
+        "attack": 3,
+        "range": 4,
+        "bonuses": {
+          "retaliate": { "amount": 3, "range": 2 },
+          "shield": 4
+        }
+      },
+      "3": {
+        "hitPoints": 5,
+        "movement": 3,
+        "attack": 3,
+        "range": 5,
+        "bonuses": {
+          "retaliate": { "amount": 3, "range": 3 },
+          "shield": 4
+        }
+      },
+      "4": {
+        "hitPoints": 5,
+        "movement": 4,
+        "attack": 4,
+        "range": 5,
+        "bonuses": {
+          "retaliate": { "amount": 4, "range": 3 },
+          "shield": 4
+        }
+      },
+      "5": {
+        "hitPoints": 6,
+        "movement": 4,
+        "attack": 4,
+        "range": 5,
+        "bonuses": {
+          "retaliate": { "amount": 4, "range": 3 },
+          "shield": 4
+        }
+      },
+      "6": {
+        "hitPoints": 7,
+        "movement": 4,
+        "attack": 5,
+        "range": 5,
+        "bonuses": {
+          "retaliate": { "amount": 5, "range": 3 },
+          "shield": 5
+        }
+      },
+      "7": {
+        "hitPoints": 8,
+        "movement": 4,
+        "attack": 5,
+        "range": 6,
+        "bonuses": {
+          "retaliate": { "amount": 5, "range": 4 },
+          "shield": 5
+        }
+      }
+    }
+  },
+  {
     "key": "livingBones",
     "kind": "normal",
     "name": "Living Bones",
