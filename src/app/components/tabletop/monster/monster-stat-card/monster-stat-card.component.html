@@ -5,50 +5,10 @@
     <div class="header-elite" style="color: yellow;" i18n="@@elite">Elite</div>
 
     <div class="bonuses-normal">
-      <div *ngFor="let bonus of normalLevel.bonuses | keyvalue" [ngSwitch]="bonus.key">
-        <span *ngSwitchCase="'retaliate'" class="gloomhaven-ability-icons">R</span>
-        <span *ngSwitchCase="'shield'" class="gloomhaven-ability-icons">S</span>
-        <span>&nbsp;</span>
-        <span>{{ bonus.value }}</span>
-      </div>
-      <div *ngFor="let effect of normalLevel.attackEffects" [ngSwitch]="effect.kind">
-        <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>
-        <effect *ngSwitchCase="'effect'" [effect]="$any(effect).effect" [amount]="$any(effect).amount"></effect>
-        <div *ngSwitchCase="'target'">
-          <span i18n="@@target">Target</span>
-          <span>&nbsp;</span>
-          <span class="gloomhaven-ability-icons">T</span>
-          <span>&nbsp;</span>
-          <span>{{ $any(effect).amount }}</span>
-        </div>
-        <div *ngSwitchCase="'other'" class="card-content-sm">{{ $any(effect).description }}</div>
-      </div>
-      <div *ngIf="normalLevel.immunities?.length" style="display: flex; flex-wrap: wrap;">
-        <condition *ngFor="let condition of normalLevel.immunities" [condition]="condition"></condition>
-      </div>
+      <bonuses [bonuses]="normalLevel.bonuses" [attackEffects]="normalLevel.attackEffects" [immunities]="normalLevel.immunities"></bonuses>
     </div>
     <div class="bonuses-elite">
-      <div *ngFor="let bonus of eliteLevel.bonuses | keyvalue" [ngSwitch]="bonus.key">
-        <span *ngSwitchCase="'retaliate'" class="gloomhaven-ability-icons">R</span>
-        <span *ngSwitchCase="'shield'" class="gloomhaven-ability-icons">S</span>
-        <span>&nbsp;</span>
-        <span>{{ bonus.value }}</span>
-      </div>
-      <div *ngFor="let effect of eliteLevel.attackEffects" [ngSwitch]="effect.kind">
-        <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>
-        <effect *ngSwitchCase="'effect'" [effect]="$any(effect).effect" [amount]="$any(effect).amount"></effect>
-        <div *ngSwitchCase="'target'">
-          <span i18n="@@target">Target</span>
-          <span>&nbsp;</span>
-          <span class="gloomhaven-ability-icons">T</span>
-          <span>&nbsp;</span>
-          <span>{{ $any(effect).amount }}</span>
-        </div>
-        <div *ngSwitchCase="'other'" class="card-content-sm">{{ $any(effect).description }}</div>
-      </div>
-      <div *ngIf="eliteLevel.immunities?.length" style="display: flex; flex-wrap: wrap;">
-        <condition *ngFor="let condition of eliteLevel.immunities" [condition]="condition"></condition>
-      </div>
+      <bonuses [bonuses]="eliteLevel.bonuses" [attackEffects]="eliteLevel.attackEffects" [immunities]="eliteLevel.immunities"></bonuses>
     </div>
 
     <div class="stat-normal">{{ normalLevel.hitPoints }}</div>
