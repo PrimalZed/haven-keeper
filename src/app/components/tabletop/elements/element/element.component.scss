@@ -1,0 +1,22 @@
+div {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  &.overlay {
+    width: 44px;
+  }
+  img {
+    position: absolute;
+    &:not(.overlay) {
+      left: 0;
+      height: 40px;
+      width: 40px;
+    }
+    &.overlay {
+      right: 0;
+      bottom: 0;
+      height: 22px;
+      width: 22px;
+    }
+  }
+}

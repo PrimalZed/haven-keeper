@@ -1,7 +1,11 @@
 <div *ngIf="!card" style="text-align: center;">No Card</div>
 <div *ngIf="card" style="display: flex; flex-direction: column; align-items: center;">
   <div class="title">{{ card.name }}</div>
-  <ng-container *ngFor="let ability of card?.abilities" [ngSwitch]="ability.kind">
+  <div *ngFor="let ability of card?.abilities" [ngSwitch]="ability.kind" class="ability">
+    <div *ngIf="ability.consumeElement" class="consume" style="display: flex; align-items: center;">
+      <element [element]="$any(ability).consumeElement" [consume]="true"></element>
+      <span style="font-size: 1.5rem;">:</span>
+    </div>
     <div *ngSwitchCase="'move'">
       <span i18n="@@move">Move</span>
       <span>&nbsp;</span>
@@ -9,38 +13,64 @@
       <span>&nbsp;</span>
       <span>{{ $any(ability).modifier | modifier }}</span>
     </div>
-    <div *ngSwitchCase="'attack'" style="display: flex; justify-content: center; align-items: center; gap: 0.25em;">
-      <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center;">
-        <div>
-          <span i18n="@@attack">Attack</span>
-          <span>&nbsp;</span>
-          <span class="gloomhaven-ability-icons">K</span>
-          <span>&nbsp;</span>
-          <span>{{ $any(ability).modifier | modifier }}</span>
+    <div *ngSwitchCase="'attack'">
+      <div style="display: flex; justify-content: center; align-items: center; gap: 0.25em;">
+        <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center;">
+          <div>
+            <span i18n="@@attack">Attack</span>
+            <span>&nbsp;</span>
+            <span class="gloomhaven-ability-icons">K</span>
+            <span>&nbsp;</span>
+            <span>{{ $any(ability).modifier | modifier }}</span>
+          </div>
+          <div *ngIf="$any(ability).range" class="card-content-sm">
+            <span i18n="@@range">Range</span>
+            <span>&nbsp;</span>
+            <span class="gloomhaven-ability-icons">G</span>
+            <span>&nbsp;</span>
+            <span>{{ $any(ability).range | modifier }}</span>
+          </div>
+          <div *ngIf="$any(ability).target" class="card-content-sm">
+            <span i18n="@@target">Target</span>
+            <span>&nbsp;</span>
+            <span class="gloomhaven-ability-icons">T</span>
+            <span>&nbsp;</span>
+            <span>{{ $any(ability).target }}</span>
+          </div>
+          <div *ngFor="let effect of $any(ability).effects" [ngSwitch]="effect.kind" class="card-content-sm">
+            <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition" [showLabel]="true" size="sm"></condition>
+            <effect *ngSwitchCase="'effect'" [effect]="$any(effect).effect" [amount]="$any(effect).amount" [showLabel]="true" size="sm"></effect>
+            <div *ngSwitchCase="'other'">{{ $any(effect).description }}</div>
+          </div>
         </div>
-        <div *ngIf="$any(ability).range" class="card-content-sm">
-          <span i18n="@@range">Range</span>
-          <span>&nbsp;</span>
-          <span class="gloomhaven-ability-icons">G</span>
-          <span>&nbsp;</span>
-          <span>{{ $any(ability).range | modifier }}</span>
-        </div>
-        <div *ngIf="$any(ability).target" class="card-content-sm">
-          <span i18n="@@target">Target</span>
-          <span>&nbsp;</span>
-          <span class="gloomhaven-ability-icons">T</span>
-          <span>&nbsp;</span>
-          <span>{{ $any(ability).target }}</span>
-        </div>
-        <div *ngFor="let effect of $any(ability).effects" [ngSwitch]="effect.kind" class="card-content-sm">
-          <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition" [showLabel]="true" size="sm"></condition>
-          <effect *ngSwitchCase="'effect'" [effect]="$any(effect).effect" [amount]="$any(effect).amount" [showLabel]="true" size="sm"></effect>
-          <div *ngSwitchCase="'other'">{{ $any(effect).description }}</div>
+        <div *ngIf="$any(ability).aoe">
+          <div>TODO</div>
+          <div>AOE</div>
         </div>
       </div>
-      <div *ngIf="$any(ability).aoe">
-        <div>TODO</div>
-        <div>AOE</div>
+      <div *ngIf="$any(ability).elementEnhancements">
+        <div *ngFor="let enhancement of $any(ability).elementEnhancements | keyvalue" style="display: flex; align-items: center; gap: 0.25em;">
+          <div style="display: flex; align-items: center;">
+            <element [element]="$any(enhancement).key" [consume]="true"></element>
+            <span style="font-size: 1.5rem;">:</span>
+          </div>
+          <div class="card-content-sm" style="flex-grow: 1;">
+            <div *ngIf="$any(enhancement).value.modifier">
+              <span>{{ $any(enhancement).value.modifier | modifier }}</span>
+              <span>&nbsp;</span>
+              <span i18n="@@attack">Attack</span>
+              <span>&nbsp;</span>
+              <span class="gloomhaven-ability-icons">K</span>
+            </div>
+            <div *ngIf="$any(enhancement).value.target">
+              <span i18n="@@target">Target</span>
+              <span>&nbsp;</span>
+              <span class="gloomhaven-ability-icons">T</span>
+              <span>&nbsp;</span>
+              <span>{{ $any(enhancement).value.target }}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div *ngSwitchCase="'bonus'" [ngSwitch]="$any(ability).bonus">
@@ -120,6 +150,7 @@
       </div>
       <div *ngIf="$any(ability).target === 'adjacent'" class="card-content-sm" i18n="@@targetAllAdjacentEnemies">Target all adjacent enemies</div>
     </div>
+    <element *ngSwitchCase="'infuseElement'" [element]="$any(ability).element"></element>
     <div *ngSwitchCase="'special'">
       <div>
         <span i18n="@@special">Special </span>
@@ -127,7 +158,7 @@
       </div>
     </div>
     <div *ngSwitchCase="'other'">{{ $any(ability).description }}</div>
-  </ng-container>
+  </div>
 </div>
 <div *ngIf="id" style="display: flex; justify-content: space-between; align-items: baseline;">
   <div class="card-id">{{ id }}</div>

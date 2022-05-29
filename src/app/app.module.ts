@@ -20,6 +20,7 @@ import { ElementDarkComponent } from './components/tabletop/elements/element-dar
 import { ElementEarthComponent } from './components/tabletop/elements/element-earth/element-earth.component';
 import { ElementFireComponent } from './components/tabletop/elements/element-fire/element-fire.component';
 import { ElementLightComponent } from './components/tabletop/elements/element-light/element-light.component';
+import { ElementComponent } from './components/tabletop/elements/element/element.component';
 import { FigureDialogComponent } from './components/tabletop/figure-dialog/figure-dialog.component';
 import { MonsterSetComponent } from './components/tabletop/monster/monster-set.component';
 import { AddStandeeDialogComponent } from './components/tabletop/monster/add-standee-dialog/add-standee-dialog.component';
@@ -61,6 +62,7 @@ import { BossStatCardComponent } from './components/tabletop/monster/boss-stat-c
     ConditionComponent,
     ConditionToggleComponent,
     EffectComponent,
+    ElementComponent,
     ElementIceComponent,
     ElementAirComponent,
     ElementDarkComponent,

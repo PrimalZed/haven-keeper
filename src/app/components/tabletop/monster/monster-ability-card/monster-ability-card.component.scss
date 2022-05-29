@@ -1,0 +1,8 @@
+.ability {
+  display: flex;
+  align-items: center;
+
+  *:not(.consume) {
+    flex-grow: 1;
+  }
+}

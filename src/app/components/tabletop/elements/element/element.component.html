@@ -1,0 +1,13 @@
+<div [ngClass]="{ 'overlay': consume }">
+  <ng-container [ngSwitch]="element">
+    <img *ngSwitchCase="'fire'" src="assets/images/elements/fire.svg">
+    <img *ngSwitchCase="'ice'" src="assets/images/elements/ice.svg">
+    <img *ngSwitchCase="'air'" src="assets/images/elements/air.svg">
+    <img *ngSwitchCase="'earth'" src="assets/images/elements/earth.svg">
+    <img *ngSwitchCase="'light'" src="assets/images/elements/light.svg">
+    <img *ngSwitchCase="'dark'" src="assets/images/elements/dark.svg">
+    <img *ngSwitchCase="'wild'" src="assets/images/elements/wild.svg">
+    <span *ngSwitchDefault>{{ element }}</span>
+  </ng-container>
+  <img *ngIf="consume" class="overlay" src="assets/images/elements/consume.svg">
+</div>
