@@ -1,8 +1,16 @@
 <div *ngFor="let bonus of bonuses | keyvalue" [ngSwitch]="bonus.key">
-  <span *ngSwitchCase="'retaliate'" class="gloomhaven-ability-icons">R</span>
-  <span *ngSwitchCase="'shield'" class="gloomhaven-ability-icons">S</span>
-  <span>&nbsp;</span>
-  <span>{{ bonus.value }}</span>
+  <div>
+    <span *ngSwitchCase="'retaliate'" class="gloomhaven-ability-icons">R</span>
+    <span *ngSwitchCase="'shield'" class="gloomhaven-ability-icons">S</span>
+    <span>&nbsp;</span>
+    <span>{{ $any(bonus.value).amount ?? bonus.value }}</span>
+    <span *ngIf="$any(bonus.value).range" class="card-content-sm">
+      <span>&nbsp;</span>
+      <span class="gloomhaven-ability-icons">G</span>
+      <span>&nbsp;</span>
+      <span>{{ $any(bonus.value).range }}</span>
+    </span>
+  </div>
 </div>
 <div *ngFor="let effect of attackEffects" [ngSwitch]="effect.kind">
   <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>

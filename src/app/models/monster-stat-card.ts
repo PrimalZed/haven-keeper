@@ -8,7 +8,7 @@ export interface MonsterLevel {
   movement: number;
   attack: number;
   range?: number;
-  bonuses?: { [key in BonusKey]?: number };
+  bonuses?: { [key in BonusKey]?: number | { amount: number, range: number } };
   attackEffects?: AttackEffect[];
   immunities?: NegativeConditionKey[];
 }
@@ -16,6 +16,7 @@ export interface MonsterLevel {
 interface MonsterBase {
   key: string;
   name: string;
+  flying?: true;
   levels: { [level in ScenarioLevel]: MonsterLevel };
 }
 

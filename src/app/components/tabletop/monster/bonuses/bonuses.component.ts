@@ -9,7 +9,7 @@ import { NegativeConditionKey } from 'models/condition';
   styleUrls: ['./bonuses.component.scss']
 })
 export class BonusesComponent {
-  @Input() bonuses: { [key in BonusKey]?: number } | undefined;
+  @Input() bonuses: { [key in BonusKey]?: number | { amount: number, range: number } } | undefined;
   @Input() attackEffects: AttackEffect[] | undefined;
   @Input() immunities: NegativeConditionKey[] | undefined;
 }
