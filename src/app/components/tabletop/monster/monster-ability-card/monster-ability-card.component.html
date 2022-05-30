@@ -217,6 +217,13 @@
       <div *ngIf="$any(ability).target === 'adjacent'" class="card-content-sm" i18n="@@targetAllAdjacentEnemies">Target all adjacent enemies</div>
     </div>
     <element *ngSwitchCase="'infuseElement'" [element]="$any(ability).element"></element>
+    <div *ngSwitchCase="'loot'">
+      <span i18n="@@loot">Loot</span>
+      <span>&nbsp;</span>
+      <span class="gloomhaven-ability-icons">L</span>
+      <span>&nbsp;</span>
+      <span>{{ $any(ability).range }}</span>
+    </div>
     <div *ngSwitchCase="'special'">
       <div>
         <span i18n="@@special">Special </span>
