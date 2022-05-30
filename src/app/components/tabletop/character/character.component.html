@@ -11,7 +11,7 @@
       <div style="flex: 1 1 auto;">
         <character-icon [key]="character.key" size="lg"></character-icon>
       </div>
-      <div>{{ character.initiative }}</div>
+      <div>{{ character.initiative | number: '2.0-0' }}</div>
     </div>
     <div class="character-card-content card-content">
       <button mat-stroked-button (click)="openUpdateStatsDialog()">
