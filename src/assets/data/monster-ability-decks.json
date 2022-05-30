@@ -1004,6 +1004,84 @@
       ]
     }
   ],
+  "harrowerInfester": [
+    {
+      "id": 724,
+      "name": "Harrower Infester",
+      "initiative": 38,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1, "target": 2 }
+      ]
+    },
+    {
+      "id": 725,
+      "name": "Harrower Infester",
+      "initiative": 7,
+      "abilities": [ { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1, "effects": [{ "kind": "condition", "condition": "poison" }] },
+        { "kind": "infuseElement", "element": "dark" }
+      ]
+    },
+    {
+      "id": 726,
+      "name": "Harrower Infester",
+      "initiative": 16,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": -1 },
+        { "kind": "heal", "amount": 5 }
+      ]
+    },
+    {
+      "id": 727,
+      "name": "Harrower Infester",
+      "initiative": 16,
+      "abilities": [
+        { "kind": "attack", "modifier": 2, "effects": [{ "kind": "condition", "condition": "immobilize" }] },
+        { "kind": "bonus", "bonus": "retaliate", "amount": 2 }
+      ]
+    },
+    {
+      "id": 728,
+      "name": "Harrower Infester",
+      "initiative": 2,
+      "abilities": [
+        { "kind": "bonus", "bonus": "shield", "amount": 2 },
+        { "kind": "bonus", "bonus": "retaliate", "amount": 2, "range": 3 }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 729,
+      "name": "Harrower Infester",
+      "initiative": 30,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 0, "aoe": [{ "length": 1, "origin": 0 }, { "length": 1, "offset": 1 }, { "length": 1, "offset": 1 }, { "length": 1, "offset": 1 }] },
+        { "kind": "other", "description": "Perform \"Heal {H} 2, Self\" for each target damaged", "consumeElement": "dark" }
+      ]
+    },
+    {
+      "id": 730,
+      "name": "Harrower Infester",
+      "initiative": 38,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1, "target": 2, "elementEnhancements": { "dark": { "modifier": 2, "conditions": ["disarm"] } } }
+      ]
+    },
+    {
+      "id": 731,
+      "name": "Harrower Infester",
+      "initiative": 7,
+      "abilities": [
+        { "kind": "attack", "modifier": -1, "range": 3, "effects": [{ "kind": "condition", "condition": "muddle" }] },
+        { "kind": "heal", "amount": 4, "target": "self" }
+      ],
+      "shuffle": true
+    }
+  ],
   "deepTerror": [
     {
       "id": 732,
