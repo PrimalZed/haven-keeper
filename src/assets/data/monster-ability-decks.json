@@ -1008,6 +1008,88 @@
       ]
     }
   ],
+  "nightDemon": [
+    {
+      "id": 660,
+      "name": "Night Demon",
+      "initiative": 4,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1 },
+        { "kind": "infuseElement", "element": "dark" }
+      ]
+    },
+    {
+      "id": 661,
+      "name": "Night Demon",
+      "initiative": 7,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1 },
+        { "kind": "condition", "conditions": ["invisible"], "target": "self", "consumeElement": "dark" }
+      ]
+    },
+    {
+      "id": 662,
+      "name": "Night Demon",
+      "initiative": 22,
+      "abilities": [
+        { "kind": "move",  "modifier": 0 },
+        { "kind": "attack", "modifier": 0 },
+        { "kind": "infuseElement", "element": "dark" }
+      ]
+    },
+    {
+      "id": 663,
+      "name": "Night Demon",
+      "initiative": 26,
+      "abilities": [
+        { "kind": "attack", "modifier": -2, "range": 3, "target": 3, "elementEnhancements": { "dark": { "conditions": ["muddle"]} } }
+      ]
+    },
+    {
+      "id": 664,
+      "name": "Night Demon",
+      "initiative": 46,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1, "elementEnhancements": { "dark": { "modifier": 2 } } }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 665,
+      "name": "Night Demon",
+      "initiative": 41,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1 },
+        { "kind": "infuseElement", "element": "dark" }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 666,
+      "name": "Night Demon",
+      "initiative": 35,
+      "abilities": [
+        { "kind": "attack", "modifier": -1 },
+        { "kind": "attack", "modifier": -1, "effects": [{ "kind": "effect", "effect": "pierce", "amount": 2 }] },
+        { "kind": "condition", "conditions": ["curse"], "target": "self", "consumeElement": "light" }
+      ]
+    },
+    {
+      "id": 667,
+      "name": "Night Demon",
+      "initiative": 15,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1 },
+        { "kind": "other", "description": "All adjacent enemies and allies suffer 1 damage." },
+        { "kind": "infuseElement", "element": "dark", "consumeElement": "wild" }
+      ]
+    }
+  ],
   "imp": [
     {
       "id": 676,

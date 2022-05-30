@@ -2831,6 +2831,112 @@
     }
   },
   {
+    "key": "nightDemon",
+    "name": "Night Demon",
+    "abilityDeckKey": "nightDemon",
+    "kind": "normal",
+    "levels": {
+      "0": {
+        "hitPoints": 3,
+        "movement": 3,
+        "attack": 3,
+        "attackEffects": [{ "kind": "other", "description": "Attackers gain Disadvantage" }]
+      },
+      "1": {
+        "hitPoints": 5,
+        "movement": 3,
+        "attack": 3,
+        "attackEffects": [{ "kind": "other", "description": "Attackers gain Disadvantage" }]
+      },
+      "2": {
+        "hitPoints": 6,
+        "movement": 3,
+        "attack": 4,
+        "attackEffects": [{ "kind": "other", "description": "Attackers gain Disadvantage" }]
+      },
+      "3": {
+        "hitPoints": 7,
+        "movement": 4,
+        "attack": 4,
+        "attackEffects": [{ "kind": "other", "description": "Attackers gain Disadvantage" }]
+      },
+      "4": {
+        "hitPoints": 8,
+        "movement": 4,
+        "attack": 5,
+        "attackEffects": [{ "kind": "other", "description": "Attackers gain Disadvantage" }]
+      },
+      "5": {
+        "hitPoints": 11,
+        "movement": 4,
+        "attack": 5,
+        "attackEffects": [{ "kind": "other", "description": "Attackers gain Disadvantage" }]
+      },
+      "6": {
+        "hitPoints": 14,
+        "movement": 4,
+        "attack": 5,
+        "attackEffects": [{ "kind": "other", "description": "Attackers gain Disadvantage" }]
+      },
+      "7": {
+        "hitPoints": 15,
+        "movement": 4,
+        "attack": 6,
+        "attackEffects": [{ "kind": "other", "description": "Attackers gain Disadvantage" }]
+      }
+    },
+    "eliteLevels": {
+      "0": {
+        "hitPoints": 5,
+        "movement": 4,
+        "attack": 4,
+        "attackEffects": [{ "kind": "other", "description": "Attackers gain Disadvantage" }]
+      },
+      "1": {
+        "hitPoints": 8,
+        "movement": 4,
+        "attack": 4,
+        "attackEffects": [{ "kind": "other", "description": "Attackers gain Disadvantage" }]
+      },
+      "2": {
+        "hitPoints": 11,
+        "movement": 4,
+        "attack": 4,
+        "attackEffects": [{ "kind": "other", "description": "Attackers gain Disadvantage" }]
+      },
+      "3": {
+        "hitPoints": 13,
+        "movement": 4,
+        "attack": 5,
+        "attackEffects": [{ "kind": "other", "description": "Attackers gain Disadvantage" }]
+      },
+      "4": {
+        "hitPoints": 15,
+        "movement": 5,
+        "attack": 5,
+        "attackEffects": [{ "kind": "other", "description": "Attackers gain Disadvantage" }]
+      },
+      "5": {
+        "hitPoints": 17,
+        "movement": 5,
+        "attack": 6,
+        "attackEffects": [{ "kind": "other", "description": "Attackers gain Disadvantage" }]
+      },
+      "6": {
+        "hitPoints": 21,
+        "movement": 5,
+        "attack": 6,
+        "attackEffects": [{ "kind": "other", "description": "Attackers gain Disadvantage" }]
+      },
+      "7": {
+        "hitPoints": 21,
+        "movement": 5,
+        "attack": 8,
+        "attackEffects": [{ "kind": "other", "description": "Attackers gain Disadvantage" }]
+      }
+    }
+  },
+  {
     "key": "ooze",
     "name": "Ooze",
     "abilityDeckKey": "ooze",
