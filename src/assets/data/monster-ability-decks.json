@@ -846,5 +846,101 @@
         { "kind": "attack", "modifier": -1, "effects": [{ "kind": "condition", "condition": "immobilize" }], "aoe": [{ "length": 1 },{ "length": 2 }] }
       ]
     }
+  ],
+  "deepTerror": [
+    {
+      "id": 732,
+      "name": "Deep Terror",
+      "initiative": 65,
+      "abilities": [
+        { "kind": "attack", "modifier": 0, "range": 3, "target": 3, "effects": [{ "kind": "condition", "condition": "curse" }] }
+      ]
+    },
+    {
+      "id": 733,
+      "name": "Deep Terror",
+      "initiative": 60,
+      "abilities": [
+        {
+          "kind": "attack",
+          "modifier": 0,
+          "effects": [{ "kind": "effect", "effect": "pierce", "amount": 3 }],
+          "aoe": [
+            { "length": 1, "offset": 2 },
+            { "length": 1, "offset": 2 },
+            { "length": 1, "offset": 1 },
+            { "length": 1, "offset": 1 },
+            { "length": 1 },
+            { "length": 1 }, { "origin": 0 }
+          ]
+        }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 734,
+      "name": "Deep Terror",
+      "initiative": 60,
+      "abilities": [
+        {
+          "kind": "attack",
+          "modifier": 0,
+          "effects": [{ "kind": "effect", "effect": "pierce", "amount": 3 }],
+          "aoe": [
+            { "length": 1, "offset": 2 },
+            { "length": 1, "offset": 2 },
+            { "length": 1, "offset": 1 },
+            { "length": 1, "offset": 1 },
+            { "length": 1 },
+            { "length": 1 }, { "origin": 0 }
+          ]
+        }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 735,
+      "name": "Deep Terror",
+      "initiative": 84,
+      "abilities": [
+        { "kind": "attack", "modifier": -1, "target": "adjacent" },
+        { "kind": "attack", "modifier": 0, "range": 4, "effects": [{ "kind": "condition", "condition": "wound" }] }
+      ]
+    },
+    {
+      "id": 736,
+      "name": "Deep Terror",
+      "initiative": 75,
+      "abilities": [
+        { "kind": "attack", "modifier": 0, "effects": [{ "kind": "condition", "condition": "poison" }] },
+        { "kind": "attack", "modifier": -1, "range": 5, "effects": [{ "kind": "condition", "condition": "immobilize" }] }
+      ]
+    },
+    {
+      "id": 737,
+      "name": "Deep Terror",
+      "initiative": 75,
+      "abilities": [
+        { "kind": "attack", "modifier": -2, "target": "adjacent", "effects": [{ "kind": "condition", "condition": "disarm" }] },
+        { "kind": "attack", "modifier": 0, "range": 3, "target": 2 }
+      ]
+    },
+    {
+      "id": 738,
+      "name": "Deep Terror",
+      "initiative": 96,
+      "abilities": [
+        { "kind": "attack", "modifier": -2, "range": 6, "effects": [{ "kind": "other", "description": "Summon normal Deep Terror in a hex adjacent to the target" }] }
+      ]
+    },
+    {
+      "id": 739,
+      "name": "Deep Terror",
+      "initiative": 54,
+      "abilities": [
+        { "kind": "condition", "conditions": ["wound","poison"], "target": "allEnemies" },
+        { "kind": "attack", "modifier": 0, "range": 4 }
+      ]
+    }
   ]
 }
