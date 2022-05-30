@@ -24,7 +24,7 @@ export type MonsterAbility =
         range?: number;
         target?: number;
         conditions?: NegativeConditionKey[]
-      }
+      };
     },
     consumeElement?: MixedElement;
   }
@@ -39,6 +39,11 @@ export type MonsterAbility =
     kind: 'bonus';
     bonus: BonusKey;
     amount: number;
+    elementEnhancements?: {
+      [element in MixedElement]?: {
+        other: string;
+      };
+    };
     consumeElement?: MixedElement;
   }
   | {

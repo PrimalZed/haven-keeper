@@ -687,6 +687,84 @@
       ]
     }
   ],
+  "lurker": [
+    {
+      "id": 612,
+      "name": "Lurker",
+      "initiative": 11,
+      "abilities": [
+        { "kind": "bonus", "bonus": "shield", "amount": 1, "elementEnhancements": { "ice": { "other": "Shield {S} 2 instead" } } },
+        { "kind": "condition", "conditions": ["wound"], "target": "adjacentEnemies" }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 613,
+      "name": "Lurker",
+      "initiative": 28,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1 }
+      ]
+    },
+    {
+      "id": 614,
+      "name": "Lurker",
+      "initiative": 38,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 615,
+      "name": "Lurker",
+      "initiative": 38,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0, "effects": [{ "kind": "other", "description": "Target one enemy with all attacks" }] }
+      ]
+    },
+    {
+      "id": 616,
+      "name": "Lurker",
+      "initiative": 61,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1 }
+      ]
+    },
+    {
+      "id": 617,
+      "name": "Lurker",
+      "initiative": 64,
+      "abilities": [
+        { "kind": "attack", "modifier": 1, "target": "adjacent" }
+      ]
+    },
+    {
+      "id": 618,
+      "name": "Lurker",
+      "initiative": 41,
+      "abilities": [
+        { "kind": "condition", "conditions": ["strengthen"], "target": "self", "consumeElement": "ice" },
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1, "effects": [{ "kind": "condition", "condition": "wound" }] }
+      ]
+    },
+    {
+      "id": 619,
+      "name": "Lurker",
+      "initiative": 23,
+      "abilities": [
+        { "kind": "bonus", "bonus": "shield", "amount": 1 },
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1 },
+        { "kind": "infuseElement", "element": "ice" }
+      ],
+      "shuffle": true
+    }
+  ],
   "frostDemon": [
     {
       "id": 620,

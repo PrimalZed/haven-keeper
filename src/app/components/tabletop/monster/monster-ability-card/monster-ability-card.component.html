@@ -108,19 +108,34 @@
         </div>
       </div>
     </div>
-    <div *ngSwitchCase="'bonus'" [ngSwitch]="$any(ability).bonus">
-      <ng-container *ngSwitchCase="'retaliate'">
-        <span i18n="@@retaliate">Retaliate</span>
+    <div *ngSwitchCase="'bonus'" [ngSwitch]="$any(ability).bonus" style="display: flex; flex-direction: column; align-items: center;">
+      <div>
+        <ng-container *ngSwitchCase="'retaliate'">
+          <span i18n="@@retaliate">Retaliate</span>
+          <span>&nbsp;</span>
+          <span class="gloomhaven-ability-icons">R</span>
+        </ng-container>
+        <ng-container *ngSwitchCase="'shield'">
+          <span i18n="@@shield">Shield</span>
+          <span>&nbsp;</span>
+          <span class="gloomhaven-ability-icons">S</span>
+        </ng-container>
         <span>&nbsp;</span>
-        <span class="gloomhaven-ability-icons">R</span>
-      </ng-container>
-      <ng-container *ngSwitchCase="'shield'">
-        <span i18n="@@shield">Shield</span>
-        <span>&nbsp;</span>
-        <span class="gloomhaven-ability-icons">S</span>
-      </ng-container>
-      <span>&nbsp;</span>
-      <span>{{ $any(ability).amount }}</span>
+        <span>{{ $any(ability).amount }}</span>
+      </div>
+      <div *ngIf="$any(ability).elementEnhancements">
+        <div *ngFor="let enhancement of $any(ability).elementEnhancements | keyvalue" style="display: flex; align-items: center; gap: 0.25em;">
+          <div style="display: flex; align-items: center;">
+            <element [element]="$any(enhancement).key" [consume]="true"></element>
+            <span style="font-size: 1.5rem;">:</span>
+          </div>
+          <div class="card-content-sm" style="flex-grow: 1;">
+            <div *ngIf="$any(enhancement).value.other">
+              <span>{{ $any(enhancement).value.other }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div *ngSwitchCase="'heal'" style="text-align: center;">
       <div>
