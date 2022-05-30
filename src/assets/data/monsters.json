@@ -1724,6 +1724,112 @@
     }
   },
   {
+    "key": "giantViper",
+    "name": "Giant Viper",
+    "abilityDeckKey": "giantViper",
+    "kind": "normal",
+    "levels": {
+      "0": {
+        "hitPoints": 2,
+        "movement": 2,
+        "attack": 1,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "1": {
+        "hitPoints": 3,
+        "movement": 2,
+        "attack": 1,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "2": {
+        "hitPoints": 4,
+        "movement": 3,
+        "attack": 1,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "3": {
+        "hitPoints": 4,
+        "movement": 3,
+        "attack": 2,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "4": {
+        "hitPoints": 6,
+        "movement": 3,
+        "attack": 2,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "5": {
+        "hitPoints": 7,
+        "movement": 3,
+        "attack": 3,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "6": {
+        "hitPoints": 8,
+        "movement": 4,
+        "attack": 3,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "7": {
+        "hitPoints": 10,
+        "movement": 4,
+        "attack": 3,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      }
+    },
+    "eliteLevels": {
+      "0": {
+        "hitPoints": 3,
+        "movement": 2,
+        "attack": 2,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "1": {
+        "hitPoints": 5,
+        "movement": 2,
+        "attack": 2,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "2": {
+        "hitPoints": 7,
+        "movement": 3,
+        "attack": 2,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "3": {
+        "hitPoints": 8,
+        "movement": 3,
+        "attack": 3,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "4": {
+        "hitPoints": 11,
+        "movement": 3,
+        "attack": 3,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "5": {
+        "hitPoints": 13,
+        "movement": 4,
+        "attack": 3,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "6": {
+        "hitPoints": 14,
+        "movement": 4,
+        "attack": 4,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "7": {
+        "hitPoints": 17,
+        "movement": 4,
+        "attack": 4,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      }
+    }
+  },
+  {
     "key": "livingBones",
     "kind": "normal",
     "name": "Living Bones",
