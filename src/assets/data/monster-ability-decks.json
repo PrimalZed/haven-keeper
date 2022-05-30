@@ -1161,6 +1161,88 @@
       ]
     }
   ],
+  "ooze": [
+    {
+      "id": 692,
+      "name": "Ooze",
+      "initiative": 36,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1 }
+      ]
+    },
+    {
+      "id": 693,
+      "name": "Ooze",
+      "initiative": 57,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 694,
+      "name": "Ooze",
+      "initiative": 59,
+      "abilities": [
+        { "kind": "attack", "modifier": 0, "target": 2, "effects": [{ "kind": "condition", "condition": "poison" }] }
+      ]
+    },
+    {
+      "id": 695,
+      "name": "Ooze",
+      "initiative": 66,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1, "range": 1 }
+      ]
+    },
+    {
+      "id": 696,
+      "name": "Ooze",
+      "initiative": 94,
+      "abilities": [
+        { "kind": "other", "description": "Ooze suffers 2 damage." },
+        {
+          "kind": "other",
+          "description": "Summon normal Ooze with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"
+        }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 697,
+      "name": "Ooze",
+      "initiative": 94,
+      "abilities": [
+        { "kind": "other", "description": "Ooze suffers 2 damage." },
+        {
+          "kind": "other",
+          "description": "Summon normal Ooze with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"
+        }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 698,
+      "name": "Ooze",
+      "initiative": 66,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "loot", "range": 1 },
+        { "kind": "heal", "amount": 2, "target": "self" }
+      ]
+    },
+    {
+      "id": 699,
+      "name": "Ooze",
+      "initiative": 85,
+      "abilities": [
+        { "kind": "condition", "conditions": ["push", "poison"], "target": "adjacentEnemies" },
+        { "kind": "attack", "modifier": 1, "range": -1 }
+      ]
+    }
+  ],
   "ancientArtillery": [
     {
       "id": 700,
