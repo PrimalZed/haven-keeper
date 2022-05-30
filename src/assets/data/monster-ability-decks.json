@@ -769,5 +769,156 @@
         { "kind": "attack", "modifier": -1, "effects": [{ "kind": "condition", "condition": "immobilize" }], "aoe": [{ "length": 1 },{ "length": 2 }] }
       ]
     }
+  ],
+    "scout": [
+    {
+      "id": 668,
+      "name": "Scout",
+      "initiative": 29,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": -1, "range": 3 }
+      ]
+    },
+    {
+      "id": 669,
+      "name": "Scout",
+      "initiative": 40,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1 }
+      ]
+    },
+    {
+      "id": 670,
+      "name": "Scout",
+      "initiative": 53,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 671,
+      "name": "Scout",
+      "initiative": 54,
+      "abilities": [
+        { "kind": "move", "modifier": -2 },
+        { "kind": "attack", "modifier": 0, "range": 3, "effects": [{ "kind": "condition", "condition": "poison" }]}
+      ]
+    },
+    {
+      "id": 672,
+      "name": "Scout",
+      "initiative": 69,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1 }
+      ]
+    },
+    {
+      "id": 673,
+      "name": "Scout",
+      "initiative": 92,
+      "abilities": [
+        { "kind": "attack", "modifier": 2, "effects": [{ "kind": "condition", "condition": "poison" }] }
+      ],
+	  "shuffle": true
+    },
+    {
+      "id": 674,
+      "name": "Scout",
+      "initiative": 79,
+      "abilities": [
+        { "kind": "attack", "modifier": -1, "range": 4, "target": 2 }
+      ]
+    },
+    {
+      "id": 675,
+      "name": "Scout",
+      "initiative": 35,
+      "abilities": [
+        { "kind": "move", "modifier": 1, "effects": "jump" },
+        { "kind": "loot", "range": 1}
+      ],
+      "shuffle": true
+    }
+  ],
+      "shaman": [
+    {
+      "id": 588,
+      "name": "Shaman",
+      "initiative": 8,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1, "effects": [{ "kind": "condition", "condition": "disarm" }] }
+      ]
+    },
+    {
+      "id": 589,
+      "name": "Shaman",
+      "initiative": 8,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 0, "effects": [{ "kind": "condition", "condition": "immobilize" }] }
+      ]
+    },
+    {
+      "id": 590,
+      "name": "Shaman",
+      "initiative": 23,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "heal", "amount": 3, "range": 3 }
+      ],
+	  "shuffle": true
+    },
+    {
+      "id": 591,
+      "name": "Shaman",
+      "initiative": 23,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "heal", "amount": 3, "range": 3 }
+      ],
+	  "shuffle": true
+    },
+    {
+      "id": 592,
+      "name": "Shaman",
+      "initiative": 62,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 593,
+      "name": "Shaman",
+      "initiative": 74,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1 }
+      ]
+    },
+    {
+      "id": 594,
+      "name": "Shaman",
+      "initiative": 89,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "heal", "amount": 1, "effects": [{ "kind": "other", "description": "Affect all adjacent allies" }] },
+		{ "kind": "condition", "conditions": ["bless"], "target": "self" }
+      ]
+    },
+    {
+      "id": 595,
+      "name": "Shaman",
+      "initiative": 9,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1, "target": 2, "effects": [{ "kind": "condition", "condition": "curse" }] }
+      ]
+    }
   ]
 }
