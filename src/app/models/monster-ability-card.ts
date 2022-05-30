@@ -1,6 +1,6 @@
 import { AttackEffect } from './attack-effect';
 import { BonusKey } from './bonus';
-import { ConditionKey } from './condition';
+import { ConditionKey, NegativeConditionKey } from './condition';
 import { Element, MixedElement } from './element';
 
 export type MonsterAbility =
@@ -23,6 +23,7 @@ export type MonsterAbility =
         modifier?: number;
         range?: number;
         target?: number;
+        conditions?: NegativeConditionKey[]
       }
     },
     consumeElement?: MixedElement;

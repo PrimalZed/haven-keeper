@@ -91,6 +91,12 @@
               <span>&nbsp;</span>
               <span>{{ $any(enhancement).value.target }}</span>
             </div>
+            <div *ngIf="$any(enhancement).value.conditions?.length">
+              <ng-container *ngFor="let condition of $any(enhancement).value.conditions; let first = first">
+                <span *ngIf="!first"> and </span>
+                <condition [condition]="condition" [showLabel]="true"></condition>
+              </ng-container>
+            </div>
             <div *ngIf="$any(enhancement).value.aoe">
               <div>TODO</div>
               <div>AOE</div>
