@@ -9,12 +9,19 @@
       <element [element]="$any(ability).consumeElement" [consume]="true"></element>
       <span style="font-size: 1.5rem;">:</span>
     </div>
-    <div *ngSwitchCase="'move'">
-      <span i18n="@@move">Move</span>
-      <span>&nbsp;</span>
-      <span class="gloomhaven-ability-icons">M</span>
-      <span>&nbsp;</span>
-      <span>{{ $any(ability).modifier | modifier }}</span>
+    <div *ngSwitchCase="'move'" style="display: flex; flex-direction: column; align-items: center;">
+      <div>
+        <span i18n="@@move">Move</span>
+        <span>&nbsp;</span>
+        <span class="gloomhaven-ability-icons">M</span>
+        <span>&nbsp;</span>
+        <span>{{ $any(ability).modifier | modifier }}</span>
+      </div>
+      <div *ngIf="$any(ability).jump" class="card-content-sm">
+        <span i18n="@@jump">Jump</span>
+        <span>&nbsp;</span>
+        <span class="gloomhaven-ability-icons">J</span>
+      </div>
     </div>
     <div *ngSwitchCase="'attack'">
       <div style="display: flex; justify-content: center; align-items: center; gap: 0.25em;">

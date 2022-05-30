@@ -7,6 +7,7 @@ export type MonsterAbility =
   | {
     kind: 'move';
     modifier: number;
+    jump?: true;
     consumeElement?: MixedElement;
   }
   | {
