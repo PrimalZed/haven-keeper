@@ -160,7 +160,8 @@
       <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem;">
         <ng-container *ngFor="let condition of $any(ability).conditions; let first = first">
           <span *ngIf="!first"> and </span>
-          <condition [condition]="condition" [showLabel]="true"></condition>
+          <effect *ngIf="condition === 'push'" [effect]="condition" [amount]="1" [showLabel]="true"></effect>
+          <condition *ngIf="condition !== 'push'" [condition]="condition" [showLabel]="true"></condition>
         </ng-container>
       </div>
       <div class="card-content-sm" style="text-align: center;" [ngSwitch]="$any(ability).target">
