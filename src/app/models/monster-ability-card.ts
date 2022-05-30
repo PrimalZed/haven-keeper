@@ -12,7 +12,8 @@ export type MonsterAbility =
   | {
     kind: 'attack';
     modifier: number;
-    target?: number;
+    target?: number | 'adjacent';
+    pierce?: number;
     range?: number;
     effects?: AttackEffect[];
     aoe?: any;
