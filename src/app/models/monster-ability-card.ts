@@ -7,18 +7,21 @@ export type MonsterAbility =
   | {
     kind: 'move';
     modifier: number;
+    jump?: true;
     consumeElement?: MixedElement;
   }
   | {
     kind: 'attack';
     modifier: number;
-    target?: number;
+    target?: number | 'adjacent';
+    pierce?: number;
     range?: number;
     effects?: AttackEffect[];
     aoe?: any;
     elementEnhancements?: {
       [element in MixedElement]?: {
         modifier?: number;
+        range?: number;
         target?: number;
       }
     },
