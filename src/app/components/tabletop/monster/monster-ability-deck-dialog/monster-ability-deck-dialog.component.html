@@ -3,7 +3,7 @@
   <h3>Spent Cards</h3>
   <div class="card-content">
     <ng-container *ngFor="let id of abilityDeck.drawnAbilityCardIds; let last = last">
-      <monster-ability-card [id]="id"></monster-ability-card>
+      <monster-ability-card [id]="id" [showInitiative]="true"></monster-ability-card>
       <hr *ngIf="!last">
     </ng-container>
   </div>
@@ -16,7 +16,7 @@
   </div>
   <div *ngIf="showRemainingCards" class="card-content">
     <ng-container *ngFor="let id of remainingCardIds; let last = last">
-      <monster-ability-card [id]="id"></monster-ability-card>
+      <monster-ability-card [id]="id" [showInitiative]="true"></monster-ability-card>
       <hr *ngIf="!last">
     </ng-container>
   </div>

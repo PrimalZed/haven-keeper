@@ -11,6 +11,8 @@ import { CatalogService } from 'services/catalog.service';
 export class MonsterAbilityCardComponent {
   @Input() id: number | null = null;
 
+  @Input() showInitiative: boolean = false;
+
   get card(): MonsterAbilityCard {
     return this.catalogService.monsterAbilityCardEntities[this.id ?? 0];
   }
