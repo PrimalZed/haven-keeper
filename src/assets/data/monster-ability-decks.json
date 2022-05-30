@@ -374,6 +374,83 @@
       ]
     }
   ],
+  "caveBear": [
+    {
+      "id": 596,
+      "name": "Cave Bear",
+      "initiative": 13,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1 }
+      ]
+    },
+    {
+      "id": 597,
+      "name": "Cave Bear",
+      "initiative": 14,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": -1, "effects": [{ "kind": "condition", "condition": "immobilize" }] }
+      ]
+    },
+    {
+      "id": 598,
+      "name": "Cave Bear",
+      "initiative": 34,
+      "abilities": [
+        { "kind": "attack", "modifier": 1, "effects": [{ "kind": "condition", "condition": "wound" }] }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 599,
+      "name": "Cave Bear",
+      "initiative": 41,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 600,
+      "name": "Cave Bear",
+      "initiative": 60,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1 }
+      ]
+    },
+    {
+      "id": 601,
+      "name": "Cave Bear",
+      "initiative": 80,
+      "abilities": [
+        { "kind": "attack", "modifier": -1 },
+        { "kind": "move", "modifier": -2 },
+        { "kind": "attack", "modifier": -1, "effects": [{ "kind": "condition", "condition": "wound" }] }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 602,
+      "name": "Cave Bear",
+      "initiative": 61,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1, "target": 2 }
+      ]
+    },
+    {
+      "id": 603,
+      "name": "Cave Bear",
+      "initiative": 3,
+      "abilities": [
+        { "kind": "bonus", "bonus": "shield", "amount": 1 },
+        { "kind": "bonus", "bonus": "retaliate", "amount": 2 },
+        { "kind": "heal", "amount": 2, "target": "self" }
+      ]
+    }
+  ],
   "cultist": [
     {
       "id": 604,
