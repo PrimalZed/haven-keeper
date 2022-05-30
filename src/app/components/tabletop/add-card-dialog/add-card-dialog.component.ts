@@ -39,7 +39,8 @@ export class AddCardDialogComponent implements OnDestroy {
           name,
           used: monsterKeys.includes(key)
         }))
-      )
+      ),
+      map((monsters) => [...monsters].sort((a, b) => a.name.localeCompare(b.name)))
     );
 
   private addCharacterSubject: Subject<string> = new Subject();
