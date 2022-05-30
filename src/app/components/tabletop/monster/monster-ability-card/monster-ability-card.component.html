@@ -40,11 +40,14 @@
             <span>&nbsp;</span>
             <span>{{ $any(ability).range | modifier }}</span>
           </div>
-          <div *ngIf="$any(ability).target" class="card-content-sm">
-            <ng-container *ngIf="$any(ability).target === 'adjacent'">
+          <div *ngIf="$any(ability).target" class="card-content-sm" [ngSwitch]="$any(ability).target">
+            <ng-container *ngSwitchCase="'adjacent'">
               <span>Target all adjacent enemies</span>
             </ng-container>
-            <ng-container *ngIf="$any(ability).target !== 'adjacent'">
+            <ng-container *ngSwitchCase="'all'">
+              <span>Target all enemies within range</span>
+            </ng-container>
+            <ng-container *ngSwitchDefault>
               <span i18n="@@target">Target</span>
               <span>&nbsp;</span>
               <span class="gloomhaven-ability-icons">T</span>
@@ -150,6 +153,9 @@
         <ng-container *ngSwitchCase="'ally'">
           <span>Affect one adjacent ally</span>
         </ng-container>
+        <ng-container *ngSwitchCase="'adjacentAllies'">
+          <span>Affect all adjacent allies</span>
+        </ng-container>
         <ng-container *ngSwitchCase="'allAllies'">
           <ng-container *ngIf="$any(ability).range">
             <span>Affect all allies within Range</span>
@@ -159,11 +165,14 @@
             <span>{{ $any(ability).range }}</span>
           </ng-container>
           <ng-container *ngIf="!$any(ability).range">
-            <span>Affect all adjacent allies</span>
+            <span>Affect all allies within range</span>
           </ng-container>
         </ng-container>
         <ng-container *ngSwitchCase="'enemy'">
           <span>Target one adjacent enemy</span>
+        </ng-container>
+        <ng-container *ngSwitchCase="'adjacentEnemies'">
+          <span>Target all adjacent enemies</span>
         </ng-container>
         <ng-container *ngSwitchCase="'allEnemies'">
           <ng-container *ngIf="$any(ability).range">
@@ -174,7 +183,7 @@
             <span>{{ $any(ability).range }}</span>
           </ng-container>
           <ng-container *ngIf="!$any(ability).range">
-            <span>Target all adjacent enemies</span>
+            <span>Target all enemies within range</span>
           </ng-container>
         </ng-container>
       </div>

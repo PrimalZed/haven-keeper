@@ -13,7 +13,7 @@ export type MonsterAbility =
   | {
     kind: 'attack';
     modifier: number;
-    target?: number | 'adjacent';
+    target?: number | 'adjacent' | 'all';
     pierce?: number;
     range?: number;
     effects?: AttackEffect[];
@@ -44,7 +44,7 @@ export type MonsterAbility =
   | {
     kind: 'condition';
     conditions: ConditionKey[];
-    target: 'self' | 'ally' | 'allAllies' | 'enemy' | 'allEnemies';
+    target: 'self' | 'ally' | 'adjacentAllies' | 'allAllies' | 'enemy' | 'adjacentEnemies' | 'allEnemies';
     range?: number;
     consumeElement?: MixedElement;
   }

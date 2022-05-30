@@ -243,7 +243,7 @@
       "initiative": 7,
       "abilities": [
         { "kind": "move", "modifier": 0 },
-        { "kind": "condition", "conditions": ["muddle"], "target": "allEnemies" }
+        { "kind": "condition", "conditions": ["muddle"], "target": "adjacentEnemies" }
       ]
     },
     {
@@ -368,7 +368,7 @@
       "abilities": [
         { "kind": "move", "modifier": 0 },
         { "kind": "attack", "modifier": 1 },
-        { "kind": "condition", "conditions": ["poison"], "target": "allEnemies" }
+        { "kind": "condition", "conditions": ["poison"], "target": "adjacentEnemies" }
       ]
     },
     {
@@ -617,7 +617,7 @@
       "name": "Frost Demon",
       "initiative": 18,
       "abilities": [
-        { "kind": "condition", "conditions": ["immobilize"], "target": "allEnemies", "range": 2 },
+        { "kind": "condition", "conditions": ["immobilize"], "target": "adjacentEnemies", "range": 2 },
         { "kind": "heal", "amount": 3, "target": "self", "consumeElement": "ice" }
       ]
     },
@@ -782,7 +782,7 @@
       "initiative": 40,
       "abilities": [
         { "kind": "heal", "amount": 3, "target": "self" },
-        { "kind": "condition", "conditions": ["immobilize"], "target": "allEnemies", "range": 3, "consumeElement": "earth" }
+        { "kind": "condition", "conditions": ["immobilize"], "target": "adjacentEnemies", "range": 3, "consumeElement": "earth" }
       ],
       "shuffle": true
     },
@@ -1250,7 +1250,7 @@
       "name": "Deep Terror",
       "initiative": 54,
       "abilities": [
-        { "kind": "condition", "conditions": ["wound","poison"], "target": "allEnemies" },
+        { "kind": "condition", "conditions": ["wound","poison"], "target": "adjacentEnemies" },
         { "kind": "attack", "modifier": 0, "range": 4 }
       ]
     }
