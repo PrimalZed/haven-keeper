@@ -227,6 +227,83 @@
       "shuffle": true
     }
   ],
+  "hound": [
+    {
+      "id": 540,
+      "name": "Hound",
+      "initiative": 6,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 0, "effects": [{ "kind": "condition", "condition": "immobilize" }] }
+      ]
+    },
+    {
+      "id": 541,
+      "name": "Hound",
+      "initiative": 7,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "condition", "conditions": ["muddle"], "target": "allEnemies" }
+      ]
+    },
+    {
+      "id": 542,
+      "name": "Hound",
+      "initiative": 19,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0, "effects": [{ "kind": "other", "description": "Add +2 Attack {A} if the target is adjacent to any of the Hound's allies." }] }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 543,
+      "name": "Hound",
+      "initiative": 19,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0, "effects": [{ "kind": "other", "description": "Add +2 Attack {A} if the target is adjacent to any of the Hound's allies." }] }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 544,
+      "name": "Hound",
+      "initiative": 26,
+      "abilities": [
+        {  "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 545,
+      "name": "Hound",
+      "initiative": 26,
+      "abilities": [
+        {  "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 546,
+      "name": "Hound",
+      "initiative": 83,
+      "abilities": [
+        { "kind": "move", "modifier": -2 },
+        { "kind": "attack", "modifier": 1 }
+      ]
+    },
+    {
+      "id": 547,
+      "name": "Hound",
+      "initiative": 72,
+      "abilities": [
+        { "kind": "attack", "modifier": -1, "effects": [{ "kind": "effect", "effect": "pierce", "amount": 2 }] },
+        { "kind": "move", "modifier": -2 },
+        { "kind": "attack", "modifier": -1, "effects": [{ "kind": "effect", "effect": "pierce", "amount": 2 }] }
+      ]
+    }
+  ],
   "livingCorpse": [
     {
       "id": 564,
