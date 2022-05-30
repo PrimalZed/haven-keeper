@@ -2486,5 +2486,160 @@
         "attackEffects": [{ "kind": "condition", "condition": "poison" }]
       }
     }
+  },
+  {
+    "key": "livingSpirit",
+    "name": "Living Spirit",
+    "abilityDeckKey": "livingSpirit",
+    "kind": "normal",
+    "flying": true,
+    "levels": {
+      "0": {
+        "hitPoints": 2,
+        "movement": 2,
+        "attack": 2,
+        "range": 2,
+        "bonuses": {
+          "shield": 1
+        }
+      },
+      "1": {
+        "hitPoints": 2,
+        "movement": 2,
+        "attack": 2,
+        "range": 2,
+        "bonuses": {
+          "shield": 2
+        }
+      },
+      "2": {
+        "hitPoints": 2,
+        "movement": 3,
+        "attack": 2,
+        "range": 3,
+        "bonuses": {
+          "shield": 2
+        }
+      },
+      "3": {
+        "hitPoints": 3,
+        "movement": 3,
+        "attack": 3,
+        "range": 3,
+        "bonuses": {
+          "shield": 2
+        }
+      },
+      "4": {
+        "hitPoints": 3,
+        "movement": 3,
+        "attack": 3,
+        "range": 3,
+        "bonuses": {
+          "shield": 3
+        }
+      },
+      "5": {
+        "hitPoints": 4,
+        "movement": 3,
+        "attack": 3,
+        "range": 4,
+        "bonuses": {
+          "shield": 3
+        }
+      },
+      "6": {
+        "hitPoints": 4,
+        "movement": 3,
+        "attack": 4,
+        "range": 4,
+        "bonuses": {
+          "shield": 3
+        }
+      },
+      "7": {
+        "hitPoints": 6,
+        "movement": 3,
+        "attack": 4,
+        "range": 4,
+        "bonuses": {
+          "shield": 3
+        }
+      }
+    },
+    "eliteLevels": {
+      "0": {
+        "hitPoints": 3,
+        "movement": 3,
+        "attack": 3,
+        "range": 3,
+        "bonuses": {
+          "shield": 2
+        }
+      },
+      "1": {
+        "hitPoints": 3,
+        "movement": 3,
+        "attack": 3,
+        "range": 3,
+        "bonuses": {
+          "shield": 3
+        }
+      },
+      "2": {
+        "hitPoints": 3,
+        "movement": 4,
+        "attack": 3,
+        "range": 4,
+        "bonuses": {
+          "shield": 3
+        }
+      },
+      "3": {
+        "hitPoints": 4,
+        "movement": 4,
+        "attack": 4,
+        "range": 4,
+        "bonuses": {
+          "shield": 3
+        }
+      },
+      "4": {
+        "hitPoints": 4,
+        "movement": 4,
+        "attack": 4,
+        "range": 4,
+        "bonuses": {
+          "shield": 4
+        }
+      },
+      "5": {
+        "hitPoints": 6,
+        "movement": 4,
+        "attack": 4,
+        "range": 4,
+        "bonuses": {
+          "shield": 4
+        }
+      },
+      "6": {
+        "hitPoints": 7,
+        "movement": 4,
+        "attack": 5,
+        "range": 5,
+        "bonuses": {
+          "shield": 4
+        }
+      },
+      "7": {
+        "hitPoints": 9,
+        "movement": 4,
+        "attack": 5,
+        "range": 5,
+        "bonuses": {
+          "shield": 4
+        }
+      }
+    }
   }
 ]

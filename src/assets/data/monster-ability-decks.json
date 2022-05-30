@@ -450,6 +450,82 @@
         { "kind": "attack", "modifier": -1, "range": 3, "target": 2 }
       ]
     }
+  ],  "livingSpirit": [
+    {
+      "id": 580,
+      "name": "Living Spirit",
+      "initiative": 22,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": -1, "effects": [{ "kind": "condition", "condition": "muddle" }] }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 581,
+      "name": "Living Spirit",
+      "initiative": 33,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1, "target": "all" }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 582,
+      "name": "Living Spirit",
+      "initiative": 48,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 583,
+      "name": "Living Spirit",
+      "initiative": 48,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 584,
+      "name": "Living Spirit",
+      "initiative": 61,
+      "abilities": [
+        { "kind": "attack", "modifier": 0, "range": -1, "target": 2 }
+      ]
+    },
+    {
+      "id": 585,
+      "name": "Living Spirit",
+      "initiative": 75,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1, "range": -1 },
+        { "kind": "heal", "amount": 1, "target": "self" }
+      ]
+    },
+    {
+      "id": 586,
+      "name": "Living Spirit",
+      "initiative": 55,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "condition", "conditions": ["curse"], "target": "allEnemies" },
+        { "kind": "infuseElement", "element": "ice" }
+      ]
+    },
+    {
+      "id": 587,
+      "name": "Living Spirit",
+      "initiative": 67,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1, "elementEnhancements": { "ice": { "conditions": ["stun"] } } }
+      ]
+    }
   ],
   "caveBear": [
     {
