@@ -4,7 +4,9 @@
       <!-- <div class="monster-card-avatar"></div>
       <div class="horizontal-spacer"></div> -->
       <div style="flex: 1 1 auto;" i18n>
-        {{ statCard.name }}
+        <span>{{ statCard.name }}</span>
+        <span>&nbsp;</span>
+        <span *ngIf="statCard.flying" class="gloomhaven-ability-icons">F</span>
       </div>
       <div>{{ initiative$ | async | number: '2.0-0' }}</div>
     </div>
