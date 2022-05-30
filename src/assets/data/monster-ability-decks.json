@@ -534,6 +534,86 @@
       ]
     }
   ],
+  "frostDemon": [
+    {
+      "id": 620,
+      "name": "Frost Demon",
+      "initiative": 18,
+      "abilities": [
+        { "kind": "condition", "conditions": ["immobilize"], "target": "allEnemies", "range": 2 },
+        { "kind": "heal", "amount": 3, "target": "self", "consumeElement": "ice" }
+      ]
+    },
+    {
+      "id": 621,
+      "name": "Frost Demon",
+      "initiative": 38,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1 }
+      ]
+    },
+    {
+      "id": 622,
+      "name": "Frost Demon",
+      "initiative": 58,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 623,
+      "name": "Frost Demon",
+      "initiative": 58,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 0, "range": 2, "elementEnhancements": { "ice": { "modifier": 2, "range": 1 } } }
+      ]
+    },
+    {
+      "id": 624,
+      "name": "Frost Demon",
+      "initiative": 78,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 0, "aoe": [{ "length": 1 }, { "length": 2, "origin": 0 }] },
+        { "kind": "infuseElement", "element": "ice" }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 625,
+      "name": "Frost Demon",
+      "initiative": 78,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 0, "aoe": [{ "length": 1 }, { "length": 2, "origin": 0 }] },
+        { "kind": "infuseElement", "element": "ice" }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 626,
+      "name": "Frost Demon",
+      "initiative": 58,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": -1, "effects": [{ "kind": "effect", "effect": "pierce", "amount": 3 }] },
+        { "kind": "infuseElement", "element": "ice", "consumeElement": "wild" }
+      ]
+    },
+    {
+      "id": 627,
+      "name": "Frost Demon",
+      "initiative": 18,
+      "abilities": [
+        { "kind": "bonus", "bonus": "shield", "amount": 2 },
+        { "kind": "move", "modifier": 1 },
+        { "kind": "other", "description": "Frost Demon suffers 1 damage.", "consumeElement": "fire" }
+      ]
+    }
+  ],
   "flameDemon": [
     {
       "id": 628,
