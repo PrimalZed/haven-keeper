@@ -16,8 +16,6 @@
   <condition *ngSwitchCase="'condition'" [condition]="$any(effect).condition"></condition>
   <effect *ngSwitchCase="'effect'" [effect]="$any(effect).effect" [amount]="$any(effect).amount"></effect>
   <div *ngSwitchCase="'target'">
-    <span i18n="@@target">Target</span>
-    <span>&nbsp;</span>
     <span class="gloomhaven-ability-icons">T</span>
     <span>&nbsp;</span>
     <span>{{ $any(effect).amount }}</span>
