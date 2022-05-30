@@ -70,6 +70,13 @@
               <span>&nbsp;</span>
               <span class="gloomhaven-ability-icons">K</span>
             </div>
+            <div *ngIf="$any(enhancement).value.range">
+              <span>{{ $any(enhancement).value.range | modifier }}</span>
+              <span>&nbsp;</span>
+              <span i18n="@@attack">Range</span>
+              <span>&nbsp;</span>
+              <span class="gloomhaven-ability-icons">G</span>
+            </div>
             <div *ngIf="$any(enhancement).value.target">
               <span i18n="@@target">Target</span>
               <span>&nbsp;</span>

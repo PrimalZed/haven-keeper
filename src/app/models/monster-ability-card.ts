@@ -20,6 +20,7 @@ export type MonsterAbility =
     elementEnhancements?: {
       [element in MixedElement]?: {
         modifier?: number;
+        range?: number;
         target?: number;
       }
     },
