@@ -154,6 +154,7 @@
       </div>
       <div class="card-content-sm" [ngSwitch]="$any(ability).target">
         <span *ngSwitchCase="'self'" i18n="@@self">Self</span>
+        <span *ngSwitchCase="'adjacent'">Affect all adjacent allies</span>
       </div>
     </div>
     <div *ngSwitchCase="'condition'" style="display: flex; flex-direction: column; align-items: center;">
