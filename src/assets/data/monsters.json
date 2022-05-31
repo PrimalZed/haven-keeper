@@ -3108,4 +3108,330 @@
       }
     }
   }
+  {
+    "key": "vermlingScout",
+    "kind": "normal",
+    "name": "Vermling Scout",
+    "abilityDeckKey": "scout",
+    "levels": {
+      "0": {
+        "hitPoints": 2,
+        "movement": 3,
+        "attack": 1
+      },
+      "1": {
+        "hitPoints": 3,
+        "movement": 3,
+        "attack": 1
+      },
+      "2": {
+        "hitPoints": 3,
+        "movement": 3,
+        "attack": 2
+      },
+      "3": {
+        "hitPoints": 5,
+        "movement": 3,
+        "attack": 2
+      },
+      "4": {
+        "hitPoints": 6,
+        "movement": 3,
+        "attack": 3
+      },
+      "5": {
+        "hitPoints": 8,
+        "movement": 3,
+        "attack": 3
+      },
+      "6": {
+        "hitPoints": 9,
+        "movement": 4,
+        "attack": 3
+      },
+      "7": {
+        "hitPoints": 11,
+        "movement": 4,
+        "attack": 3
+      }
+    },
+    "eliteLevels": {
+      "0": {
+        "hitPoints": 4,
+        "movement": 3,
+        "attack": 2
+      },
+      "1": {
+        "hitPoints": 5,
+        "movement": 3,
+        "attack": 2
+      },
+      "2": {
+        "hitPoints": 5,
+        "movement": 4,
+        "attack": 3
+      },
+      "3": {
+        "hitPoints": 7,
+        "movement": 4,
+        "attack": 3
+      },
+      "4": {
+        "hitPoints": 8,
+        "movement": 4,
+        "attack": 4
+      },
+      "5": {
+        "hitPoints": 11,
+        "movement": 4,
+        "attack": 4
+      },
+      "6": {
+        "hitPoints": 12,
+        "movement": 5,
+        "attack": 4
+      },
+      "7": {
+        "hitPoints": 15,
+        "movement": 5,
+        "attack": 4
+      }
+    }
+  }
+  {
+    "key": "vermlingShaman",
+    "kind": "normal",
+    "name": "Vermling Shaman",
+    "abilityDeckKey": "shaman",
+    "levels": {
+      "0": {
+        "hitPoints": 2,
+        "movement": 2,
+        "attack": 1,
+        "range": 3,
+        "bonuses": { "shield": 2 }
+      },
+      "1": {
+        "hitPoints": 2,
+        "movement": 2,
+        "attack": 1,
+        "range": 3,
+        "bonuses": { "shield": 3 }
+      },
+      "2": {
+        "hitPoints": 3,
+        "movement": 2,
+        "attack": 1,
+        "range": 4,
+        "bonuses": { "shield": 3 }
+      },
+      "3": {
+        "hitPoints": 3,
+        "movement": 2,
+        "attack": 2,
+        "range": 4,
+        "bonuses": { "shield": 3 }
+	  }
+      "4": {
+        "hitPoints": 3,
+        "movement": 3,
+        "attack": 2,
+        "range": 4,
+		"attackEffects": [{ "kind": "condition", "condition": "muddle" }],
+        "bonuses": { "shield": 3 }
+	  }
+      "5": {
+        "hitPoints": 4,
+        "movement": 3,
+        "attack": 3,
+        "range": 4,
+		"attackEffects": [{ "kind": "condition", "condition": "muddle" }],
+        "bonuses": { "shield": 3 }
+      },
+      "6": {
+        "hitPoints": 5,
+        "movement": 3,
+        "attack": 4,
+        "range": 4,
+		"attackEffects": [{ "kind": "condition", "condition": "muddle" }],
+        "bonuses": { "shield": 3 }
+      },
+      "7": {
+        "hitPoints": 7,
+        "movement": 3,
+        "attack": 4,
+        "range": 4,
+		"attackEffects": [{ "kind": "condition", "condition": "muddle" }],
+        "bonuses": { "shield": 3 }
+      }
+    },
+    "eliteLevels": {
+      "0": {
+        "hitPoints": 3,
+        "movement": 3,
+        "attack": 2,
+        "range": 3,
+        "bonuses": { "shield": 2 }
+      },
+      "1": {
+        "hitPoints": 3,
+        "movement": 3,
+        "attack": 2,
+        "range": 3,
+        "bonuses": { "shield": 3 }
+      },
+      "2": {
+        "hitPoints": 4,
+        "movement": 3,
+        "attack": 2,
+        "range": 4,
+        "bonuses": { "shield": 3 }
+      },
+      "3": {
+        "hitPoints": 5,
+        "movement": 3,
+        "attack": 3,
+        "range": 4,
+        "bonuses": { "shield": 3 }
+      },
+      "4": {
+        "hitPoints": 5,
+        "movement": 3,
+        "attack": 3,
+        "range": 4,
+		"attackEffects": [{ "kind": "condition", "condition": "muddle" }],
+        "bonuses": { "shield": 4 }
+      },
+      "5": {
+        "hitPoints": 6,
+        "movement": 3,
+        "attack": 4,
+        "range": 4,
+		"attackEffects": [{ "kind": "condition", "condition": "muddle" }],
+        "bonuses": { "shield": 4 }
+      },
+      "6": {
+        "hitPoints": 6,
+        "movement": 3,
+        "attack": 4,
+        "range": 4,
+		"attackEffects": [{ "kind": "condition", "condition": "muddle" }],
+        "bonuses": { "shield": 5 }
+      },
+      "7": {
+        "hitPoints": 8,
+        "movement": 3,
+        "attack": 4,
+        "range": 4,
+		"attackEffects": [{ "kind": "condition", "condition": "muddle" }],
+        "bonuses": { "shield": 5 }
+      }
+    }
+  }
+  {
+    "key": "inoxShaman",
+    "kind": "normal",
+    "name": "Inox Shaman",
+    "abilityDeckKey": "shaman",
+    "levels": {
+      "0": {
+        "hitPoints": 4,
+        "movement": 1,
+        "attack": 2,
+        "range": 3
+      },
+      "1": {
+        "hitPoints": 6,
+        "movement": 1,
+        "attack": 2,
+        "range": 3
+      },
+      "2": {
+        "hitPoints": 7,
+        "movement": 2,
+        "attack": 2,
+        "range": 3
+      },
+      "3": {
+        "hitPoints": 9,
+        "movement": 2,
+        "attack": 2,
+        "range": 4
+	  }
+      "4": {
+        "hitPoints": 10,
+        "movement": 2,
+        "attack": 3,
+        "range": 4
+	  }
+      "5": {
+        "hitPoints": 13,
+        "movement": 2,
+        "attack": 3,
+        "range": 4
+      },
+      "6": {
+        "hitPoints": 15,
+        "movement": 3,
+        "attack": 3,
+        "range": 4
+      },
+      "7": {
+        "hitPoints": 16,
+        "movement": 3,
+        "attack": 4,
+        "range": 4
+      }
+    },
+    "eliteLevels": {
+      "0": {
+        "hitPoints": 6,
+        "movement": 2,
+        "attack": 3,
+        "range": 3
+      },
+      "1": {
+        "hitPoints": 9,
+        "movement": 2,
+        "attack": 3,
+        "range": 3
+      },
+      "2": {
+        "hitPoints": 11,
+        "movement": 3,
+        "attack": 3,
+        "range": 3
+      },
+      "3": {
+        "hitPoints": 14,
+        "movement": 3,
+        "attack": 3,
+        "range": 4
+      },
+      "4": {
+        "hitPoints": 16,
+        "movement": 3,
+        "attack": 4,
+        "range": 4
+      },
+      "5": {
+        "hitPoints": 20,
+        "movement": 3,
+        "attack": 4,
+        "range": 4
+      },
+      "6": {
+        "hitPoints": 24,
+        "movement": 4,
+        "attack": 4,
+        "range": 4
+      },
+      "7": {
+        "hitPoints": 27,
+        "movement": 4,
+        "attack": 5,
+        "range": 4
+      }
+    }
+  }
 ]
