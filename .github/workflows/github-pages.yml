@@ -51,11 +51,11 @@ jobs:
           rm -r -d -v pages/haven-keeper
           cp -r -v dist/haven-keeper pages/haven-keeper
 
-     # Create and push commit
-      # - run: |
-      #     git config user.name github-actions
-      #     git config user.email github-actions@github.com
-      #     git add .
-      #     git commit -m "generated"
-      #     git push
-      #   working-directory: pages
+      - name: Create and push commit
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "update haven-keeper"
+          git push
+        working-directory: pages
