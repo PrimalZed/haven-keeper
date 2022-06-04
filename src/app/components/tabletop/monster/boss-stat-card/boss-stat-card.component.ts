@@ -20,10 +20,5 @@ export class BossStatCardComponent {
       map((level) => this.statCard.levels[level ?? 0])
     );
 
-  specials$: Observable<{ 1: string, 2: string }> = this.store.select(selectScenarioLevel)
-    .pipe(
-      map((level) => this.statCard.specialLevels[level ?? 0])
-    );
-
   constructor(private store: Store<AppState>) { }
 }

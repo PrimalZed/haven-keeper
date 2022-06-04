@@ -1,14 +1,16 @@
 <div *ngIf="level$ | async as level" class="stat-card">
   <div class="bonuses">
     <bonuses [bonuses]="level.bonuses" [attackEffects]="level.attackEffects" [immunities]="level.immunities"></bonuses>
-    <ng-container *ngIf="specials$ | async as specials">
-      <div>
-        <span>1: </span>
-        <span class="card-content-sm">{{ specials[1] }}</span>
-      </div>
-      <div>
-        <span>2: </span>
-        <span class="card-content-sm">{{ specials[2] }}</span>
+    <ng-container>
+      <div style="display: grid; column-gap: 0.25em; grid-template-columns: auto auto;">
+        <div>1:</div>
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <monster-ability *ngFor="let ability of statCard.specials[1]" [ability]="ability"></monster-ability>
+        </div>
+        <div>2:</div>
+        <div>
+          <monster-ability *ngFor="let ability of statCard.specials[2]" [ability]="ability"></monster-ability>
+        </div>
       </div>
     </ng-container>
   </div>

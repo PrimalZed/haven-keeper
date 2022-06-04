@@ -934,39 +934,9 @@
         "immunities": ["curse","immobilize","stun"]
       }
     },
-    "specialLevels": {
-      "0": {
-        "1": "Move to next door and reveal room",
-        "2": "Summon Living Bones"
-      },
-      "1": {
-        "1": "Move to next door and reveal room",
-        "2": "Summon Living Bones"
-      },
-      "2": {
-        "1": "Move to next door and reveal room",
-        "2": "Summon Living Bones"
-      },
-      "3": {
-        "1": "Move to next door and reveal room",
-        "2": "Summon Living Bones"
-      },
-      "4": {
-        "1": "Move to next door and reveal room",
-        "2": "Summon Living Bones"
-      },
-      "5": {
-        "1": "Move to next door and reveal room",
-        "2": "Summon Living Bones"
-      },
-      "6": {
-        "1": "Move to next door and reveal room",
-        "2": "Summon Living Bones"
-      },
-      "7": {
-        "1": "Move to next door and reveal room",
-        "2": "Summon Living Bones"
-      }
+    "specials": {
+      "1": [{ "kind": "other", "description": "Move to next door and reveal room" }],
+      "2": [{ "kind": "other", "description": "Summon Living Bones" }]
     }
   },
   {

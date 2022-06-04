@@ -1,6 +1,7 @@
 import { AttackEffect } from './attack-effect';
 import { BonusKey } from './bonus';
 import { NegativeConditionKey } from './condition';
+import { MonsterAbility } from './monster-ability-card';
 import { ScenarioLevel } from './scenario-level';
 
 export interface MonsterLevel {
@@ -22,7 +23,7 @@ interface MonsterBase {
 
 export interface BossStatCard extends MonsterBase {
   kind: 'boss';
-  specialLevels: { [level in ScenarioLevel]: { 1: string, 2: string } };
+  specials: { 1: MonsterAbility[]; 2: MonsterAbility[]; };
 }
 
 export interface NormalMonsterStatCard extends MonsterBase {
