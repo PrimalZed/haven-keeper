@@ -2638,6 +2638,151 @@
     }
   },
   {
+    "key": "inoxBodyguard",
+    "kind": "boss",
+    "name": "Inox Bodyguard",
+    "levels": {
+      "0": {
+        "hitPoints": 6,
+        "movement": 2,
+        "attack": "C",
+        "immunities": ["disarm","muddle","poison","stun"]
+      },
+      "1": {
+        "hitPoints": 7,
+        "movement": 2,
+        "attack": "1+C",
+        "immunities": ["disarm","muddle","poison","stun"]
+      },
+      "2": {
+        "hitPoints": 9,
+        "movement": 2,
+        "attack": "1+C",
+        "immunities": ["disarm","muddle","poison","stun"]
+      },
+      "3": {
+        "hitPoints": 10,
+        "movement": 3,
+        "attack": "2+C",
+        "immunities": ["disarm","muddle","poison","stun"]
+      },
+      "4": {
+        "hitPoints": 11,
+        "movement": 3,
+        "attack": "2+C",
+        "immunities": ["disarm","muddle","poison","stun"]
+      },
+      "5": {
+        "hitPoints": 13,
+        "movement": 3,
+        "attack": "3+C",
+        "immunities": ["disarm","muddle","poison","stun"]
+      },
+      "6": {
+        "hitPoints": 15,
+        "movement": 4,
+        "attack": "3+C",
+        "immunities": ["disarm","muddle","poison","stun"]
+      },
+      "7": {
+        "hitPoints": 17,
+        "movement": 4,
+        "attack": "4+C",
+        "immunities": ["disarm","muddle","poison","stun"]
+      }
+    },
+    "specialLevels": {
+      "0": {
+        "1": [
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "origin": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
+        ],
+        "2": [
+          { "kind": "move", "modifier": 0 },
+          { "kind": "attack", "modifier": 0 },
+          { "kind": "bonus", "bonus": "retaliate", "amount": 3 }
+        ]
+      },
+      "1": {
+        "1": [
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "origin": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
+        ],
+        "2": [
+          { "kind": "move", "modifier": 0 },
+          { "kind": "attack", "modifier": 0 },
+          { "kind": "bonus", "bonus": "retaliate", "amount": 3 }
+        ]
+      },
+      "2": {
+        "1": [
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "origin": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
+        ],
+        "2": [
+          { "kind": "move", "modifier": 0 },
+          { "kind": "attack", "modifier": 0 },
+          { "kind": "bonus", "bonus": "retaliate", "amount": 3 }
+        ]
+      },
+      "3": {
+        "1": [
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "origin": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
+        ],
+        "2": [
+          { "kind": "move", "modifier": 0 },
+          { "kind": "attack", "modifier": 0 },
+          { "kind": "bonus", "bonus": "retaliate", "amount": 4 }
+        ]
+      },
+      "4": {
+        "1": [
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "origin": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
+        ],
+        "2": [
+          { "kind": "move", "modifier": 0 },
+          { "kind": "attack", "modifier": 0 },
+          { "kind": "bonus", "bonus": "retaliate", "amount": 4 }
+        ]
+      },
+      "5": {
+        "1": [
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "origin": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
+        ],
+        "2": [
+          { "kind": "move", "modifier": 0 },
+          { "kind": "attack", "modifier": 0 },
+          { "kind": "bonus", "bonus": "retaliate", "amount": 5 }
+        ]
+      },
+      "6": {
+        "1": [
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "origin": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
+        ],
+        "2": [
+          { "kind": "move", "modifier": 0 },
+          { "kind": "attack", "modifier": 0 },
+          { "kind": "bonus", "bonus": "retaliate", "amount": 5 }
+        ]
+      },
+      "7": {
+        "1": [
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "origin": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
+        ],
+        "2": [
+          { "kind": "move", "modifier": 0 },
+          { "kind": "attack", "modifier": 0 },
+          { "kind": "bonus", "bonus": "retaliate", "amount": 5 }
+        ]
+      }
+    }
+  },
+  {
     "key": "jekserah",
     "kind": "boss",
     "name": "Jekserah",
