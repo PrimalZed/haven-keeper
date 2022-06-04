@@ -304,6 +304,85 @@
       ]
     }
   ],
+  "rendingDrake": [
+    {
+      "id": 548,
+      "name": "Rending Drake",
+      "initiative": 12,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1 }
+      ]
+    },
+    {
+      "id": 549,
+      "name": "Rending Drake",
+      "initiative": 13,
+      "abilities": [
+        { "kind": "attack", "modifier": -1 },
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": -1 }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 550,
+      "name": "Rending Drake",
+      "initiative": 25,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 551,
+      "name": "Rending Drake",
+      "initiative": 39,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1 }
+      ]
+    },
+    {
+      "id": 552,
+      "name": "Rending Drake",
+      "initiative": 54,
+      "abilities": [
+        { "kind": "move", "modifier": -2 },
+        { "kind": "attack", "modifier": -1, "range": 3, "target": 2, "effects": [{ "kind": "condition", "condition": "poison" }] }
+      ]
+    },
+    {
+      "id": 553,
+      "name": "Rending Drake",
+      "initiative": 59,
+      "abilities": [
+        { "kind": "move", "modifier": -2 },
+        { "kind": "attack", "modifier": 1, "target": 2 }
+      ]
+    },
+    {
+      "id": 554,
+      "name": "Rending Drake",
+      "initiative": 72,
+      "abilities": [
+        { "kind": "attack", "modifier": -1 },
+        { "kind": "attack", "modifier": -1 },
+        { "kind": "attack", "modifier": -2 }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 555,
+      "name": "Rending Drake",
+      "initiative": 6,
+      "abilities": [
+        { "kind": "bonus", "bonus": "shield", "amount": 2 },
+        { "kind": "heal", "amount": 2, "target": "self" },
+        { "kind": "condition", "conditions": ["strengthen"], "target": "self" }
+      ]
+    }
+  ],
   "livingCorpse": [
     {
       "id": 564,
@@ -450,7 +529,8 @@
         { "kind": "attack", "modifier": -1, "range": 3, "target": 2 }
       ]
     }
-  ],  "livingSpirit": [
+  ], 
+  "livingSpirit": [
     {
       "id": 580,
       "name": "Living Spirit",
