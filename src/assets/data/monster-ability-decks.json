@@ -383,6 +383,85 @@
       ]
     }
   ],
+  "spittingDrake": [
+    {
+      "id": 556,
+      "name": "Spitting Drake",
+      "initiative": 32,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1 }
+      ]
+    },
+    {
+      "id": 557,
+      "name": "Spitting Drake",
+      "initiative": 52,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 558,
+      "name": "Spitting Drake",
+      "initiative": 57,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1, "range": -1, "aoe": [{ "length": 1 }, { "length": 2 }] }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 559,
+      "name": "Spitting Drake",
+      "initiative": 27,
+      "abilities": [
+        { "kind": "attack", "modifier": 0, "target": 2, "effects": [{ "kind": "condition", "condition": "poison" }] }
+      ]
+    },
+    {
+      "id": 560,
+      "name": "Spitting Drake",
+      "initiative": 87,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1 }
+      ]
+    },
+    {
+      "id": 561,
+      "name": "Spitting Drake",
+      "initiative": 89,
+      "abilities": [
+        { "kind": "attack", "modifier": -2, "effects": [{ "kind": "condition", "condition": "stun" }] }
+      ]
+    },
+    {
+      "id": 562,
+      "name": "Spitting Drake",
+      "initiative": 6,
+      "abilities": [
+        { "kind": "bonus", "bonus": "shield", "amount": 2 },
+        { "kind": "heal", "amount": 2, "target": "self" },
+        { "kind": "condition", "conditions": ["strengthen"], "target": "self" }
+      ]
+    },
+    {
+      "id": 563,
+      "name": "Spitting Drake",
+      "initiative": 89,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        {
+          "kind": "attack", "modifier": -2, "range": -2,
+          "effects": [{ "kind": "condition", "condition": "poison" }],
+          "aoe": [{ "length": 2 }, { "length": 3 }, { "length": 2 }]
+        }
+      ],
+      "shuffle": true
+    }
+  ],
   "livingCorpse": [
     {
       "id": 564,

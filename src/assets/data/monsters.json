@@ -3608,6 +3608,112 @@
     }
   },
   {
+    "key": "spittingDrake",
+    "name": "Spitting Drake",
+    "abilityDeckKey": "spittingDrake",
+    "kind": "normal",
+    "levels": {
+      "0": {
+        "hitPoints": 5,
+        "movement": 3,
+        "attack": 3,
+        "range": 3
+      },
+      "1": {
+        "hitPoints": 6,
+        "movement": 3,
+        "attack": 3,
+        "range": 3
+      },
+      "2": {
+        "hitPoints": 8,
+        "movement": 3,
+        "attack": 3,
+        "range": 3
+      },
+      "3": {
+        "hitPoints": 8,
+        "movement": 3,
+        "attack": 4,
+        "range": 4
+      },
+      "4": {
+        "hitPoints": 9,
+        "movement": 4,
+        "attack": 4,
+        "range": 4
+      },
+      "5": {
+        "hitPoints": 12,
+        "movement": 4,
+        "attack": 4,
+        "range": 4
+      },
+      "6": {
+        "hitPoints": 13,
+        "movement": 4,
+        "attack": 5,
+        "range": 4
+      },
+      "7": {
+        "hitPoints": 16,
+        "movement": 4,
+        "attack": 5,
+        "range": 4
+      }
+    },
+    "eliteLevels": {
+      "0": {
+        "hitPoints": 8,
+        "movement": 3,
+        "attack": 4,
+        "range": 4
+      },
+      "1": {
+        "hitPoints": 9,
+        "movement": 3,
+        "attack": 4,
+        "range": 4
+      },
+      "2": {
+        "hitPoints": 10,
+        "movement": 3,
+        "attack": 5,
+        "range": 4
+      },
+      "3": {
+        "hitPoints": 12,
+        "movement": 3,
+        "attack": 5,
+        "range": 5
+      },
+      "4": {
+        "hitPoints": 14,
+        "movement": 4,
+        "attack": 5,
+        "range": 5
+      },
+      "5": {
+        "hitPoints": 16,
+        "movement": 4,
+        "attack": 6,
+        "range": 5
+      },
+      "6": {
+        "hitPoints": 19,
+        "movement": 4,
+        "attack": 6,
+        "range": 5
+      },
+      "7": {
+        "hitPoints": 21,
+        "movement": 4,
+        "attack": 7,
+        "range": 5
+      }
+    }
+  },
+  {
     "key": "vermlingScout",
     "kind": "normal",
     "name": "Vermling Scout",
