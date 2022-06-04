@@ -1550,6 +1550,89 @@
       ]
     }
   ],
+  "savvasIcestorm": [
+    {
+      "id": 708,
+      "name": "Savvas Icestorm",
+      "initiative": 70,
+      "abilities": [
+        { "kind": "forcedMovement", "direction": "push", "amount": 2, "target": "adjacent", "elementEnhancements": { "air": { "other": "Push {S}4 instead" } } },
+        { "kind": "attack", "modifier": 1, "range": 1 }
+      ]
+    },
+    {
+      "id": 709,
+      "name": "Savvas Icestorm",
+      "initiative": 98,
+      "abilities": [
+        { "kind": "other", "description": "Summon normal Wind Demon" },
+        { "kind": "infuseElement", "element": "air" }
+      ]
+    },
+    {
+      "id": 710,
+      "name": "Savvas Icestorm",
+      "initiative": 98,
+      "abilities": [
+        { "kind": "other", "description": "Summon normal Frost Demon" },
+        { "kind": "infuseElement", "element": "ice" }
+      ]
+    },
+    {
+      "id": 711,
+      "name": "Savvas Icestorm",
+      "initiative": 19,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1, "range": -1 },
+        { "kind": "bonus", "bonus": "shield", "amount": 1, "range": 2 },
+        { "kind": "infuseElement", "element": "ice" }
+      ]
+    },
+    {
+      "id": 712,
+      "name": "Savvas Icestorm",
+      "initiative": 14,
+      "abilities": [
+        { "kind": "attack", "modifier": 0, "elementEnhancements": { "ice": { "modifier": 2, "conditions": ["immobilize"] } } },
+        { "kind": "bonus", "bonus": "retaliate", "amount": 2 },
+        { "kind": "infuseElement", "element": "air" }
+      ]
+    },
+    {
+      "id": 713,
+      "name": "Savvas Icestorm",
+      "initiative": 14,
+      "abilities": [
+        { "kind": "bonus", "bonus": "shield", "amount": 4 },
+        { "kind": "heal", "amount": 2, "range": 3, "elementEnhancements": { "ice": { "modifier": 3 } } },
+        { "kind": "attack", "modifier": 0, "consumeElement": "air" }
+      ]
+    },
+    {
+      "id": 714,
+      "name": "Savvas Icestorm",
+      "initiative": 47,
+      "abilities": [
+        { "kind": "condition", "conditions": ["disarm"], "target": "adjacentEnemies" },
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1 },
+        { "kind": "infuseElement", "element": "air" }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 715,
+      "name": "Savvas Icestorm",
+      "initiative": 35,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": -1, "aoe": [{ "length": 1, "offset": 1 }, { "length": 2 }, { "length": 3, "origin": 0 }] },
+        { "kind": "infuseElement", "element": "ice" }
+      ],
+      "shuffle": true
+    }
+  ],
   "harrowerInfester": [
     {
       "id": 724,

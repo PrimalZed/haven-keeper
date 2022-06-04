@@ -123,6 +123,13 @@
         <span>&nbsp;</span>
         <span>{{ $any(ability).amount }}</span>
       </div>
+      <div *ngIf="$any(ability).range" class="card-content-sm">
+        <span>Affect self and all allies within Range</span>
+        <span>&nbsp;</span>
+        <span class="gloomhaven-ability-icons">G</span>
+        <span>&nbsp;</span>
+        <span>{{ $any(ability).range }}</span>
+      </div>
       <div *ngIf="$any(ability).elementEnhancements">
         <div *ngFor="let enhancement of $any(ability).elementEnhancements | keyvalue" style="display: flex; align-items: center; gap: 0.25em;">
           <div style="display: flex; align-items: center;">
@@ -155,6 +162,23 @@
       <div class="card-content-sm" [ngSwitch]="$any(ability).target">
         <span *ngSwitchCase="'self'" i18n="@@self">Self</span>
         <span *ngSwitchCase="'adjacent'">Affect all adjacent allies</span>
+      </div>
+      <div *ngIf="$any(ability).elementEnhancements">
+        <div *ngFor="let enhancement of $any(ability).elementEnhancements | keyvalue" style="display: flex; align-items: center; gap: 0.25em;">
+          <div style="display: flex; align-items: center;">
+            <element [element]="$any(enhancement).key" [consume]="true"></element>
+            <span style="font-size: 1.5rem;">:</span>
+          </div>
+          <div class="card-content-sm" style="flex-grow: 1;">
+            <div *ngIf="$any(enhancement).value.modifier">
+              <span>{{ $any(enhancement).value.modifier | modifier }}</span>
+              <span>&nbsp;</span>
+              <span>Heal</span>
+              <span>&nbsp;</span>
+              <span class="gloomhaven-ability-icons">H</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div *ngSwitchCase="'condition'" style="display: flex; flex-direction: column; align-items: center;">
@@ -217,6 +241,19 @@
         <span>{{ $any(ability).amount }}</span>
       </div>
       <div *ngIf="$any(ability).target === 'adjacent'" class="card-content-sm" i18n="@@targetAllAdjacentEnemies">Target all adjacent enemies</div>
+      <div *ngIf="$any(ability).elementEnhancements">
+        <div *ngFor="let enhancement of $any(ability).elementEnhancements | keyvalue" style="display: flex; align-items: center; gap: 0.25em;">
+          <div style="display: flex; align-items: center;">
+            <element [element]="$any(enhancement).key" [consume]="true"></element>
+            <span style="font-size: 1.5rem;">:</span>
+          </div>
+          <div class="card-content-sm" style="flex-grow: 1;">
+            <div *ngIf="$any(enhancement).value.other">
+              <span>{{ $any(enhancement).value.other }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <element *ngSwitchCase="'infuseElement'" [element]="$any(ability).element"></element>
     <div *ngSwitchCase="'loot'">

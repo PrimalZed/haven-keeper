@@ -39,6 +39,7 @@ export type MonsterAbility =
     kind: 'bonus';
     bonus: BonusKey;
     amount: number;
+    range?: number;
     elementEnhancements?: {
       [element in MixedElement]?: {
         other: string;
@@ -58,6 +59,11 @@ export type MonsterAbility =
     direction: 'push' | 'pull';
     amount: number;
     target?: 'adjacent'
+    elementEnhancements?: {
+      [element in MixedElement]?: {
+        other: string;
+      };
+    };
     consumeElement?: MixedElement;
   }
   | {
