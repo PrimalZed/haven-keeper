@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { MonsterAbility } from 'models/monster-ability-card';
 import { BossStatCard, MonsterLevel } from 'models/monster-stat-card';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -18,6 +19,11 @@ export class BossStatCardComponent {
   level$: Observable<MonsterLevel> = this.store.select(selectScenarioLevel)
     .pipe(
       map((level) => this.statCard.levels[level ?? 0])
+    );
+
+  specials$: Observable<{ 1: MonsterAbility[], 2: MonsterAbility[] }> = this.store.select(selectScenarioLevel)
+    .pipe(
+      map((level) => this.statCard.specialLevels[level ?? 0])
     );
 
   constructor(private store: Store<AppState>) { }

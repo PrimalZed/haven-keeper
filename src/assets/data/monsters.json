@@ -934,9 +934,39 @@
         "immunities": ["curse","immobilize","stun"]
       }
     },
-    "specials": {
-      "1": [{ "kind": "other", "description": "Move to next door and reveal room" }],
-      "2": [{ "kind": "other", "description": "Summon Living Bones" }]
+    "specialLevels": {
+      "0": {
+        "1": [{ "kind": "other", "description": "Move to next door and reveal room" }],
+        "2": [{ "kind": "other", "description": "Summon Living Bones" }]
+      },
+      "1": {
+        "1": [{ "kind": "other", "description": "Move to next door and reveal room" }],
+        "2": [{ "kind": "other", "description": "Summon Living Bones" }]
+      },
+      "2": {
+        "1": [{ "kind": "other", "description": "Move to next door and reveal room" }],
+        "2": [{ "kind": "other", "description": "Summon Living Bones" }]
+      },
+      "3": {
+        "1": [{ "kind": "other", "description": "Move to next door and reveal room" }],
+        "2": [{ "kind": "other", "description": "Summon Living Bones" }]
+      },
+      "4": {
+        "1": [{ "kind": "other", "description": "Move to next door and reveal room" }],
+        "2": [{ "kind": "other", "description": "Summon Living Bones" }]
+      },
+      "5": {
+        "1": [{ "kind": "other", "description": "Move to next door and reveal room" }],
+        "2": [{ "kind": "other", "description": "Summon Living Bones" }]
+      },
+      "6": {
+        "1": [{ "kind": "other", "description": "Move to next door and reveal room" }],
+        "2": [{ "kind": "other", "description": "Summon Living Bones" }]
+      },
+      "7": {
+        "1": [{ "kind": "other", "description": "Move to next door and reveal room" }],
+        "2": [{ "kind": "other", "description": "Summon Living Bones" }]
+      }
     }
   },
   {
@@ -1079,13 +1109,6 @@
     "key": "captain",
     "kind": "boss",
     "name": "Captain of the Guard",
-    "specials": {
-      "1": [{ "kind": "heal", "amount": 2, "target": "all" }],
-      "2": [
-        { "kind": "other", "description": "All allies add +1 Attack {A} to all attacks this round"},
-        { "kind": "attack", "modifier": 1 }
-      ]
-    },
     "levels": {
       "0": {
         "hitPoints": 7,
@@ -1134,6 +1157,64 @@
         "movement": 4,
         "attack": 6,
         "immunities": ["disarm","muddle","stun","wound"]
+      }
+    },
+    "specialLevels": {
+      "0": {
+        "1": [{ "kind": "heal", "amount": 2, "target": "all" }],
+        "2": [
+          { "kind": "other", "description": "All allies add +1 Attack {A} to all attacks this round"},
+          { "kind": "attack", "modifier": 1 }
+        ]
+      },
+      "1": {
+        "1": [{ "kind": "heal", "amount": 2, "target": "all" }],
+        "2": [
+          { "kind": "other", "description": "All allies add +1 Attack {A} to all attacks this round"},
+          { "kind": "attack", "modifier": 1 }
+        ]
+      },
+      "2": {
+        "1": [{ "kind": "heal", "amount": 2, "target": "all" }],
+        "2": [
+          { "kind": "other", "description": "All allies add +1 Attack {A} to all attacks this round"},
+          { "kind": "attack", "modifier": 1 }
+        ]
+      },
+      "3": {
+        "1": [{ "kind": "heal", "amount": 2, "target": "all" }],
+        "2": [
+          { "kind": "other", "description": "All allies add +1 Attack {A} to all attacks this round"},
+          { "kind": "attack", "modifier": 1 }
+        ]
+      },
+      "4": {
+        "1": [{ "kind": "heal", "amount": 2, "target": "all" }],
+        "2": [
+          { "kind": "other", "description": "All allies add +1 Attack {A} to all attacks this round"},
+          { "kind": "attack", "modifier": 1 }
+        ]
+      },
+      "5": {
+        "1": [{ "kind": "heal", "amount": 2, "target": "all" }],
+        "2": [
+          { "kind": "other", "description": "All allies add +1 Attack {A} to all attacks this round"},
+          { "kind": "attack", "modifier": 1 }
+        ]
+      },
+      "6": {
+        "1": [{ "kind": "heal", "amount": 2, "target": "all" }],
+        "2": [
+          { "kind": "other", "description": "All allies add +1 Attack {A} to all attacks this round"},
+          { "kind": "attack", "modifier": 1 }
+        ]
+      },
+      "7": {
+        "1": [{ "kind": "heal", "amount": 2, "target": "all" }],
+        "2": [
+          { "kind": "other", "description": "All allies add +1 Attack {A} to all attacks this round"},
+          { "kind": "attack", "modifier": 1 }
+        ]
       }
     }
   },
@@ -1336,17 +1417,6 @@
     "key": "darkRider",
     "kind": "boss",
     "name": "Dark Rider",
-    "specials": {
-      "1": [
-        { "kind": "move", "modifier": 2 },
-        { "kind": "attack", "modifier": 0 }
-      ],
-      "2": [
-        { "kind": "move", "modifier": 0 },
-        { "kind": "other", "description": "Summon Imp"},
-        { "kind": "attack", "modifier": -1 }
-      ]
-    },
     "notes": "X = Hexes moved",
     "levels": {
       "0": {
@@ -1396,6 +1466,96 @@
         "movement": 4,
         "attack": "6+X",
         "immunities": ["disarm","immobilize","poison","stun"]
+      }
+    },
+    "specialLevels": {
+      "0": {
+        "1": [
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": 0 }
+        ],
+        "2": [
+          { "kind": "move", "modifier": 0 },
+          { "kind": "other", "description": "Summon Imp"},
+          { "kind": "attack", "modifier": -1 }
+        ]
+      },
+      "1": {
+        "1": [
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": 0 }
+        ],
+        "2": [
+          { "kind": "move", "modifier": 0 },
+          { "kind": "other", "description": "Summon Imp"},
+          { "kind": "attack", "modifier": -1 }
+        ]
+      },
+      "2": {
+        "1": [
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": 0 }
+        ],
+        "2": [
+          { "kind": "move", "modifier": 0 },
+          { "kind": "other", "description": "Summon Imp"},
+          { "kind": "attack", "modifier": -1 }
+        ]
+      },
+      "3": {
+        "1": [
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": 0 }
+        ],
+        "2": [
+          { "kind": "move", "modifier": 0 },
+          { "kind": "other", "description": "Summon Imp"},
+          { "kind": "attack", "modifier": -1 }
+        ]
+      },
+      "4": {
+        "1": [
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": 0 }
+        ],
+        "2": [
+          { "kind": "move", "modifier": 0 },
+          { "kind": "other", "description": "Summon Imp"},
+          { "kind": "attack", "modifier": -1 }
+        ]
+      },
+      "5": {
+        "1": [
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": 0 }
+        ],
+        "2": [
+          { "kind": "move", "modifier": 0 },
+          { "kind": "other", "description": "Summon Imp"},
+          { "kind": "attack", "modifier": -1 }
+        ]
+      },
+      "6": {
+        "1": [
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": 0 }
+        ],
+        "2": [
+          { "kind": "move", "modifier": 0 },
+          { "kind": "other", "description": "Summon Imp"},
+          { "kind": "attack", "modifier": -1 }
+        ]
+      },
+      "7": {
+        "1": [
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": 0 }
+        ],
+        "2": [
+          { "kind": "move", "modifier": 0 },
+          { "kind": "other", "description": "Summon Imp"},
+          { "kind": "attack", "modifier": -1 }
+        ]
       }
     }
   },
@@ -2481,17 +2641,6 @@
     "key": "jekserah",
     "kind": "boss",
     "name": "Jekserah",
-    "specials": {
-      "1": [
-        { "kind": "other", "description": "Summon Living Bones" },
-        { "kind": "attack", "modifier": -1, "target": "adjacent" }
-      ],
-      "2": [
-        { "kind": "other", "description": "Summon Living Corpse"},
-        { "kind": "move", "modifier": -1 },
-        { "kind": "attack", "modifier": 2 }
-      ]
-    },
     "levels": {
       "0": {
         "hitPoints": 6,
@@ -2540,6 +2689,96 @@
         "movement": 5,
         "attack": 5,
         "immunities": ["curse","disarm","stun","wound"]
+      }
+    },
+    "specialLevels": {
+      "0": {
+        "1": [
+          { "kind": "other", "description": "Summon Living Bones" },
+          { "kind": "attack", "modifier": -1, "target": "adjacent" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Living Corpse"},
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": 2 }
+        ]
+      },
+      "1": {
+        "1": [
+          { "kind": "other", "description": "Summon Living Bones" },
+          { "kind": "attack", "modifier": -1, "target": "adjacent" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Living Corpse"},
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": 2 }
+        ]
+      },
+      "2": {
+        "1": [
+          { "kind": "other", "description": "Summon Living Bones" },
+          { "kind": "attack", "modifier": -1, "target": "adjacent" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Living Corpse"},
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": 2 }
+        ]
+      },
+      "3": {
+        "1": [
+          { "kind": "other", "description": "Summon Living Bones" },
+          { "kind": "attack", "modifier": -1, "target": "adjacent" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Living Corpse"},
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": 2 }
+        ]
+      },
+      "4": {
+        "1": [
+          { "kind": "other", "description": "Summon Living Bones" },
+          { "kind": "attack", "modifier": -1, "target": "adjacent" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Living Corpse"},
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": 2 }
+        ]
+      },
+      "5": {
+        "1": [
+          { "kind": "other", "description": "Summon Living Bones" },
+          { "kind": "attack", "modifier": -1, "target": "adjacent" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Living Corpse"},
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": 2 }
+        ]
+      },
+      "6": {
+        "1": [
+          { "kind": "other", "description": "Summon Living Bones" },
+          { "kind": "attack", "modifier": -1, "target": "adjacent" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Living Corpse"},
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": 2 }
+        ]
+      },
+      "7": {
+        "1": [
+          { "kind": "other", "description": "Summon Living Bones" },
+          { "kind": "attack", "modifier": -1, "target": "adjacent" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Living Corpse"},
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": 2 }
+        ]
       }
     }
   },

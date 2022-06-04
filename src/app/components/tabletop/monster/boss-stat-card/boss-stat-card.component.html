@@ -1,14 +1,14 @@
 <div *ngIf="level$ | async as level" class="stat-card">
   <div class="bonuses">
     <bonuses [bonuses]="level.bonuses" [attackEffects]="level.attackEffects" [immunities]="level.immunities"></bonuses>
-    <div style="display: grid; column-gap: 0.25em; grid-template-columns: auto auto;">
+    <div *ngIf="specials$ | async as specials" style="display: grid; column-gap: 0.25em; grid-template-columns: auto auto;">
       <div>1:</div>
       <div>
-        <monster-ability *ngFor="let ability of statCard.specials[1]" [ability]="ability"></monster-ability>
+        <monster-ability *ngFor="let ability of specials[1]" [ability]="ability"></monster-ability>
       </div>
       <div>2:</div>
       <div>
-        <monster-ability *ngFor="let ability of statCard.specials[2]" [ability]="ability"></monster-ability>
+        <monster-ability *ngFor="let ability of specials[2]" [ability]="ability"></monster-ability>
       </div>
     </div>
     <div *ngIf="statCard.notes">{{ statCard.notes }}</div>

@@ -23,7 +23,7 @@ interface MonsterBase {
 
 export interface BossStatCard extends MonsterBase {
   kind: 'boss';
-  specials: { 1: MonsterAbility[]; 2: MonsterAbility[]; };
+  specialLevels: { [level in ScenarioLevel]: { 1: MonsterAbility[]; 2: MonsterAbility[]; } };
   notes?: string;
 }
 
