@@ -3486,6 +3486,96 @@
     }
   },
   {
+    "key": "mercilessOverseer",
+    "name": "Merciless Overseer",
+    "kind": "boss",
+    "notes": "V = Number of Scouts present",
+    "levels": {
+      "0": {
+        "hitPoints": 6,
+        "movement": 2,
+        "attack": "V",
+        "immunities": ["curse","disarm","stun","wound"]
+      },
+      "1": {
+        "hitPoints": 8,
+        "movement": 2,
+        "attack": "V",
+        "immunities": ["curse","disarm","stun","wound"]
+      },
+      "2": {
+        "hitPoints": 9,
+        "movement": 3,
+        "attack": "V",
+        "immunities": ["curse","disarm","stun","wound"]
+      },
+      "3": {
+        "hitPoints": 11,
+        "movement": 3,
+        "attack": "V",
+        "immunities": ["disarm","muddle","stun","wound"]
+      },
+      "4": {
+        "hitPoints": 12,
+        "movement": 4,
+        "attack": "V",
+        "immunities": ["curse","disarm","stun","wound"]
+      },
+      "5": {
+        "hitPoints": 14,
+        "movement": 4,
+        "attack": "V",
+        "immunities": ["curse","disarm","stun","wound"]
+      },
+      "6": {
+        "hitPoints": 16,
+        "movement": 4,
+        "attack": "V",
+        "immunities": ["curse","disarm","stun","wound"]
+      },
+      "7": {
+        "hitPoints": 19,
+        "movement": 4,
+        "attack": "V",
+        "immunities": ["curse","disarm","stun","wound"]
+      }
+    },
+    "specialLevels": {
+      "0": {
+        "1": [{ "kind": "other", "description": "All Scouts act again "}],
+        "2": [{ "kind": "other", "description": "Summon Vermling Scouts" }]
+      },
+      "1": {
+        "1": [{ "kind": "other", "description": "All Scouts act again "}],
+        "2": [{ "kind": "other", "description": "Summon Vermling Scouts" }]
+      },
+      "2": {
+        "1": [{ "kind": "other", "description": "All Scouts act again "}],
+        "2": [{ "kind": "other", "description": "Summon Vermling Scouts" }]
+      },
+      "3": {
+        "1": [{ "kind": "other", "description": "All Scouts act again "}],
+        "2": [{ "kind": "other", "description": "Summon Vermling Scouts" }]
+      },
+      "4": {
+        "1": [{ "kind": "other", "description": "All Scouts act again "}],
+        "2": [{ "kind": "other", "description": "Summon Vermling Scouts" }]
+      },
+      "5": {
+        "1": [{ "kind": "other", "description": "All Scouts act again "}],
+        "2": [{ "kind": "other", "description": "Summon Vermling Scouts" }]
+      },
+      "6": {
+        "1": [{ "kind": "other", "description": "All Scouts act again "}],
+        "2": [{ "kind": "other", "description": "Summon Vermling Scouts" }]
+      },
+      "7": {
+        "1": [{ "kind": "other", "description": "All Scouts act again "}],
+        "2": [{ "kind": "other", "description": "Summon Vermling Scouts" }]
+      }
+    }
+  },
+  {
     "key": "nightDemon",
     "name": "Night Demon",
     "abilityDeckKey": "nightDemon",
