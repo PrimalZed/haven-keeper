@@ -23,5 +23,5 @@
   <div *ngSwitchCase="'other'" class="card-content-sm">{{ $any(effect).description }}</div>
 </div>
 <div *ngIf="immunities?.length" style="display: flex; flex-wrap: wrap;">
-  <condition *ngFor="let condition of immunities" [condition]="condition"></condition>
+  <condition *ngFor="let condition of immunities" [condition]="condition" [immune]="true" size="sm"></condition>
 </div>
