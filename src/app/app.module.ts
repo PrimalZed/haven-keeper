@@ -25,6 +25,7 @@ import { FigureDialogComponent } from './components/tabletop/figure-dialog/figur
 import { BonusesComponent } from './components/tabletop/monster/bonuses/bonuses.component';
 import { MonsterSetComponent } from './components/tabletop/monster/monster-set.component';
 import { AddStandeeDialogComponent } from './components/tabletop/monster/add-standee-dialog/add-standee-dialog.component';
+import { MonsterAbilityComponent } from './components/tabletop/monster/monster-ability/monster-ability.component';
 import { MonsterAbilityCardComponent } from './components/tabletop/monster/monster-ability-card/monster-ability-card.component';
 import { MonsterAbilityDeckDialogComponent } from './components/tabletop/monster/monster-ability-deck-dialog/monster-ability-deck-dialog.component';
 import { MonsterStatCardComponent } from './components/tabletop/monster/monster-stat-card/monster-stat-card.component';
@@ -72,6 +73,7 @@ import { BossStatCardComponent } from './components/tabletop/monster/boss-stat-c
     ElementFireComponent,
     ElementLightComponent,
     FigureDialogComponent,
+    MonsterAbilityComponent,
     MonsterAbilityCardComponent,
     MonsterAbilityDeckDialogComponent,
     MonsterSetComponent,

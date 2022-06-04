@@ -5,7 +5,6 @@ import { CatalogService } from 'services/catalog.service';
 @Component({
   selector: 'monster-ability-card',
   templateUrl: './monster-ability-card.component.html',
-  styleUrls: [`./monster-ability-card.component.scss`],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MonsterAbilityCardComponent {
