@@ -157,7 +157,7 @@
         <span>&nbsp;</span>
         <span class="gloomhaven-ability-icons">G</span>
         <span>&nbsp;</span>
-        <span>{{ $any(ability).range | modifier }}</span>
+        <span>{{ $any(ability).range }}</span>
       </div>
       <div class="card-content-sm" [ngSwitch]="$any(ability).target">
         <span *ngSwitchCase="'self'" i18n="@@self">Self</span>
@@ -176,6 +176,13 @@
               <span>Heal</span>
               <span>&nbsp;</span>
               <span class="gloomhaven-ability-icons">H</span>
+            </div>
+            <div *ngIf="$any(enhancement).value.target">
+              <span>Target</span>
+              <span>&nbsp;</span>
+              <span class="gloomhaven-ability-icons">T</span>
+              <span>&nbsp;</span>
+              <span>{{ $any(enhancement).value.target }}</span>
             </div>
           </div>
         </div>
@@ -197,7 +204,7 @@
         <ng-container *ngSwitchCase="'adjacentAllies'">
           <span>Affect all adjacent allies</span>
         </ng-container>
-        <ng-container *ngSwitchCase="'allAllies'">
+        <ng-container *ngSwitchCase="'allAlliesWithinRange'">
           <ng-container *ngIf="$any(ability).range">
             <span>Affect all allies within Range</span>
             <span>&nbsp;</span>
@@ -209,13 +216,14 @@
             <span>Affect all allies within range</span>
           </ng-container>
         </ng-container>
+        <span *ngSwitchCase="'allAllies'">Affect all allies</span>
         <ng-container *ngSwitchCase="'enemy'">
           <span>Target one adjacent enemy</span>
         </ng-container>
         <ng-container *ngSwitchCase="'adjacentEnemies'">
           <span>Target all adjacent enemies</span>
         </ng-container>
-        <ng-container *ngSwitchCase="'allEnemies'">
+        <ng-container *ngSwitchCase="'allEnemiesWithinRange'">
           <ng-container *ngIf="$any(ability).range">
             <span>Target all enemies within Range</span>
             <span>&nbsp;</span>
@@ -227,6 +235,7 @@
             <span>Target all enemies within range</span>
           </ng-container>
         </ng-container>
+        <span *ngSwitchCase="'allEnemies'">Target all enemies</span>
       </div>
     </div>
     <div *ngSwitchCase="'forcedMovement'" style="text-align: center;">

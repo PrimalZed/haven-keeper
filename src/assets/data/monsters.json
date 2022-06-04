@@ -3373,6 +3373,137 @@
     }
   },
   {
+    "key": "savvasLavaflow",
+    "name": "Savvas Lavaflow",
+    "abilityDeckKey": "savvasLavaflow",
+    "kind": "normal",
+    "levels": {
+      "0": {
+        "hitPoints": 8,
+        "movement": 3,
+        "attack": 2
+      },
+      "1": {
+        "hitPoints": 9,
+        "movement": 3,
+        "attack": 2,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "2": {
+        "hitPoints": 11,
+        "movement": 3,
+        "attack": 3,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "3": {
+        "hitPoints": 14,
+        "movement": 3,
+        "attack": 3,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "4": {
+        "hitPoints": 16,
+        "movement": 3,
+        "attack": 4,
+        "attackEffects": [{ "kind": "condition", "condition": "poison" }]
+      },
+      "5": {
+        "hitPoints": 18,
+        "movement": 3,
+        "attack": 4,
+        "attackEffects": [
+          { "kind": "condition", "condition": "poison" },
+          { "kind": "condition", "condition": "wound" }
+        ]
+      },
+      "6": {
+        "hitPoints": 20,
+        "movement": 4,
+        "attack": 4,
+        "attackEffects": [
+          { "kind": "condition", "condition": "poison" },
+          { "kind": "condition", "condition": "wound" }
+        ]
+      },
+      "7": {
+        "hitPoints": 24,
+        "movement": 4,
+        "attack": 4,
+        "attackEffects": [
+          { "kind": "condition", "condition": "poison" },
+          { "kind": "condition", "condition": "wound" }
+        ]
+      }
+    },
+    "eliteLevels": {
+      "0": {
+        "hitPoints": 13,
+        "movement": 3,
+        "attack": 3
+      },
+      "1": {
+        "hitPoints": 15,
+        "movement": 3,
+        "attack": 3,
+        "attackEffects": [{ "kind": "condition", "condition": "wound" }]
+      },
+      "2": {
+        "hitPoints": 18,
+        "movement": 3,
+        "attack": 3,
+        "attackEffects": [
+          { "kind": "condition", "condition": "poison" },
+          { "kind": "condition", "condition": "wound" }
+        ]
+      },
+      "3": {
+        "hitPoints": 21,
+        "movement": 3,
+        "attack": 4,
+        "attackEffects": [
+          { "kind": "condition", "condition": "poison" },
+          { "kind": "condition", "condition": "wound" }
+        ]
+      },
+      "4": {
+        "hitPoints": 24,
+        "movement": 4,
+        "attack": 4,
+        "attackEffects": [
+          { "kind": "condition", "condition": "poison" },
+          { "kind": "condition", "condition": "wound" }
+        ]
+      },
+      "5": {
+        "hitPoints": 27,
+        "movement": 4,
+        "attack": 5,
+        "attackEffects": [
+          { "kind": "condition", "condition": "poison" },
+          { "kind": "condition", "condition": "wound" }
+        ]
+      },
+      "6": {
+        "hitPoints": 30,
+        "movement": 4,
+        "attack": 6,
+        "attackEffects": [
+          { "kind": "condition", "condition": "poison" },
+          { "kind": "condition", "condition": "wound" }
+        ]
+      },
+      "7": {
+        "hitPoints": 35,
+        "movement": 4,
+        "attack": 6,
+        "attackEffects": [
+          { "kind": "condition", "condition": "poison" },
+          { "kind": "condition", "condition": "wound" }
+        ]
+      }
+    }
+  },
+  {
     "key": "vermlingScout",
     "kind": "normal",
     "name": "Vermling Scout",

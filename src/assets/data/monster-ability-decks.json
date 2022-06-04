@@ -513,7 +513,7 @@
       "initiative": 55,
       "abilities": [
         { "kind": "move", "modifier": 0 },
-        { "kind": "condition", "conditions": ["curse"], "target": "allEnemies" },
+        { "kind": "condition", "conditions": ["curse"], "target": "allEnemiesWithinRange" },
         { "kind": "infuseElement", "element": "ice" }
       ]
     },
@@ -1312,8 +1312,8 @@
       "name": "Imp",
       "initiative": 24,
       "abilities": [
-        { "kind": "condition", "conditions": ["strengthen"], "target": "allAllies", "range": 2 },
-        { "kind": "condition", "conditions": ["muddle"], "target": "allEnemies", "range": 2 }
+        { "kind": "condition", "conditions": ["strengthen"], "target": "allAlliesWithinRange", "range": 2 },
+        { "kind": "condition", "conditions": ["muddle"], "target": "allEnemiesWithinRange", "range": 2 }
       ]
     }
   ],
@@ -1629,6 +1629,89 @@
         { "kind": "move", "modifier": -1 },
         { "kind": "attack", "modifier": -1, "aoe": [{ "length": 1, "offset": 1 }, { "length": 2 }, { "length": 3, "origin": 0 }] },
         { "kind": "infuseElement", "element": "ice" }
+      ],
+      "shuffle": true
+    }
+  ],
+  "savvasLavaflow": [
+    {
+      "id": 716,
+      "name": "Savvas Lavaflow",
+      "initiative": 97,
+      "abilities": [
+        { "kind": "other", "description": "Summon normal Flame Demon" },
+        { "kind": "infuseElement", "element": "fire" }
+      ]
+    },
+    {
+      "id": 717,
+      "name": "Savvas Lavaflow",
+      "initiative": 97,
+      "abilities": [
+        { "kind": "other", "description": "Summon normal Earth Demon" },
+        { "kind": "infuseElement", "element": "earth" }
+      ]
+    },
+    {
+      "id": 718,
+      "name": "Savvas Lavaflow",
+      "initiative": 22,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1, "target": "adjacent" },
+        { "kind": "bonus", "bonus": "retaliate", "amount": 3, "consumeElement": "fire" }
+      ]
+    },
+    {
+      "id": 719,
+      "name": "Savvas Lavaflow",
+      "initiative": 68,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1, "range": 3, "other": "All allies and enemies adjacent to the target suffer 2 damage." },
+        { "kind": "infuseElement", "element": "earth" }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 720,
+      "name": "Savvas Lavaflow",
+      "initiative": 41,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        {
+          "kind": "attack", "modifier": -1,
+          "aoe": [{ "length": 1, "origin": 0 }, { "length": 1, "offset": 1 }, { "length": 1, "offset": 1 }, { "lenght": 1, "offset": 2 }],
+          "elementEnhancements": { "earth": { "modifier": 2, "conditions": ["immobilize"] } }
+        }
+      ]
+    },
+    {
+      "id": 721,
+      "name": "Savvas Lavaflow",
+      "initiative": 51,
+      "abilities": [
+        { "kind": "other", "description": "All enemies suffer 2 damage." },
+        { "kind": "condition", "conditions": ["wound"], "target": "allEnemies", "consumeElement": "fire" },
+          { "kind": "condition", "conditions": ["disarm"], "target": "allEnemies", "consumeElement": "earth" }
+      ]
+    },
+    {
+      "id": 722,
+      "name": "Savvas Lavaflow",
+      "initiative": 31,
+      "abilities": [
+        { "kind": "heal", "amount": 4, "range": 3, "elementEnhancements": { "earth": { "target": 3 } } }
+      ]
+    },
+    {
+      "id": 723,
+      "name": "Savvas Lavaflow",
+      "initiative": 68,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": -1, "range": 3, "target": 2 },
+        { "kind": "infuseElement", "element": "fire" }
       ],
       "shuffle": true
     }

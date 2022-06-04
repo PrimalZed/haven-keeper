@@ -18,6 +18,7 @@ export type MonsterAbility =
     range?: number;
     effects?: AttackEffect[];
     aoe?: any;
+    other?: string;
     elementEnhancements?: {
       [element in MixedElement]?: {
         modifier?: number;
@@ -25,7 +26,7 @@ export type MonsterAbility =
         target?: number;
         conditions?: NegativeConditionKey[]
       };
-    },
+    };
     consumeElement?: MixedElement;
   }
   | {
@@ -33,6 +34,13 @@ export type MonsterAbility =
     amount: number;
     target?: 'self' | 'ally';
     range?: number;
+    elementEnhancements?: {
+      [element in MixedElement]?: {
+        modifier?: number;
+        range?: number;
+        target?: number;
+      };
+    };
     consumeElement?: MixedElement;
   }
   | {
@@ -50,7 +58,7 @@ export type MonsterAbility =
   | {
     kind: 'condition';
     conditions: ConditionKey[];
-    target: 'self' | 'ally' | 'adjacentAllies' | 'allAllies' | 'enemy' | 'adjacentEnemies' | 'allEnemies';
+    target: 'self' | 'ally' | 'adjacentAllies' | 'allAlliesWithinRange' | 'allAllies' | 'enemy' | 'adjacentEnemies' | 'allEnemiesWithinRange' | 'allEnemies';
     range?: number;
     consumeElement?: MixedElement;
   }
