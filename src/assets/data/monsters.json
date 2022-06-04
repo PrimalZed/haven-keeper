@@ -1076,6 +1076,68 @@
     }
   },
   {
+    "key": "captain",
+    "kind": "boss",
+    "name": "Captain of the Guard",
+    "specials": {
+      "1": [{ "kind": "heal", "amount": 2, "target": "all" }],
+      "2": [
+        { "kind": "other", "description": "All allies add +1 Attack {A} to all attacks this round"},
+        { "kind": "attack", "modifier": 1 }
+      ]
+    },
+    "levels": {
+      "0": {
+        "hitPoints": 7,
+        "movement": 2,
+        "attack": 3,
+        "immunities": ["disarm","muddle","stun","wound"]
+      },
+      "1": {
+        "hitPoints": 9,
+        "movement": 2,
+        "attack": 3,
+        "immunities": ["disarm","muddle","stun","wound"]
+      },
+      "2": {
+        "hitPoints": 11,
+        "movement": 2,
+        "attack": 4,
+        "immunities": ["disarm","muddle","stun","wound"]
+      },
+      "3": {
+        "hitPoints": 14,
+        "movement": 3,
+        "attack": 4,
+        "immunities": ["disarm","muddle","stun","wound"]
+      },
+      "4": {
+        "hitPoints": 16,
+        "movement": 3,
+        "attack": 5,
+        "immunities": ["disarm","muddle","stun","wound"]
+      },
+      "5": {
+        "hitPoints": 20,
+        "movement": 3,
+        "attack": 5,
+        "immunities": ["disarm","muddle","stun","wound"]
+      },
+      "6": {
+        "hitPoints": 21,
+        "movement": 4,
+        "attack": 6,
+        "immunities": ["disarm","muddle","stun","wound"]
+      },
+      "7": {
+        "hitPoints": 25,
+        "movement": 4,
+        "attack": 6,
+        "immunities": ["disarm","muddle","stun","wound"]
+      }
+    }
+  },
+  {
     "key": "caveBear",
     "name": "Cave Bear",
     "abilityDeckKey": "caveBear",

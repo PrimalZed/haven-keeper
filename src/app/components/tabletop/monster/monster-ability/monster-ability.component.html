@@ -156,6 +156,7 @@
     <div class="card-content-sm" [ngSwitch]="$any(ability).target">
       <span *ngSwitchCase="'self'" i18n="@@self">Self</span>
       <span *ngSwitchCase="'adjacent'">Affect all adjacent allies</span>
+      <span *ngSwitchCase="'all'">Affect self and all allies</span>
     </div>
     <div *ngIf="$any(ability).elementEnhancements">
       <div *ngFor="let enhancement of $any(ability).elementEnhancements | keyvalue" style="display: flex; align-items: center; gap: 0.25em;">
