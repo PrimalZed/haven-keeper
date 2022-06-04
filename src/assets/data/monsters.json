@@ -1333,6 +1333,73 @@
     }
   },
   {
+    "key": "darkRider",
+    "kind": "boss",
+    "name": "Dark Rider",
+    "specials": {
+      "1": [
+        { "kind": "move", "modifier": 2 },
+        { "kind": "attack", "modifier": 0 }
+      ],
+      "2": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "other", "description": "Summon Imp"},
+        { "kind": "attack", "modifier": -1 }
+      ]
+    },
+    "notes": "X = Hexes moved",
+    "levels": {
+      "0": {
+        "hitPoints": 9,
+        "movement": 2,
+        "attack": "3+X",
+        "immunities": ["disarm","immobilize","poison","stun"]
+      },
+      "1": {
+        "hitPoints": 10,
+        "movement": 3,
+        "attack": "3+X",
+        "immunities": ["disarm","immobilize","poison","stun"]
+      },
+      "2": {
+        "hitPoints": 12,
+        "movement": 3,
+        "attack": "4+X",
+        "immunities": ["disarm","immobilize","poison","stun"]
+      },
+      "3": {
+        "hitPoints": 13,
+        "movement": 3,
+        "attack": "4+X",
+        "immunities": ["disarm","immobilize","poison","stun"]
+      },
+      "4": {
+        "hitPoints": 14,
+        "movement": 3,
+        "attack": "4+X",
+        "immunities": ["disarm","immobilize","poison","stun"]
+      },
+      "5": {
+        "hitPoints": 16,
+        "movement": 3,
+        "attack": "5+X",
+        "immunities": ["disarm","immobilize","poison","stun"]
+      },
+      "6": {
+        "hitPoints": 16,
+        "movement": 4,
+        "attack": "5+X",
+        "immunities": ["disarm","immobilize","poison","stun"]
+      },
+      "7": {
+        "hitPoints": 18,
+        "movement": 4,
+        "attack": "6+X",
+        "immunities": ["disarm","immobilize","poison","stun"]
+      }
+    }
+  },
+  {
     "key": "deepTerror",
     "name": "Deep Terror",
     "abilityDeckKey": "deepTerror",

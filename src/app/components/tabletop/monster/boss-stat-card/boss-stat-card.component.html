@@ -1,20 +1,19 @@
 <div *ngIf="level$ | async as level" class="stat-card">
   <div class="bonuses">
     <bonuses [bonuses]="level.bonuses" [attackEffects]="level.attackEffects" [immunities]="level.immunities"></bonuses>
-    <ng-container>
-      <div style="display: grid; column-gap: 0.25em; grid-template-columns: auto auto;">
-        <div>1:</div>
-        <div style="display: flex; flex-direction: column; align-items: center;">
-          <monster-ability *ngFor="let ability of statCard.specials[1]" [ability]="ability"></monster-ability>
-        </div>
-        <div>2:</div>
-        <div>
-          <monster-ability *ngFor="let ability of statCard.specials[2]" [ability]="ability"></monster-ability>
-        </div>
+    <div style="display: grid; column-gap: 0.25em; grid-template-columns: auto auto;">
+      <div>1:</div>
+      <div>
+        <monster-ability *ngFor="let ability of statCard.specials[1]" [ability]="ability"></monster-ability>
       </div>
-    </ng-container>
+      <div>2:</div>
+      <div>
+        <monster-ability *ngFor="let ability of statCard.specials[2]" [ability]="ability"></monster-ability>
+      </div>
+    </div>
+    <div *ngIf="statCard.notes">{{ statCard.notes }}</div>
   </div>
-  <div class="stat">{{ level.hitPoints }} x C</div>
+  <div class="stat">{{ level.hitPoints }}×C</div>
   <div title="Hit Points" i18n-title="@@hitPoints" class="stat-icon gloomhaven-ability-icons">H</div>
 
   <div class="stat">{{ level.movement }}</div>

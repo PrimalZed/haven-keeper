@@ -24,6 +24,7 @@ interface MonsterBase {
 export interface BossStatCard extends MonsterBase {
   kind: 'boss';
   specials: { 1: MonsterAbility[]; 2: MonsterAbility[]; };
+  notes?: string;
 }
 
 export interface NormalMonsterStatCard extends MonsterBase {
