@@ -2478,6 +2478,72 @@
     }
   },
   {
+    "key": "jekserah",
+    "kind": "boss",
+    "name": "Jekserah",
+    "specials": {
+      "1": [
+        { "kind": "other", "description": "Summon Living Bones" },
+        { "kind": "attack", "modifier": -1, "target": "adjacent" }
+      ],
+      "2": [
+        { "kind": "other", "description": "Summon Living Corpse"},
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 2 }
+      ]
+    },
+    "levels": {
+      "0": {
+        "hitPoints": 6,
+        "movement": 2,
+        "attack": 2,
+        "immunities": ["curse","disarm","stun","wound"]
+      },
+      "1": {
+        "hitPoints": 7,
+        "movement": 2,
+        "attack": 3,
+        "immunities": ["curse","disarm","stun","wound"]
+      },
+      "2": {
+        "hitPoints": 9,
+        "movement": 3,
+        "attack": 3,
+        "immunities": ["curse","disarm","stun","wound"]
+      },
+      "3": {
+        "hitPoints": 12,
+        "movement": 4,
+        "attack": 4,
+        "immunities": ["disarm","muddle","stun","wound"]
+      },
+      "4": {
+        "hitPoints": 13,
+        "movement": 4,
+        "attack": 5,
+        "immunities": ["curse","disarm","stun","wound"]
+      },
+      "5": {
+        "hitPoints": 15,
+        "movement": 5,
+        "attack": 5,
+        "immunities": ["curse","disarm","stun","wound"]
+      },
+      "6": {
+        "hitPoints": 18,
+        "movement": 5,
+        "attack": 5,
+        "immunities": ["curse","disarm","stun","wound"]
+      },
+      "7": {
+        "hitPoints": 22,
+        "movement": 5,
+        "attack": 5,
+        "immunities": ["curse","disarm","stun","wound"]
+      }
+    }
+  },
+  {
     "key": "livingBones",
     "kind": "normal",
     "name": "Living Bones",
