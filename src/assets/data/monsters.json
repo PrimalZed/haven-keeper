@@ -3854,6 +3854,175 @@
     }
   },
   {
+    "key": "primeDemon",
+    "name": "Prime Demon",
+    "kind": "boss",
+    "levels": {
+      "0": {
+        "hitPoints": 8,
+        "movement": 3,
+        "attack": 4,
+        "immunities": ["disarm","immobilize","muddle","poison","stun","wound"]
+      },
+      "1": {
+        "hitPoints": 9,
+        "movement": 4,
+        "attack": 4,
+        "immunities": ["disarm","immobilize","muddle","poison","stun","wound"]
+      },
+      "2": {
+        "hitPoints": 10,
+        "movement": 4,
+        "attack": 5,
+        "immunities": ["disarm","immobilize","muddle","poison","stun","wound"]
+      },
+      "3": {
+        "hitPoints": 12,
+        "movement": 4,
+        "attack": 6,
+        "immunities": ["disarm","immobilize","muddle","poison","stun","wound"]
+      },
+      "4": {
+        "hitPoints": 14,
+        "movement": 5,
+        "attack": 6,
+        "immunities": ["disarm","immobilize","muddle","poison","stun","wound"]
+      },
+      "5": {
+        "hitPoints": 16,
+        "movement": 5,
+        "attack": 7,
+        "immunities": ["disarm","immobilize","muddle","poison","stun","wound"]
+      },
+      "6": {
+        "hitPoints": 20,
+        "movement": 5,
+        "attack": 7,
+        "immunities": ["disarm","immobilize","muddle","poison","stun","wound"]
+      },
+      "7": {
+        "hitPoints": 22,
+        "movement": 5,
+        "attack": 8,
+        "immunities": ["disarm","immobilize","muddle","poison","stun","wound"]
+      }
+    },
+    "specialLevels": {
+      "0": {
+        "1": [
+          { "kind": "other", "description": "Throne moves" },
+          { "kind": "other", "description": "Summon Demon" },
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": -1 }
+        ],
+        "2": [
+          { "kind": "other", "description": "Throne moves" },
+          { "kind": "other", "description": "Summon Demon" },
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": -1 }
+        ]
+      },
+      "1": {
+        "1": [
+          { "kind": "other", "description": "Throne moves" },
+          { "kind": "other", "description": "Summon Demon" },
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": -1 }
+        ],
+        "2": [
+          { "kind": "other", "description": "Throne moves" },
+          { "kind": "other", "description": "Summon Demon" },
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": -1 }
+        ]
+      },
+      "2": {
+        "1": [
+          { "kind": "other", "description": "Throne moves" },
+          { "kind": "other", "description": "Summon Demon" },
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": -1 }
+        ],
+        "2": [
+          { "kind": "other", "description": "Throne moves" },
+          { "kind": "other", "description": "Summon Demon" },
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": -1 }
+        ]
+      },
+      "3": {
+        "1": [
+          { "kind": "other", "description": "Throne moves" },
+          { "kind": "other", "description": "Summon Demon" },
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": -1 }
+        ],
+        "2": [
+          { "kind": "other", "description": "Throne moves" },
+          { "kind": "other", "description": "Summon Demon" },
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": -1 }
+        ]
+      },
+      "4": {
+        "1": [
+          { "kind": "other", "description": "Throne moves" },
+          { "kind": "other", "description": "Summon Demon" },
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": -1 }
+        ],
+        "2": [
+          { "kind": "other", "description": "Throne moves" },
+          { "kind": "other", "description": "Summon Demon" },
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": -1 }
+        ]
+      },
+      "5": {
+        "1": [
+          { "kind": "other", "description": "Throne moves" },
+          { "kind": "other", "description": "Summon Demon" },
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": -1 }
+        ],
+        "2": [
+          { "kind": "other", "description": "Throne moves" },
+          { "kind": "other", "description": "Summon Demon" },
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": -1 }
+        ]
+      },
+      "6": {
+        "1": [
+          { "kind": "other", "description": "Throne moves" },
+          { "kind": "other", "description": "Summon Demon" },
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": -1 }
+        ],
+        "2": [
+          { "kind": "other", "description": "Throne moves" },
+          { "kind": "other", "description": "Summon Demon" },
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": -1 }
+        ]
+      },
+      "7": {
+        "1": [
+          { "kind": "other", "description": "Throne moves" },
+          { "kind": "other", "description": "Summon Demon" },
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": -1 }
+        ],
+        "2": [
+          { "kind": "other", "description": "Throne moves" },
+          { "kind": "other", "description": "Summon Demon" },
+          { "kind": "move", "modifier": 2 },
+          { "kind": "attack", "modifier": -1 }
+        ]
+      }
+    }
+  },
+  {
     "key": "rendingDrake",
     "name": "Rending Drake",
     "abilityDeckKey": "rendingDrake",
