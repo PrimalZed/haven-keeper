@@ -2048,5 +2048,81 @@
         { "kind": "attack", "modifier": 0, "range": 4 }
       ]
     }
+  ],
+  "stoneGolem": [
+    {
+      "id": 740,
+      "name": "Stone Golem",
+      "initiative": 11,
+      "abilities": [
+        { "kind": "bonus", "bonus": "retaliate", "amount": 3 }
+      ]
+    },
+    {
+      "id": 741,
+      "name": "Stone Golem",
+      "initiative": 28,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": 0 },
+        { "kind": "other", "description": "Stone Gloem suffers 1 damage."}
+      ]
+    },
+    {
+      "id": 742,
+      "name": "Stone Golem",
+      "initiative": 51,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -1 }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 743,
+      "name": "Stone Golem",
+      "initiative": 65,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0 }
+      ]
+    },
+    {
+      "id": 744,
+      "name": "Stone Golem",
+      "initiative": 72,
+      "abilities": [
+        { "kind": "attack", "modifier": 1, "range": 3 },
+        { "kind": "other", "description": "Stone Golem suffers 2 damage." }
+      ]
+    },
+    {
+      "id": 745,
+      "name": "Stone Golem",
+      "initiative": 90,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1 }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 746,
+      "name": "Stone Golem",
+      "initiative": 83,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1, "target": "adjacent" }
+      ]
+    },
+    {
+      "id": 747,
+      "name": "Stone Golem",
+      "initiative": 28,
+      "abilities": [
+        { "kind": "move", "modifier": 1 },
+        { "kind": "attack", "modifier": -2, "range": 3, "effects": [{ "kind": "effect", "effect": "pull", "amount": 2 }, { "kind": "condition", "condition": "immobilize" }] }
+      ]
+    }
   ]
 }

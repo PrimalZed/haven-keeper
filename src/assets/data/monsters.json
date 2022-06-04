@@ -3714,6 +3714,141 @@
     }
   },
   {
+    "key": "stoneGolem",
+    "name": "Stone Golem",
+    "abilityDeckKey": "stoneGolem",
+    "kind": "normal",
+    "levels": {
+      "0": {
+        "hitPoints": 10,
+        "movement": 1,
+        "attack": 3
+      },
+      "1": {
+        "hitPoints": 10,
+        "movement": 1,
+        "attack": 3,
+        "bonuses": {
+          "shield": 1
+        }
+      },
+      "2": {
+        "hitPoints": 11,
+        "movement": 1,
+        "attack": 4,
+        "bonuses": {
+          "shield": 1
+        }
+      },
+      "3": {
+        "hitPoints": 11,
+        "movement": 1,
+        "attack": 4,
+        "bonuses": {
+          "shield": 2
+        }
+      },
+      "4": {
+        "hitPoints": 12,
+        "movement": 2,
+        "attack": 4,
+        "bonuses": {
+          "shield": 2
+        }
+      },
+      "5": {
+        "hitPoints": 13,
+        "movement": 2,
+        "attack": 5,
+        "bonuses": {
+          "shield": 2
+        }
+      },
+      "6": {
+        "hitPoints": 16,
+        "movement": 2,
+        "attack": 5,
+        "bonuses": {
+          "shield": 2
+        }
+      },
+      "7": {
+        "hitPoints": 16,
+        "movement": 2,
+        "attack": 5,
+        "bonuses": {
+          "shield": 3
+        }
+      }
+    },
+    "eliteLevels": {
+      "0": {
+        "hitPoints": 10,
+        "movement": 2,
+        "attack": 4,
+        "bonuses": {
+          "shield": 1
+        }
+      },
+      "1": {
+        "hitPoints": 11,
+        "movement": 2,
+        "attack": 4,
+        "bonuses": {
+          "shield": 2
+        }
+      },
+      "2": {
+        "hitPoints": 14,
+        "movement": 2,
+        "attack": 5,
+        "bonuses": {
+          "shield": 2
+        }
+      },
+      "3": {
+        "hitPoints": 15,
+        "movement": 2,
+        "attack": 5,
+        "bonuses": {
+          "shield": 3
+        }
+      },
+      "4": {
+        "hitPoints": 17,
+        "movement": 2,
+        "attack": 6,
+        "bonuses": {
+          "shield": 3
+        }
+      },
+      "5": {
+        "hitPoints": 19,
+        "movement": 3,
+        "attack": 6,
+        "bonuses": {
+          "shield": 3
+        }
+      },
+      "6": {
+        "hitPoints": 20,
+        "movement": 3,
+        "attack": 7,
+        "bonuses": {
+          "shield": 3
+        }
+      },
+      "7": {
+        "hitPoints": 21,
+        "movement": 3,
+        "attack": 7,
+        "bonuses": {
+          "shield": 4
+        }
+      }
+    }
+  },
+  {
     "key": "vermlingScout",
     "kind": "normal",
     "name": "Vermling Scout",
