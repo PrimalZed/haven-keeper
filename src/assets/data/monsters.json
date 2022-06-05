@@ -970,6 +970,103 @@
     }
   },
   {
+    "key": "betrayer",
+    "name": "The Betrayer",
+    "kind": "boss",
+    "levels": {
+      "0": {
+        "hitPoints": 10,
+        "movement": 3,
+        "attack": 4,
+        "range": 3,
+        "immunities": ["curse","disarm","poison","stun","wound"]
+      },
+      "1": {
+        "hitPoints": 12,
+        "movement": 3,
+        "attack": 5,
+        "range": 3,
+        "immunities": ["curse","disarm","poison","stun","wound"]
+      },
+      "2": {
+        "hitPoints": 12,
+        "movement": 3,
+        "attack": 6,
+        "range": 4,
+        "immunities": ["curse","disarm","poison","stun","wound"]
+      },
+      "3": {
+        "hitPoints": 16,
+        "movement": 4,
+        "attack": 7,
+        "range": 4,
+        "immunities": ["curse","disarm","poison","stun","wound"]
+      },
+      "4": {
+        "hitPoints": 18,
+        "movement": 4,
+        "attack": 8,
+        "range": 4,
+        "immunities": ["curse","disarm","poison","stun","wound"]
+      },
+      "5": {
+        "hitPoints": 20,
+        "movement": 5,
+        "attack": 8,
+        "range": 5,
+        "immunities": ["curse","disarm","poison","stun","wound"]
+      },
+      "6": {
+        "hitPoints": 23,
+        "movement": 5,
+        "attack": 9,
+        "range": 5,
+        "immunities": ["curse","disarm","poison","stun","wound"]
+      },
+      "7": {
+        "hitPoints": 27,
+        "movement": 5,
+        "attack": 9,
+        "range": 5,
+        "immunities": ["curse","disarm","poison","stun","wound"]
+      }
+    },
+    "specialLevels": {
+      "0": {
+        "1": [{ "kind": "other", "description": "Summon Giant Viper and Fear" }],
+        "2": [{ "kind": "other", "description": "Mind Control" }]
+      },
+      "1": {
+        "1": [{ "kind": "other", "description": "Summon Giant Viper and Fear" }],
+        "2": [{ "kind": "other", "description": "Mind Control" }]
+      },
+      "2": {
+        "1": [{ "kind": "other", "description": "Summon Giant Viper and Fear" }],
+        "2": [{ "kind": "other", "description": "Mind Control" }]
+      },
+      "3": {
+        "1": [{ "kind": "other", "description": "Summon Giant Viper and Fear" }],
+        "2": [{ "kind": "other", "description": "Mind Control" }]
+      },
+      "4": {
+        "1": [{ "kind": "other", "description": "Summon Giant Viper and Fear" }],
+        "2": [{ "kind": "other", "description": "Mind Control" }]
+      },
+      "5": {
+        "1": [{ "kind": "other", "description": "Summon Giant Viper and Fear" }],
+        "2": [{ "kind": "other", "description": "Mind Control" }]
+      },
+      "6": {
+        "1": [{ "kind": "other", "description": "Summon Giant Viper and Fear" }],
+        "2": [{ "kind": "other", "description": "Mind Control" }]
+      },
+      "7": {
+        "1": [{ "kind": "other", "description": "Summon Giant Viper and Fear" }],
+        "2": [{ "kind": "other", "description": "Mind Control" }]
+      }
+    }
+  },
+  {
     "key": "blackImp",
     "kind": "normal",
     "name": "Black Imp",
