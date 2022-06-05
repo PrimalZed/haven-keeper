@@ -2616,6 +2616,143 @@
     }
   },
   {
+    "key": "gloom",
+    "name": "The Gloom",
+    "kind": "boss",
+    "levels": {
+      "0": {
+        "hitPoints": 20,
+        "movement": 2,
+        "attack": 5,
+        "immunities": ["curse","disarm","immobilize","muddle","poison","stun","wound"]
+      },
+      "1": {
+        "hitPoints": 25,
+        "movement": 2,
+        "attack": 5,
+        "immunities": ["curse","muddle","poison","stun","wound"]
+      },
+      "2": {
+        "hitPoints": 29,
+        "movement": 2,
+        "attack": 6,
+        "immunities": ["curse","muddle","poison","stun","wound"]
+      },
+      "3": {
+        "hitPoints": 35,
+        "movement": 2,
+        "attack": 6,
+        "immunities": ["curse","muddle","poison","stun","wound"]
+      },
+      "4": {
+        "hitPoints": 39,
+        "movement": 3,
+        "attack": 7,
+        "immunities": ["curse","muddle","poison","stun","wound"]
+      },
+      "5": {
+        "hitPoints": 46,
+        "movement": 3,
+        "attack": 7,
+        "immunities": ["curse","muddle","poison","stun","wound"]
+      },
+      "6": {
+        "hitPoints": 50,
+        "movement": 3,
+        "attack": 8,
+        "immunities": ["curse","muddle","poison","stun","wound"]
+      },
+      "7": {
+        "hitPoints": 56,
+        "movement": 3,
+        "attack": 9,
+        "immunities": ["curse","muddle","poison","stun","wound"]
+      }
+    },
+    "specialLevels": {
+      "0": {
+        "1": [
+          { "kind": "move", "modifier": 9 },
+          { "kind": "attack", "modifier": 9 }
+        ],
+        "2": [
+          { "kind": "other", "description": "Teleport" },
+          { "kind": "attack", "modifier": 1, "range": 5, "effects": [{ "kind": "condition", "condition": "poison" }, { "kind": "condition", "condition": "wound" }, { "kind": "condition", "condition": "stun" }]}
+        ]
+      },
+      "1": {
+        "1": [
+          { "kind": "move", "modifier": 9 },
+          { "kind": "attack", "modifier": 9 }
+        ],
+        "2": [
+          { "kind": "other", "description": "Teleport" },
+          { "kind": "attack", "modifier": 1, "range": 5, "effects": [{ "kind": "condition", "condition": "poison" }, { "kind": "condition", "condition": "wound" }, { "kind": "condition", "condition": "stun" }]}
+        ]
+      },
+      "2": {
+        "1": [
+          { "kind": "move", "modifier": 9 },
+          { "kind": "attack", "modifier": 9 }
+        ],
+        "2": [
+          { "kind": "other", "description": "Teleport" },
+          { "kind": "attack", "modifier": 1, "range": 5, "effects": [{ "kind": "condition", "condition": "poison" }, { "kind": "condition", "condition": "wound" }, { "kind": "condition", "condition": "stun" }]}
+        ]
+      },
+      "3": {
+        "1": [
+          { "kind": "move", "modifier": 9 },
+          { "kind": "attack", "modifier": 9 }
+        ],
+        "2": [
+          { "kind": "other", "description": "Teleport" },
+          { "kind": "attack", "modifier": 1, "range": 5, "effects": [{ "kind": "condition", "condition": "poison" }, { "kind": "condition", "condition": "wound" }, { "kind": "condition", "condition": "stun" }]}
+        ]
+      },
+      "4": {
+        "1": [
+          { "kind": "move", "modifier": 9 },
+          { "kind": "attack", "modifier": 9 }
+        ],
+        "2": [
+          { "kind": "other", "description": "Teleport" },
+          { "kind": "attack", "modifier": 1, "range": 5, "effects": [{ "kind": "condition", "condition": "poison" }, { "kind": "condition", "condition": "wound" }, { "kind": "condition", "condition": "stun" }]}
+        ]
+      },
+      "5": {
+        "1": [
+          { "kind": "move", "modifier": 9 },
+          { "kind": "attack", "modifier": 9 }
+        ],
+        "2": [
+          { "kind": "other", "description": "Teleport" },
+          { "kind": "attack", "modifier": 1, "range": 5, "effects": [{ "kind": "condition", "condition": "poison" }, { "kind": "condition", "condition": "wound" }, { "kind": "condition", "condition": "stun" }]}
+        ]
+      },
+      "6": {
+        "1": [
+          { "kind": "move", "modifier": 9 },
+          { "kind": "attack", "modifier": 9 }
+        ],
+        "2": [
+          { "kind": "other", "description": "Teleport" },
+          { "kind": "attack", "modifier": 1, "range": 5, "effects": [{ "kind": "condition", "condition": "poison" }, { "kind": "condition", "condition": "wound" }, { "kind": "condition", "condition": "stun" }]}
+        ]
+      },
+      "7": {
+        "1": [
+          { "kind": "move", "modifier": 9 },
+          { "kind": "attack", "modifier": 9 }
+        ],
+        "2": [
+          { "kind": "other", "description": "Teleport" },
+          { "kind": "attack", "modifier": 1, "range": 5, "effects": [{ "kind": "condition", "condition": "poison" }, { "kind": "condition", "condition": "wound" }, { "kind": "condition", "condition": "stun" }]}
+        ]
+      }
+    }
+  },
+  {
     "key": "harrowerInfester",
     "name": "Harrower Infester",
     "abilityDeckKey": "harrowerInfester",
