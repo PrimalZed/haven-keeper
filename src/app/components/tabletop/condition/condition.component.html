@@ -69,6 +69,12 @@
     </ng-container>
     <img [class]="size" src="assets/images/conditions/poison.svg">
   </ng-container>
+  <ng-container *ngSwitchCase="'pull'">
+    <img [class]="size" src="assets/images/conditions/pull-fh.svg">
+  </ng-container>
+  <ng-container *ngSwitchCase="'push'">
+    <img [class]="size" src="assets/images/conditions/push-fh.svg">
+  </ng-container>
   <ng-container *ngSwitchCase="'regenerate'">
     <ng-container *ngIf="showLabel">
       <span i18n="@@regenerate">REGENERATE</span>

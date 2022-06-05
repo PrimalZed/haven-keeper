@@ -4795,6 +4795,151 @@
     }
   },
   {
+    "key": "sightlessEye",
+    "name": "The Sightless Eye",
+    "kind": "boss",
+    "levels": {
+      "0": {
+        "hitPoints": 7,
+        "movement": 0,
+        "attack": 5,
+        "range": 3,
+        "immunities": ["curse","disarm","muddle","stun","push","pull"]
+      },
+      "1": {
+        "hitPoints": 8,
+        "movement": 0,
+        "attack": 6,
+        "range": 3,
+        "immunities": ["curse","disarm","muddle","stun","push","pull"]
+      },
+      "2": {
+        "hitPoints": 10,
+        "movement": 0,
+        "attack": 6,
+        "range": 3,
+        "immunities": ["curse","disarm","muddle","stun","push","pull"]
+      },
+      "3": {
+        "hitPoints": 11,
+        "movement": 0,
+        "attack": 7,
+        "range": 3,
+        "immunities": ["curse","disarm","muddle","stun","push","pull"]
+      },
+      "4": {
+        "hitPoints": 14,
+        "movement": 0,
+        "attack": 7,
+        "range": 3,
+        "immunities": ["curse","disarm","muddle","stun","push","pull"]
+      },
+      "5": {
+        "hitPoints": 15,
+        "movement": 0,
+        "attack": 8,
+        "range": 3,
+        "immunities": ["curse","disarm","muddle","stun","push","pull"]
+      },
+      "6": {
+        "hitPoints": 18,
+        "movement": 0,
+        "attack": 8,
+        "range": 3,
+        "immunities": ["curse","disarm","muddle","stun","push","pull"]
+      },
+      "7": {
+        "hitPoints": 20,
+        "movement": 0,
+        "attack": 9,
+        "range": 3,
+        "immunities": ["curse","disarm","muddle","stun","push","pull"]
+      }
+    },
+    "specialLevels": {
+      "0": {
+        "1": [
+          { "kind": "other", "description": "Summon Deep Terror" },
+          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "origin": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Deep Terror" },
+          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "origin": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 2 }, { "length": 1, "offset": 2 }]}
+        ]
+      },
+      "1": {
+        "1": [
+          { "kind": "other", "description": "Summon Deep Terror" },
+          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "origin": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Deep Terror" },
+          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "origin": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 2 }, { "length": 1, "offset": 2 }]}
+        ]
+      },
+      "2": {
+        "1": [
+          { "kind": "other", "description": "Summon Deep Terror" },
+          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "origin": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Deep Terror" },
+          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "origin": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 2 }, { "length": 1, "offset": 2 }]}
+        ]
+      },
+      "3": {
+        "1": [
+          { "kind": "other", "description": "Summon Deep Terror" },
+          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "origin": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Deep Terror" },
+          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "origin": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 2 }, { "length": 1, "offset": 2 }]}
+        ]
+      },
+      "4": {
+        "1": [
+          { "kind": "other", "description": "Summon Deep Terror" },
+          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "origin": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Deep Terror" },
+          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "origin": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 2 }, { "length": 1, "offset": 2 }]}
+        ]
+      },
+      "5": {
+        "1": [
+          { "kind": "other", "description": "Summon Deep Terror" },
+          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "origin": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Deep Terror" },
+          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "origin": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 2 }, { "length": 1, "offset": 2 }]}
+        ]
+      },
+      "6": {
+        "1": [
+          { "kind": "other", "description": "Summon Deep Terror" },
+          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "origin": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Deep Terror" },
+          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "origin": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 2 }, { "length": 1, "offset": 2 }]}
+        ]
+      },
+      "7": {
+        "1": [
+          { "kind": "other", "description": "Summon Deep Terror" },
+          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "origin": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Deep Terror" },
+          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "origin": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 2 }, { "length": 1, "offset": 2 }]}
+        ]
+      }
+    }
+  },
+  {
     "key": "spittingDrake",
     "name": "Spitting Drake",
     "abilityDeckKey": "spittingDrake",
