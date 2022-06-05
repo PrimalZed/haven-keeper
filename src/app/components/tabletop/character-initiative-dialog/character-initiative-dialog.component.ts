@@ -16,7 +16,7 @@ export class CharacterInitiativeDialogComponent {
   public characters$ = this.store.select(selectCharacters)
     .pipe(
       map((characters) => characters
-        .filter((character) => character.hitPoints)
+        .filter((character) => character.figures.some(x => x.hitPoints))
       )
     );
 

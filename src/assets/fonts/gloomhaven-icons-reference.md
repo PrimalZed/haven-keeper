@@ -21,6 +21,25 @@
 
 Missing: spent
 
+# Characters
+* A: Brute
+* B: Tinkerer
+* C: Spellweaver
+* D: Scoundrel
+* E: Cragheart
+* F: Mindthief
+* G: Sun
+* H: Spears
+* I: Circles
+* J: Eclpise
+* K: Squidface
+* L: Lightning Bolt
+* M: Music Notes
+* N: Angry Face
+* O: Saw
+* P: Triforce
+* Q: Two Minis
+
 # Conditions
 * B: bless
 * C: curse

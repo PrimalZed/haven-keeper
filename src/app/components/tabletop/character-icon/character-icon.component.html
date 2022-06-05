@@ -1,10 +1,19 @@
-<span class="gloomhaven-character-icons" [style.font-size]="size === 'lg' ? '3rem' : '2.5rem'">
-  <ng-container [ngSwitch]="key">
-    <ng-container *ngSwitchCase="'brute'">A</ng-container>
-    <ng-container *ngSwitchCase="'cragheart'">E</ng-container>
-    <ng-container *ngSwitchCase="'mindthief'">F</ng-container>
-    <ng-container *ngSwitchCase="'scoundrel'">D</ng-container>
-    <ng-container *ngSwitchCase="'spellweaver'">C</ng-container>
-    <ng-container *ngSwitchCase="'tinkerer'">B</ng-container>
-  </ng-container>
+<span [ngSwitch]="key" class="gloomhaven-character-icons" [style.font-size]="size === 'lg' ? '3rem' : '2.5rem'">
+  <ng-container *ngSwitchCase="'brute'">A</ng-container>
+  <ng-container *ngSwitchCase="'cragheart'">E</ng-container>
+  <ng-container *ngSwitchCase="'mindthief'">F</ng-container>
+  <ng-container *ngSwitchCase="'scoundrel'">D</ng-container>
+  <ng-container *ngSwitchCase="'spellweaver'">C</ng-container>
+  <ng-container *ngSwitchCase="'tinkerer'">B</ng-container>
+  <ng-container *ngSwitchCase="'angryFace'">N</ng-container>
+  <ng-container *ngSwitchCase="'circles'">I</ng-container>
+  <ng-container *ngSwitchCase="'eclipse'">J</ng-container>
+  <ng-container *ngSwitchCase="'lightningBolt'">L</ng-container>
+  <ng-container *ngSwitchCase="'musicNotes'">M</ng-container>
+  <ng-container *ngSwitchCase="'saw'">O</ng-container>
+  <ng-container *ngSwitchCase="'spears'">H</ng-container>
+  <ng-container *ngSwitchCase="'squidFace'">K</ng-container>
+  <ng-container *ngSwitchCase="'sun'">G</ng-container>
+  <ng-container *ngSwitchCase="'triforce'">P</ng-container>
+  <ng-container *ngSwitchCase="'twoMinis'">Q</ng-container>
 </span>

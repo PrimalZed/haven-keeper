@@ -44,7 +44,7 @@ export class FigureDialogComponent {
         }
     }
   })();
-  public figure: Character | MonsterStandee = this.data.figure;
+  public figure: { key: string, index: number, hitPoints: number, conditions: ConditionKey[] } | MonsterStandee = this.data.figure;
   public conditions: { key: ConditionKey, active: boolean }[] = conditions
     .filter((key) => !['bless', 'curse'].includes(key))
     .map((key) => ({
@@ -56,7 +56,7 @@ export class FigureDialogComponent {
     private dialogRef: MatDialogRef<FigureDialogComponent>,
     @Inject(MAT_DIALOG_DATA) private data: {
       maxHitPoints: number,
-    } & ({ kind: 'character', figure: Character } | { kind: 'monster', statCard: MonsterStatCard, figure: MonsterStandee }),
+    } & ({ kind: 'character', figure: { key: string, index: number, hitPoints: number, conditions: ConditionKey[] } } | { kind: 'monster', statCard: MonsterStatCard, figure: MonsterStandee }),
     private tabletopService: TabletopService
   ) { }
 
@@ -75,7 +75,7 @@ export class FigureDialogComponent {
 
     switch (this.data.kind) {
       case 'character':
-        this.tabletopService.dispatch(updateCharacter({ key: this.key, ...updateStatsProps }));
+        this.tabletopService.dispatch(updateCharacter({ key: this.key, index: this.data.figure.index, ...updateStatsProps }));
         break;
       case 'monster':
         this.tabletopService.dispatch(updateMonsterStandee({ key: this.key, id: this.data.figure.id, ...updateStatsProps }));

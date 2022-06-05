@@ -27,6 +27,10 @@ export function getMonsterAbilityDecksOns() {
     on<TabletopState, [typeof undoDrawMonsterAbilityCards]>(undoDrawMonsterAbilityCards, (state, { abilityCardIds }) => ({
       ...state,
       step: 'card-selection',
+      characters: charactersAdapter.map((character) => ({
+        ...character,
+        initiative: null
+      }), state.characters),
       monsterAbilityDecks: monsterAbilityDecksAdapter.map((monsterAbilityDeck) => ({
         ...monsterAbilityDeck,
         currentAbilityCardId: abilityCardIds[monsterAbilityDeck.key]

@@ -14,12 +14,12 @@ export const undoAddCharacter = createAction(
 
 export const updateCharacter = createAction(
   "[Tabletop] [Characters] Update Character",
-  props<{ key: string, hitPoints: number, conditions: ConditionKey[] }>()
+  props<{ key: string, index: number, hitPoints: number, conditions: ConditionKey[] }>()
 );
 
 export const undoUpdateCharacter = createAction(
   "[Tabletop] [Characters] Undo Update Character",
-  props<{ key: string, previousHitPoints: number, previousConditions: ConditionKey[] }>()
+  props<{ key: string, index: number, previousHitPoints: number, previousConditions: ConditionKey[] }>()
 );
 
 export const CharactersActions = [

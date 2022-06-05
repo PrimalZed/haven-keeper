@@ -2,7 +2,7 @@
 <form #characterInitiativeNgForm="ngForm" (ngSubmit)="submit(characterInitiativeNgForm.form)">
   <mat-dialog-content>
     <div *ngFor="let character of characters$ | async">
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field appearance="fill" style="width: 100%;">
         <span matPrefix>
           <character-icon [key]="character.key"></character-icon>
           <span class="horizontal-spacer">&nbsp;</span>

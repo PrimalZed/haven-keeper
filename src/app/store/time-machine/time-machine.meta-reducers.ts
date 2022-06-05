@@ -73,8 +73,9 @@ function getReverseAction(state: AppState, action: ReversibleAction): Action {
       const updateCharacterTarget = state.tabletop.characters.entities[action.key];
       return undoUpdateCharacter({
         key: action.key,
-        previousHitPoints: updateCharacterTarget?.hitPoints ?? 0,
-        previousConditions: updateCharacterTarget?.conditions ?? []
+        index: action.index,
+        previousHitPoints: updateCharacterTarget?.figures[action.index]?.hitPoints ?? 0,
+        previousConditions: updateCharacterTarget?.figures[action.index]?.conditions ?? []
       });
     case addMonster.type:
       return undoAddMonster({ key: action.key });

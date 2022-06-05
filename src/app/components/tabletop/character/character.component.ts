@@ -22,17 +22,21 @@ export class CharacterComponent implements OnDestroy {
       map(({ key }) => this.catalogService.characterEntities[key])
     );
 
-  private openUpdateStatsDialogSubject: Subject<void> = new Subject();
+  private openUpdateStatsDialogSubject: Subject<number> = new Subject();
   private openUpdateStatsDialog$ = this.openUpdateStatsDialogSubject
     .pipe(
       withLatestFrom(this.character$),
-      map(([_, character]) => this.dialog.open(
+      map(([index, character]) => this.dialog.open(
         FigureDialogComponent,
         {
           data: {
-            maxHitPoints: this.catalogService.characterEntities[character.key].hitPoints[character.level],
+            maxHitPoints: this.catalogService.characterEntities[character.key].hitPoints[index][character.level],
             kind: 'character',
-            figure: character
+            figure: {
+              key: character.key,
+              index,
+              ...character.figures[index]
+            }
           }
         }
       ))
@@ -45,8 +49,8 @@ export class CharacterComponent implements OnDestroy {
     private dialog: MatDialog
   ) { }
 
-  openUpdateStatsDialog() {
-    this.openUpdateStatsDialogSubject.next();
+  openUpdateStatsDialog(index: number) {
+    this.openUpdateStatsDialogSubject.next(index);
   }
 
   ngOnDestroy(): void {

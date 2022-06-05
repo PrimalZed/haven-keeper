@@ -11,8 +11,12 @@ export function getCharactersOns(catalogService: CatalogService) {
       characters: charactersAdapter.addOne({
         key,
         level,
-        hitPoints: catalogService.characterEntities[key].hitPoints[level],
-        conditions: [],
+        figures: new Array(catalogService.characterEntities[key].hitPoints.length)
+          .fill(void(0))
+          .map((_, index) => ({
+            hitPoints: catalogService.characterEntities[key].hitPoints[index][level],
+            conditions: []
+          })),
         initiative: null
       }, state.characters)
     })),
@@ -20,29 +24,41 @@ export function getCharactersOns(catalogService: CatalogService) {
       ...state,
       characters: charactersAdapter.removeOne(key, state.characters)
     })),
-    on<TabletopState, [typeof updateCharacter]>(updateCharacter, (state, { key, hitPoints, conditions }) => ({
+    on<TabletopState, [typeof updateCharacter]>(updateCharacter, (state, { key, index, hitPoints, conditions }) => ({
       ...state,
       characters: charactersAdapter.mapOne(
         {
           id: key,
           map: (character) => ({
             ...character,
-            hitPoints,
-            conditions
+            figures: character.figures
+              .map((figure, figureIndex) => figureIndex === index
+                ? ({
+                  hitPoints,
+                  conditions
+                })
+                : figure
+              )
           })
         },
         state.characters
       )
     })),
-    on<TabletopState, [typeof undoUpdateCharacter]>(undoUpdateCharacter, (state, { key, previousHitPoints, previousConditions }) => ({
+    on<TabletopState, [typeof undoUpdateCharacter]>(undoUpdateCharacter, (state, { key, index, previousHitPoints, previousConditions }) => ({
       ...state,
       characters: charactersAdapter.mapOne(
         {
           id: key,
           map: (character) => ({
             ...character,
-            hitPoints: previousHitPoints,
-            conditions: previousConditions
+            figures: character.figures
+              .map((figure, figureIndex) => figureIndex === index
+                ? ({
+                  hitPoints: previousHitPoints,
+                  conditions: previousConditions
+                })
+                : figure
+              )
           })
         },
         state.characters
