@@ -5399,5 +5399,158 @@
         "bonuses": { "shield": 5 }
       }
     }
+  },
+  {
+    "key": "wingedHorror",
+    "name": "Winged Horror",
+    "kind": "boss",
+    "levels": {
+      "0": {
+        "hitPoints": 6,
+        "movement": 3,
+        "attack": 3,
+        "immunities": ["curse","disarm","muddle","poison","stun"]
+      },
+      "1": {
+        "hitPoints": 7,
+        "movement": 4,
+        "attack": 3,
+        "immunities": ["curse","disarm","muddle","poison","stun"]
+      },
+      "2": {
+        "hitPoints": 8,
+        "movement": 4,
+        "attack": 4,
+        "immunities": ["curse","disarm","muddle","poison","stun"]
+      },
+      "3": {
+        "hitPoints": 10,
+        "movement": 4,
+        "attack": 4,
+        "immunities": ["curse","disarm","muddle","poison","stun"]
+      },
+      "4": {
+        "hitPoints": 12,
+        "movement": 5,
+        "attack": 4,
+        "immunities": ["curse","disarm","muddle","poison","stun"]
+      },
+      "5": {
+        "hitPoints": 14,
+        "movement": 5,
+        "attack": 5,
+        "immunities": ["curse","disarm","muddle","poison","stun"]
+      },
+      "6": {
+        "hitPoints": 17,
+        "movement": 5,
+        "attack": 5,
+        "immunities": ["curse","disarm","muddle","poison","stun"]
+      },
+      "7": {
+        "hitPoints": 20,
+        "movement": 5,
+        "attack": 5,
+        "immunities": ["curse","disarm","muddle","poison","stun"]
+      }
+    },
+    "specialLevels": {
+      "0": {
+        "1": [
+          { "kind": "attack", "modifier": -1, "target": "adjacent" },
+          { "kind": "attack", "modifier": 0, "range": 3 },
+          { "kind": "other", "description": "Hatch eggs" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon C eggs" },
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": 0 }
+        ]
+      },
+      "1": {
+        "1": [
+          { "kind": "attack", "modifier": -1, "target": "adjacent" },
+          { "kind": "attack", "modifier": 0, "range": 3 },
+          { "kind": "other", "description": "Hatch eggs" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon C eggs" },
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": 0 }
+        ]
+      },
+      "2": {
+        "1": [
+          { "kind": "attack", "modifier": -1, "target": "adjacent" },
+          { "kind": "attack", "modifier": 0, "range": 3 },
+          { "kind": "other", "description": "Hatch eggs" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon C eggs" },
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": 0 }
+        ]
+      },
+      "3": {
+        "1": [
+          { "kind": "attack", "modifier": -1, "target": "adjacent" },
+          { "kind": "attack", "modifier": 0, "range": 3 },
+          { "kind": "other", "description": "Hatch eggs" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon C eggs" },
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": 0 }
+        ]
+      },
+      "4": {
+        "1": [
+          { "kind": "attack", "modifier": -1, "target": "adjacent" },
+          { "kind": "attack", "modifier": 0, "range": 3 },
+          { "kind": "other", "description": "Hatch eggs" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon C eggs" },
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": 0 }
+        ]
+      },
+      "5": {
+        "1": [
+          { "kind": "attack", "modifier": -1, "target": "adjacent" },
+          { "kind": "attack", "modifier": 0, "range": 3 },
+          { "kind": "other", "description": "Hatch eggs" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon C eggs" },
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": 0 }
+        ]
+      },
+      "6": {
+        "1": [
+          { "kind": "attack", "modifier": -1, "target": "adjacent" },
+          { "kind": "attack", "modifier": 0, "range": 3 },
+          { "kind": "other", "description": "Hatch eggs" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon C eggs" },
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": 0 }
+        ]
+      },
+      "7": {
+        "1": [
+          { "kind": "attack", "modifier": -1, "target": "adjacent" },
+          { "kind": "attack", "modifier": 0, "range": 3 },
+          { "kind": "other", "description": "Hatch eggs" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon C eggs" },
+          { "kind": "move", "modifier": -1 },
+          { "kind": "attack", "modifier": 0 }
+        ]
+      }
+    }
   }
 ]
