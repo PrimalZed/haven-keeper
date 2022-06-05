@@ -1413,6 +1413,151 @@
     }
   },
   {
+    "key": "colorless",
+    "name": "The Colorless",
+    "kind": "boss",
+    "levels": {
+      "0": {
+        "hitPoints": 9,
+        "movement": 3,
+        "attack": 2,
+        "immunities": ["curse","muddle","poison","stun","wound"]
+      },
+      "1": {
+        "hitPoints": 10,
+        "movement": 3,
+        "attack": 3,
+        "immunities": ["curse","muddle","poison","stun","wound"]
+      },
+      "2": {
+        "hitPoints": 11,
+        "movement": 4,
+        "attack": 3,
+        "immunities": ["curse","muddle","poison","stun","wound"]
+      },
+      "3": {
+        "hitPoints": 12,
+        "movement": 4,
+        "attack": 4,
+        "immunities": ["curse","muddle","poison","stun","wound"]
+      },
+      "4": {
+        "hitPoints": 14,
+        "movement": 4,
+        "attack": 4,
+        "immunities": ["curse","muddle","poison","stun","wound"]
+      },
+      "5": {
+        "hitPoints": 15,
+        "movement": 4,
+        "attack": 5,
+        "immunities": ["curse","muddle","poison","stun","wound"]
+      },
+      "6": {
+        "hitPoints": 17,
+        "movement": 4,
+        "attack": 6,
+        "immunities": ["curse","muddle","poison","stun","wound"]
+      },
+      "7": {
+        "hitPoints": 19,
+        "movement": 5,
+        "attack": 7,
+        "immunities": ["curse","muddle","poison","stun","wound"]
+      }
+    },
+    "specialLevels": {
+      "0": {
+        "1": [
+          { "kind": "other", "description": "Summon Night Demon", "consumeElement": "dark" },
+          { "kind": "condition", "conditions": ["invisible"], "target": "self" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Sun Demon", "consumeElement": "light" },
+          { "kind": "heal", "amount": 4, "target": "self" },
+          { "kind": "bonus", "bonus": "shield", "amount": 1 }
+        ]
+      },
+      "1": {
+        "1": [
+          { "kind": "other", "description": "Summon Night Demon", "consumeElement": "dark" },
+          { "kind": "condition", "conditions": ["invisible"], "target": "self" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Sun Demon", "consumeElement": "light" },
+          { "kind": "heal", "amount": 4, "target": "self" },
+          { "kind": "bonus", "bonus": "shield", "amount": 1 }
+        ]
+      },
+      "2": {
+        "1": [
+          { "kind": "other", "description": "Summon Night Demon", "consumeElement": "dark" },
+          { "kind": "condition", "conditions": ["invisible"], "target": "self" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Sun Demon", "consumeElement": "light" },
+          { "kind": "heal", "amount": 5, "target": "self" },
+          { "kind": "bonus", "bonus": "shield", "amount": 1 }
+        ]
+      },
+      "3": {
+        "1": [
+          { "kind": "other", "description": "Summon Night Demon", "consumeElement": "dark" },
+          { "kind": "condition", "conditions": ["invisible"], "target": "self" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Sun Demon", "consumeElement": "light" },
+          { "kind": "heal", "amount": 5, "target": "self" },
+          { "kind": "bonus", "bonus": "shield", "amount": 1 }
+        ]
+      },
+      "4": {
+        "1": [
+          { "kind": "other", "description": "Summon Night Demon", "consumeElement": "dark" },
+          { "kind": "condition", "conditions": ["invisible"], "target": "self" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Sun Demon", "consumeElement": "light" },
+          { "kind": "heal", "amount": 6, "target": "self" },
+          { "kind": "bonus", "bonus": "shield", "amount": 1 }
+        ]
+      },
+      "5": {
+        "1": [
+          { "kind": "other", "description": "Summon Night Demon", "consumeElement": "dark" },
+          { "kind": "condition", "conditions": ["invisible"], "target": "self" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Sun Demon", "consumeElement": "light" },
+          { "kind": "heal", "amount": 6, "target": "self" },
+          { "kind": "bonus", "bonus": "shield", "amount": 1 }
+        ]
+      },
+      "6": {
+        "1": [
+          { "kind": "other", "description": "Summon Night Demon", "consumeElement": "dark" },
+          { "kind": "condition", "conditions": ["invisible"], "target": "self" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Sun Demon", "consumeElement": "light" },
+          { "kind": "heal", "amount": 7, "target": "self" },
+          { "kind": "bonus", "bonus": "shield", "amount": 1 }
+        ]
+      },
+      "7": {
+        "1": [
+          { "kind": "other", "description": "Summon Night Demon", "consumeElement": "dark" },
+          { "kind": "condition", "conditions": ["invisible"], "target": "self" }
+        ],
+        "2": [
+          { "kind": "other", "description": "Summon Sun Demon", "consumeElement": "light" },
+          { "kind": "heal", "amount": 7, "target": "self" },
+          { "kind": "bonus", "bonus": "shield", "amount": 1 }
+        ]
+      }
+    }
+  },
+  {
     "key": "cultist",
     "kind": "normal",
     "name": "Cultist",
