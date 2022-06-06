@@ -55,10 +55,7 @@
           <div *ngSwitchCase="'other'">{{ $any(effect).description }}</div>
         </div>
       </div>
-      <div *ngIf="$any(ability).aoe">
-        <div>TODO</div>
-        <div>AOE</div>
-      </div>
+      <aoe *ngIf="$any(ability).aoe" [rows]="$any(ability).aoe"></aoe>
     </div>
     <div *ngIf="$any(ability).elementEnhancements">
       <div *ngFor="let enhancement of $any(ability).elementEnhancements | keyvalue" style="display: flex; align-items: center; gap: 0.25em;">
@@ -94,10 +91,7 @@
               <condition [condition]="condition" [showLabel]="true"></condition>
             </ng-container>
           </div>
-          <div *ngIf="$any(enhancement).value.aoe">
-            <div>TODO</div>
-            <div>AOE</div>
-          </div>
+          <aoe *ngIf="$any(enhancement).value.aoe" [rows]="$any(enhancement).value.aoe"></aoe>
         </div>
       </div>
     </div>

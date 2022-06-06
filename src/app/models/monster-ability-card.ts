@@ -1,3 +1,4 @@
+import { AoeHexRow } from './aoe-hex-row';
 import { AttackEffect } from './attack-effect';
 import { BonusKey } from './bonus';
 import { ConditionKey, NegativeConditionKey } from './condition';
@@ -17,7 +18,7 @@ export type MonsterAbility =
     pierce?: number;
     range?: number;
     effects?: AttackEffect[];
-    aoe?: any;
+    aoe?: AoeHexRow[];
     other?: string;
     elementEnhancements?: {
       [element in MixedElement]?: {

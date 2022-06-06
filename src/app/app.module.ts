@@ -53,6 +53,7 @@ import { AppComponent } from './app.component';
 import { CharacterIconComponent } from './components/tabletop/character-icon/character-icon.component';
 import { CharacterLevelDialogComponent } from './components/tabletop/character-level-dialog/character-level-dialog.component';
 import { BossStatCardComponent } from './components/tabletop/monster/boss-stat-card/boss-stat-card.component';
+import { AoeComponent } from './components/tabletop/aoe/aoe.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { BossStatCardComponent } from './components/tabletop/monster/boss-stat-c
     ModifierPipe,
     CharacterIconComponent,
     CharacterLevelDialogComponent,
-    BossStatCardComponent
+    BossStatCardComponent,
+    AoeComponent
   ],
   imports: [
     AppRoutingModule,

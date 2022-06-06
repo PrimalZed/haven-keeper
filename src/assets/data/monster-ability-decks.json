@@ -850,7 +850,7 @@
         { "kind": "attack", "modifier": -1 }
       ],
       "deathAbilities": [
-        { "kind": "attack", "modifier": 2, "aoe": [{ "length": 2 }, { "length": 3, "origin": 1 }, { "length": 2 }] }
+        { "kind": "attack", "modifier": 2, "aoe": [{ "length": 2 }, { "length": 3, "actor": 1 }, { "length": 2 }] }
       ]
     },
     {
@@ -862,7 +862,7 @@
         { "kind": "attack", "modifier": -1 }
       ],
       "deathAbilities": [
-        { "kind": "attack", "modifier": 2, "aoe": [{ "length": 2 }, { "length": 3, "origin": 1 }, { "length": 2 }] }
+        { "kind": "attack", "modifier": 2, "aoe": [{ "length": 2 }, { "length": 3, "actor": 1 }, { "length": 2 }] }
       ]
     },
     {
@@ -1044,7 +1044,7 @@
       "initiative": 78,
       "abilities": [
         { "kind": "move", "modifier": -1 },
-        { "kind": "attack", "modifier": 0, "aoe": [{ "length": 1 }, { "length": 2, "origin": 0 }] },
+        { "kind": "attack", "modifier": 0, "aoe": [{ "length": 1 }, { "length": 2, "actor": 0 }] },
         { "kind": "infuseElement", "element": "ice" }
       ],
       "shuffle": true
@@ -1055,7 +1055,7 @@
       "initiative": 78,
       "abilities": [
         { "kind": "move", "modifier": -1 },
-        { "kind": "attack", "modifier": 0, "aoe": [{ "length": 1 }, { "length": 2, "origin": 0 }] },
+        { "kind": "attack", "modifier": 0, "aoe": [{ "length": 1 }, { "length": 2, "actor": 0 }] },
         { "kind": "infuseElement", "element": "ice" }
       ],
       "shuffle": true
@@ -1119,7 +1119,7 @@
         {
           "kind": "attack",
           "modifier": 0,
-          "aoe": [{ "length": 1, "offset": 1 }, { "length": "1", "offset": "1" }, { "length": 1, "origin": 1 }],
+          "aoe": [{ "length": 1, "offset": 1 }, { "length": 1, "offset": 1 }, { "length": 1, "actor": 1 }],
           "elementalEnhancements": { "fire": { "modifier": 1, "conditions": ["wound"] } }
         }
       ]
@@ -1239,7 +1239,7 @@
       "initiative": 87,
       "abilities": [
         { "kind": "move", "modifier": 0 },
-        { "kind": "attack", "modifier": -1, "aoe": [{ "length": 2 }, { "length": "2", "origin": 0 }] },
+        { "kind": "attack", "modifier": -1, "aoe": [{ "length": 2 }, { "length": 2, "actor": 0 }] },
         { "kind": "infuseElement", "element": "earth", "consumeElement": "wild" }
       ]
     }
@@ -1786,7 +1786,7 @@
       "initiative": 35,
       "abilities": [
         { "kind": "move", "modifier": -1 },
-        { "kind": "attack", "modifier": -1, "aoe": [{ "length": 1, "offset": 1 }, { "length": 2 }, { "length": 3, "origin": 0 }] },
+        { "kind": "attack", "modifier": -1, "aoe": [{ "length": 1, "offset": 1 }, { "length": 2 }, { "length": 3, "actor": 0 }] },
         { "kind": "infuseElement", "element": "ice" }
       ],
       "shuffle": true
@@ -1840,7 +1840,7 @@
         { "kind": "move", "modifier": 0 },
         {
           "kind": "attack", "modifier": -1,
-          "aoe": [{ "length": 1, "origin": 0 }, { "length": 1, "offset": 1 }, { "length": 1, "offset": 1 }, { "lenght": 1, "offset": 2 }],
+          "aoe": [{ "length": 1, "actor": 0 }, { "length": 1, "offset": 1 }, { "length": 1, "offset": 1 }, { "lenght": 1, "offset": 2 }],
           "elementEnhancements": { "earth": { "modifier": 2, "conditions": ["immobilize"] } }
         }
       ]
@@ -1929,7 +1929,7 @@
       "initiative": 30,
       "abilities": [
         { "kind": "move", "modifier": -1 },
-        { "kind": "attack", "modifier": 0, "aoe": [{ "length": 1, "origin": 0 }, { "length": 1, "offset": 1 }, { "length": 1, "offset": 1 }, { "length": 1, "offset": 1 }] },
+        { "kind": "attack", "modifier": 0, "aoe": [{ "length": 1, "actor": 0 }, { "length": 1, "offset": 1 }, { "length": 1, "offset": 1 }, { "length": 1, "offset": 1 }] },
         { "kind": "other", "description": "Perform \"Heal {H} 2, Self\" for each target damaged", "consumeElement": "dark" }
       ]
     },
@@ -1977,7 +1977,7 @@
             { "length": 1, "offset": 1 },
             { "length": 1, "offset": 1 },
             { "length": 1 },
-            { "length": 1 }, { "origin": 0 }
+            { "length": 1 }, { "actor": 0 }
           ]
         }
       ],
@@ -1998,7 +1998,7 @@
             { "length": 1, "offset": 1 },
             { "length": 1, "offset": 1 },
             { "length": 1 },
-            { "length": 1 }, { "origin": 0 }
+            { "length": 1 }, { "actor": 0 }
           ]
         }
       ],

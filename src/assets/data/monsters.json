@@ -3074,7 +3074,7 @@
       "0": {
         "1": [
           { "kind": "move", "modifier": -1 },
-          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "origin": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
+          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "actor": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
         ],
         "2": [
           { "kind": "move", "modifier": 0 },
@@ -3085,7 +3085,7 @@
       "1": {
         "1": [
           { "kind": "move", "modifier": -1 },
-          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "origin": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
+          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "actor": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
         ],
         "2": [
           { "kind": "move", "modifier": 0 },
@@ -3096,7 +3096,7 @@
       "2": {
         "1": [
           { "kind": "move", "modifier": -1 },
-          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "origin": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
+          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "actor": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
         ],
         "2": [
           { "kind": "move", "modifier": 0 },
@@ -3107,7 +3107,7 @@
       "3": {
         "1": [
           { "kind": "move", "modifier": -1 },
-          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "origin": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
+          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "actor": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
         ],
         "2": [
           { "kind": "move", "modifier": 0 },
@@ -3118,7 +3118,7 @@
       "4": {
         "1": [
           { "kind": "move", "modifier": -1 },
-          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "origin": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
+          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "actor": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
         ],
         "2": [
           { "kind": "move", "modifier": 0 },
@@ -3129,7 +3129,7 @@
       "5": {
         "1": [
           { "kind": "move", "modifier": -1 },
-          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "origin": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
+          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "actor": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
         ],
         "2": [
           { "kind": "move", "modifier": 0 },
@@ -3140,7 +3140,7 @@
       "6": {
         "1": [
           { "kind": "move", "modifier": -1 },
-          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "origin": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
+          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "actor": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
         ],
         "2": [
           { "kind": "move", "modifier": 0 },
@@ -3151,7 +3151,7 @@
       "7": {
         "1": [
           { "kind": "move", "modifier": -1 },
-          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "origin": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
+          { "kind": "attack", "modifier": -1, "aoe": [{ "length": 3, "actor": 0 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 1 }] }
         ],
         "2": [
           { "kind": "move", "modifier": 0 },
@@ -4860,81 +4860,81 @@
       "0": {
         "1": [
           { "kind": "other", "description": "Summon Deep Terror" },
-          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "origin": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
+          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "actor": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
         ],
         "2": [
           { "kind": "other", "description": "Summon Deep Terror" },
-          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "origin": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 2 }, { "length": 1, "offset": 2 }]}
+          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "actor": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 2 }]}
         ]
       },
       "1": {
         "1": [
           { "kind": "other", "description": "Summon Deep Terror" },
-          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "origin": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
+          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "actor": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
         ],
         "2": [
           { "kind": "other", "description": "Summon Deep Terror" },
-          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "origin": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 2 }, { "length": 1, "offset": 2 }]}
+          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "actor": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 2 }]}
         ]
       },
       "2": {
         "1": [
           { "kind": "other", "description": "Summon Deep Terror" },
-          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "origin": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
+          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "actor": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
         ],
         "2": [
           { "kind": "other", "description": "Summon Deep Terror" },
-          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "origin": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 2 }, { "length": 1, "offset": 2 }]}
+          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "actor": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 2 }]}
         ]
       },
       "3": {
         "1": [
           { "kind": "other", "description": "Summon Deep Terror" },
-          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "origin": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
+          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "actor": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
         ],
         "2": [
           { "kind": "other", "description": "Summon Deep Terror" },
-          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "origin": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 2 }, { "length": 1, "offset": 2 }]}
+          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "actor": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 2 }]}
         ]
       },
       "4": {
         "1": [
           { "kind": "other", "description": "Summon Deep Terror" },
-          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "origin": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
+          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "actor": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
         ],
         "2": [
           { "kind": "other", "description": "Summon Deep Terror" },
-          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "origin": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 2 }, { "length": 1, "offset": 2 }]}
+          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "actor": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 2 }]}
         ]
       },
       "5": {
         "1": [
           { "kind": "other", "description": "Summon Deep Terror" },
-          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "origin": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
+          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "actor": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
         ],
         "2": [
           { "kind": "other", "description": "Summon Deep Terror" },
-          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "origin": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 2 }, { "length": 1, "offset": 2 }]}
+          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "actor": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 2 }]}
         ]
       },
       "6": {
         "1": [
           { "kind": "other", "description": "Summon Deep Terror" },
-          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "origin": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
+          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "actor": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
         ],
         "2": [
           { "kind": "other", "description": "Summon Deep Terror" },
-          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "origin": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 2 }, { "length": 1, "offset": 2 }]}
+          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "actor": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 2 }]}
         ]
       },
       "7": {
         "1": [
           { "kind": "other", "description": "Summon Deep Terror" },
-          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "origin": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
+          { "kind": "attack", "modifier": -3, "aoe": [{ "length": 4, "offset": 1, "actor": 0 }, { "length": 4, "offset": 1 }, { "length": 4 }, { "length": 4 }]}
         ],
         "2": [
           { "kind": "other", "description": "Summon Deep Terror" },
-          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "origin": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 2 }, { "length": 1, "offset": 2 }]}
+          { "kind": "attack", "modifier": -2, "aoe": [{ "length": 4, "actor": 0 }, { "length": 3, "offset": 1 }, { "length": 2, "offset": 1 }, { "length": 1, "offset": 2 }]}
         ]
       }
     }
