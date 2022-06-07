@@ -24,7 +24,7 @@ export type MonsterAbility =
       [element in MixedElement]?: {
         modifier?: number;
         range?: number;
-        target?: number;
+        target?: number | 'allWithinRange';
         conditions?: NegativeConditionKey[]
       };
     };
@@ -39,7 +39,7 @@ export type MonsterAbility =
       [element in MixedElement]?: {
         modifier?: number;
         range?: number;
-        target?: number;
+        target?: number | 'allWithinRange';
       };
     };
     consumeElement?: MixedElement;

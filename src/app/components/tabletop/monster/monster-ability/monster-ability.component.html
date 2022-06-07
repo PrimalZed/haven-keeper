@@ -78,12 +78,15 @@
             <span>&nbsp;</span>
             <span class="gloomhaven-ability-icons">G</span>
           </div>
-          <div *ngIf="$any(enhancement).value.target">
-            <span i18n="@@target">Target</span>
-            <span>&nbsp;</span>
-            <span class="gloomhaven-ability-icons">T</span>
-            <span>&nbsp;</span>
-            <span>{{ $any(enhancement).value.target }}</span>
+          <div *ngIf="$any(enhancement).value.target" [ngSwitch]="$any(enhancement).value.target">
+            <span *ngSwitchCase="'allWithinRange'">Target all enemies within range</span>
+            <ng-container *ngSwitchDefault>
+              <span i18n="@@target">Target</span>
+              <span>&nbsp;</span>
+              <span class="gloomhaven-ability-icons">T</span>
+              <span>&nbsp;</span>
+              <span>{{ $any(enhancement).value.target }}</span>
+            </ng-container>
           </div>
           <div *ngIf="$any(enhancement).value.conditions?.length">
             <ng-container *ngFor="let condition of $any(enhancement).value.conditions; let first = first">
@@ -166,12 +169,15 @@
             <span>&nbsp;</span>
             <span class="gloomhaven-ability-icons">H</span>
           </div>
-          <div *ngIf="$any(enhancement).value.target">
-            <span>Target</span>
-            <span>&nbsp;</span>
-            <span class="gloomhaven-ability-icons">T</span>
-            <span>&nbsp;</span>
-            <span>{{ $any(enhancement).value.target }}</span>
+          <div *ngIf="$any(enhancement).value.target" [ngSwitch]="$any(enhancement).value.target">
+            <span *ngSwitchCase="'allWithinRange'">Affect all allies within range</span>
+            <ng-container *ngSwitchDefault>
+              <span>Target</span>
+              <span>&nbsp;</span>
+              <span class="gloomhaven-ability-icons">T</span>
+              <span>&nbsp;</span>
+              <span>{{ $any(enhancement).value.target }}</span>
+            </ng-container>
           </div>
         </div>
       </div>

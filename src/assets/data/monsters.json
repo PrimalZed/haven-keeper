@@ -5181,6 +5181,161 @@
     }
   },
   {
+    "key": "sunDemon",
+    "name": "Sun Demon",
+    "abilityDeckKey": "sunDemon",
+    "kind": "normal",
+    "flying": true,
+    "levels": {
+      "0": {
+        "hitPoints": 5,
+        "movement": 2,
+        "attack": 2,
+        "bonuses": {
+          "shield": 1
+        },
+        "attackEffects": [{ "kind": "other", "description": "Advantage" }]
+      },
+      "1": {
+        "hitPoints": 7,
+        "movement": 2,
+        "attack": 2,
+        "bonuses": {
+          "shield": 1
+        },
+        "attackEffects": [{ "kind": "other", "description": "Advantage" }]
+      },
+      "2": {
+        "hitPoints": 9,
+        "movement": 2,
+        "attack": 2,
+        "bonuses": {
+          "shield": 1
+        },
+        "attackEffects": [{ "kind": "other", "description": "Advantage" }]
+      },
+      "3": {
+        "hitPoints": 10,
+        "movement": 2,
+        "attack": 3,
+        "bonuses": {
+          "shield": 1
+        },
+        "attackEffects": [{ "kind": "other", "description": "Advantage" }]
+      },
+      "4": {
+        "hitPoints": 11,
+        "movement": 3,
+        "attack": 3,
+        "bonuses": {
+          "shield": 1
+        },
+        "attackEffects": [{ "kind": "other", "description": "Advantage" }]
+      },
+      "5": {
+        "hitPoints": 11,
+        "movement": 3,
+        "attack": 3,
+        "bonuses": {
+          "shield": 2
+        },
+        "attackEffects": [{ "kind": "other", "description": "Advantage" }]
+      },
+      "6": {
+        "hitPoints": 12,
+        "movement": 3,
+        "attack": 4,
+        "bonuses": {
+          "shield": 2
+        },
+        "attackEffects": [{ "kind": "other", "description": "Advantage" }]
+      },
+      "7": {
+        "hitPoints": 15,
+        "movement": 3,
+        "attack": 4,
+        "bonuses": {
+          "shield": 2
+        },
+        "attackEffects": [{ "kind": "other", "description": "Advantage" }]
+      }
+    },
+    "eliteLevels": {
+      "0": {
+        "hitPoints": 9,
+        "movement": 2,
+        "attack": 3,
+        "bonuses": {
+          "shield": 1
+        },
+        "attackEffects": [{ "kind": "other", "description": "Advantage" }]
+      },
+      "1": {
+        "hitPoints": 12,
+        "movement": 2,
+        "attack": 3,
+        "bonuses": {
+          "shield": 1
+        },
+        "attackEffects": [{ "kind": "other", "description": "Advantage" }]
+      },
+      "2": {
+        "hitPoints": 13,
+        "movement": 2,
+        "attack": 4,
+        "bonuses": {
+          "shield": 1
+        },
+        "attackEffects": [{ "kind": "other", "description": "Advantage" }]
+      },
+      "3": {
+        "hitPoints": 15,
+        "movement": 3,
+        "attack": 4,
+        "bonuses": {
+          "shield": 1
+        },
+        "attackEffects": [{ "kind": "other", "description": "Advantage" }]
+      },
+      "4": {
+        "hitPoints": 16,
+        "movement": 3,
+        "attack": 5,
+        "bonuses": {
+          "shield": 1
+        },
+        "attackEffects": [{ "kind": "other", "description": "Advantage" }]
+      },
+      "5": {
+        "hitPoints": 16,
+        "movement": 3,
+        "attack": 5,
+        "bonuses": {
+          "shield": 2
+        },
+        "attackEffects": [{ "kind": "other", "description": "Advantage" }]
+      },
+      "6": {
+        "hitPoints": 18,
+        "movement": 4,
+        "attack": 5,
+        "bonuses": {
+          "shield": 2
+        },
+        "attackEffects": [{ "kind": "other", "description": "Advantage" }]
+      },
+      "7": {
+        "hitPoints": 22,
+        "movement": 4,
+        "attack": 5,
+        "bonuses": {
+          "shield": 2
+        },
+        "attackEffects": [{ "kind": "other", "description": "Advantage" }]
+      }
+    }
+  },
+  {
     "key": "vermlingScout",
     "kind": "normal",
     "name": "Vermling Scout",

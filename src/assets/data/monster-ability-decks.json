@@ -1244,6 +1244,87 @@
       ]
     }
   ],
+  "sunDemon": [
+    {
+      "id": 652,
+      "name": "Sun Demon",
+      "initiative": 17,
+      "abilities": [
+        { "kind": "heal", "amount": 3, "elementEnhancements": { "light": { "target": "allWithinRange" } } }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 653,
+      "name": "Sun Demon",
+      "initiative": 36,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0, "target": "adjacent" },
+        { "kind": "infuseElement", "element": "light" }
+      ]
+    },
+    {
+      "id": 654,
+      "name": "Sun Demon",
+      "initiative": 36,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0, "target": "adjacent" },
+        { "kind": "infuseElement", "element": "light" }
+      ]
+    },
+    {
+      "id": 655,
+      "name": "Sun Demon",
+      "initiative": 68,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 1 },
+        { "kind": "infuseElement", "element": "light" }
+      ]
+    },
+    {
+      "id": 656,
+      "name": "Sun Demon",
+      "initiative": 73,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 1 },
+        { "kind": "heal", "amount": 3, "target": "self", "consumeElement": "light" }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 657,
+      "name": "Sun Demon",
+      "initiative": 95,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 0, "range": 4, "elementEnhancements": { "light": { "target": "allWithinRange" } } }
+      ]
+    },
+    {
+      "id": 658,
+      "name": "Sun Demon",
+      "initiative": 88,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": -1, "target": "adjacent" },
+        { "kind": "condition", "conditions": ["muddle"], "target": "self", "consumeElement": "dark" }
+      ]
+    },
+    {
+      "id": 659,
+      "name": "Sun Demon",
+      "initiative": 50,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0, "range": 3 },
+        { "kind": "infuseElement", "element": "light", "consumeElement": "wild" }
+      ]
+    }
+  ],
   "nightDemon": [
     {
       "id": 660,
