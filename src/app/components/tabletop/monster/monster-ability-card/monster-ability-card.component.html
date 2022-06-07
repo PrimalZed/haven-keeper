@@ -5,6 +5,10 @@
     <div class="title" style="flex-grow: 1; text-align: center;">{{ card.name }}</div>
   </div>
   <monster-ability *ngFor="let ability of card?.abilities" [ability]="ability"></monster-ability>
+  <div *ngIf="card?.deathAbilities?.length" style="display: flex; flex-direction: column; align-items: center;">
+    <div style="align-self: start;">On death:</div>
+    <monster-ability *ngFor="let ability of card?.deathAbilities" [ability]="ability"></monster-ability>
+  </div>
 </div>
 <div *ngIf="id" style="display: flex; justify-content: space-between; align-items: baseline;">
   <div class="card-id">{{ id }}</div>

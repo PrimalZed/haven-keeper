@@ -57,7 +57,6 @@ Installing for offline use is done as a [Progressive Web App](https://developer.
 
 ## TODO
 * Add data for the remaining characters, monsters, and monster ability decks.
-* On-Death Abilities
 * Better way to codify "instead" element enhancements
 * Track Summons.
 * Add Jaws of the Lion and Frosthaven.
