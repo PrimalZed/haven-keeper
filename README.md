@@ -56,7 +56,6 @@ Peer-to-peer uses [WebRTC]()
 Installing for offline use is done as a [Progressive Web App](https://developer.mozilla.org/en-US/docs/web/progressive_web_apps)
 
 ## TODO
-* Add data for the remaining characters, monsters, and monster ability decks.
 * Better way to codify "instead" element enhancements
 * Track Summons.
 * Add Jaws of the Lion and Frosthaven.

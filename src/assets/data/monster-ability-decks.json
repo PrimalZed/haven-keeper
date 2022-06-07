@@ -1244,6 +1244,93 @@
       ]
     }
   ],
+  "windDemon": [
+    {
+      "id": 644,
+      "name": "Wind Demon",
+      "initiative": 9,
+      "abilities": [
+        { "kind": "attack", "modifier": -1 },
+        { "kind": "heal", "amount": 1 },
+        { "kind": "condition", "conditions": ["invisible"], "target": "self", "consumeElement": "air" }
+      ]
+    },
+    {
+      "id": 645,
+      "name": "Wind Demon",
+      "initiative": 21,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0, "effects": [{ "kind": "effect", "effect": "pull", "amount": 1 }] },
+        { "kind": "infuseElement", "element": "air" }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 646,
+      "name": "Wind Demon",
+      "initiative": 21,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": 0, "effects": [{ "kind": "effect", "effect": "pull", "amount": 1 }] },
+        { "kind": "infuseElement", "element": "air" }
+      ],
+      "shuffle": true
+    },
+    {
+      "id": 647,
+      "name": "Wind Demon",
+      "initiative": 29,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        { "kind": "attack", "modifier": -1, "target": 2 },
+        { "kind": "forcedMovement", "direction": "push", "amount": 2, "consumeElement": "air" }
+      ]
+    },
+    {
+      "id": 648,
+      "name": "Wind Demon",
+      "initiative": 37,
+      "abilities": [
+        { "kind": "move", "modifier": 0 },
+        {
+          "kind": "attack",
+          "modifier": 0,
+          "aoe": [{ "length": 2 }, { "length": 2, "actor": 0 }],
+          "elementEnhancements": { "air": { "modifier": 1, "aoe": [{ "length": 2 }, { "length": 3, "actor": 0 }, { "length": 2 }] } }
+        }
+      ]
+    },
+    {
+      "id": 649,
+      "name": "Wind Demon",
+      "initiative": 43,
+      "abilities": [
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": 1, "elementEnhancements": { "air": { "target": 2 } } }
+      ]
+    },
+    {
+      "id": 650,
+      "name": "Wind Demon",
+      "initiative": 43,
+      "abilities": [
+        { "kind": "forcedMovement", "direction": "push", "amount": 1, "target": "adjacent" },
+        { "kind": "attack", "modifier": 0, "elementEnhancements": { "earth": { "range": -2 } } }
+      ]
+    },
+    {
+      "id": 651,
+      "name": "Wind Demon",
+      "initiative": 2,
+      "abilities": [
+        { "kind": "bonus", "bonus": "shield", "amount": 1 },
+        { "kind": "move", "modifier": -1 },
+        { "kind": "attack", "modifier": -1 },
+        { "kind": "infuseElement", "element": "air", "consumeElement": "wild" }
+      ]
+    }
+  ],
   "sunDemon": [
     {
       "id": 652,
