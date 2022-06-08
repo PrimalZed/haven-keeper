@@ -1,6 +1,6 @@
 .stat-grid {
   display: grid;
-  grid-template-columns: repeat(5 auto);
+  grid-template-columns: repeat(5, auto);
   grid-template-rows: repeat(5, auto);
   grid-auto-flow: row dense;
   column-gap: 0.2em;
