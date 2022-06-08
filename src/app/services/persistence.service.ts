@@ -7,13 +7,14 @@ import { from } from 'rxjs';
 import { distinct, filter, map, skip, switchMap, tap } from 'rxjs/operators';
 import { AppState } from 'store/app.state';
 import { selectP2pRole } from 'store/p2p/p2p.selectors';
+import { charactersAdapter } from 'store/tabletop/characters/characters.adapter';
 import { loadTabletop } from 'store/tabletop/tabletop.actions';
 import { selectTabletopState } from 'store/tabletop/tabletop.selectors';
 import { TabletopState } from 'store/tabletop/tabletop.state';
 
 @Injectable({ providedIn: 'root' })
 export abstract class PersistenceService implements OnDestroy {
-  private dbPromise = openDB<PersistenceDbSchema>('haven-keeper', 1, { upgrade: this.upgrade });
+  private dbPromise = openDB<PersistenceDbSchema>('haven-keeper', 2, { upgrade: this.upgrade });
 
   private save$ = this.store.select((state) => ({
       tabletopState: selectTabletopState(state),
@@ -36,7 +37,7 @@ export abstract class PersistenceService implements OnDestroy {
 
   constructor(private store: Store<AppState>) { }
   
-  private upgrade(
+  private async upgrade(
     db: IDBPDatabase<PersistenceDbSchema>, oldVersion: number,
     newVersion: number,
     transaction: IDBPTransaction<PersistenceDbSchema, StoreName[], 'versionchange'>
@@ -44,6 +45,25 @@ export abstract class PersistenceService implements OnDestroy {
     const tabletopsStore: IDBPObjectStore<PersistenceDbSchema, StoreName[], 'tabletops', 'versionchange'> = oldVersion < 1
       ? db.createObjectStore('tabletops', { autoIncrement: true })
       : transaction.objectStore('tabletops');
+
+    if (oldVersion < 2) {
+      let cursor = await tabletopsStore.openCursor();
+
+      while (cursor) {
+        const tabletopWithSummons = {
+          ...cursor.value,
+          characters: charactersAdapter.map(
+            (character) => ({
+              ...character,
+              summons: []
+            }),
+            cursor.value.characters
+          )
+        };
+        await cursor.update(tabletopWithSummons);
+        cursor = await cursor.continue();
+      }
+    }
   }
 
   initialize() {
