@@ -8,8 +8,16 @@
     <div class="character-card-header title">
       <!-- <div class="character-card-avatar"></div>
       <div class="horizontal-spacer"></div> -->
-      <div style="flex: 1 1 auto;">
+      <div style="flex: 1 1 auto; display: flex; align-items: center; gap: 0.5em;">
         <character-icon [key]="character.key" size="lg"></character-icon>
+        <div class="card-content">
+          <button mat-stroked-button (click)="addSummon()">
+            <div style="display: flex; align-items: center;">
+              <mat-icon>add</mat-icon>
+              Summon
+            </div>
+          </button>
+        </div>
       </div>
       <div>{{ character.initiative | number: '2.0-0' }}</div>
     </div>

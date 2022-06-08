@@ -2,8 +2,10 @@ import { ChangeDetectionStrategy, Component, Input, OnDestroy } from '@angular/c
 import { MatDialog } from '@angular/material/dialog';
 import { FigureDialogComponent } from 'components/tabletop/figure-dialog/figure-dialog.component';
 import { Character, CharacterStatCard } from 'models/character';
-import { map, Observable, ReplaySubject, Subject, withLatestFrom } from 'rxjs';
+import { merge, Observable, ReplaySubject, Subject } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 import { CatalogService } from 'services/catalog.service';
+import { AddSummonDialogComponent } from './add-summon-dialog/add-summon-dialog.component';
 
 @Component({
   selector: 'character',
@@ -20,6 +22,18 @@ export class CharacterComponent implements OnDestroy {
   public statCard$: Observable<CharacterStatCard> = this.character$
     .pipe(
       map(({ key }) => this.catalogService.characterEntities[key])
+    );
+
+  private openAddSummonDialogSubject: Subject<void> = new Subject();
+  private openAddSummonDialog$ = this.openAddSummonDialogSubject
+    .pipe(
+      withLatestFrom(this.character$),
+      map(([_, character]) => this.dialog.open(
+        AddSummonDialogComponent,
+        {
+          data: { character }
+        }
+      ))
     );
 
   private openUpdateStatsDialogSubject: Subject<number> = new Subject();
@@ -42,12 +56,19 @@ export class CharacterComponent implements OnDestroy {
       ))
     );
 
-  private subscription = this.openUpdateStatsDialog$.subscribe();
+  private subscription = merge(
+    this.openAddSummonDialog$,
+    this.openUpdateStatsDialog$
+  ).subscribe();
     
   constructor(
     private catalogService: CatalogService,
     private dialog: MatDialog
   ) { }
+
+  addSummon() {
+    this.openAddSummonDialogSubject.next();
+  }
 
   openUpdateStatsDialog(index: number) {
     this.openUpdateStatsDialogSubject.next(index);

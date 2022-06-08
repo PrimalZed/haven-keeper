@@ -17,6 +17,7 @@ export function getCharactersOns(catalogService: CatalogService) {
             hitPoints: catalogService.characterEntities[key].hitPoints[index][level],
             conditions: []
           })),
+        summons: [],
         initiative: null
       }, state.characters)
     })),

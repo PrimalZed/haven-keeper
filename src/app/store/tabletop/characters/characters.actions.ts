@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { CharacterLevel } from 'models/character';
+import { CharacterLevel, SummonColor } from 'models/character';
 import { ConditionKey } from 'models/condition';
 
 export const addCharacter = createAction(
@@ -22,9 +22,21 @@ export const undoUpdateCharacter = createAction(
   props<{ key: string, index: number, previousHitPoints: number, previousConditions: ConditionKey[] }>()
 );
 
+export const addCharacterSummon = createAction(
+  "[Tabletop] [Character] Add Summon",
+  props<{ key: string, color: SummonColor, hitPoints: number; movement: number; attack: number; range: number; }>()
+);
+
+export const undoAddCharacterSummon = createAction(
+  "[Tabletop] [Character] Undo Add Summon",
+  props<{ key: string, color: SummonColor }>()
+);
+
 export const CharactersActions = [
   addCharacter,
   undoAddCharacter,
   updateCharacter,
-  undoUpdateCharacter
+  undoUpdateCharacter,
+  addCharacterSummon,
+  undoAddCharacterSummon
 ];
