@@ -31,13 +31,14 @@
         </div>
       </div>
     </div>
-    <div class="monster-card-standees card-content">
-      <monster-standee *ngFor="let standee of standees$ | async" [standee]="standee"
+    <div *ngLet="standees$ | async as standees" class="monster-card-standees card-content">
+      <monster-standee *ngFor="let standee of standees" [standee]="standee"
         [maxHitPoints]="[monster.key, (scenarioLevel$ | async) ?? 0, standee.rank] | maxHitPoints"
         (click)="openUpdateFigureDialog(standee)">
       </monster-standee>
-      <button *ngIf="statCard.kind === 'normal'" mat-icon-button (click)="openAddStandeeDialog()">
+      <button *ngIf="statCard.kind === 'normal'" mat-stroked-button class="card-content" (click)="openAddStandeeDialog()">
         <mat-icon>add</mat-icon>
+        <span *ngIf="!standees.length">Standee</span>
       </button>
     </div>
   </div>
