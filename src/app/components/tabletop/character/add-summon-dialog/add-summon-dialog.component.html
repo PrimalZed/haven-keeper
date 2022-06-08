@@ -1,1 +1,54 @@
-<p>add-summon-dialog works!</p>
+<h1 mat-dialog-title>Add Summon</h1>
+<form #summonNgForm="ngForm" (ngSubmit)="submit(summonNgForm.form)">
+  <div mat-dialog-content>
+    <div>
+      <mat-button-toggle-group name="color" required style="display: block;">
+        <div style="display: flex;">
+          <mat-button-toggle *ngFor="let token of firstRowTokens" [value]="token.color" [disabled]="token.used" style="flex-grow: 1;">{{ token.color }}</mat-button-toggle>
+        </div>
+        <div style="display: flex; justify-content: space-evenly; border-top: 1px solid #595959;">
+          <mat-button-toggle *ngFor="let token of secondRowTokens" [value]="token.color" [disabled]="token.used" style="flex-grow: 1;">{{ token.color }}</mat-button-toggle>
+        </div>
+      </mat-button-toggle-group>
+    </div>
+    <hr>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.5em;">
+      <mat-form-field appearance="fill">
+        <mat-label i18n="@@hitPoints">Hit Points</mat-label>
+        <span matPrefix class="gloomhaven-ability-icons" style="margin-right: 8px;">H</span>
+        <input type="number" matInput name="hitPoints" #hitPointsNgModel="ngModel" [ngModel]="1" min="1" required>
+        <mat-error *ngIf="hitPointsNgModel.invalid">
+          Hit Points must be greater than 0
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label i18n="@@movement">Movement</mat-label>
+        <span matPrefix class="gloomhaven-ability-icons" style="margin-right: 8px;">M</span>
+        <input type="number" matInput name="movement" #movementNgModel="ngModel" [ngModel]="1" min="0">
+        <mat-error *ngIf="movementNgModel.invalid">
+          Movement cannot be negative
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label i18n="@@attack">Attack</mat-label>
+        <span matPrefix class="gloomhaven-ability-icons" style="margin-right: 8px;">K</span>
+        <input type="number" matInput name="attack" #attackNgModel="ngModel" [ngModel]="1" min="0">
+        <mat-error *ngIf="attackNgModel.invalid">
+          Attack cannot be negative
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label i18n="@@range">Range</mat-label>
+        <span matPrefix class="gloomhaven-ability-icons" style="margin-right: 8px;">G</span>
+        <input type="number" matInput name="range" #rangeNgModel="ngModel" [ngModel]="0" min="0">
+        <mat-error *ngIf="rangeNgModel.invalid">
+          Range cannot be negative
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" mat-dialog-close i18n="@@cancel">Cancel</button>
+    <button mat-raised-button type="submit" color="primary" [disabled]="!summonNgForm.form.valid" i18n="@@finish">Finish</button>
+  </mat-dialog-actions>
+</form>

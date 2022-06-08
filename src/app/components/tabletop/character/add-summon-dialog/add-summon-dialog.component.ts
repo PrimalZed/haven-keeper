@@ -17,6 +17,8 @@ export class AddSummonDialogComponent {
       color,
       used: this.character.summons.some(x => x.color === color)
     }));
+  public firstRowTokens = this.tokens.filter((_, index) => index < 4);
+  public secondRowTokens = this.tokens.filter((_, index) => index >= 4);
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: { character: Character },
