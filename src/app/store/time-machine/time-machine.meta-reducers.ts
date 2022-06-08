@@ -5,7 +5,9 @@ import { MonsterStandee } from 'models/monster-set';
 import { AppState } from 'store/app.state';
 import {
   addCharacter,
+  addCharacterSummon,
   undoAddCharacter,
+  undoAddCharacterSummon,
   undoUpdateCharacter,
   updateCharacter
 } from 'store/tabletop/characters/characters.actions';
@@ -39,6 +41,7 @@ import {
 const trackActionTypes: string[] = [
   addCharacter.type,
   updateCharacter.type,
+  addCharacterSummon.type,
   addMonster.type,
   addMonsterStandee.type,
   updateMonsterStandee.type,
@@ -54,6 +57,7 @@ const trackActionTypes: string[] = [
 type ReversibleAction =
   | ReturnType<typeof addCharacter>
   | ReturnType<typeof updateCharacter>
+  | ReturnType<typeof addCharacterSummon>
   | ReturnType<typeof addMonster>
   | ReturnType<typeof addMonsterStandee>
   | ReturnType<typeof updateMonsterStandee>
@@ -77,6 +81,8 @@ function getReverseAction(state: AppState, action: ReversibleAction): Action {
         previousHitPoints: updateCharacterTarget?.figures[action.index]?.hitPoints ?? 0,
         previousConditions: updateCharacterTarget?.figures[action.index]?.conditions ?? []
       });
+    case addCharacterSummon.type:
+      return undoAddCharacterSummon({ key: action.key, color: action.color });
     case addMonster.type:
       return undoAddMonster({ key: action.key });
     case addMonsterStandee.type:

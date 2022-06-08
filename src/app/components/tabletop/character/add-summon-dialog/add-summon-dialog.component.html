@@ -2,7 +2,7 @@
 <form #summonNgForm="ngForm" (ngSubmit)="submit(summonNgForm.form)">
   <div mat-dialog-content>
     <div>
-      <mat-button-toggle-group name="color" required style="display: block;">
+      <mat-button-toggle-group name="color" ngModel required style="display: block;">
         <div style="display: flex;">
           <mat-button-toggle *ngFor="let token of firstRowTokens" [value]="token.color" [disabled]="token.used" style="flex-grow: 1;">{{ token.color }}</mat-button-toggle>
         </div>

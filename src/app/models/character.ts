@@ -19,6 +19,9 @@ export interface Character {
   summons: {
     color: SummonColor;
     hitPoints: number;
+    movement: number;
+    attack: number;
+    range: number;
     conditions: ConditionKey[];
   }[];
   initiative: number | null;

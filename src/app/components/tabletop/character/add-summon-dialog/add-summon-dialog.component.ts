@@ -1,14 +1,13 @@
 import { Component, Inject } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Character, SummonColor } from 'models/character';
 import { TabletopService } from 'services/tabletop.service';
 import { addCharacterSummon } from 'store/tabletop/characters/characters.actions';
 
 @Component({
   selector: 'app-add-summon-dialog',
-  templateUrl: './add-summon-dialog.component.html',
-  styleUrls: ['./add-summon-dialog.component.scss']
+  templateUrl: './add-summon-dialog.component.html'
 })
 export class AddSummonDialogComponent {
   private character = this.data.character;
@@ -22,6 +21,7 @@ export class AddSummonDialogComponent {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: { character: Character },
+    private dialogRef: MatDialogRef<AddSummonDialogComponent>,
     private tabletopService: TabletopService
   ) { }
 
@@ -34,5 +34,6 @@ export class AddSummonDialogComponent {
       key: this.character.key,
       ...form.value
     }));
+    this.dialogRef.close();
   }
 }

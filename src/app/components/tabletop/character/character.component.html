@@ -10,11 +10,12 @@
       <div class="horizontal-spacer"></div> -->
       <div style="flex: 1 1 auto; display: flex; align-items: center; gap: 0.5em;">
         <character-icon [key]="character.key" size="lg"></character-icon>
-        <div class="card-content">
+        <div class="card-content" style="display: flex; flex-wrap: wrap; align-items: start; gap: 0.25em;">
+          <summon *ngFor="let summon of character.summons" [summon]="summon"></summon>
           <button mat-stroked-button (click)="addSummon()">
             <div style="display: flex; align-items: center;">
               <mat-icon>add</mat-icon>
-              Summon
+              <span *ngIf="!character.summons.length">Summon</span>
             </div>
           </button>
         </div>
