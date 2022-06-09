@@ -109,7 +109,7 @@ export class MonsterSetComponent implements OnDestroy {
           }
         }
       ))
-    )
+    );
 
   private subscription = merge(this.openAddStandeeDialog$, this.openUpdateFigureDialog$)
     .subscribe();

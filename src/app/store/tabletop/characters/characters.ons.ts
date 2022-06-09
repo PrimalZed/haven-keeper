@@ -76,10 +76,11 @@ export function getCharactersOns(catalogService: CatalogService) {
               ...character.summons,
               {
                 color,
-                hitPoints,
+                maxHitPoints: hitPoints,
                 movement: movement ?? 0,
                 attack: attack ?? 0,
                 range: range ?? 0,
+                hitPoints,
                 conditions: []
               }
             ]

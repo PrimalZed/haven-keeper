@@ -1,6 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { SummonColor } from 'models/character';
-import { ConditionKey } from 'models/condition';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Summon } from 'models/character';
 
 @Component({
   selector: 'summon',
@@ -8,12 +7,12 @@ import { ConditionKey } from 'models/condition';
   styleUrls: ['./summon.component.scss']
 })
 export class SummonComponent {
-  @Input() summon!: {
-    color: SummonColor;
-    hitPoints: number;
-    movement: number;
-    attack: number;
-    range: number;
-    conditions: ConditionKey[];
-  };
+  @Input() summon!: Summon;
+
+  @Output() click: EventEmitter<void> = new EventEmitter();
+  
+  emitClick(event: MouseEvent) {
+    event.stopPropagation();
+    this.click.emit();
+  }
 }

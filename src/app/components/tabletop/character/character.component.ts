@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FigureDialogComponent } from 'components/tabletop/figure-dialog/figure-dialog.component';
-import { Character, CharacterStatCard } from 'models/character';
+import { Character, CharacterStatCard, Summon } from 'models/character';
 import { merge, Observable, ReplaySubject, Subject } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { CatalogService } from 'services/catalog.service';
@@ -56,9 +56,27 @@ export class CharacterComponent implements OnDestroy {
       ))
     );
 
+  private openUpdateSummonDialogSubject: Subject<Summon> = new Subject();
+  private openUpdateSummonDialog$ = this.openUpdateSummonDialogSubject
+    .pipe(
+      withLatestFrom(this.character$),
+      map(([summon, character]) => this.dialog.open(
+        FigureDialogComponent,
+        {
+          data: {
+            maxHitPoints: summon.maxHitPoints,
+            kind: 'summon',
+            key: character.key,
+            figure: summon
+          }
+        }
+      ))
+    );
+
   private subscription = merge(
     this.openAddSummonDialog$,
-    this.openUpdateStatsDialog$
+    this.openUpdateStatsDialog$,
+    this.openUpdateSummonDialog$
   ).subscribe();
     
   constructor(
@@ -72,6 +90,10 @@ export class CharacterComponent implements OnDestroy {
 
   openUpdateStatsDialog(index: number) {
     this.openUpdateStatsDialogSubject.next(index);
+  }
+
+  openUpdateSummonDialog(summon: Summon) {
+    this.openUpdateSummonDialogSubject.next(summon);
   }
 
   ngOnDestroy(): void {

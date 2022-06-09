@@ -1,5 +1,9 @@
 <h1 mat-dialog-title [ngSwitch]="kind">
   <character-icon *ngSwitchCase="'character'" [key]="key"></character-icon>
+  <ng-container *ngSwitchCase="'summon'">
+    <character-icon [key]="key"></character-icon>
+    <span>{{ $any(figure).color }}</span>
+  </ng-container>
   <ng-container *ngSwitchCase="'monster'">{{ name }} {{ $any(figure).id }}</ng-container>
 </h1>
 <form #standeeNgForm="ngForm" (ngSubmit)="submit(standeeNgForm.form)">
@@ -24,7 +28,7 @@
   </div>
   <mat-dialog-actions align="end">
     <button mat-button type="button" mat-dialog-close i18n="@@cancel">Cancel</button>
-    <button *ngIf="kind === 'monster'" mat-raised-button type="button" color="warn" i18n="@@remove" (click)="remove()">Remove</button>
+    <button *ngIf="kind === 'monster' || kind === 'summon'" mat-raised-button type="button" color="warn" i18n="@@remove" (click)="remove()">Remove</button>
     <button mat-raised-button type="submit" color="primary" [disabled]="!standeeNgForm.form.valid" i18n="@@finish">Finish</button>
   </mat-dialog-actions>
 </form>

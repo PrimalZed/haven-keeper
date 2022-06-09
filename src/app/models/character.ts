@@ -9,6 +9,16 @@ export interface CharacterStatCard {
   hitPoints: { [level in CharacterLevel]: number }[];
 }
 
+export interface Summon {
+  color: SummonColor;
+  maxHitPoints: number;
+  movement: number;
+  attack: number;
+  range: number;
+  hitPoints: number;
+  conditions: ConditionKey[];
+}
+
 export interface Character {
   key: string;
   level: CharacterLevel;
@@ -16,13 +26,6 @@ export interface Character {
     hitPoints: number;
     conditions: ConditionKey[];
   }[];
-  summons: {
-    color: SummonColor;
-    hitPoints: number;
-    movement: number;
-    attack: number;
-    range: number;
-    conditions: ConditionKey[];
-  }[];
+  summons: Summon[];
   initiative: number | null;
 }

@@ -1,8 +1,10 @@
-<button mat-stroked-button class="card-content" style="line-height: normal;">
+<button mat-stroked-button class="card-content" style="line-height: normal;" (click)="emitClick($event)">
   <div>{{ summon.color }}</div>
   <div class="stat-grid">
     <span class="icon gloomhaven-ability-icons">H</span>
-    <span class="number">{{ summon.hitPoints }}</span>
+    <span class="number">
+      {{ summon.hitPoints }} / {{ summon.maxHitPoints }}
+    </span>
     <span class="icon gloomhaven-ability-icons">M</span>
     <span class="number">{{ summon.movement }}</span>
     <span class="icon gloomhaven-ability-icons">K</span>
