@@ -13,6 +13,7 @@ import { CharacterInitiativeDialogComponent } from './components/tabletop/charac
 import { CharacterComponent } from './components/tabletop/character/character.component';
 import { AddSummonDialogComponent } from './components/tabletop/character/add-summon-dialog/add-summon-dialog.component';
 import { SummonComponent } from './components/tabletop/character/summon/summon.component';
+import { SummonColorComponent } from './components/tabletop/character/summon-color/summon-color.component';
 import { ConditionComponent } from './components/tabletop/condition/condition.component';
 import { ConditionToggleComponent } from './components/tabletop/condition-toggle/condition-toggle.component';
 import { EffectComponent } from './components/tabletop/effect/effect.component';
@@ -85,6 +86,7 @@ import { AoeComponent } from './components/tabletop/aoe/aoe.component';
     MonsterStatCardComponent,
     SetScenarioLevelComponent,
     SummonComponent,
+    SummonColorComponent,
     TabletopComponent,
     TabletopBottomComponent,
     TabletopMainComponent,

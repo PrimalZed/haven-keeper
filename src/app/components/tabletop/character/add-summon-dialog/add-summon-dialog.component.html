@@ -4,10 +4,18 @@
     <div>
       <mat-button-toggle-group name="color" ngModel required style="display: block;">
         <div style="display: flex;">
-          <mat-button-toggle *ngFor="let token of firstRowTokens" [value]="token.color" [disabled]="token.used" style="flex-grow: 1;">{{ token.color }}</mat-button-toggle>
+          <mat-button-toggle *ngFor="let token of firstRowTokens" [value]="token.color" [disabled]="token.used" style="flex-grow: 1;">
+            <div class="summon">
+              <summon-color [color]="token.color" [faded]="token.used"></summon-color>
+            </div>
+          </mat-button-toggle>
         </div>
         <div style="display: flex; justify-content: space-evenly; border-top: 1px solid #595959;">
-          <mat-button-toggle *ngFor="let token of secondRowTokens" [value]="token.color" [disabled]="token.used" style="flex-grow: 1;">{{ token.color }}</mat-button-toggle>
+          <mat-button-toggle *ngFor="let token of secondRowTokens" [value]="token.color" [disabled]="token.used" style="flex-grow: 1;">
+            <div class="summon">
+              <summon-color [color]="token.color" [faded]="token.used"></summon-color>
+            </div>
+          </mat-button-toggle>
         </div>
       </mat-button-toggle-group>
     </div>

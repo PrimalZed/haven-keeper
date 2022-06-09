@@ -1,0 +1,19 @@
+@import 'breakpoints';
+
+.summon {
+  @include xs {
+    width: 35px;
+  }
+  @include sm {
+    width: 60px;
+  }
+  @include md {
+    width: 60px;
+  }
+  @include lg {
+    width: 60px;
+  }
+  @include xl {
+    width: 60px;
+  }
+}

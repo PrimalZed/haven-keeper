@@ -1,24 +1,24 @@
-<button mat-stroked-button class="card-content" style="line-height: normal;" (click)="emitClick($event)">
-  <div>{{ summon.color }}</div>
-  <div class="stat-grid">
-    <span class="icon gloomhaven-ability-icons">H</span>
-    <span class="number">
-      {{ summon.hitPoints }} / {{ summon.maxHitPoints }}
-    </span>
-    <span class="icon gloomhaven-ability-icons">M</span>
-    <span class="number">{{ summon.movement }}</span>
-    <span class="icon gloomhaven-ability-icons">K</span>
-    <span class="number">{{ summon.attack }}</span>
-    <span class="icon gloomhaven-ability-icons">G</span>
-    <span class="number">{{ summon.range }}</span>
-    <div *ngIf="summon.conditions.length" class="bonuses">
-      <condition *ngFor="let condition of summon.conditions" [condition]="condition"></condition>
+<button mat-stroked-button class="card-content" (click)="emitClick($event)">
+  <div style="display: flex; flex-direction: column;">
+    <div style="align-self: center; width: 60px;">
+      <summon-color [color]="summon.color"></summon-color>
     </div>
-  </div>
-  <div>
-  </div>
-  <div>
-  </div>
-  <div *ngIf="summon.range">
+    <div class="stat-grid">
+      <span class="icon gloomhaven-ability-icons">H</span>
+      <span class="number">
+        {{ summon.hitPoints }} / {{ summon.maxHitPoints }}
+      </span>
+      <span class="icon gloomhaven-ability-icons">M</span>
+      <span class="number">{{ summon.movement }}</span>
+      <span class="icon gloomhaven-ability-icons">K</span>
+      <span class="number">{{ summon.attack }}</span>
+      <ng-container *ngIf="summon.range">
+        <span class="icon gloomhaven-ability-icons">G</span>
+        <span class="number">{{ summon.range }}</span>
+      </ng-container>
+      <div *ngIf="summon.conditions.length" class="bonuses">
+        <condition *ngFor="let condition of summon.conditions" [condition]="condition"></condition>
+      </div>
+    </div>
   </div>
 </button>

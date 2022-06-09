@@ -2,6 +2,12 @@
   display: contents;
 }
 
+button {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  line-height: normal;
+}
+
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(3, auto);

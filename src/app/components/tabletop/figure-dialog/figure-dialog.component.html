@@ -1,9 +1,11 @@
 <h1 mat-dialog-title [ngSwitch]="kind">
   <character-icon *ngSwitchCase="'character'" [key]="key"></character-icon>
-  <ng-container *ngSwitchCase="'summon'">
+  <div *ngSwitchCase="'summon'" style="display: flex; align-items: center; gap: 0.2em;">
     <character-icon [key]="key"></character-icon>
-    <span>{{ $any(figure).color }}</span>
-  </ng-container>
+    <div style="width: 60px;">
+      <summon-color [color]="$any(figure).color"></summon-color>
+    </div>
+  </div>
   <ng-container *ngSwitchCase="'monster'">{{ name }} {{ $any(figure).id }}</ng-container>
 </h1>
 <form #standeeNgForm="ngForm" (ngSubmit)="submit(standeeNgForm.form)">

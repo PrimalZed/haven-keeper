@@ -7,7 +7,8 @@ import { addCharacterSummon } from 'store/tabletop/characters/characters.actions
 
 @Component({
   selector: 'app-add-summon-dialog',
-  templateUrl: './add-summon-dialog.component.html'
+  templateUrl: './add-summon-dialog.component.html',
+  styleUrls: ['./add-summon-dialog.component.scss']
 })
 export class AddSummonDialogComponent {
   private character = this.data.character;
