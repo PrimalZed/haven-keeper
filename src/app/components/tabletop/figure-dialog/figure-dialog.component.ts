@@ -6,7 +6,7 @@ import { ConditionKey, conditions } from 'models/condition';
 import { MonsterStandee } from 'models/monster-set';
 import { MonsterStatCard } from 'models/monster-stat-card';
 import { TabletopService } from 'services/tabletop.service';
-import { updateCharacter, updateCharacterSummon } from 'store/tabletop/characters/characters.actions';
+import { removeCharacterSummon, updateCharacter, updateCharacterSummon } from 'store/tabletop/characters/characters.actions';
 import { removeMonsterStandee, updateMonsterStandee } from 'store/tabletop/monsters/monsters.actions';
 
 @Component({
@@ -98,11 +98,15 @@ export class FigureDialogComponent {
   }
 
   remove() {
-    if (this.data.kind !== 'monster') {
-      return;
+    switch (this.data.kind) {
+      case 'summon':
+        this.tabletopService.dispatch(removeCharacterSummon({ key: this.key, color: this.data.figure.color }));
+        this.dialogRef.close();
+        return;
+      case 'monster':
+        this.tabletopService.dispatch(removeMonsterStandee({ key: this.data.statCard.key, id: this.data.figure.id }));
+        this.dialogRef.close();
+        break;
     }
-
-    this.tabletopService.dispatch(removeMonsterStandee({ key: this.data.statCard.key, id: this.data.figure.id }));
-    this.dialogRef.close();
   }
 }

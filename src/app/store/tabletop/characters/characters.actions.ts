@@ -39,7 +39,7 @@ export const updateCharacterSummon = createAction(
 
 export const undoUpdateCharacterSummon = createAction(
   "[Tabletop] [Character] Undo Update Summon",
-  props<{ key: string, color: SummonColor, previousHitPoints: number, conditions: ConditionKey[] }>()
+  props<{ key: string, color: SummonColor, previousHitPoints: number, previousConditions: ConditionKey[] }>()
 );
 
 export const removeCharacterSummon = createAction(

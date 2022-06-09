@@ -1,7 +1,7 @@
 import { on } from '@ngrx/store';
 import { CatalogService } from 'services/catalog.service';
 import { TabletopState } from '../tabletop.state';
-import { addCharacter, addCharacterSummon, undoAddCharacter, undoAddCharacterSummon, undoUpdateCharacter, updateCharacter } from './characters.actions';
+import { addCharacter, addCharacterSummon, removeCharacterSummon, undoAddCharacter, undoAddCharacterSummon, undoRemoveCharacterSummon, undoUpdateCharacter, undoUpdateCharacterSummon, updateCharacter, updateCharacterSummon } from './characters.actions';
 import { charactersAdapter } from './characters.adapter';
 
 export function getCharactersOns(catalogService: CatalogService) {
@@ -98,6 +98,78 @@ export function getCharactersOns(catalogService: CatalogService) {
             ...character,
             summons: character.summons
               .filter((summon) => summon.color !== color)
+          })
+        },
+        state.characters
+      )
+    })),
+    on<TabletopState, [typeof updateCharacterSummon]>(updateCharacterSummon, (state, { key, color, hitPoints, conditions }) => ({
+      ...state,
+      characters: charactersAdapter.mapOne(
+        {
+          id: key,
+          map: (character) => ({
+            ...character,
+            summons: character.summons
+              .map((summon) => summon.color === color
+                ? {
+                  ...summon,
+                  hitPoints,
+                  conditions
+                }
+                : summon
+              )
+          })
+        },
+        state.characters
+      )
+    })),
+    on<TabletopState, [typeof undoUpdateCharacterSummon]>(undoUpdateCharacterSummon, (state, { key, color, previousHitPoints, previousConditions }) => ({
+      ...state,
+      characters: charactersAdapter.mapOne(
+        {
+          id: key,
+          map: (character) => ({
+            ...character,
+            summons: character.summons
+            .map((summon) => summon.color === color
+              ? {
+                ...summon,
+                hitPoints: previousHitPoints,
+                conditions: previousConditions
+              }
+              : summon
+            )
+          })
+        },
+        state.characters
+      )
+    })),
+    on<TabletopState, [typeof removeCharacterSummon]>(removeCharacterSummon, (state, { key, color }) => ({
+      ...state,
+      characters: charactersAdapter.mapOne(
+        {
+          id: key,
+          map: (character) => ({
+            ...character,
+            summons: character.summons
+              .filter((summon) => summon.color !== color)
+          })
+        },
+        state.characters
+      )
+    })),
+    on<TabletopState, [typeof undoRemoveCharacterSummon]>(undoRemoveCharacterSummon, (state, { key, summon }) => ({
+      ...state,
+      characters: charactersAdapter.mapOne(
+        {
+          id: key,
+          map: (character) => ({
+            ...character,
+            summons: [
+              ...character.summons,
+              summon
+            ]
           })
         },
         state.characters

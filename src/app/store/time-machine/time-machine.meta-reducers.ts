@@ -6,10 +6,14 @@ import { AppState } from 'store/app.state';
 import {
   addCharacter,
   addCharacterSummon,
+  removeCharacterSummon,
   undoAddCharacter,
   undoAddCharacterSummon,
+  undoRemoveCharacterSummon,
   undoUpdateCharacter,
-  updateCharacter
+  undoUpdateCharacterSummon,
+  updateCharacter,
+  updateCharacterSummon
 } from 'store/tabletop/characters/characters.actions';
 import {
   drawMonsterAbilityCardSuccess,
@@ -42,6 +46,8 @@ const trackActionTypes: string[] = [
   addCharacter.type,
   updateCharacter.type,
   addCharacterSummon.type,
+  updateCharacterSummon.type,
+  removeCharacterSummon.type,
   addMonster.type,
   addMonsterStandee.type,
   updateMonsterStandee.type,
@@ -58,6 +64,8 @@ type ReversibleAction =
   | ReturnType<typeof addCharacter>
   | ReturnType<typeof updateCharacter>
   | ReturnType<typeof addCharacterSummon>
+  | ReturnType<typeof updateCharacterSummon>
+  | ReturnType<typeof removeCharacterSummon>
   | ReturnType<typeof addMonster>
   | ReturnType<typeof addMonsterStandee>
   | ReturnType<typeof updateMonsterStandee>
@@ -83,6 +91,24 @@ function getReverseAction(state: AppState, action: ReversibleAction): Action {
       });
     case addCharacterSummon.type:
       return undoAddCharacterSummon({ key: action.key, color: action.color });
+    case updateCharacterSummon.type:
+      const updateCharacterSummonTarget = state.tabletop.characters.entities[action.key]
+        ?.summons
+        .find(x => x.color === action.color);
+      return undoUpdateCharacterSummon({
+        key: action.key,
+        color: action.color,
+        previousHitPoints: updateCharacterSummonTarget?.hitPoints ?? 0,
+        previousConditions: updateCharacterSummonTarget?.conditions ?? []
+      });
+    case removeCharacterSummon.type:
+      const removeCharacterSummonTarget = state.tabletop.characters.entities[action.key]
+        ?.summons
+        .find(x => x.color === action.color);
+      if (removeCharacterSummonTarget === undefined) {
+        throw `Character ${action.key} Summon ${action.color} not found`
+      }
+      return undoRemoveCharacterSummon({ key: action.key, summon: removeCharacterSummonTarget })
     case addMonster.type:
       return undoAddMonster({ key: action.key });
     case addMonsterStandee.type:
