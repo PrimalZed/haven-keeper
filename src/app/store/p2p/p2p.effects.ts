@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { concat, from, fromEvent, merge } from 'rxjs';
+import { concat, from, fromEvent, merge, of } from 'rxjs';
 import { filter, map, mergeMap, switchMap, take, tap, withLatestFrom } from 'rxjs/operators';
 import { AppState } from 'store/app.state';
 import { loadTabletop, TabletopActions } from 'store/tabletop/tabletop.actions';
@@ -32,16 +32,16 @@ export class P2pEffects {
         connection.addEventListener('signalingstatechange', () => {
           console.log('guest signaling state change', connection.signalingState);
         });
-        connection.addEventListener('connectionstatechange', () => {
-          console.log('guest connection state change', connection.connectionState);
+        connection.addEventListener('iceconnectionstatechange', () => {
+          console.log('guest connection state change', connection.iceConnectionState);
         });
       }),
       map((connection) => ({
         connection,
         channel: connection.createDataChannel('tabletopActions'),
-        disconnected$: fromEvent(connection, 'connectionstatechange')
+        disconnected$: fromEvent(connection, 'iceconnectionstatechange')
           .pipe(
-            filter(() => connection.connectionState === 'disconnected'),
+            filter(() => connection.iceConnectionState === 'disconnected'),
             take(1),
             map(() => guestDisconnected({ remoteDescription: connection.currentRemoteDescription?.sdp as string }))
           )
@@ -71,8 +71,8 @@ export class P2pEffects {
         connection.addEventListener('signalingstatechange', () => {
           console.log('host signaling state change', connection.signalingState);
         });
-        connection.addEventListener('connectionstatechange', () => {
-          console.log('host connection state change', connection.connectionState);
+        connection.addEventListener('iceconnectionstatechange', () => {
+          console.log('host connection state change', connection.iceConnectionState);
         });
       }),
       map(({ connection, offer }) => ({
@@ -92,9 +92,9 @@ export class P2pEffects {
           .pipe(
             map((channelEvent) => guestChannelSuccess({ channel: channelEvent.channel }))
           ),
-        disconnected$: fromEvent(connection, 'connectionstatechange')
+        disconnected$: fromEvent(connection, 'iceconnectionstatechange')
           .pipe(
-            filter(() => connection.connectionState === 'disconnected'),
+            filter(() => connection.iceConnectionState === 'disconnected'),
             take(1),
             map(() => hostDisconnected())
           )
@@ -123,7 +123,10 @@ export class P2pEffects {
       })),
       mergeMap(({ answer, guestConnection }) => from(guestConnection.connection.setRemoteDescription({ type: 'answer', sdp: answer }))
         .pipe(
-          mergeMap(() => fromEvent(guestConnection.channel, 'open')),
+          mergeMap(() => guestConnection.channel.readyState === 'open'
+            ? of(void(0))
+            : fromEvent(guestConnection.channel, 'open').pipe(map(() => void(0)))
+          ),
           withLatestFrom(this.store.select(selectTabletopState)),
           tap(([_, tabletopState]) => {
             guestConnection.channel.send(JSON.stringify(loadTabletop({ state: tabletopState })));

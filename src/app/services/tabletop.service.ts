@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Action, Store } from '@ngrx/store';
-import { from, fromEvent, merge, Subject } from 'rxjs';
+import { from, fromEvent, merge, of, Subject } from 'rxjs';
 import { distinct, filter, map, mergeMap, skipUntil, switchMap, take, takeUntil, tap } from 'rxjs/operators';
 import { AppState } from 'store/app.state';
 import { selectGuestChannel, selectHostGuestConnections, selectP2pRole } from 'store/p2p/p2p.selectors';
@@ -22,7 +22,9 @@ export class TabletopService implements OnDestroy {
       switchMap((channels) => from(channels)),
       distinct(),
       mergeMap((channel) => {
-        const channelOpen$ = fromEvent(channel, 'open')
+        const channelOpen$ = (channel.readyState === 'open'
+          ? of<void>(void(0))
+          : fromEvent(channel, 'open').pipe(map(() => void(0))))
           .pipe(
             tap(() => {
               console.log(`data channel ${channel.label} opened`);
@@ -66,7 +68,9 @@ export class TabletopService implements OnDestroy {
     .pipe(
       filter((channel): channel is RTCDataChannel => Boolean(channel)),
       switchMap((channel) => {
-        const channelOpen$ = fromEvent(channel, 'open')
+        const channelOpen$ = (channel.readyState === 'open'
+          ? of<void>(void(0))
+          : fromEvent(channel, 'open').pipe(map(() => void(0))))
           .pipe(
             tap(() => {
               console.log(`data channel ${channel.label} opened`);

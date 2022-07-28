@@ -15,7 +15,7 @@ export class P2pHostComponent {
     .pipe(
       switchMap((connections) => merge(
         ...connections
-        .map((connection) => fromEvent(connection.connection, 'connectionstatechange'))
+        .map((connection) => fromEvent(connection.connection, 'iceconnectionstatechange'))
       )),
       map(() => void(0)),
       tap(() => {

@@ -21,7 +21,7 @@ export type GuestConnection =
 export const selectHostGuests = createSelector(
   selectHostP2pState,
   (state) => state?.guestConnectionSets
-    .map((x): GuestConnection => x.connection.connectionState === 'connected'
+    .map((x): GuestConnection => x.connection.iceConnectionState === 'connected'
       ? {
         state: 'connected',
         name: x.name

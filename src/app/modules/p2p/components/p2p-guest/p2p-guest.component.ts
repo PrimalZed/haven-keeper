@@ -29,7 +29,7 @@ export class P2pGuestComponent implements OnDestroy {
 
   connectionState$ = this.state$
     .pipe(
-      map((state) => state?.connection?.connectionState === 'connected'
+      map((state) => state?.connection?.iceConnectionState === 'connected'
         ? 'connected'
         : 'pending'
       )
@@ -40,7 +40,7 @@ export class P2pGuestComponent implements OnDestroy {
     .pipe(
       map((state) => state?.connection),
       switchMap((connection) => connection
-        ? fromEvent(connection, 'connectionstatechange')
+        ? fromEvent(connection, 'iceconnectionstatechange')
         : of(void(0))
       ),
       map(() => void(0)),
