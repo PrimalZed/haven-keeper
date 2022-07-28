@@ -25,7 +25,12 @@
     </mat-tab-group>
     <mat-tab-group *ngIf="answer$ | async as answer" [(selectedIndex)]="tabIndex">
       <mat-tab label="Text">
-        <h2>Copy Answer Code to Send to Host</h2>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <h2>Copy Answer Code to Send to Host</h2>
+          <button mat-icon-button (click)="copyAnswerCode(answer)">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
         <mat-form-field appearance="fill" style="width: 100%;" (click)="copyAnswerCode(answer)">
           <mat-label>Answer Code</mat-label>
           <textarea matInput [ngModel]="answer" [ngModelOptions]="{ standalone: true }" disabled rows="5"></textarea>

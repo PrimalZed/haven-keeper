@@ -11,7 +11,12 @@
     <ng-container *ngSwitchCase="'pending'">
       <mat-tab-group *ngIf="$any(guest) as pendingGuest" [(selectedIndex)]="tabIndex">
         <mat-tab label="Text">
-          <h2>Copy Offer Code to Send to Guest</h2>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <h2>Copy Offer Code to Send to Guest</h2>
+            <button mat-icon-button (click)="copyOfferCode(pendingGuest.offer)">
+              <mat-icon>content_copy</mat-icon>
+            </button>
+          </div>
           <mat-form-field appearance="fill" style="width: 100%;" (click)="copyOfferCode(pendingGuest.offer)">
             <mat-label>Offer Code</mat-label>
             <textarea matInput [ngModel]="pendingGuest.offer" [ngModelOptions]="{ standalone: true }" disabled rows="5"></textarea>
