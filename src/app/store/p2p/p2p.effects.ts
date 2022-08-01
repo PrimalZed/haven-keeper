@@ -39,6 +39,15 @@ export class P2pEffects {
       map((connection) => ({
         connection,
         channel: connection.createDataChannel('tabletopActions'),
+        ice$: fromEvent<RTCPeerConnectionIceEvent>(connection, 'icecandidate')
+         .pipe(
+            // Firing this callback with a null candidate indicates that
+            // trickle ICE gathering has finished, and all the candidates
+            // are now present in pc.localDescription.  Waiting until now
+            // to create the offer might help firefox.
+            filter((iceEvent) => !iceEvent.candidate),
+            take(1)
+          ),
         disconnected$: fromEvent(connection, 'iceconnectionstatechange')
           .pipe(
             filter(() => connection.iceConnectionState === 'disconnected'),
@@ -46,10 +55,11 @@ export class P2pEffects {
             map(() => guestDisconnected({ remoteDescription: connection.currentRemoteDescription?.sdp as string }))
           )
       })),
-      switchMap(({ connection, channel, disconnected$ }) => concat(
+      switchMap(({ connection, channel, ice$, disconnected$ }) => concat(
         from(connection.createOffer())
           .pipe(
             switchMap((offer) => connection.setLocalDescription(offer)),
+            switchMap(() => ice$),
             map(() => startGuestConnectionSuccess({
               connection,
               channel
@@ -105,8 +115,7 @@ export class P2pEffects {
             switchMap(() => from(connection.createAnswer())),
             switchMap((answer) => connection.setLocalDescription(answer)),
             switchMap(() => ice$),
-            map(() => connection.currentLocalDescription?.sdp as string),
-            map((answer) => receiveHostOfferSuccess({ connection }))
+            map(() => receiveHostOfferSuccess({ connection }))
         ),
         merge(dataChannel$, disconnected$)
       ))
