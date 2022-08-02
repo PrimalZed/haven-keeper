@@ -27,27 +27,42 @@ export class P2pEffects {
   startGuestConnection$ = createEffect(() => this.actions$
     .pipe(
       ofType(startGuestConnection),
-      map(() => new RTCPeerConnection()),
+      map(() => new RTCPeerConnection({
+        iceServers: [{
+          urls: [
+            "stun:stun1.l.google.com:19302",
+            "stun:stun2.l.google.com:19302",
+          ]
+        }]
+      })),
       tap((connection) => {
         connection.addEventListener('signalingstatechange', () => {
           console.log('guest signaling state change', connection.signalingState);
         });
+        connection.addEventListener('connectionstatechange', () => {
+          console.log('guest connection state change', connection.connectionState);
+        });
         connection.addEventListener('iceconnectionstatechange', () => {
-          console.log('guest connection state change', connection.iceConnectionState);
+          console.log('guest ice connection state change', connection.iceConnectionState);
+        });
+        connection.addEventListener('icecandidateerror', (errorEvent) => {
+          console.error('guest ice candidate error', errorEvent);
         });
       }),
       map((connection) => ({
         connection,
         channel: connection.createDataChannel('tabletopActions'),
-        ice$: fromEvent<RTCPeerConnectionIceEvent>(connection, 'icecandidate')
-         .pipe(
-            // Firing this callback with a null candidate indicates that
-            // trickle ICE gathering has finished, and all the candidates
-            // are now present in pc.localDescription.  Waiting until now
-            // to create the offer might help firefox.
-            filter((iceEvent) => !iceEvent.candidate),
-            take(1)
-          ),
+        ice$: connection.iceGatheringState === 'complete'
+          ? of(void(0))
+          : fromEvent<RTCPeerConnectionIceEvent>(connection, 'icecandidate')
+            .pipe(
+              // Firing this callback with a null candidate indicates that
+              // trickle ICE gathering has finished, and all the candidates
+              // are now present in pc.localDescription.  Waiting until now
+              // to create the offer might help firefox.
+              filter((iceEvent) => !iceEvent.candidate),
+              take(1)
+            ),
         disconnected$: fromEvent(connection, 'iceconnectionstatechange')
           .pipe(
             filter(() => connection.iceConnectionState === 'disconnected'),
@@ -74,30 +89,48 @@ export class P2pEffects {
     .pipe(
       ofType(receiveHostOffer),
       map(({ offer }) => ({
-        connection: new RTCPeerConnection(),
+        connection: new RTCPeerConnection({
+          iceServers: [{
+            urls: [
+              "stun:stun1.l.google.com:19302",
+              "stun:stun2.l.google.com:19302",
+            ]
+          }]
+        }),
         offer
       })),
       tap(({ connection }) => {
         connection.addEventListener('signalingstatechange', () => {
           console.log('host signaling state change', connection.signalingState);
         });
+        connection.addEventListener('connectionstatechange', () => {
+          console.log('host connection state change', connection.connectionState);
+        });
         connection.addEventListener('iceconnectionstatechange', () => {
-          console.log('host connection state change', connection.iceConnectionState);
+          console.log('host ice connection state change', connection.iceConnectionState);
+        });
+        connection.addEventListener('icecandidateerror', (errorEvent) => {
+          console.error('host ice candidate error', errorEvent);
         });
       }),
       map(({ connection, offer }) => ({
         connection,
         offer,
-        ice$: fromEvent<RTCPeerConnectionIceEvent>(connection, 'icecandidate')
-          .pipe(
-            // Firing this callback with a null candidate indicates that
-            // trickle ICE gathering has finished, and all the candidates
-            // are now present in pc.localDescription.  Waiting until now
-            // to create the answer saves us from having to send offer +
-            // answer + iceCandidates separately.
-            filter((iceEvent) => !iceEvent.candidate),
-            take(1)
-          ),
+        ice$: connection.iceGatheringState === 'complete'
+          ? of(void(0))
+          : fromEvent<RTCPeerConnectionIceEvent>(connection, 'icecandidate')
+            .pipe(
+              tap((iceEvent) => {
+                console.log('ice candidate', iceEvent.candidate);
+              }),
+              // Firing this callback with a null candidate indicates that
+              // trickle ICE gathering has finished, and all the candidates
+              // are now present in pc.localDescription.  Waiting until now
+              // to create the answer saves us from having to send offer +
+              // answer + iceCandidates separately.
+              filter((iceEvent) => !iceEvent.candidate),
+              take(1)
+            ),
         dataChannel$: fromEvent<RTCDataChannelEvent>(connection, 'datachannel')
           .pipe(
             map((channelEvent) => guestChannelSuccess({ channel: channelEvent.channel }))
@@ -112,7 +145,7 @@ export class P2pEffects {
       switchMap(({ connection, offer, ice$, dataChannel$, disconnected$ }) => concat(
         from(connection.setRemoteDescription({ type: 'offer', sdp: offer }))
           .pipe(
-            switchMap(() => from(connection.createAnswer())),
+            switchMap(() => connection.createAnswer()),
             switchMap((answer) => connection.setLocalDescription(answer)),
             switchMap(() => ice$),
             map(() => receiveHostOfferSuccess({ connection }))
